@@ -45,3 +45,12 @@ tbody tr:hover {
 td:first-child {
     font-weight: bold;
 }
+
+tr {
+    transition: all 0.3s ease;
+}
+
+td:last-child {
+    font-weight: bold;
+    text-transform: uppercase;
+}
