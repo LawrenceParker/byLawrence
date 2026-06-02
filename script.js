@@ -3,11 +3,19 @@ const SHEET_NAME = "Sheet11";
 
 const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tqx=out:json`;
 
-function format(value) {
+function format(value, type = "int") {
     const num = Number(value);
     if (isNaN(num)) return value || "";
-    return num.toFixed(2);
+
+    switch (type) {
+        case "float":
+            return num.toFixed(2);   // 2 decimals
+        case "int":
+        default:
+            return Math.round(num);   // whole numbers
+    }
 }
+
 
 function extractJSON(text) {
     const start = text.indexOf("{");
@@ -48,25 +56,38 @@ async function loadLeaderboard() {
 
             if (!player || player === "Player") return;
 
+            const team = (c[map.Team]?.v || "unknown")
+                .toLowerCase()
+                .replace(/\s+/g, "-");
+
             const tr = document.createElement("tr");
 
             tr.innerHTML = `
                 <td>${++rank}</td>
                 <td>${player}</td>
-                <td>${format(c[map.RTG]?.v)}</td>
-                <td>${format(c[map.KDA]?.v)}</td>
-                <td>${format(c[map.KILLS]?.v)}</td>
-                <td>${format(c[map.DEATHS]?.v)}</td>
-                <td>${format(c[map.ASSISTS]?.v)}</td>
-                <td>${format(c[map.NTK]?.v)}</td>
-                <td>${format(c[map.STREAK]?.v)}</td>
-                <td>${format(c[map.DMG]?.v)}</td>
-                <td>${format(c[map.FB]?.v)}</td>
-                <td>${format(c[map.FD]?.v)}</td>
-                <td>${format(c[map["FB/FD"]]?.v)}</td>
+
+                <td>${format(c[map.RTG]?.v, "float")}</td>
+                <td>${format(c[map.KDA]?.v, "float")}</td>
+
+                <td>${format(c[map.KILLS]?.v, "int")}</td>
+                <td>${format(c[map.DEATHS]?.v, "int")}</td>
+                <td>${format(c[map.ASSISTS]?.v, "int")}</td>
+
+                <td>${format(c[map.NTK]?.v, "int")}</td>
+                <td>${format(c[map.STREAK]?.v, "int")}</td>
+
+                <td>${format(c[map.DMG]?.v, "int")}</td>
+
+                <td>${format(c[map.FB]?.v, "int")}</td>
+                <td>${format(c[map.FD]?.v, "int")}</td>
+
+                <td>${format(c[map["FB/FD"]]?.v, "float")}</td>
+
                 <td>${c[map.Team]?.v || ""}</td>
+                                
             `;
 
+            
             tbody.appendChild(tr);
         });
 

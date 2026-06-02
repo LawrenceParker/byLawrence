@@ -54,3 +54,39 @@ td:last-child {
     font-weight: bold;
     text-transform: uppercase;
 }
+
+tbody tr:nth-child(1) {
+    background: linear-gradient(90deg, #ffd70033, #111827);
+    border-left: 5px solid gold;
+    font-weight: bold;
+}
+
+tbody tr:nth-child(2) {
+    background: linear-gradient(90deg, #c0c0c033, #111827);
+    border-left: 5px solid silver;
+}
+
+tbody tr:nth-child(3) {
+    background: linear-gradient(90deg, #cd7f3233, #111827);
+    border-left: 5px solid #cd7f32;
+}
+
+/* Team A */
+.team-a {
+    border-left: 4px solid #3b82f6;
+}
+
+/* Team B */
+.team-b {
+    border-left: 4px solid #ef4444;
+}
+
+/* Team C */
+.team-c {
+    border-left: 4px solid #22c55e;
+}
+
+/* fallback */
+.unknown {
+    border-left: 4px solid #6b7280;
+}
