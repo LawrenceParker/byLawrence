@@ -31,6 +31,7 @@ async function loadLeaderboard() {
                 <td>${row[9] || ""}</td>
                 <td>${row[10] || ""}</td>
                 <td>${row[11] || ""}</td>
+                <td>${row[12] || ""}</td>
             `;
 
             tbody.appendChild(tr);
