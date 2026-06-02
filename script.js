@@ -3,102 +3,69 @@ const SHEET_NAME = "Sheet11";
 
 const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tqx=out:json`;
 
-let previousData = [];
-
-function parseGoogleJSON(text) {
-    const json = JSON.parse(text.substring(47).slice(0, -2));
-    return json.table.rows.map(r => r.c.map(c => c ? c.v : ""));
+// 🔢 Format numbers to 2 decimal places
+function format(value) {
+    const num = Number(value);
+    if (isNaN(num)) return value || "";
+    return num.toFixed(2);
 }
 
-// 🎨 Team color system (edit these freely)
-const teamColors = {
-    "Red": "#ef4444",
-    "Blue": "#3b82f6",
-    "Green": "#22c55e",
-    "Default": "#111827"
-};
+// 📊 Parse Google Sheets GViz JSON safely
+function parseGoogleData(text) {
+    const jsonText = text.match(/google\.visualization\.Query\.setResponse\(([\s\S]+)\);/);
+    if (!jsonText) {
+        console.error("Failed to parse Google response");
+        return [];
+    }
 
-function getTeamColor(team) {
-    return teamColors[team] || teamColors["Default"];
+    const json = JSON.parse(jsonText[1]);
+    return json.table.rows.map(row =>
+        row.c.map(cell => (cell ? cell.v : ""))
+    );
 }
 
-// 🚀 Main loader (only updates changed rows)
+// 🚀 Load leaderboard
 async function loadLeaderboard() {
     try {
         const res = await fetch(URL);
         const text = await res.text();
 
-        const rows = parseGoogleJSON(text);
+        const rows = parseGoogleData(text);
 
         const tbody = document.getElementById("leaderboard-body");
+        tbody.innerHTML = "";
 
-        // first load = full render
-        if (previousData.length === 0) {
-            tbody.innerHTML = "";
-            rows.forEach((row, index) => {
-                const tr = createRow(row, index);
-                tbody.appendChild(tr);
-            });
-        } 
-        else {
-            // update only changed rows
-            const existingRows = tbody.querySelectorAll("tr");
+        rows.forEach((row, index) => {
 
-            rows.forEach((row, index) => {
-                const newHTML = rowToHTML(row, index);
+            const tr = document.createElement("tr");
 
-                if (existingRows[index]) {
-                    if (existingRows[index].dataset.hash !== JSON.stringify(row)) {
-                        existingRows[index].innerHTML = newHTML;
-                        existingRows[index].dataset.hash = JSON.stringify(row);
-                    }
-                } else {
-                    const tr = createRow(row, index);
-                    tbody.appendChild(tr);
-                }
-            });
-        }
+            tr.innerHTML = `
+                <td>${index + 1}</td>
+                <td>${row[0] || ""}</td>
+                <td>${format(row[1])}</td>
+                <td>${format(row[2])}</td>
+                <td>${format(row[3])}</td>
+                <td>${format(row[4])}</td>
+                <td>${format(row[5])}</td>
+                <td>${format(row[6])}</td>
+                <td>${format(row[7])}</td>
+                <td>${format(row[8])}</td>
+                <td>${format(row[9])}</td>
+                <td>${format(row[10])}</td>
+                <td>${format(row[11])}</td>
+                <td>${row[12] || ""}</td>
+            `;
 
-        previousData = rows;
+            tbody.appendChild(tr);
+        });
 
     } catch (err) {
-        console.error("Leaderboard error:", err);
+        console.error("Leaderboard load error:", err);
     }
 }
 
-// 🧱 Build row element
-function createRow(row, index) {
-    const tr = document.createElement("tr");
-    tr.dataset.hash = JSON.stringify(row);
-    tr.innerHTML = rowToHTML(row, index);
-    return tr;
-}
-
-// 🧠 Row template
-function rowToHTML(row, index) {
-    const team = row[12] || "Default";
-    const color = getTeamColor(team);
-
-    return `
-        <td>${index + 1}</td>
-        <td>${row[0] || ""}</td>
-        <td>${row[1] || ""}</td>
-        <td>${row[2] || ""}</td>
-        <td>${row[3] || ""}</td>
-        <td>${row[4] || ""}</td>
-        <td>${row[5] || ""}</td>
-        <td>${row[6] || ""}</td>
-        <td>${row[7] || ""}</td>
-        <td>${row[8] || ""}</td>
-        <td>${row[9] || ""}</td>
-        <td>${row[10] || ""}</td>
-        <td>${row[11] || ""}</td>
-        <td style="color:${color}; font-weight:bold;">
-            ${team}
-        </td>
-    `;
-}
-
-// 🔁 Auto refresh (live system)
+// 🔁 Initial load
 loadLeaderboard();
-setInterval(loadLeaderboard, 15000); // 15s live updates
+
+// 🔄 Auto refresh every 15 seconds
+setInterval(loadLeaderboard, 15000);
