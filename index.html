@@ -1,222 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>League Leaderboards</title>
-
-<style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-        font-family: Arial, sans-serif;
-    }
-
-    body {
-        background: #111827;
-        color: white;
-        padding: 30px;
-    }
-
-    h1 {
-        text-align: center;
-        margin-bottom: 30px;
-    }
-
-    h2 {
-        margin: 30px 0 15px;
-        color: #60a5fa;
-    }
-
-    .leaderboard {
-        background: #1f2937;
-        border-radius: 12px;
-        overflow: hidden;
-        box-shadow: 0 0 15px rgba(0,0,0,0.3);
-    }
-
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    th {
-        background: #2563eb;
-        padding: 12px;
-        cursor: pointer;
-        position: sticky;
-        top: 0;
-    }
-
-    td {
-        padding: 10px;
-        text-align: center;
-        border-bottom: 1px solid #374151;
-    }
-
-    tr:hover {
-        background: #374151;
-    }
-
-    .rank-1 {
-        color: gold;
-        font-weight: bold;
-    }
-
-    .rank-2 {
-        color: silver;
-        font-weight: bold;
-    }
-
-    .rank-3 {
-        color: #cd7f32;
-        font-weight: bold;
-    }
-
-    .container {
-        max-width: 1400px;
-        margin: auto;
-    }
-</style>
+    <meta charset="UTF-8">
+    <title>Leaderboard</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="container">
+<h1>Leaderboard</h1>
 
-    <h1>🏆 League Leaderboards</h1>
-
-    <!-- TEAM LEADERBOARD -->
-    <h2>Team Standings</h2>
-    <div class="leaderboard">
-        <table id="teamTable">
-            <thead>
-                <tr>
-                    <th>Rank</th>
-                    <th>Team</th>
-                    <th>Wins</th>
-                    <th>Losses</th>
-                    <th>Points</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td class="rank-1">1</td>
-                    <td>Team Ham</td>
-                    <td>12</td>
-                    <td>3</td>
-                    <td>36</td>
-                </tr>
-                <tr>
-                    <td class="rank-2">2</td>
-                    <td>Rush B</td>
-                    <td>10</td>
-                    <td>5</td>
-                    <td>30</td>
-                </tr>
-                <tr>
-                    <td class="rank-3">3</td>
-                    <td>Whining Bitches</td>
-                    <td>7</td>
-                    <td>8</td>
-                    <td>21</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <!-- PLAYER LEADERBOARD -->
-    <h2>Player Statistics</h2>
-    <div class="leaderboard">
-        <table id="playerTable">
-            <thead>
-                <tr>
-                    <th onclick="sortTable(0)">Player</th>
-                    <th onclick="sortTable(1)">RTG</th>
-                    <th onclick="sortTable(2)">KDA</th>
-                    <th onclick="sortTable(3)">Kills</th>
-                    <th onclick="sortTable(4)">Deaths</th>
-                    <th onclick="sortTable(5)">Assists</th>
-                    <th onclick="sortTable(6)">NonTradedKills</th>
-                    <th onclick="sortTable(7)">Streak</th>
-                    <th onclick="sortTable(8)">DMG</th>
-                    <th onclick="sortTable(9)">FirstBlood</th>
-                    <th onclick="sortTable(10)">FirstDeath</th>
-                    <th onclick="sortTable(11)">FB/FD</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>PlayerOne</td>
-                    <td>1.35</td>
-                    <td>2.10</td>
-                    <td>215</td>
-                    <td>102</td>
-                    <td>89</td>
-                    <td>45</td>
-                    <td>11</td>
-                    <td>18250</td>
-                    <td>28</td>
-                    <td>9</td>
-                    <td>3.11</td>
-                </tr>
-
-                <tr>
-                    <td>PlayerTwo</td>
-                    <td>1.20</td>
-                    <td>1.75</td>
-                    <td>198</td>
-                    <td>113</td>
-                    <td>76</td>
-                    <td>37</td>
-                    <td>8</td>
-                    <td>16400</td>
-                    <td>21</td>
-                    <td>12</td>
-                    <td>1.75</td>
-                </tr>
-
-                <tr>
-                    <td>PlayerThree</td>
-                    <td>1.10</td>
-                    <td>1.45</td>
-                    <td>165</td>
-                    <td>114</td>
-                    <td>72</td>
-                    <td>29</td>
-                    <td>6</td>
-                    <td>14800</td>
-                    <td>17</td>
-                    <td>15</td>
-                    <td>1.13</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
+<div class="leaderboard">
+    <table>
+        <thead>
+            <tr>
+                <th>Player</th>
+                <th>RTG</th>
+                <th>KDA</th>
+                <th>KILLS</th>
+                <th>DEATHS</th>
+                <th>ASSISTS</th>
+                <th>NTK</th>
+                <th>STREAK</th>
+                <th>DMG</th>
+                <th>FB</th>
+                <th>FD</th>
+                <th>FB/FD</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Player1</td>
+                <td class="highlight">1.25</td>
+                <td>2.1</td>
+                <td>50</td>
+                <td>25</td>
+                <td>10</td>
+                <td>5</td>
+                <td>7</td>
+                <td>12000</td>
+                <td>8</td>
+                <td>3</td>
+                <td>2.67</td>
+            </tr>
+            <tr>
+                <td>Player2</td>
+                <td>1.10</td>
+                <td>1.8</td>
+                <td>45</td>
+                <td>30</td>
+                <td>12</td>
+                <td>4</td>
+                <td>5</td>
+                <td>11000</td>
+                <td>6</td>
+                <td>4</td>
+                <td>1.50</td>
+            </tr>
+            <tr>
+                <td>Player3</td>
+                <td>0.95</td>
+                <td>1.3</td>
+                <td>38</td>
+                <td>35</td>
+                <td>15</td>
+                <td>3</td>
+                <td>3</td>
+                <td>9800</td>
+                <td>5</td>
+                <td>6</td>
+                <td>0.83</td>
+            </tr>
+        </tbody>
+    </table>
 </div>
-
-<script>
-function sortTable(columnIndex) {
-    const table = document.getElementById("playerTable");
-    const tbody = table.querySelector("tbody");
-    const rows = Array.from(tbody.rows);
-
-    rows.sort((a, b) => {
-        let aVal = a.cells[columnIndex].innerText;
-        let bVal = b.cells[columnIndex].innerText;
-
-        if (!isNaN(aVal) && !isNaN(bVal)) {
-            return parseFloat(bVal) - parseFloat(aVal);
-        }
-
-        return aVal.localeCompare(bVal);
-    });
-
-    tbody.innerHTML = "";
-    rows.forEach(row => tbody.appendChild(row));
-}
-</script>
 
 </body>
 </html>
