@@ -1,5 +1,5 @@
 const SHEET_ID = "1HVoEKPbWYC3CjbWPPsLIK3EcoW55YX3wh7dRs_vYoms";
-const SHEET_NAME = "Sheet11";
+const SHEET_NAME = "GitHub_PlayerStats";
 
 const URL = `https://docs.google.com/spreadsheets/d/${SHEET_ID}/gviz/tq?sheet=${SHEET_NAME}&tqx=out:json`;
 
