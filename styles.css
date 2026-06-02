@@ -1,92 +1,48 @@
 body {
-    font-family: Arial, sans-serif;
-    background: #0f172a;
-    color: #fff;
-    margin: 0;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  background: #0f172a;
+  color: white;
+  margin: 0;
+  padding: 20px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: auto;
 }
 
 h1 {
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.leaderboard {
-    max-width: 1100px;
-    margin: auto;
-    border-radius: 10px;
-    overflow: hidden;
-    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+  margin-top: 40px;
+  color: #38bdf8;
 }
 
 table {
-    width: 100%;
-    border-collapse: collapse;
-}
-
-thead {
-    background: #1e293b;
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background: #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
 }
 
 th, td {
-    padding: 10px;
-    text-align: center;
+  padding: 12px;
+  text-align: left;
+  border-bottom: 1px solid #334155;
 }
 
-tbody tr {
-    background: #111827;
-    border-bottom: 1px solid #1f2937;
+th {
+  background: #0f172a;
+  color: #38bdf8;
 }
 
-tbody tr:hover {
-    background: #1f2937;
+/* Top rows highlight */
+tr:nth-child(2) {
+  background: rgba(255, 215, 0, 0.15);
 }
-
-td:first-child {
-    font-weight: bold;
+tr:nth-child(3) {
+  background: rgba(192, 192, 192, 0.15);
 }
-
-tr {
-    transition: all 0.3s ease;
-}
-
-td:last-child {
-    font-weight: bold;
-    text-transform: uppercase;
-}
-
-tbody tr:nth-child(1) {
-    background: linear-gradient(90deg, #ffd70033, #111827);
-    border-left: 5px solid gold;
-    font-weight: bold;
-}
-
-tbody tr:nth-child(2) {
-    background: linear-gradient(90deg, #c0c0c033, #111827);
-    border-left: 5px solid silver;
-}
-
-tbody tr:nth-child(3) {
-    background: linear-gradient(90deg, #cd7f3233, #111827);
-    border-left: 5px solid #cd7f32;
-}
-
-/* Team A */
-.team-a {
-    border-left: 4px solid #3b82f6;
-}
-
-/* Team B */
-.team-b {
-    border-left: 4px solid #ef4444;
-}
-
-/* Team C */
-.team-c {
-    border-left: 4px solid #22c55e;
-}
-
-/* fallback */
-.unknown {
-    border-left: 4px solid #6b7280;
+tr:nth-child(4) {
+  background: rgba(205, 127, 50, 0.15);
 }
