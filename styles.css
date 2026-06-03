@@ -46,3 +46,9 @@ tr:nth-child(3) {
 tr:nth-child(4) {
   background: rgba(205, 127, 50, 0.15);
 }
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
