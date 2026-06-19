@@ -4,40 +4,46 @@
   font-family: "Segoe UI", sans-serif;
   font-size: 15px;
   margin-top: 20px;
-  border-radius: 8px;
-  overflow: hidden;
+  border: 1px solid #ccc; /* Outer border */
 }
 
+/* Sticky header */
 .styled-table thead th {
   position: sticky;
   top: 0;
   background: #1e1e1e;
   color: white;
   padding: 12px;
+  border: 1px solid #ccc; /* Header grid lines */
   z-index: 2;
 }
 
+/* Body cells */
 .styled-table td {
   padding: 10px 12px;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ccc; /* Full grid lines */
 }
 
+/* Zebra striping (optional) */
 .styled-table tr:nth-child(even) {
-  background: #f7f7f7;
+  background: #f9f9f9;
 }
 
+/* Hover effect */
 .styled-table tr:hover {
-  background: #e8f0fe;
+  background: #eef4ff;
   transition: 0.2s;
 }
 
+/* Scroll container */
 .table-container {
   max-height: 400px;
   overflow-y: auto;
-  border-radius: 8px;
+  border-radius: 6px;
   border: 1px solid #ccc;
 }
 
+/* Error message styling */
 .table-error {
   background: #ffefef;
   color: #b30000;
