@@ -111,30 +111,3 @@ body {
     filter: brightness(80%);
     transform: scale(1.03);
 }
-
-/* Home button stays top-left */
-.home-btn {
-    position: absolute;
-    top: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: #0078d7;
-    color: white;
-    padding: 10px 16px;
-    text-decoration: none;
-    border-radius: 6px;
-    font-size: 1rem;
-    transition: 0.2s;
-}
-
-.home-btn:hover {
-    background: #005fa3;
-}
-
-/* Centre the page content */
-.page1-content {
-    max-width: 800px;
-    margin: 120px auto 0 auto; /* pushes content down so it doesn't overlap the button */
-    text-align: center;
-    padding: 20px;
-}
