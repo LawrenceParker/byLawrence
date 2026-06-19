@@ -1,4 +1,4 @@
-fetch(/data/WNC_GT7_RAW.csv')
+fetch('/data/WNC_GT7_RAW.csv')
   .then(response => response.text())
   .then(csvText => {
     Papa.parse(csvText, {
