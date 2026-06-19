@@ -8,7 +8,6 @@
   overflow: hidden;
 }
 
-/* Sticky header */
 .styled-table thead th {
   position: sticky;
   top: 0;
@@ -18,24 +17,20 @@
   z-index: 2;
 }
 
-/* Body cells */
 .styled-table td {
   padding: 10px 12px;
   border-bottom: 1px solid #ddd;
 }
 
-/* Zebra striping */
 .styled-table tr:nth-child(even) {
   background: #f7f7f7;
 }
 
-/* Hover effect */
 .styled-table tr:hover {
   background: #e8f0fe;
   transition: 0.2s;
 }
 
-/* Optional: scroll container */
 .table-container {
   max-height: 400px;
   overflow-y: auto;
