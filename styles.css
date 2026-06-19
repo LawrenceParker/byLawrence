@@ -5,12 +5,53 @@ body {
     background: #1f1e1e;
 }
 
-/* Logo */
-.logo {
-    width: 200px;
-    display: block;
-    margin: 20px auto;
-}
+/* Topbar container */
+  .topbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px;
+    background: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    z-index: 1000;
+  }
+
+  /* Center title */
+  .topbar-title {
+    font-size: 1.4rem;
+    font-weight: 600;
+    pointer-events: none;
+  }
+
+  /* Home button */
+  .home-btn {
+    position: absolute;
+    left: 20px;
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+    padding: 8px 14px;
+    border-radius: 6px;
+    background: #333;
+    transition: background 0.2s ease;
+  }
+
+  .home-btn:hover {
+    background: #555;
+  }
+
+  /* Demo content */
+  .content {
+    margin-top: 80px;
+    padding: 20px;
+    line-height: 1.6;
+  }
 
 /* Menu layout */
 .menu {
