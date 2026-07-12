@@ -9,7 +9,7 @@
    URL in below. The site will then always show your latest
    results automatically — no re-uploading needed.
    ========================================================= */
-const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVPgNQkP2k3JnPsAXIv_13VppervLlcAGcmXP6Ts2SqPcF69yokEvUI5vVTqIRuq1zzkTJGiVQt0s5/pub?gid=0&single=true&output=csv";
+const DATA_URL = "data.csv";
 
 /* ---------- CSV PARSING ---------- */
 function parseCSV(text) {
@@ -185,7 +185,7 @@ function buildTowerGroupHTML(title, standings) {
           <span class="col-driver">DRIVER</span>
           <span class="col-num">PTS</span>
           <span class="col-num">WINS</span>
-          <span class="col-num">PODIUMS</span>
+          <span class="col-num">Podiums</span>
           <span class="col-num">POLES</span>
           <span class="col-num">FL</span>
         </div>

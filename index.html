@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GT7 Championship — Standings &amp; Results</title>
+<title>WNC League — Home</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,69 +13,40 @@
 
 <header class="hero">
   <div class="hero__inner">
-    <p class="hero__eyebrow"></p>
-    <h1 class="hero__title">GT7<span>CHAMPIONSHIP</span></h1>
-    <div class="hero__stats" id="heroStats">
-      <div class="hero__stat"><span class="hero__stat-num" id="statSeasons">–</span><span class="hero__stat-label">Seasons</span></div>
-      <div class="hero__stat"><span class="hero__stat-num" id="statRaces">–</span><span class="hero__stat-label">Races</span></div>
-      <div class="hero__stat"><span class="hero__stat-num" id="statDrivers">–</span><span class="hero__stat-label">Drivers</span></div>
-      <div class="hero__stat"><span class="hero__stat-num" id="statUpdated">–</span><span class="hero__stat-label">Last Race</span></div>
-    </div>
+    <p class="hero__eyebrow">WNC · WEEKLY GAME NIGHT</p>
+    <h1 class="hero__title">THE <span>LEAGUE</span></h1>
+    <p class="hero__sub">Pick a championship to view standings, drivers, and race history.</p>
   </div>
 </header>
 
-<nav class="tabs" id="tabs">
-  <button class="tab is-active" data-tab="standings">Standings</button>
-  <button class="tab" data-tab="drivers">Drivers</button>
-  <button class="tab" data-tab="races">Race Log</button>
-</nav>
-
 <main class="content">
+  <div class="game-grid">
 
-  <!-- STANDINGS -->
-  <section class="panel is-active" id="panel-standings">
-    <div class="panel__controls">
-      <span class="control-label">Season</span>
-      <div class="chip-row" id="seasonChips"></div>
-    </div>
-
-    <div id="standingsContainer"></div>
-  </section>
-
-  <!-- DRIVERS -->
-  <section class="panel" id="panel-drivers">
-    <div class="panel__controls">
-      <span class="control-label">Career stats, all seasons</span>
-    </div>
-    <div class="driver-grid" id="driverGrid"></div>
-  </section>
-
-  <!-- RACE LOG -->
-  <section class="panel" id="panel-races">
-    <div class="panel__controls">
-      <span class="control-label">Season</span>
-      <div class="chip-row" id="raceSeasonChips"></div>
-    </div>
-    <div class="race-list">
-      <div class="race-item race-item--head">
-        <span></span>
-        <span>Season</span>
-        <span>Round</span>
-        <span>Race</span>
-        <span>Race Name</span>
-        <span>Track</span>
-        <span>Winner</span>
+    <a class="game-card game-card--gt7" href="gt7/">
+      <div class="game-card__top">
+        <span class="game-card__tag game-card__tag--live">Live</span>
+        <span class="game-card__seasons">8 Seasons</span>
       </div>
-      <div id="raceAccordion"></div>
-    </div>
-  </section>
+      <h2 class="game-card__title">Gran Turismo 7</h2>
+      <p class="game-card__desc">Full standings, driver career stats, and a race-by-race results log across every season.</p>
+      <span class="game-card__cta">View Championship →</span>
+    </a>
 
+    <a class="game-card game-card--cod" href="cod/">
+      <div class="game-card__top">
+        <span class="game-card__tag game-card__tag--soon">Coming Soon</span>
+      </div>
+      <h2 class="game-card__title">Call of Duty</h2>
+      <p class="game-card__desc">Standings and stats are on the way once the season format is locked in.</p>
+      <span class="game-card__cta">Learn More →</span>
+    </a>
+
+  </div>
 </main>
 
 <footer class="footer">
-  <p>To do list: Fix starts count / Fix poles count / Fix podiums count (>1 and <=3), doont count reverse grids / fix podiums header  <span id="footerCount">–</span> results logged</p>
+  <p>WNC League · tracked weekly, updated automatically</p>
 </footer>
 
-<script src="script.js"></script>
 </body>
 </html>
