@@ -196,15 +196,27 @@ body {
   overflow: hidden;
   text-overflow: ellipsis;
 }
-#towerBody .tower__row {
+.tower-group { margin-bottom: 36px; }
+.tower-group:last-child { margin-bottom: 0; }
+.tower-group__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--steel);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tower__body .tower__row {
   background: var(--surface);
   margin-bottom: 3px;
   border-bottom: none;
   border-radius: 2px;
   transition: background 0.15s ease, transform 0.15s ease;
 }
-#towerBody .tower__row:nth-child(even) { background: var(--surface-alt); }
-#towerBody .tower__row:hover { transform: translateX(3px); background: #262b33; }
+.tower__body .tower__row:nth-child(even) { background: var(--surface-alt); }
+.tower__body .tower__row:hover { transform: translateX(3px); background: #262b33; }
 .col-pos {
   font-family: var(--font-mono);
   font-weight: 700;
@@ -262,19 +274,23 @@ body {
   margin-top: 6px;
 }
 .driver-card__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 12px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
   margin-top: 18px;
-  padding-top: 18px;
+  padding-top: 4px;
   border-top: 1px solid var(--line);
 }
 .driver-card__metric {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   font-family: var(--font-mono);
   font-size: 13px;
+  padding: 9px 0;
+  border-bottom: 1px solid var(--line);
 }
+.driver-card__metric:last-child { border-bottom: none; }
 .driver-card__metric span:first-child { color: var(--muted); }
 .driver-card__metric span:last-child { color: var(--paper); font-weight: 600; }
 
@@ -287,7 +303,7 @@ body {
 .race-item--head {
   display: grid;
   grid-template-columns: 22px 60px 55px 55px 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 18px;
   padding: 10px 14px;
   font-family: var(--font-mono);
   font-size: 11px;
@@ -300,14 +316,14 @@ body {
 .race-row {
   display: grid;
   grid-template-columns: 22px 60px 55px 55px 1fr 1fr 1fr;
-  gap: 10px;
+  gap: 18px;
   align-items: center;
   width: 100%;
   padding: 12px 14px;
   background: none;
   border: none;
   border-bottom: 1px solid var(--line);
-  color: var(--paper);
+  color: var(--muted);
   font-family: var(--font-body);
   font-size: 14px;
   text-align: left;

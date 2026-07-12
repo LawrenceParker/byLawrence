@@ -85,12 +85,23 @@ function isFinisher(r) {
   return r.finish && r.finish !== "DNS" && r.finish !== "DNF" && !isNaN(parseInt(r.finish));
 }
 
-function computeStandings(seasonFilter) {
-  const rows = seasonFilter === "ALL" ? RACES : RACES.filter(r => r.season === seasonFilter);
+function parseDate(d) {
+  if (!d) return null;
+  const parts = d.split("/").map(Number);
+  if (parts.length !== 3 || parts.some(isNaN)) return null;
+  const [day, month, year] = parts;
+  return new Date(year, month - 1, day);
+}
+
+function computeStandingsFromRows(rows) {
   const byDriver = {};
   rows.forEach(r => {
     if (!byDriver[r.driver]) {
-      byDriver[r.driver] = { driver: r.driver, points: 0, wins: 0, podiums: 0, poles: 0, fl: 0, starts: 0, finishes: 0, finishSum: 0 };
+      byDriver[r.driver] = {
+        driver: r.driver, points: 0, wins: 0, podiums: 0, poles: 0, fl: 0,
+        starts: 0, finishes: 0, finishSum: 0,
+        firstWinDate: null, firstWinRace: null, lastWinDate: null, lastWinRace: null
+      };
     }
     const d = byDriver[r.driver];
     d.points += r.points;
@@ -101,11 +112,28 @@ function computeStandings(seasonFilter) {
       const pos = parseInt(r.finish);
       d.finishes += 1;
       d.finishSum += pos;
-      if (pos === 1) d.wins += 1;
+      if (pos === 1) {
+        d.wins += 1;
+        const wd = parseDate(r.date);
+        if (wd) {
+          if (!d.firstWinDate || wd < d.firstWinDate) { d.firstWinDate = wd; d.firstWinRace = r; }
+          if (!d.lastWinDate || wd > d.lastWinDate) { d.lastWinDate = wd; d.lastWinRace = r; }
+        }
+      }
       if (pos <= 3) d.podiums += 1;
     }
   });
   return Object.values(byDriver).sort((a, b) => b.points - a.points);
+}
+
+function computeStandings(seasonFilter) {
+  const rows = seasonFilter === "ALL" ? RACES : RACES.filter(r => r.season === seasonFilter);
+  return computeStandingsFromRows(rows);
+}
+
+function winLabel(race) {
+  if (!race) return "–";
+  return `${race.season.replace("Season ", "S")} · ${race.round.replace("Round ", "R")}`;
 }
 
 /* ---------- RENDER: HERO ---------- */
@@ -135,14 +163,9 @@ function renderSeasonChips() {
   });
 }
 
-function renderTower() {
-  const standings = computeStandings(currentSeason);
-  const body = document.getElementById("towerBody");
-  body.innerHTML = "";
-  standings.forEach((d, i) => {
-    const row = document.createElement("div");
-    row.className = "tower__row";
-    row.innerHTML = `
+function buildTowerGroupHTML(title, standings) {
+  const rows = standings.map((d, i) => `
+    <div class="tower__row">
       <span class="col-pos ${i === 0 ? "pos-1" : ""}">${i + 1}</span>
       <span class="col-driver">${d.driver}</span>
       <span class="col-num">${d.points}</span>
@@ -150,9 +173,46 @@ function renderTower() {
       <span class="col-num">${d.podiums}</span>
       <span class="col-num">${d.poles}</span>
       <span class="col-num">${d.fl}</span>
-    `;
-    body.appendChild(row);
-  });
+    </div>
+  `).join("");
+
+  return `
+    <div class="tower-group">
+      ${title ? `<h3 class="tower-group__title">${title}</h3>` : ""}
+      <div class="tower">
+        <div class="tower__row tower__row--head">
+          <span class="col-pos">POS</span>
+          <span class="col-driver">DRIVER</span>
+          <span class="col-num">PTS</span>
+          <span class="col-num">WINS</span>
+          <span class="col-num">PODS</span>
+          <span class="col-num">POLES</span>
+          <span class="col-num">FL</span>
+        </div>
+        <div class="tower__body">${rows}</div>
+      </div>
+    </div>
+  `;
+}
+
+function renderTower() {
+  const container = document.getElementById("standingsContainer");
+  let html = "";
+
+  const overall = computeStandings(currentSeason);
+  html += buildTowerGroupHTML(currentSeason === "ALL" ? "Overall — All-Time" : "Overall Standings", overall);
+
+  if (currentSeason !== "ALL") {
+    const seasonRows = RACES.filter(r => r.season === currentSeason);
+    const raceNames = [...new Set(seasonRows.map(r => r.raceName).filter(Boolean))];
+    raceNames.forEach(name => {
+      const subset = seasonRows.filter(r => r.raceName === name);
+      const standings = computeStandingsFromRows(subset);
+      html += buildTowerGroupHTML(name, standings);
+    });
+  }
+
+  container.innerHTML = html;
 }
 
 /* ---------- RENDER: DRIVERS TAB ---------- */
@@ -176,6 +236,8 @@ function renderDriverGrid() {
         <div class="driver-card__metric"><span>Fastest Laps</span><span>${d.fl}</span></div>
         <div class="driver-card__metric"><span>Win Rate</span><span>${winRate}%</span></div>
         <div class="driver-card__metric"><span>Avg Finish</span><span>${avgFinish}</span></div>
+        <div class="driver-card__metric"><span>First Win</span><span>${winLabel(d.firstWinRace)}</span></div>
+        <div class="driver-card__metric"><span>Last Win</span><span>${winLabel(d.lastWinRace)}</span></div>
       </div>
     `;
     grid.appendChild(card);
