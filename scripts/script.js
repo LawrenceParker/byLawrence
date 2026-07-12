@@ -9,7 +9,7 @@
    URL in below. The site will then always show your latest
    results automatically — no re-uploading needed.
    ========================================================= */
-const DATA_URL = "data.csv";
+const DATA_URL = "data/data.csv";
 
 /* ---------- CSV PARSING ---------- */
 function parseCSV(text) {
