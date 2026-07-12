@@ -53,7 +53,7 @@ async function loadData() {
         iRace = idx("Race"), iRaceName = idx("Race Name"), iTrack = idx("Track"),
         iDriver = idx("Driver"), iStart = idx("Start Pos"), iFinish = idx("Finish Pos"),
         iFL = idx("FL"), iTotal = idx("Total Points"), iPosDelta = idx("Pos +/-"),
-        iPenalties = idx("Penalties");
+        iPenalties = idx("Penalties"), iQualiPoints = idx("Quali Points"), iDeductions = idx("Deductions");
 
   RACES = rows.slice(1).map(r => ({
     date: r[iDate],
@@ -68,7 +68,9 @@ async function loadData() {
     fl: r[iFL] === "FL",
     points: num(r[iTotal]),
     posDelta: r[iPosDelta],
-    penalties: (r[iPenalties] || "").trim()
+    penalties: (r[iPenalties] || "").trim(),
+    qualiPoints: (r[iQualiPoints] || "").trim(),
+    deductions: (r[iDeductions] || "").trim()
   })).filter(r => r.driver && r.driver.trim() !== "");
 
   SEASONS = [...new Set(RACES.map(r => r.season))].sort((a, b) => {
@@ -237,6 +239,7 @@ function renderRaceTable() {
       <span class="r-round">${g.season.replace("Season ", "S")}</span>
       <span class="r-round">${g.round.replace("Round ", "R")}</span>
       <span>${g.race}</span>
+      <span>${g.raceName || "–"}</span>
       <span>${g.track || "–"}</span>
       <span class="r-winner">${g.winner ? g.winner.driver : "–"}</span>
     `;
@@ -254,15 +257,16 @@ function renderRaceTable() {
         <td>${r.points}</td>
         <td class="${r.fl ? "fl-flag" : ""}">${r.fl ? "FL" : "–"}</td>
         <td>${r.penalties || "–"}</td>
+        <td>${r.qualiPoints || "–"}</td>
+        <td>${r.deductions || "–"}</td>
       </tr>
     `).join("");
 
     detail.innerHTML = `
       <div class="race-detail-inner">
-        <p class="race-detail-label">${g.raceName || ""}</p>
         <table class="race-table">
           <thead>
-            <tr><th>Driver</th><th>Start</th><th>Finish</th><th>+/-</th><th>Pts</th><th>FL</th><th>Penalties</th></tr>
+            <tr><th>Driver</th><th>Start</th><th>Finish</th><th>+/-</th><th>Pts</th><th>FL</th><th>Penalties</th><th>Quali Pts</th><th>Deductions</th></tr>
           </thead>
           <tbody>${tableRows}</tbody>
         </table>
