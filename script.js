@@ -9,7 +9,7 @@
    URL in below. The site will then always show your latest
    results automatically — no re-uploading needed.
    ========================================================= */
-const DATA_URL = "data.csv";
+const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vSVPgNQkP2k3JnPsAXIv_13VppervLlcAGcmXP6Ts2SqPcF69yokEvUI5vVTqIRuq1zzkTJGiVQt0s5/pub?gid=0&single=true&output=csv";
 
 /* ---------- CSV PARSING ---------- */
 function parseCSV(text) {
