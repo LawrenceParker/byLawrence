@@ -191,6 +191,11 @@ body {
   padding: 0 14px 10px;
   border-bottom: 2px solid var(--line);
 }
+.tower__row--head span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 #towerBody .tower__row {
   background: var(--surface);
   margin-bottom: 3px;
@@ -273,6 +278,62 @@ body {
 .driver-card__metric span:first-child { color: var(--muted); }
 .driver-card__metric span:last-child { color: var(--paper); font-weight: 600; }
 
+/* ---------- RACE LOG ACCORDION ---------- */
+.race-list {
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  overflow: hidden;
+}
+.race-item--head {
+  display: grid;
+  grid-template-columns: 22px 70px 1fr 1fr 1fr;
+  gap: 10px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface);
+  border-bottom: 2px solid var(--line);
+}
+.race-row {
+  display: grid;
+  grid-template-columns: 22px 70px 1fr 1fr 1fr;
+  gap: 10px;
+  align-items: center;
+  width: 100%;
+  padding: 12px 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--paper);
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.race-row:hover { background: var(--surface); }
+.race-row .chevron {
+  font-family: var(--font-mono);
+  color: var(--amber);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.race-row.is-open .chevron { transform: rotate(90deg); }
+.race-row .r-round { font-family: var(--font-mono); color: var(--muted); font-size: 12px; }
+.race-row .r-winner { color: var(--amber); font-weight: 600; }
+
+.race-detail {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--ink);
+  transition: max-height 0.25s ease;
+}
+.race-detail.is-open { max-height: 600px; }
+.race-detail-inner { padding: 4px 14px 16px; overflow-x: auto; }
+
 /* ---------- RACE TABLE ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
 .race-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
@@ -317,6 +378,13 @@ body {
   .col-pos { font-size: 17px; }
   .hero { padding: 44px 16px 28px; }
   .driver-card__points { font-size: 24px; }
+  .race-item--head, .race-row {
+    grid-template-columns: 18px 46px 1fr 1fr;
+    gap: 6px;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  .race-item--head span:nth-child(4), .race-row span:nth-child(4) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
