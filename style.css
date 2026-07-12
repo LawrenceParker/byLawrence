@@ -221,59 +221,59 @@ body {
 .col-num {
   font-family: var(--font-mono);
   font-size: 14px;
-  text-align: right;
+  text-align: center;
   color: var(--paper);
 }
-.tower__row--head .col-num { text-align: right; }
+.tower__row--head .col-num { text-align: center; }
 
 /* ---------- DRIVER CARDS ---------- */
 .driver-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
 }
 .driver-card {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 4px;
-  padding: 18px;
+  padding: 24px;
   border-top: 3px solid var(--steel);
   transition: border-color 0.15s ease, transform 0.15s ease;
 }
 .driver-card:hover { border-top-color: var(--amber); transform: translateY(-2px); }
 .driver-card__name {
   font-family: var(--font-display);
-  font-size: 19px;
-  margin: 0 0 12px;
+  font-size: 22px;
+  margin: 0 0 16px;
 }
 .driver-card__points {
   font-family: var(--font-mono);
-  font-size: 30px;
+  font-size: 36px;
   font-weight: 700;
   color: var(--amber);
   line-height: 1;
 }
 .driver-card__points-label {
-  font-size: 10px;
+  font-size: 11px;
   letter-spacing: 0.12em;
   color: var(--muted);
   text-transform: uppercase;
   display: block;
-  margin-top: 4px;
+  margin-top: 6px;
 }
 .driver-card__grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 8px 12px;
-  margin-top: 14px;
-  padding-top: 14px;
+  gap: 12px 18px;
+  margin-top: 18px;
+  padding-top: 18px;
   border-top: 1px solid var(--line);
 }
 .driver-card__metric {
   display: flex;
   justify-content: space-between;
   font-family: var(--font-mono);
-  font-size: 12px;
+  font-size: 13px;
 }
 .driver-card__metric span:first-child { color: var(--muted); }
 .driver-card__metric span:last-child { color: var(--paper); font-weight: 600; }
@@ -286,7 +286,7 @@ body {
 }
 .race-item--head {
   display: grid;
-  grid-template-columns: 22px 70px 1fr 1fr 1fr;
+  grid-template-columns: 22px 70px 60px 60px 1fr 1fr;
   gap: 10px;
   padding: 10px 14px;
   font-family: var(--font-mono);
@@ -299,7 +299,7 @@ body {
 }
 .race-row {
   display: grid;
-  grid-template-columns: 22px 70px 1fr 1fr 1fr;
+  grid-template-columns: 22px 70px 60px 60px 1fr 1fr;
   gap: 10px;
   align-items: center;
   width: 100%;
@@ -333,6 +333,14 @@ body {
 }
 .race-detail.is-open { max-height: 600px; }
 .race-detail-inner { padding: 4px 14px 16px; overflow-x: auto; }
+.race-detail-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 8px 0 10px;
+}
 
 /* ---------- RACE TABLE ---------- */
 .table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
@@ -379,12 +387,13 @@ body {
   .hero { padding: 44px 16px 28px; }
   .driver-card__points { font-size: 24px; }
   .race-item--head, .race-row {
-    grid-template-columns: 18px 46px 1fr 1fr;
+    grid-template-columns: 18px 46px 46px 1fr;
     gap: 6px;
     padding: 10px 8px;
     font-size: 13px;
   }
-  .race-item--head span:nth-child(4), .race-row span:nth-child(4) { display: none; }
+  .race-item--head span:nth-child(2), .race-row span:nth-child(2) { display: none; }
+  .race-item--head span:nth-child(5), .race-row span:nth-child(5) { display: none; }
 }
 
 @media (prefers-reduced-motion: reduce) {
