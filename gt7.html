@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GT7 Championship — Standings &amp; Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="gt7-style.css">
+</head>
+<body>
+
+<a class="back-link" href="index.html">← Back to League Home</a>
+
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">GAMENIGHT · SIM RACING LEAGUE</p>
+    <h1 class="hero__title">GT7 <span>CHAMPIONSHIP</span></h1>
+    <div class="hero__stats" id="heroStats">
+      <div class="hero__stat"><span class="hero__stat-num" id="statSeasons">–</span><span class="hero__stat-label">Seasons</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statRaces">–</span><span class="hero__stat-label">Races</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statDrivers">–</span><span class="hero__stat-label">Drivers</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statUpdated">–</span><span class="hero__stat-label">Last Race</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab is-active" data-tab="standings">Standings</button>
+  <button class="tab" data-tab="drivers">Drivers</button>
+  <button class="tab" data-tab="races">Race Log</button>
+</nav>
+
+<main class="content">
+
+  <!-- STANDINGS -->
+  <section class="panel is-active" id="panel-standings">
+    <div class="panel__controls">
+      <span class="control-label">Season</span>
+      <div class="chip-row" id="seasonChips"></div>
+    </div>
+
+    <div id="standingsContainer"></div>
+  </section>
+
+  <!-- DRIVERS -->
+  <section class="panel" id="panel-drivers">
+    <div class="panel__controls">
+      <span class="control-label">Career stats, all seasons</span>
+    </div>
+    <div class="driver-grid" id="driverGrid"></div>
+  </section>
+
+  <!-- RACE LOG -->
+  <section class="panel" id="panel-races">
+    <div class="panel__controls">
+      <span class="control-label">Season</span>
+      <div class="chip-row" id="raceSeasonChips"></div>
+    </div>
+    <div class="race-list">
+      <div class="race-item race-item--head">
+        <span></span>
+        <span>Season</span>
+        <span>Round</span>
+        <span>Race</span>
+        <span>Race Name</span>
+        <span>Track</span>
+        <span>Winner</span>
+      </div>
+      <div id="raceAccordion"></div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Data pulled live from the league spreadsheet · <span id="footerCount">–</span> results logged</p>
+</footer>
+
+<script src="gt7-script.js"></script>
+</body>
+</html>
