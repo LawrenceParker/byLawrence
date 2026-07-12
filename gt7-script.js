@@ -149,7 +149,7 @@ function computeStandings(seasonFilter) {
 
 function winLabel(race) {
   if (!race) return "–";
-  return `${race.season.replace("Season ", "S")} · ${race.round.replace("Round ", "R")} · ${race.race}`;
+  return `${race.season.replace("Season ", "S")} · ${race.round.replace("Round ", "Rnd")} · ${race.race}`;
 }
 
 /* ---------- RENDER: HERO ---------- */
