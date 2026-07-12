@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GT7 Championship — Standings &amp; Results</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">WNC · SIM RACING LEAGUE</p>
+    <h1 class="hero__title">GT7 <span>CHAMPIONSHIP</span></h1>
+    <div class="hero__stats" id="heroStats">
+      <div class="hero__stat"><span class="hero__stat-num" id="statSeasons">–</span><span class="hero__stat-label">Seasons</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statRaces">–</span><span class="hero__stat-label">Races</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statDrivers">–</span><span class="hero__stat-label">Drivers</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statUpdated">–</span><span class="hero__stat-label">Last Race</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs">
+  <button class="tab is-active" data-tab="standings">Standings</button>
+  <button class="tab" data-tab="drivers">Drivers</button>
+  <button class="tab" data-tab="races">Race Log</button>
+</nav>
+
+<main class="content">
+
+  <!-- STANDINGS -->
+  <section class="panel is-active" id="panel-standings">
+    <div class="panel__controls">
+      <span class="control-label">Season</span>
+      <div class="chip-row" id="seasonChips"></div>
+    </div>
+
+    <div class="tower" id="towerHead">
+      <div class="tower__row tower__row--head">
+        <span class="col-pos">POS</span>
+        <span class="col-driver">DRIVER</span>
+        <span class="col-num">PTS</span>
+        <span class="col-num">WINS</span>
+        <span class="col-num">PODIUMS</span>
+        <span class="col-num">POLES</span>
+        <span class="col-num">FL</span>
+      </div>
+    </div>
+    <div class="tower" id="towerBody"></div>
+  </section>
+
+  <!-- DRIVERS -->
+  <section class="panel" id="panel-drivers">
+    <div class="panel__controls">
+      <span class="control-label">Career stats, all seasons</span>
+    </div>
+    <div class="driver-grid" id="driverGrid"></div>
+  </section>
+
+  <!-- RACE LOG -->
+  <section class="panel" id="panel-races">
+    <div class="panel__controls">
+      <span class="control-label">Season</span>
+      <div class="chip-row" id="raceSeasonChips"></div>
+    </div>
+    <div class="table-wrap">
+      <table class="race-table" id="raceTable">
+        <thead>
+          <tr>
+            <th>Round</th>
+            <th>Race</th>
+            <th>Track</th>
+            <th>Driver</th>
+            <th>Start</th>
+            <th>Finish</th>
+            <th>+/-</th>
+            <th>Pts</th>
+            <th>FL</th>
+          </tr>
+        </thead>
+        <tbody id="raceTableBody"></tbody>
+      </table>
+    </div>
+  </section>
+
+</main>
+
+<footer class="footer">
+  <p>Data pulled live from the league spreadsheet · <span id="footerCount">–</span> results logged</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
