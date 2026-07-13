@@ -1,15 +1,276 @@
 /* =========================================================
-   FH6 STYLE OVERRIDES — KEEP GT7 DESIGN, CHANGE ACCENT
+   FH6 TIME ATTACK — FULL STANDALONE STYLE
+   Based on GT7 layout but tuned for FH6 columns
    ========================================================= */
 
-/* Pink accent */
 :root {
+  --ink: #14161a;
+  --surface: #1b1e24;
+  --surface-alt: #22262e;
+  --line: #2d323b;
+  --paper: #ece9e1;
+  --muted: #8b9099;
+
+  /* PINK ACCENT */
   --accent: #ff4fa3;
   --accent-dim: #a82f67;
-  --steel: #ff4fa3; /* used for card top borders */
+  --steel: #ff4fa3;
+
+  --font-display: 'Oswald', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
 }
 
-/* Optional: slightly different background tint */
+* { box-sizing: border-box; }
+
 body {
-  background: #111114;
+  margin: 0;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- BACK LINK ---------- */
+.back-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 3px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.back-link:hover { color: var(--paper); border-color: var(--accent); }
+
+/* ---------- HERO ---------- */
+.hero {
+  padding: 64px 24px 40px;
+  background:
+    radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255,79,163,0.12), transparent 60%),
+    var(--ink);
+  border-bottom: 1px solid var(--line);
+  overflow: hidden;
+}
+.hero__inner {
+  max-width: 960px;
+  margin: 0 auto;
+  text-align: center;
+}
+.hero__eyebrow {
+  font-family: var(--font-mono);
+  letter-spacing: 0.28em;
+  font-size: 12px;
+  color: var(--accent);
+  margin: 0 0 14px;
+}
+.hero__title {
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: clamp(40px, 8vw, 84px);
+  letter-spacing: 0.02em;
+  margin: 0 0 32px;
+  color: var(--paper);
+  line-height: 0.95;
+}
+.hero__title span {
+  display: block;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--accent);
+  font-size: clamp(28px, 5.5vw, 52px);
+  letter-spacing: 0.18em;
+  margin-top: 8px;
+}
+.hero__stats {
+  display: flex;
+  justify-content: center;
+  gap: 0;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.hero__stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 18px 28px;
+  border-right: 1px solid var(--line);
+}
+.hero__stat:last-child { border-right: none; }
+.hero__stat-num {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 26px;
+  color: var(--accent);
+}
+.hero__stat-label {
+  font-size: 11px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  margin-top: 4px;
+  text-transform: uppercase;
+}
+
+/* ---------- TABS ---------- */
+.tabs {
+  display: flex;
+  justify-content: center;
+  gap: 4px;
+  padding: 18px 16px 0;
+  max-width: 960px;
+  margin: 0 auto;
+}
+.tab {
+  font-family: var(--font-display);
+  letter-spacing: 0.08em;
+  font-size: 15px;
+  background: none;
+  border: none;
+  color: var(--muted);
+  padding: 10px 20px;
+  cursor: pointer;
+  border-bottom: 3px solid transparent;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.tab:hover { color: var(--paper); }
+.tab.is-active {
+  color: var(--accent);
+  border-bottom-color: var(--accent);
+}
+
+/* ---------- CONTENT ---------- */
+.content {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 32px 16px 60px;
+}
+.panel { display: none; }
+.panel.is-active { display: block; animation: fadeIn 0.25s ease; }
+@keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
+
+/* ---------- CHIPS ---------- */
+.chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
+.chip {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 6px 12px;
+  border-radius: 3px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+.chip:hover { color: var(--paper); border-color: var(--steel); }
+.chip.is-active {
+  color: var(--ink);
+  background: var(--accent);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* =========================================================
+   FH6 LEADERBOARD — WIDER COLUMNS + NO WRAPPING
+   ========================================================= */
+
+.tower__row {
+  display: grid;
+  grid-template-columns:
+    60px   /* POS */
+    1fr    /* CAR */
+    100px  /* CLASS */
+    80px   /* PI */
+    140px  /* TRACK */
+    120px  /* BEST */
+    120px  /* AVG */
+    100px  /* TYPE */
+    140px; /* SHARE CODE */
+  gap: 10px;
+  align-items: center;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--line);
+  white-space: nowrap; /* PREVENT WRAPPING */
+}
+
+.tower__row--head {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  padding: 0 14px 10px;
+  border-bottom: 2px solid var(--line);
+  white-space: nowrap;
+}
+
+.tower-group { margin-bottom: 36px; }
+.tower-group__title {
+  font-family: var(--font-display);
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: var(--steel);
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--line);
+}
+
+.tower__body .tower__row {
+  background: var(--surface);
+  margin-bottom: 3px;
+  border-bottom: none;
+  border-radius: 2px;
+  transition: background 0.15s ease, transform 0.15s ease;
+}
+.tower__body .tower__row:nth-child(even) { background: var(--surface-alt); }
+.tower__body .tower__row:hover { transform: translateX(3px); background: #262b33; }
+
+.col-pos {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 22px;
+  color: var(--accent);
+}
+.col-driver {
+  font-family: var(--font-display);
+  font-size: 16px;
+}
+.col-num {
+  font-family: var(--font-mono);
+  font-size: 14px;
+  text-align: center;
+  color: var(--paper);
+}
+
+/* ---------- DRIVER CARDS ---------- */
+.driver-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
+  gap: 16px;
+}
+.driver-card {
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  padding: 24px;
+  border-top: 3px solid var(--steel);
+  transition: border-color 0.15s ease, transform 0.15s ease;
+}
+.driver-card:hover { border-top-color: var(--accent); transform: translateY(-2px); }
+
+/* ---------- LAP LOG ---------- */
+/* (same layout as GT7, but pink accent applied automatically) */
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  padding: 24px;
+  color: var(--muted);
+  font-family: var(--font-mono);
+  font-size: 12px;
+  border-top: 1px solid var(--line);
 }
