@@ -74,7 +74,8 @@ async function loadData() {
 
   const iDate = idx("Date-Time"), iCar = idx("Car"), iClass = idx("Class"),
         iPI = idx("PI"), iDrive = idx("Drive"), iLapSeconds = idx("Lap_Time_S"),
-        iTrack = idx("Track"), iSeason = idx("Season");
+        iTrack = idx("Track"), iSeason = idx("Season"),
+        iStock = idx("Stock"), iTuned = idx("Tuned"), iShareCode = idx("Share Code");
 
   LAPS = rows.slice(1).map(r => ({
     date: r[iDate],
@@ -84,7 +85,10 @@ async function loadData() {
     drive: r[iDrive],
     seconds: num(r[iLapSeconds]),
     track: r[iTrack],
-    season: r[iSeason]
+    season: r[iSeason],
+    stock: (r[iStock] || "").trim().toLowerCase() === "true",
+    tuned: (r[iTuned] || "").trim().toLowerCase() === "true",
+    shareCode: (r[iShareCode] || "").trim()
   })).filter(r => r.car && r.car.trim() !== "");
 
   TRACKS = [...new Set(LAPS.map(r => r.track).filter(Boolean))];
@@ -95,13 +99,16 @@ function computeCarStats(rows) {
   const byCar = {};
   rows.forEach(r => {
     if (!byCar[r.car]) {
-      byCar[r.car] = { car: r.car, class: r.class, pi: r.pi, laps: [] };
+      byCar[r.car] = { car: r.car, class: r.class, pi: r.pi, stock: r.stock, tuned: r.tuned, shareCode: r.shareCode, laps: [] };
     }
     byCar[r.car].laps.push(r);
-    // Keep class/PI from whichever lap is currently fastest, in case they ever change
+    // Keep class/PI/build info from whichever lap is currently fastest, in case they ever change
     if (r.seconds <= Math.min(...byCar[r.car].laps.map(l => l.seconds))) {
       byCar[r.car].class = r.class;
       byCar[r.car].pi = r.pi;
+      byCar[r.car].stock = r.stock;
+      byCar[r.car].tuned = r.tuned;
+      byCar[r.car].shareCode = r.shareCode;
     }
   });
 
@@ -131,6 +138,7 @@ function renderHero() {
 
 /* ---------- TRACK CHIPS (shared by both tabs) ---------- */
 let currentTrack = null;
+let currentClass = "ALL";
 
 function renderTrackChips(containerId, onSelect) {
   const wrap = document.getElementById(containerId);
@@ -144,6 +152,12 @@ function renderTrackChips(containerId, onSelect) {
   });
 }
 
+function buildLabel(c) {
+  if (c.tuned) return "Tuned";
+  if (c.stock) return "Stock";
+  return "–";
+}
+
 /* ---------- LEADERBOARD TAB ---------- */
 function buildLeaderboardGroupHTML(title, cars) {
   const rows = cars.map((c, i) => `
@@ -152,6 +166,7 @@ function buildLeaderboardGroupHTML(title, cars) {
       <span class="col-driver">${c.car}</span>
       <span class="col-num">${c.class}</span>
       <span class="col-num">${c.pi}</span>
+      <span class="col-num">${buildLabel(c)}</span>
       <span class="col-num">${formatLapTime(c.bestLap)}</span>
       <span class="col-num">${c.avgLap !== null ? formatLapTime(c.avgLap) : "–"}</span>
       <span class="col-num">${c.lapCount}</span>
@@ -167,6 +182,7 @@ function buildLeaderboardGroupHTML(title, cars) {
           <span class="col-driver">CAR</span>
           <span class="col-num">CLASS</span>
           <span class="col-num">PI</span>
+          <span class="col-num">Build</span>
           <span class="col-num">Best Lap</span>
           <span class="col-num">Avg Lap</span>
           <span class="col-num">Laps</span>
@@ -177,23 +193,37 @@ function buildLeaderboardGroupHTML(title, cars) {
   `;
 }
 
+function getClassesForTrack(track) {
+  const trackRows = LAPS.filter(r => r.track === track);
+  return [...new Set(trackRows.map(r => r.class).filter(Boolean))]
+    .sort((a, b) => classSortIndex(a) - classSortIndex(b));
+}
+
+function renderClassChips() {
+  const wrap = document.getElementById("leaderboardClassChips");
+  wrap.innerHTML = "";
+  const options = ["ALL", ...getClassesForTrack(currentTrack)];
+  options.forEach(c => {
+    const chip = document.createElement("button");
+    chip.className = "chip" + (c === currentClass ? " is-active" : "");
+    chip.textContent = c === "ALL" ? "All Classes" : `Class ${c}`;
+    chip.addEventListener("click", () => { currentClass = c; renderClassChips(); renderLeaderboard(); });
+    wrap.appendChild(chip);
+  });
+}
+
 function renderLeaderboard() {
   const container = document.getElementById("leaderboardContainer");
   const trackRows = LAPS.filter(r => r.track === currentTrack);
-  const overall = computeCarStats(trackRows);
 
-  let html = buildLeaderboardGroupHTML("Overall — All Classes", overall);
-
-  const classes = [...new Set(trackRows.map(r => r.class).filter(Boolean))]
-    .sort((a, b) => classSortIndex(a) - classSortIndex(b));
-
-  classes.forEach(cls => {
-    const subset = trackRows.filter(r => r.class === cls);
+  if (currentClass === "ALL") {
+    const overall = computeCarStats(trackRows);
+    container.innerHTML = buildLeaderboardGroupHTML("Overall — All Classes", overall);
+  } else {
+    const subset = trackRows.filter(r => r.class === currentClass);
     const stats = computeCarStats(subset);
-    html += buildLeaderboardGroupHTML(`Class ${cls}`, stats);
-  });
-
-  container.innerHTML = html;
+    container.innerHTML = buildLeaderboardGroupHTML(`Class ${currentClass}`, stats);
+  }
 }
 
 /* ---------- LAP LOG TAB ---------- */
@@ -226,12 +256,15 @@ function renderLapLog() {
     const lapRows = c.laps.map(l => {
       const isBest = l.seconds === bestTime;
       const isWorst = l.seconds === worstTime && c.laps.length > 2;
+      const build = l.tuned ? "Tuned" : l.stock ? "Stock" : "–";
       return `
         <tr>
           <td>${l.date ? l.date.split(" ")[0] : "–"}</td>
           <td>${l.season || "–"}</td>
           <td class="${isBest ? "win-flag" : ""}">${formatLapTime(l.seconds)}</td>
           <td>${isBest ? "Best" : isWorst ? "Slowest (excluded)" : "–"}</td>
+          <td>${build}</td>
+          <td>${l.shareCode || "–"}</td>
         </tr>
       `;
     }).join("");
@@ -240,7 +273,7 @@ function renderLapLog() {
       <div class="race-detail-inner">
         <table class="race-table">
           <thead>
-            <tr><th>Date</th><th>Season</th><th>Lap Time</th><th>Note</th></tr>
+            <tr><th>Date</th><th>Season</th><th>Lap Time</th><th>Note</th><th>Build</th><th>Share Code</th></tr>
           </thead>
           <tbody>${lapRows}</tbody>
         </table>
@@ -274,6 +307,8 @@ function setupTabs() {
 function onTrackChange() {
   renderTrackChips("leaderboardTrackChips", onTrackChange);
   renderTrackChips("lapLogTrackChips", onTrackChange);
+  currentClass = "ALL";
+  renderClassChips();
   renderLeaderboard();
   renderLapLog();
 }

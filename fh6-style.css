@@ -196,7 +196,7 @@ body {
 /* ---------- TIMING TOWER ---------- */
 .tower__row {
   display: grid;
-  grid-template-columns: 56px 1fr repeat(5, 90px);
+  grid-template-columns: 56px 1fr repeat(6, 82px);
   gap: 10px;
   align-items: center;
   padding: 12px 14px;
@@ -359,7 +359,7 @@ body {
 
 /* ---------- RESPONSIVE ---------- */
 @media (max-width: 640px) {
-  .tower__row { grid-template-columns: 40px 1fr repeat(5, 46px); padding: 10px 8px; gap: 2px; }
+  .tower__row { grid-template-columns: 40px 1fr repeat(6, 40px); padding: 10px 8px; gap: 2px; }
   .col-num { font-size: 12px; }
   .col-driver { font-size: 14px; }
   .col-pos { font-size: 17px; }
