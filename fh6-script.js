@@ -6,6 +6,7 @@ const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQqk8E37Qtrp6H
 const FALLBACK_DATA_URL = "FH6_Time Attack Laps - RAW DATA.csv" // local file
 let LAPS = [];
 let SEASONS = [];
+CLASSES = [...new Set(LAPS.map(l => l.class))].sort();
 
 /* ---------- CSV PARSER ---------- */
 function parseCSV(text) {
@@ -58,15 +59,20 @@ const iDate = idx("Date-Time"),
       iSeason = idx("Season");
 
   LAPS = rows.slice(1).map(r => ({
-    date: r[iDate],
-    car: r[iCar],
-    class: r[iClass],
-    lapS: parseFloat(r[iLapS]),
-    lap: r[iLap],
-    track: r[iTrack],
-    event: r[iEvent],
-    season: r[iSeason]
-  })).filter(r => r.car);
+  date: r[iDate],
+  car: r[iCar],
+  class: r[iClass],
+  pi: r[idx("PI")],
+  drive: r[idx("Drive")],
+  lapS: parseFloat(r[iLapS]),
+  lap: r[iLap],
+  track: r[iTrack],
+  event: r[iEvent],
+  season: r[iSeason],
+  stock: r[idx("Stock")],
+  tuned: r[idx("Tuned")],
+  sharecode: r[idx("Share Code")]
+}))
 
   SEASONS = [...new Set(LAPS.map(l => l.season))].sort();
 }
@@ -88,20 +94,20 @@ function renderHero() {
   document.getElementById("footerCount").textContent = LAPS.length;
 }
 
-/* ---------- SEASON CHIPS ---------- */
-let currentSeason = "ALL";
+/* ---------- CLASS CHIPS ---------- */
+let currentClass = "ALL";
 
-function renderSeasonChips() {
+function renderClassChips() {
   const wrap = document.getElementById("seasonChips");
   wrap.innerHTML = "";
-  const options = ["ALL", ...SEASONS];
-  options.forEach(s => {
+  const options = ["ALL", ...CLASSES];
+  options.forEach(c => {
     const chip = document.createElement("button");
-    chip.className = "chip" + (s === currentSeason ? " is-active" : "");
-    chip.textContent = s;
+    chip.className = "chip" + (c === currentClass ? " is-active" : "");
+    chip.textContent = c;
     chip.addEventListener("click", () => {
-      currentSeason = s;
-      renderSeasonChips();
+      currentClass = c;
+      renderClassChips();
       renderLeaderboard();
     });
     wrap.appendChild(chip);
@@ -109,20 +115,35 @@ function renderSeasonChips() {
 }
 
 /* ---------- LEADERBOARD ---------- */
-function computeLeaderboard(season) {
-  const rows = season === "ALL"
+function computeLeaderboard(classFilter) {
+  const rows = classFilter === "ALL"
     ? LAPS
-    : LAPS.filter(l => l.season === season);
+    : LAPS.filter(l => l.class === classFilter);
 
-  const bestByCar = {};
+  const grouped = {};
 
   rows.forEach(l => {
-    if (!bestByCar[l.car] || l.lapS < bestByCar[l.car].lapS) {
-      bestByCar[l.car] = l;
-    }
+    if (!grouped[l.car]) grouped[l.car] = [];
+    grouped[l.car].push(l);
   });
 
-  return Object.values(bestByCar).sort((a, b) => a.lapS - b.lapS);
+  const leaderboard = Object.values(grouped).map(carLaps => {
+    const best = carLaps.reduce((a, b) => a.lapS < b.lapS ? a : b);
+    return {
+      car: best.car,
+      class: best.class,
+      pi: best.pi,
+      track: best.track,
+      bestLap: best.lap,
+      bestLapS: best.lapS,
+      avgLap: computeAverageLap(carLaps),
+      stock: best.stock,
+      tuned: best.tuned,
+      sharecode: best.sharecode
+    };
+  });
+
+  return leaderboard.sort((a, b) => a.bestLapS - b.bestLapS);
 }
 
 function renderLeaderboard() {
@@ -156,6 +177,17 @@ function renderLeaderboard() {
       </div>
     </div>
   `;
+}
+
+/* ------- COMPUTE AVERAGE LAPS ------- */
+function computeAverageLap(laps) {
+  if (laps.length <= 2) return "–";
+
+  const sorted = laps.map(l => l.lapS).sort((a, b) => a - b);
+  const trimmed = sorted.slice(1, -1); // remove fastest + slowest
+  const avg = trimmed.reduce((a, b) => a + b, 0) / trimmed.length;
+
+  return avg.toFixed(3);
 }
 
 /* ---------- CAR GRID ---------- */
@@ -280,7 +312,7 @@ function setupTabs() {
 async function init() {
   await loadData();
   renderHero();
-  renderSeasonChips();
+  renderClassChips();
   renderLeaderboard();
   renderCarGrid();
   renderLapSeasonChips();
