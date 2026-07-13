@@ -1,8 +1,3 @@
-/* =========================================================
-   FH6 TIME ATTACK — FULL STANDALONE STYLE
-   Based on GT7 layout but tuned for FH6 columns
-   ========================================================= */
-
 :root {
   --ink: #14161a;
   --surface: #1b1e24;
@@ -10,11 +5,11 @@
   --line: #2d323b;
   --paper: #ece9e1;
   --muted: #8b9099;
-
-  /* PINK ACCENT */
-  --accent: #ff4fa3;
-  --accent-dim: #a82f67;
-  --steel: #ff4fa3;
+  --accent: #ef4da0;
+  --accent-dim: #7a2a54;
+  --steel: #5b84a6;
+  --red: #c8393b;
+  --green: #4c9a6a;
 
   --font-display: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -39,6 +34,7 @@ body {
   z-index: 10;
   font-family: var(--font-mono);
   font-size: 12px;
+  letter-spacing: 0.06em;
   color: var(--muted);
   text-decoration: none;
   background: var(--surface);
@@ -51,12 +47,21 @@ body {
 
 /* ---------- HERO ---------- */
 .hero {
+  position: relative;
   padding: 64px 24px 40px;
   background:
-    radial-gradient(ellipse 120% 100% at 50% -10%, rgba(255,79,163,0.12), transparent 60%),
+    radial-gradient(ellipse 120% 100% at 50% -10%, rgba(239,77,160,0.12), transparent 60%),
     var(--ink);
   border-bottom: 1px solid var(--line);
   overflow: hidden;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--paper) 0 22px, var(--ink) 22px 44px);
+  opacity: 0.9;
 }
 .hero__inner {
   max-width: 960px;
@@ -144,7 +149,7 @@ body {
   border-bottom-color: var(--accent);
 }
 
-/* ---------- CONTENT ---------- */
+/* ---------- LAYOUT ---------- */
 .content {
   max-width: 960px;
   margin: 0 auto;
@@ -154,7 +159,20 @@ body {
 .panel.is-active { display: block; animation: fadeIn 0.25s ease; }
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
-/* ---------- CHIPS ---------- */
+.panel__controls {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.control-label {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.1em;
+  color: var(--muted);
+  text-transform: uppercase;
+}
 .chip-row { display: flex; gap: 8px; flex-wrap: wrap; }
 .chip {
   font-family: var(--font-mono);
@@ -175,29 +193,15 @@ body {
   font-weight: 600;
 }
 
-/* =========================================================
-   FH6 LEADERBOARD — WIDER COLUMNS + NO WRAPPING
-   ========================================================= */
-
+/* ---------- TIMING TOWER ---------- */
 .tower__row {
   display: grid;
-  grid-template-columns:
-    60px   /* POS */
-    1fr    /* CAR */
-    100px  /* CLASS */
-    80px   /* PI */
-    140px  /* TRACK */
-    120px  /* BEST */
-    120px  /* AVG */
-    100px  /* TYPE */
-    140px; /* SHARE CODE */
+  grid-template-columns: 56px 1fr repeat(5, 90px);
   gap: 10px;
   align-items: center;
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
-  white-space: nowrap; /* PREVENT WRAPPING */
 }
-
 .tower__row--head {
   font-family: var(--font-mono);
   font-size: 11px;
@@ -205,10 +209,14 @@ body {
   color: var(--muted);
   padding: 0 14px 10px;
   border-bottom: 2px solid var(--line);
-  white-space: nowrap;
 }
-
+.tower__row--head span {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
 .tower-group { margin-bottom: 36px; }
+.tower-group:last-child { margin-bottom: 0; }
 .tower-group__title {
   font-family: var(--font-display);
   font-size: 16px;
@@ -228,16 +236,18 @@ body {
 }
 .tower__body .tower__row:nth-child(even) { background: var(--surface-alt); }
 .tower__body .tower__row:hover { transform: translateX(3px); background: #262b33; }
-
 .col-pos {
   font-family: var(--font-mono);
   font-weight: 700;
   font-size: 22px;
   color: var(--accent);
 }
+.tower__row--head .col-pos { font-size: 11px; color: var(--muted); }
+.tower__row:nth-child(1) .col-pos, .pos-1 { color: var(--accent); }
 .col-driver {
   font-family: var(--font-display);
   font-size: 16px;
+  letter-spacing: 0.01em;
 }
 .col-num {
   font-family: var(--font-mono);
@@ -245,25 +255,97 @@ body {
   text-align: center;
   color: var(--paper);
 }
+.tower__row--head .col-num { text-align: center; }
 
-/* ---------- DRIVER CARDS ---------- */
-.driver-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(270px, 1fr));
-  gap: 16px;
-}
-.driver-card {
-  background: var(--surface);
+/* ---------- RACE LOG ACCORDION ---------- */
+.race-list {
   border: 1px solid var(--line);
   border-radius: 4px;
-  padding: 24px;
-  border-top: 3px solid var(--steel);
-  transition: border-color 0.15s ease, transform 0.15s ease;
+  overflow: hidden;
 }
-.driver-card:hover { border-top-color: var(--accent); transform: translateY(-2px); }
+.race-item--head {
+  display: grid;
+  grid-template-columns: 22px 1fr 60px 60px 100px 80px;
+  gap: 18px;
+  padding: 10px 14px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  background: var(--surface);
+  border-bottom: 2px solid var(--line);
+}
+.race-row {
+  display: grid;
+  grid-template-columns: 22px 1fr 60px 60px 100px 80px;
+  gap: 18px;
+  align-items: center;
+  width: 100%;
+  padding: 12px 14px;
+  background: none;
+  border: none;
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 14px;
+  text-align: left;
+  cursor: pointer;
+  transition: background 0.15s ease;
+}
+.race-row:hover { background: var(--surface); }
+.race-row .chevron {
+  font-family: var(--font-mono);
+  color: var(--accent);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+.race-row.is-open .chevron { transform: rotate(90deg); }
+.race-row .r-round { font-family: var(--font-mono); color: var(--muted); font-size: 12px; }
+.race-row .r-winner { color: var(--accent); font-weight: 600; }
 
-/* ---------- LAP LOG ---------- */
-/* (same layout as GT7, but pink accent applied automatically) */
+.race-detail {
+  max-height: 0;
+  overflow: hidden;
+  background: var(--ink);
+  transition: max-height 0.25s ease;
+}
+.race-detail.is-open { max-height: 600px; }
+.race-detail-inner { padding: 4px 14px 16px; overflow-x: auto; }
+.race-detail-label {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 8px 0 10px;
+}
+
+/* ---------- RACE TABLE ---------- */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 4px; }
+.race-table { width: 100%; border-collapse: collapse; font-size: 13px; min-width: 640px; }
+.race-table th {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--muted);
+  text-align: left;
+  padding: 10px 12px;
+  background: var(--surface);
+  position: sticky;
+  top: 0;
+  border-bottom: 2px solid var(--line);
+}
+.race-table td {
+  padding: 9px 12px;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--font-mono);
+  color: var(--paper);
+}
+.race-table tbody tr:nth-child(even) { background: var(--surface); }
+.race-table .fl-flag { color: var(--red); font-weight: 700; }
+.race-table .win-flag { color: var(--accent); font-weight: 700; }
 
 /* ---------- FOOTER ---------- */
 .footer {
@@ -273,4 +355,32 @@ body {
   font-family: var(--font-mono);
   font-size: 12px;
   border-top: 1px solid var(--line);
+}
+
+/* ---------- RESPONSIVE ---------- */
+@media (max-width: 640px) {
+  .tower__row { grid-template-columns: 40px 1fr repeat(5, 46px); padding: 10px 8px; gap: 2px; }
+  .col-num { font-size: 12px; }
+  .col-driver { font-size: 14px; }
+  .col-pos { font-size: 17px; }
+  .hero { padding: 44px 16px 28px; }
+  .driver-card__points { font-size: 24px; }
+  .race-item--head, .race-row {
+    grid-template-columns: 18px 1fr 60px 60px;
+    gap: 6px;
+    padding: 10px 8px;
+    font-size: 13px;
+  }
+  .race-item--head span:nth-child(3), .race-row span:nth-child(3) { display: none; }
+  .race-item--head span:nth-child(4), .race-row span:nth-child(4) { display: none; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * { animation: none !important; transition: none !important; }
+}
+
+/* Focus visibility */
+button:focus-visible, .chip:focus-visible, .tab:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
 }

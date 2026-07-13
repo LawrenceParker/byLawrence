@@ -76,7 +76,7 @@ body {
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
 }
 
@@ -85,10 +85,10 @@ body {
   background: var(--surface);
   border: 1px solid var(--line);
   border-radius: 6px;
-  padding: 30px;
+  padding: 28px;
   text-decoration: none;
   color: var(--paper);
-  border-top: 10px solid var(--line);
+  border-top: 4px solid var(--line);
   transition: border-top-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
 }
 .game-card--wnc:hover { border-top-color: var(--wnc-accent); transform: translateY(-3px); background: #20242c; }
@@ -112,6 +112,7 @@ body {
   color: var(--ink);
 }
 .game-card--wnc .game-card__tag--wnc { background: var(--wnc-accent); }
+.game-card--fh6 .game-card__tag--fh6 { background: var(--fh6-accent); }
 .game-card__tag--soon { background: var(--muted); }
 
 .game-card__title {

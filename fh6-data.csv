@@ -1,0 +1,152 @@
+Date-Time,Car,CarID,Class,PI,Drive,Lap_Time_S,Lap_Time,Track,tool,lap_id,event,Season
+2026-07-08 00:50:52,1993 ATS AZ 1,"3,854",D,342,RWD,81.909,1:21.909,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_005052_029_3854,timeattack,Winter
+2026-07-08 00:52:10,1993 ATS AZ 1,"3,854",D,342,RWD,78.846,1:18.846,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_005210_864_3854,timeattack,Winter
+2026-07-08 00:53:30,1993 ATS AZ 1,"3,854",D,342,RWD,79.232,1:19.232,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_005330_092_3854,timeattack,Winter
+2026-07-08 00:54:48,1993 ATS AZ 1,"3,854",D,342,RWD,78.391,1:18.391,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_005448_494_3854,timeattack,Winter
+2026-07-08 00:56:08,1993 ATS AZ 1,"3,854",D,342,RWD,79.564,1:19.564,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_005608_048_3854,timeattack,Winter
+2026-07-08 01:01:06,2021 Bentley Continental GTC,"3,728",A,649,AWD,63.687,1:03.687,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010106_641_3728,timeattack,Winter
+2026-07-08 01:02:13,2021 Bentley Continental GTC,"3,728",A,649,AWD,66.448,1:06.448,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010213_097_3728,timeattack,Winter
+2026-07-08 01:03:14,2021 Bentley Continental GTC,"3,728",A,649,AWD,61.881,1:01.881,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010314_967_3728,timeattack,Winter
+2026-07-08 01:04:16,2021 Bentley Continental GTC,"3,728",A,649,AWD,61.516,1:01.516,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010416_482_3728,timeattack,Winter
+2026-07-08 01:05:18,2021 Bentley Continental GTC,"3,728",A,649,AWD,61.974,1:01.974,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010518_461_3728,timeattack,Winter
+2026-07-08 01:07:24,2016 Bentley bentayga,"2,625",A,612,AWD,64.373,1:04.373,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010724_416_2625,timeattack,Winter
+2026-07-08 01:08:28,2016 Bentley bentayga,"2,625",A,612,AWD,63.759,1:03.759,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010828_165_2625,timeattack,Winter
+2026-07-08 01:09:32,2016 Bentley bentayga,"2,625",A,612,AWD,64.385,1:04.385,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_010932_555_2625,timeattack,Winter
+2026-07-08 01:10:36,2016 Bentley bentayga,"2,625",A,612,AWD,64.156,1:04.156,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_011036_704_2625,timeattack,Winter
+2026-07-08 01:11:39,2016 Bentley bentayga,"2,625",A,612,AWD,63.154,1:03.154,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_011139_870_2625,timeattack,Winter
+2026-07-08 17:26:25,2021 BMW M4 WP,"4,266",S1,800,RWD,56.116,56.116,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_172625_182_4266,timeattack,Winter
+2026-07-08 17:27:21,2021 BMW M4 WP,"4,266",S1,800,RWD,55.861,55.861,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_172721_049_4266,timeattack,Winter
+2026-07-08 17:28:15,2021 BMW M4 WP,"4,266",S1,800,RWD,54.685,54.685,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_172815_716_4266,timeattack,Winter
+2026-07-08 17:29:10,2021 BMW M4 WP,"4,266",S1,800,RWD,55.274,55.274,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_172910_990_4266,timeattack,Winter
+2026-07-08 17:30:05,2021 BMW M4 WP,"4,266",S1,800,RWD,54.967,54.967,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173005_944_4266,timeattack,Winter
+2026-07-08 17:32:41,2020 BMW M8,"3,518",S1,722,AWD,57.769,57.769,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173241_382_3518,timeattack,Winter
+2026-07-08 17:33:39,2020 BMW M8,"3,518",S1,722,AWD,58.502,58.502,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173339_883_3518,timeattack,Winter
+2026-07-08 17:34:37,2020 BMW M8,"3,518",S1,722,AWD,57.605,57.605,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173437_481_3518,timeattack,Winter
+2026-07-08 17:35:35,2020 BMW M8,"3,518",S1,722,AWD,57.717,57.717,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173535_201_3518,timeattack,Winter
+2026-07-08 17:36:33,2020 BMW M8,"3,518",S1,722,AWD,58.266,58.266,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173633_452_3518,timeattack,Winter
+2026-07-08 17:38:46,2020 BMW M2 Comp,"3,434",A,656,RWD,61.524,1:01.524,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173846_458_3434,timeattack,Winter
+2026-07-08 17:39:48,2020 BMW M2 Comp,"3,434",A,656,RWD,62.282,1:02.282,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_173948_734_3434,timeattack,Winter
+2026-07-08 17:41:58,2020 BMW M2 Comp,"3,434",A,656,RWD,62.047,1:02.047,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174158_880_3434,timeattack,Winter
+2026-07-08 17:43:00,2020 BMW M2 Comp,"3,434",A,656,RWD,61.612,1:01.612,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174300_484_3434,timeattack,Winter
+2026-07-08 17:44:02,2020 BMW M2 Comp,"3,434",A,656,RWD,61.755,1:01.755,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174402_236_3434,timeattack,Winter
+2026-07-08 17:46:20,2019 BMW Z4,"3,173",A,635,RWD,62.555,1:02.555,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174620_513_3173,timeattack,Winter
+2026-07-08 17:47:24,2019 BMW Z4,"3,173",A,635,RWD,64.246,1:04.246,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174724_751_3173,timeattack,Winter
+2026-07-08 17:48:28,2019 BMW Z4,"3,173",A,635,RWD,63.794,1:03.794,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174828_544_3173,timeattack,Winter
+2026-07-08 17:49:32,2019 BMW Z4,"3,173",A,635,RWD,63.892,1:03.892,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_174932_439_3173,timeattack,Winter
+2026-07-08 17:50:35,2019 BMW Z4,"3,173",A,635,RWD,63.237,1:03.237,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_175035_670_3173,timeattack,Winter
+2026-07-08 18:06:57,2014 BMW M4,"2,154",A,679,RWD,61.386,1:01.386,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_180657_241_2154,timeattack,Winter
+2026-07-08 18:07:58,2014 BMW M4,"2,154",A,679,RWD,61.676,1:01.676,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_180758_916_2154,timeattack,Winter
+2026-07-08 18:09:02,2014 BMW M4,"2,154",A,679,RWD,63.340,1:03.340,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_180902_245_2154,timeattack,Winter
+2026-07-08 18:10:04,2014 BMW M4,"2,154",A,679,RWD,61.950,1:01.950,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_181004_187_2154,timeattack,Winter
+2026-07-08 18:11:04,2014 BMW M4,"2,154",A,679,RWD,60.704,1:00.704,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260708_181104_889_2154,timeattack,Winter
+,2023 Acura Integra A-Spec,,C,484,FWD,73.318,01:13.318,Hokubu Time Attack,,,,Winter
+,2023 Acura Integra A-Spec,,C,484,FWD,71.554,01:11.554,Hokubu Time Attack,,,,Winter
+,2023 Acura Integra A-Spec,,C,484,FWD,69.735,01:09.735,Hokubu Time Attack,,,,Winter
+,2023 Acura Integra A-Spec,,C,484,FWD,68.573,01:08.573,Hokubu Time Attack,,,,Winter
+,2023 Acura Integra A-Spec,,C,484,FWD,68.801,01:08.801,Hokubu Time Attack,,,,Winter
+,2023 Acura Integra A-Spec,,C,484,FWD,68.573,01:08.573,Hokubu Time Attack,,,,Winter
+,2022 Acura NSX Type S,,S1,734,AWD,60.626,01:00.626,Hokubu Time Attack,,,,Winter
+,2022 Acura NSX Type S,,S1,734,AWD,60.091,01:00.091,Hokubu Time Attack,,,,Winter
+,2022 Acura NSX Type S,,S1,734,AWD,59.910,00:59.910,Hokubu Time Attack,,,,Winter
+,2022 Acura NSX Type S,,S1,734,AWD,59.158,00:59.158,Hokubu Time Attack,,,,Winter
+,2022 Acura NSX Type S,,S1,734,AWD,58.583,00:58.583,Hokubu Time Attack,,,,Winter
+,2002 Acura RSX Type S,,C,462,RWD,64.431,01:04.431,Hokubu Time Attack,,,,Winter
+,2002 Acura RSX Type S,,C,462,RWD,63.122,01:03.122,Hokubu Time Attack,,,,Winter
+,2002 Acura RSX Type S,,C,462,RWD,64.779,01:04.779,Hokubu Time Attack,,,,Winter
+,2002 Acura RSX Type S,,C,462,RWD,62.396,01:02.396,Hokubu Time Attack,,,,Winter
+,2002 Acura RSX Type S,,C,462,RWD,63.321,01:03.321,Hokubu Time Attack,,,,Winter
+,2016 Alfa Romeo Giulia Quadrifoglio,,A,667,RWD,62.777,01:02.777,Hokubu Time Attack,,,,Winter
+,2016 Alfa Romeo Giulia Quadrifoglio,,A,667,RWD,61.256,01:01.256,Hokubu Time Attack,,,,Winter
+,2016 Alfa Romeo Giulia Quadrifoglio,,A,667,RWD,62.716,01:02.716,Hokubu Time Attack,,,,Winter
+,2016 Alfa Romeo Giulia Quadrifoglio,,A,667,RWD,60.089,01:00.089,Hokubu Time Attack,,,,Winter
+,2016 Alfa Romeo Giulia Quadrifoglio,,A,667,RWD,60.441,01:00.441,Hokubu Time Attack,,,,Winter
+,1992 Alfa Romeo 155 Q4,,C,439,AWD,74.070,01:14.070,Hokubu Time Attack,,,,Winter
+,1992 Alfa Romeo 155 Q4,,C,439,AWD,71.335,01:11.335,Hokubu Time Attack,,,,Winter
+,1992 Alfa Romeo 155 Q4,,C,439,AWD,71.288,01:11.288,Hokubu Time Attack,,,,Winter
+,1992 Alfa Romeo 155 Q4,,C,439,AWD,73.008,01:13.008,Hokubu Time Attack,,,,Winter
+,1992 Alfa Romeo 155 Q4,,C,439,AWD,71.986,01:11.986,Hokubu Time Attack,,,,Winter
+,2015 Alumicraft Class 10 Race Car,,B,532,RWD,70.664,01:10.664,Hokubu Time Attack,,,,Winter
+,2015 Alumicraft Class 10 Race Car,,B,532,RWD,69.158,01:09.158,Hokubu Time Attack,,,,Winter
+,2015 Alumicraft Class 10 Race Car,,B,532,RWD,69.544,01:09.544,Hokubu Time Attack,,,,Winter
+,2015 Alumicraft Class 10 Race Car,,B,532,RWD,69.287,01:09.287,Hokubu Time Attack,,,,Winter
+,2015 Alumicraft Class 10 Race Car,,B,532,RWD,70.938,01:10.938,Hokubu Time Attack,,,,Winter
+,2015 AMG Transport Dynamics M12S Warthog CST,,A,663,AWD,63.988,01:03.988,Hokubu Time Attack,,,,Winter
+,2015 AMG Transport Dynamics M12S Warthog CST,,A,663,AWD,62.152,01:02.152,Hokubu Time Attack,,,,Winter
+,2015 AMG Transport Dynamics M12S Warthog CST,,A,663,AWD,62.907,01:02.907,Hokubu Time Attack,,,,Winter
+,2015 AMG Transport Dynamics M12S Warthog CST,,A,663,AWD,61.615,01:01.615,Hokubu Time Attack,,,,Winter
+,2015 AMG Transport Dynamics M12S Warthog CST,,A,663,AWD,61.792,01:01.792,Hokubu Time Attack,,,,Winter
+,2016 Ariel Nomad,,A,601,RWD,67.143,01:07.143,Hokubu Time Attack,,,,Winter
+,2016 Ariel Nomad,,A,601,RWD,64.191,01:04.191,Hokubu Time Attack,,,,Winter
+,2016 Ariel Nomad,,A,601,RWD,64.142,01:04.142,Hokubu Time Attack,,,,Winter
+,2016 Ariel Nomad,,A,601,RWD,64.437,01:04.437,Hokubu Time Attack,,,,Winter
+,2016 Ariel Nomad,,A,601,RWD,65.771,01:05.771,Hokubu Time Attack,,,,Winter
+,2013 Ariel Atom 500 V8,,S2,825,RWD,53.330,00:53.330,Hokubu Time Attack,,,,Winter
+,2013 Ariel Atom 500 V8,,S2,825,RWD,52.365,00:52.365,Hokubu Time Attack,,,,Winter
+,2013 Ariel Atom 500 V8,,S2,825,RWD,52.102,00:52.102,Hokubu Time Attack,,,,Winter
+,2013 Ariel Atom 500 V8,,S2,825,RWD,52.400,00:52.400,Hokubu Time Attack,,,,Winter
+,2013 Ariel Atom 500 V8,,S2,825,RWD,52.468,00:52.468,Hokubu Time Attack,,,,Winter
+,2016 Aston Martin Vulcan,,S2,884,RWD,51.634,00:51.634,Hokubu Time Attack,,,,Winter
+,2016 Aston Martin Vulcan,,S2,884,RWD,52.425,00:52.425,Hokubu Time Attack,,,,Winter
+,2016 Aston Martin Vulcan,,S2,884,RWD,50.764,00:50.764,Hokubu Time Attack,,,,Winter
+,2016 Aston Martin Vulcan,,S2,884,RWD,50.648,00:50.648,Hokubu Time Attack,,,,Winter
+,2016 Aston Martin Vulcan,,S2,884,RWD,49.375,00:49.375,Hokubu Time Attack,,,,Winter
+,2023 Audi R8 Coupe V10 GT RWD,,S1,769,RWD,57.345,00:57.345,Hokubu Time Attack,,,,Winter
+,2023 Audi R8 Coupe V10 GT RWD,,S1,769,RWD,56.044,00:56.044,Hokubu Time Attack,,,,Winter
+,2023 Audi R8 Coupe V10 GT RWD,,S1,769,RWD,56.968,00:56.968,Hokubu Time Attack,,,,Winter
+,2023 Audi R8 Coupe V10 GT RWD,,S1,769,RWD,57.982,00:57.982,Hokubu Time Attack,,,,Winter
+,2023 Audi R8 Coupe V10 GT RWD,,S1,769,RWD,55.780,00:55.780,Hokubu Time Attack,,,,Winter
+,2018 Audi RS e-tron GT,,A,677,RWD,64.759,01:04.759,Hokubu Time Attack,,,,Winter
+,2018 Audi RS e-tron GT,,A,677,RWD,62.547,01:02.547,Hokubu Time Attack,,,,Winter
+,2018 Audi RS e-tron GT,,A,677,RWD,62.206,01:02.206,Hokubu Time Attack,,,,Winter
+,2018 Audi RS e-tron GT,,A,677,RWD,61.998,01:01.998,Hokubu Time Attack,,,,Winter
+,2018 Audi RS e-tron GT,,A,677,RWD,61.632,01:01.632,Hokubu Time Attack,,,,Winter
+,2015 Audi RS 6 Avant,,A,640,AWD,62.723,01:02.723,Hokubu Time Attack,,,,Winter
+,2015 Audi RS 6 Avant,,A,640,AWD,61.890,01:01.890,Hokubu Time Attack,,,,Winter
+,2015 Audi RS 6 Avant,,A,640,AWD,63.152,01:03.152,Hokubu Time Attack,,,,Winter
+,2015 Audi RS 6 Avant,,A,640,AWD,63.156,01:03.156,Hokubu Time Attack,,,,Winter
+,2015 Audi RS 6 Avant,,A,640,AWD,62.002,01:02.002,Hokubu Time Attack,,,,Winter
+,2015 Audi S1,,B,527,AWD,69.752,01:09.752,Hokubu Time Attack,,,,Winter
+,2015 Audi S1,,B,528,AWD,68.565,01:08.565,Hokubu Time Attack,,,,Winter
+,2015 Audi S1,,B,529,AWD,69.926,01:09.926,Hokubu Time Attack,,,,Winter
+,2015 Audi S1,,B,530,AWD,68.216,01:08.216,Hokubu Time Attack,,,,Winter
+,2015 Audi S1,,B,531,AWD,68.259,01:08.259,Hokubu Time Attack,,,,Winter
+,2011 Audi RS 3 Sportback,,B,565,AWD,66.323,01:06.323,Hokubu Time Attack,,,,Winter
+,2011 Audi RS 3 Sportback,,B,565,AWD,66.210,01:06.210,Hokubu Time Attack,,,,Winter
+,2011 Audi RS 3 Sportback,,B,565,AWD,64.682,01:04.682,Hokubu Time Attack,,,,Winter
+,2011 Audi RS 3 Sportback,,B,565,AWD,65.827,01:05.827,Hokubu Time Attack,,,,Winter
+,2011 Audi RS 3 Sportback,,B,565,AWD,65.297,01:05.297,Hokubu Time Attack,,,,Winter
+2026-07-12 16:22:37,2008 BMW M3 E92,1011,A,699,RWD,59.525,59.525,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_162237_038_1011,timeattack,Spring
+2026-07-12 16:23:35,2008 BMW M3 E92,1011,A,699,RWD,58.901,58.901,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_162335_940_1011,timeattack,Spring
+2026-07-12 16:24:34,2008 BMW M3 E92,1011,A,699,RWD,58.82,58.82,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_162434_756_1011,timeattack,Spring
+2026-07-12 16:25:32,2008 BMW M3 E92,1011,A,699,RWD,57.971,57.971,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_162532_725_1011,timeattack,Spring
+2026-07-12 16:27:35,2008 BMW M3 E92,1011,A,699,RWD,58.122,58.122,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_162735_081_1011,timeattack,Spring
+2026-07-12 16:30:01,2005 BMW E46 M3,383,B,554,RWD,67.813,1:07.813,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163001_047_383,timeattack,Spring
+2026-07-12 16:31:09,2005 BMW E46 M3,383,B,554,RWD,68.528,1:08.528,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163109_579_383,timeattack,Spring
+2026-07-12 16:32:15,2005 BMW E46 M3,383,B,554,RWD,66.278,1:06.278,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163215_855_383,timeattack,Spring
+2026-07-12 16:33:21,2005 BMW E46 M3,383,B,554,RWD,65.841,1:05.841,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163321_697_383,timeattack,Spring
+2026-07-12 16:34:27,2005 BMW E46 M3,383,B,554,RWD,65.575,1:05.575,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163427_265_383,timeattack,Spring
+2026-07-12 16:36:47,2016 Cadillac ATSV,2262,A,601,RWD,63.158,1:03.158,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163647_554_2262,timeattack,Spring
+2026-07-12 16:37:51,2016 Cadillac ATSV,2262,A,601,RWD,64.29,1:04.290,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163751_842_2262,timeattack,Spring
+2026-07-12 16:38:55,2016 Cadillac ATSV,2262,A,601,RWD,63.625,1:03.625,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163855_477_2262,timeattack,Spring
+2026-07-12 16:39:59,2016 Cadillac ATSV,2262,A,601,RWD,63.841,1:03.841,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_163959_313_2262,timeattack,Spring
+2026-07-12 16:41:03,2016 Cadillac ATSV,2262,A,601,RWD,64.185,1:04.185,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_164103_504_2262,timeattack,Spring
+2026-07-12 16:44:53,2023 Chevrolet Corvette ERay,3771,S1,737,AWD,58.232,58.232,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_164453_410_3771,timeattack,Spring
+2026-07-12 16:45:50,2023 Chevrolet Corvette ERay,3771,S1,737,AWD,56.999,56.999,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_164550_410_3771,timeattack,Spring
+2026-07-12 16:46:46,2023 Chevrolet Corvette ERay,3771,S1,737,AWD,55.97,55.97,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_164646_373_3771,timeattack,Spring
+2026-07-12 16:47:42,2023 Chevrolet Corvette ERay,3771,S1,737,AWD,56.564,56.564,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_164742_942_3771,timeattack,Spring
+2026-07-12 16:48:39,2023 Chevrolet Corvette ERay,3771,S1,737,AWD,56.517,56.517,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_164839_456_3771,timeattack,Spring
+2026-07-12 16:51:54,2020 Chevrolet Corvette,3369,A,700,RWD,58.375,58.375,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165154_879_3369,timeattack,Spring
+2026-07-12 16:52:53,2020 Chevrolet Corvette,3369,A,700,RWD,58.176,58.176,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165253_062_3369,timeattack,Spring
+2026-07-12 16:53:51,2020 Chevrolet Corvette,3369,A,700,RWD,58.92,58.92,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165351_985_3369,timeattack,Spring
+2026-07-12 16:54:50,2020 Chevrolet Corvette,3369,A,700,RWD,58.62,58.62,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165450_599_3369,timeattack,Spring
+2026-07-12 16:55:48,2020 Chevrolet Corvette,3369,A,700,RWD,58.129,58.129,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165548_724_3369,timeattack,Spring
+2026-07-12 16:58:07,2015 Chevrolet Camaro Z 28,2183,A,695,RWD,60.597,1:00.597,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165807_726_2183,timeattack,Spring
+2026-07-12 16:59:05,2015 Chevrolet Camaro Z 28,2183,A,695,RWD,58.131,58.131,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_165905_844_2183,timeattack,Spring
+2026-07-12 17:00:04,2015 Chevrolet Camaro Z 28,2183,A,695,RWD,59.109,59.109,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170004_935_2183,timeattack,Spring
+2026-07-12 17:01:03,2015 Chevrolet Camaro Z 28,2183,A,695,RWD,58.783,58.783,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170103_711_2183,timeattack,Spring
+2026-07-12 17:02:02,2015 Chevrolet Camaro Z 28,2183,A,695,RWD,58.319,58.319,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170202_030_2183,timeattack,Spring
+2026-07-12 17:07:39,1972 Datsun 269 240 Z,4084,R,951,RWD,44.81,44.81,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170739_481_4084,timeattack,Spring
+2026-07-12 17:08:26,1972 Datsun 269 240 Z,4084,R,951,RWD,47.194,47.194,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170826_660_4084,timeattack,Spring
+2026-07-12 17:09:11,1972 Datsun 269 240 Z,4084,R,951,RWD,44.985,44.985,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170911_637_4084,timeattack,Spring
+2026-07-12 17:09:56,1972 Datsun 269 240 Z,4084,R,951,RWD,44.559,44.559,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_170956_182_4084,timeattack,Spring
+2026-07-12 17:11:40,1972 Datsun 269 240 Z,4084,R,951,RWD,44.443,44.443,Hokubu Time Attack,Tool-Stoppuhr (Time Attack),20260712_171140_392_4084,timeattack,Spring
