@@ -72,7 +72,8 @@ const iDate = idx("Date-Time"),
   stock: r[idx("Stock")],
   tuned: r[idx("Tuned")],
   sharecode: r[idx("Share Code")]
-}))
+})).filter(r => r.car);
+
 
   SEASONS = [...new Set(LAPS.map(l => l.season))].sort();
 }
@@ -114,6 +115,7 @@ function renderClassChips() {
   });
 }
 
+
 /* ---------- LEADERBOARD ---------- */
 function computeLeaderboard(classFilter) {
   const rows = classFilter === "ALL"
@@ -129,6 +131,7 @@ function computeLeaderboard(classFilter) {
 
   const leaderboard = Object.values(grouped).map(carLaps => {
     const best = carLaps.reduce((a, b) => a.lapS < b.lapS ? a : b);
+
     return {
       car: best.car,
       class: best.class,
@@ -148,45 +151,43 @@ function computeLeaderboard(classFilter) {
 
 function renderLeaderboard() {
   const container = document.getElementById("leaderboardContainer");
-  const rows = computeLeaderboard(currentSeason);
+  const rows = computeLeaderboard(currentClass);
 
   const html = rows.map((l, i) => `
-  <div class="tower__row">
-    <span class="col-pos">${i + 1}</span>
-    <span class="col-driver">${l.car}</span>
-    <span class="col-num">${l.class}</span>
-    <span class="col-num">${l.pi}</span>
-    <span class="col-num">${l.track}</span>
-    <span class="col-num">${l.bestLap}</span>
-    <span class="col-num">${l.avgLap}</span>
-    <span class="col-num">${l.stock === "TRUE" ? "Stock" : "Tuned"}</span>
-    <span class="col-num">${l.sharecode || "–"}</span>
-  </div>
-`).join("");
+    <div class="tower__row">
+      <span class="col-pos">${i + 1}</span>
+      <span class="col-driver">${l.car}</span>
+      <span class="col-num">${l.class}</span>
+      <span class="col-num">${l.pi}</span>
+      <span class="col-num">${l.track}</span>
+      <span class="col-num">${l.bestLap}</span>
+      <span class="col-num">${l.avgLap}</span>
+      <span class="col-num">${l.stock === "TRUE" ? "Stock" : "Tuned"}</span>
+      <span class="col-num">${l.sharecode || "–"}</span>
+    </div>
+  `).join("");
 
   container.innerHTML = `
-  <div class="tower-group">
-    <h3 class="tower-group__title">Fastest Laps (${currentClass})</h3>
-    <div class="tower">
-      
-      <!-- HEADER -->
-      <div class="tower__row tower__row--head">
-        <span class="col-pos">POS</span>
-        <span class="col-driver">CAR</span>
-        <span class="col-num">CLASS</span>
-        <span class="col-num">PI</span>
-        <span class="col-num">TRACK</span>
-        <span class="col-num">BEST</span>
-        <span class="col-num">AVG</span>
-        <span class="col-num">TYPE</span>
-        <span class="col-num">SHARE</span>
+    <div class="tower-group">
+      <h3 class="tower-group__title">Fastest Laps (${currentClass})</h3>
+      <div class="tower">
+        <div class="tower__row tower__row--head">
+          <span class="col-pos">POS</span>
+          <span class="col-driver">CAR</span>
+          <span class="col-num">CLASS</span>
+          <span class="col-num">PI</span>
+          <span class="col-num">TRACK</span>
+          <span class="col-num">BEST</span>
+          <span class="col-num">AVG</span>
+          <span class="col-num">TYPE</span>
+          <span class="col-num">SHARE</span>
+        </div>
+        <div class="tower__body">${html}</div>
       </div>
-
-      <!-- BODY -->
-      <div class="tower__body">${html}</div>
     </div>
-  </div>
-`;
+  `;
+}
+
 
 /* ------- COMPUTE AVERAGE LAPS ------- */
 function computeAverageLap(laps) {
@@ -322,7 +323,7 @@ async function init() {
   await loadData();
   renderHero();
   renderClassChips();
-  renderLeaderboard();
+   renderLeaderboard();
   renderCarGrid();
   renderLapSeasonChips();
   renderLapTable();
