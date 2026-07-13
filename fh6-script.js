@@ -151,33 +151,42 @@ function renderLeaderboard() {
   const rows = computeLeaderboard(currentSeason);
 
   const html = rows.map((l, i) => `
-    <div class="tower__row">
-      <span class="col-pos">${i + 1}</span>
-      <span class="col-driver">${l.car}</span>
-      <span class="col-num">${l.class}</span>
-      <span class="col-num">${l.track}</span>
-      <span class="col-num">${l.lap}</span>
-      <span class="col-num">${l.event}</span>
-    </div>
-  `).join("");
+  <div class="tower__row">
+    <span class="col-pos">${i + 1}</span>
+    <span class="col-driver">${l.car}</span>
+    <span class="col-num">${l.class}</span>
+    <span class="col-num">${l.pi}</span>
+    <span class="col-num">${l.track}</span>
+    <span class="col-num">${l.bestLap}</span>
+    <span class="col-num">${l.avgLap}</span>
+    <span class="col-num">${l.stock === "TRUE" ? "Stock" : "Tuned"}</span>
+    <span class="col-num">${l.sharecode || "–"}</span>
+  </div>
+`).join("");
 
   container.innerHTML = `
-    <div class="tower-group">
-      <h3 class="tower-group__title">Fastest Laps (${currentSeason})</h3>
-      <div class="tower">
-        <div class="tower__row tower__row--head">
-          <span class="col-pos">POS</span>
-          <span class="col-driver">CAR</span>
-          <span class="col-num">CLASS</span>
-          <span class="col-num">TRACK</span>
-          <span class="col-num">LAP</span>
-          <span class="col-num">EVENT</span>
-        </div>
-        <div class="tower__body">${html}</div>
+  <div class="tower-group">
+    <h3 class="tower-group__title">Fastest Laps (${currentClass})</h3>
+    <div class="tower">
+      
+      <!-- HEADER -->
+      <div class="tower__row tower__row--head">
+        <span class="col-pos">POS</span>
+        <span class="col-driver">CAR</span>
+        <span class="col-num">CLASS</span>
+        <span class="col-num">PI</span>
+        <span class="col-num">TRACK</span>
+        <span class="col-num">BEST</span>
+        <span class="col-num">AVG</span>
+        <span class="col-num">TYPE</span>
+        <span class="col-num">SHARE</span>
       </div>
+
+      <!-- BODY -->
+      <div class="tower__body">${html}</div>
     </div>
-  `;
-}
+  </div>
+`;
 
 /* ------- COMPUTE AVERAGE LAPS ------- */
 function computeAverageLap(laps) {
