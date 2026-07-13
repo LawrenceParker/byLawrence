@@ -5,9 +5,9 @@
   --paper: #ece9e1;
   --muted: #8b9099;
 
-  --wnc-accent: #5b84a6;
-  --fh6-accent: #ef4da0;
-  --worldcup-accent: #2f7fe0;
+  --gt7-accent: #2fbf9e;
+  --cod-accent: #c8393b;
+  --steel: #5b84a6;
 
   --font-display: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -27,13 +27,31 @@ body {
   flex-direction: column;
 }
 
+/* ---------- BACK LINK ---------- */
+.back-link {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  text-decoration: none;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  padding: 8px 14px;
+  border-radius: 3px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+.back-link:hover { color: var(--paper); border-color: var(--steel); }
+
 /* ---------- HERO ---------- */
 .hero {
   padding: 88px 24px 56px;
   background:
-    radial-gradient(ellipse 120% 100% at 20% -10%, rgba(91,132,166,0.08), transparent 55%),
-    radial-gradient(ellipse 120% 100% at 55% -10%, rgba(239,77,160,0.06), transparent 55%),
-    radial-gradient(ellipse 120% 100% at 90% -10%, rgba(47,127,224,0.07), transparent 55%),
+    radial-gradient(ellipse 120% 100% at 50% -10%, rgba(47,191,158,0.08), transparent 55%),
+    radial-gradient(ellipse 120% 100% at 90% 110%, rgba(200,57,59,0.07), transparent 55%),
     var(--ink);
   border-bottom: 1px solid var(--line);
   text-align: center;
@@ -68,7 +86,7 @@ body {
 /* ---------- CONTENT ---------- */
 .content {
   flex: 1;
-  max-width: 1100px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 56px 24px;
   width: 100%;
@@ -76,7 +94,7 @@ body {
 
 .game-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1fr;
   gap: 20px;
 }
 
@@ -91,9 +109,8 @@ body {
   border-top: 4px solid var(--line);
   transition: border-top-color 0.15s ease, transform 0.15s ease, background 0.15s ease;
 }
-.game-card--wnc:hover { border-top-color: var(--wnc-accent); transform: translateY(-3px); background: #20242c; }
-.game-card--fh6:hover { border-top-color: var(--fh6-accent); transform: translateY(-3px); background: #20242c; }
-.game-card--worldcup:hover { border-top-color: var(--worldcup-accent); transform: translateY(-3px); background: #20242c; }
+.game-card--gt7:hover { border-top-color: var(--gt7-accent); transform: translateY(-3px); background: #20242c; }
+.game-card--cod:hover { border-top-color: var(--cod-accent); transform: translateY(-3px); background: #20242c; }
 
 .game-card__top {
   display: flex;
@@ -109,14 +126,17 @@ body {
   padding: 4px 10px;
   border-radius: 3px;
   font-weight: 600;
-  color: var(--ink);
 }
-.game-card--wnc .game-card__tag--wnc { background: var(--wnc-accent); }
-.game-card__tag--soon { background: var(--muted); }
-
+.game-card__tag--live { color: var(--ink); background: var(--gt7-accent); }
+.game-card__tag--soon { color: var(--ink); background: var(--cod-accent); }
+.game-card__seasons {
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--muted);
+}
 .game-card__title {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 30px;
   margin: 0 0 12px;
   letter-spacing: 0.01em;
 }
@@ -131,9 +151,8 @@ body {
   font-size: 13px;
   font-weight: 600;
 }
-.game-card--wnc .game-card__cta { color: var(--wnc-accent); }
-.game-card--fh6 .game-card__cta { color: var(--fh6-accent); }
-.game-card--worldcup .game-card__cta { color: var(--worldcup-accent); }
+.game-card--gt7 .game-card__cta { color: var(--gt7-accent); }
+.game-card--cod .game-card__cta { color: var(--cod-accent); }
 
 /* ---------- FOOTER ---------- */
 .footer {
@@ -146,10 +165,8 @@ body {
 }
 
 /* ---------- RESPONSIVE ---------- */
-@media (max-width: 900px) {
-  .game-grid { grid-template-columns: 1fr; }
-}
 @media (max-width: 640px) {
+  .game-grid { grid-template-columns: 1fr; }
   .hero { padding: 56px 16px 40px; }
 }
 
