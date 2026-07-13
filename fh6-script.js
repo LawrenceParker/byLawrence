@@ -2,7 +2,8 @@
    FH6 TIME ATTACK DATA
    ========================================================= */
 
-const DATA_URL = "FH6_Time Attack Laps - RAW DATA.csv"; // local file
+const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQqk8E37Qtrp6HYx9pIImuqx4CFbFkilB1xYd9i6BhCHC8WgGcAfyp1bqvuvyZC2EMWBu6qkDMwaB6R/pub?gid=1766989121&single=true&output=csv"; // live file
+const FALLBACK_DATA_URL = "FH6_Time Attack Laps - RAW DATA.csv" // local file
 let LAPS = [];
 let SEASONS = [];
 
@@ -30,8 +31,17 @@ function parseCSV(text) {
 
 /* ---------- LOAD DATA ---------- */
 async function loadData() {
-  const res = await fetch(DATA_URL);
-  const text = await res.text();
+  let text;
+  try {
+    const res = await fetch(DATA_URL);
+    if (!res.ok) throw new Error(`Request failed: ${res.status}`);
+    text = await res.text();
+  } catch (err) {
+    console.warn("Using fallback CSV:", err);
+    const fallbackRes = await fetch(FALLBACK_DATA_URL);
+    text = await fallbackRes.text();
+  }
+   
   const rows = parseCSV(text);
 
   const header = rows[0].map(h => h.trim());
