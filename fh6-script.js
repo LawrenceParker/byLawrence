@@ -9,7 +9,7 @@
    the live sheet can't be reached. Keep fh6-data.csv alongside
    this file as a safety net.
    ========================================================= */
-const DATA_URL = "fh6-data.csv";
+const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQqk8E37Qtrp6HYx9pIImuqx4CFbFkilB1xYd9i6BhCHC8WgGcAfyp1bqvuvyZC2EMWBu6qkDMwaB6R/pub?gid=1766989121&single=true&output=csv";
 const FALLBACK_DATA_URL = "fh6-data.csv";
 
 /* ---------- CSV PARSING ---------- */
