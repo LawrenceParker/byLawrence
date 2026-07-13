@@ -3,24 +3,84 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>FH6 · Time Attack</title>
+<title>FH6 · Time Attack Laps</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="fh6-style.css">
+
+<link rel="stylesheet" href="gt7-style.css">
 </head>
 <body>
 
-<a class="back-link" href="index.html">← Back to Home</a>
+<a class="back-link" href="wnc.html">← Back to WNC</a>
 
-<main class="soon">
-  <p class="soon__eyebrow">FH6 · TIME ATTACK</p>
-  <h1 class="soon__title">COMING <span>SOON</span></h1>
-  <p class="soon__desc">
-    The FH6 Time Attack leaderboard is on the way.
-  </p>
-  <a class="soon__cta" href="index.html">Back to Home</a>
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">FORZA HORIZON 6</p>
+    <h1 class="hero__title">FH6 <span>TIME ATTACK</span></h1>
+    <div class="hero__stats">
+      <div class="hero__stat"><span class="hero__stat-num" id="statCars">–</span><span class="hero__stat-label">Cars</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statLaps">–</span><span class="hero__stat-label">Laps</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statTracks">–</span><span class="hero__stat-label">Tracks</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statUpdated">–</span><span class="hero__stat-label">Last Entry</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs">
+  <button class="tab is-active" data-tab="leaderboard">Leaderboard</button>
+  <button class="tab" data-tab="cars">Cars</button>
+  <button class="tab" data-tab="laps">Lap Log</button>
+</nav>
+
+<main class="content">
+
+  <!-- LEADERBOARD -->
+  <section class="panel is-active" id="panel-leaderboard">
+    <div class="panel__controls">
+      <span class="control-label">Season</span>
+      <div class="chip-row" id="seasonChips"></div>
+    </div>
+    <div id="leaderboardContainer"></div>
+  </section>
+
+  <!-- CARS -->
+  <section class="panel" id="panel-cars">
+    <div class="panel__controls">
+      <span class="control-label">All Cars</span>
+    </div>
+    <div class="driver-grid" id="carGrid"></div>
+  </section>
+
+  <!-- LAP LOG -->
+  <section class="panel" id="panel-laps">
+    <div class="panel__controls">
+      <span class="control-label">Season</span>
+      <div class="chip-row" id="lapSeasonChips"></div>
+    </div>
+
+    <div class="race-list">
+      <div class="race-item race-item--head">
+        <span></span>
+        <span>Season</span>
+        <span>Car</span>
+        <span>Class</span>
+        <span>Track</span>
+        <span>Lap Time</span>
+        <span>Event</span>
+      </div>
+      <div id="lapAccordion"></div>
+    </div>
+  </section>
+
 </main>
 
+<footer class="footer">
+  <p>Data pulled from FH6 Time Attack CSV · <span id="footerCount">–</span> laps logged</p>
+</footer>
+
+<script src="fh6-script.js"></script>
 </body>
 </html>
+>
