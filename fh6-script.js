@@ -6,6 +6,7 @@ const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQqk8E37Qtrp6H
 const FALLBACK_DATA_URL = "FH6_Time Attack Laps - RAW DATA.csv" // local file
 let LAPS = [];
 let SEASONS = [];
+
 CLASSES = [...new Set(LAPS.map(l => l.class))].sort();
 
 /* ---------- CSV PARSER ---------- */
@@ -102,6 +103,7 @@ function renderClassChips() {
   const wrap = document.getElementById("seasonChips");
   wrap.innerHTML = "";
   const options = ["ALL", ...CLASSES];
+
   options.forEach(c => {
     const chip = document.createElement("button");
     chip.className = "chip" + (c === currentClass ? " is-active" : "");
@@ -323,7 +325,7 @@ async function init() {
   await loadData();
   renderHero();
   renderClassChips();
-   renderLeaderboard();
+renderLeaderboard();
   renderCarGrid();
   renderLapSeasonChips();
   renderLapTable();
