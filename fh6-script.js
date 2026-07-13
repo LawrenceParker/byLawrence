@@ -45,16 +45,17 @@ async function loadData() {
   const rows = parseCSV(text);
 
   const header = rows[0].map(h => h.trim());
-  const idx = name => header.indexOf(name);
+const idx = name =>
+  header.findIndex(h => h.toLowerCase().trim() === name.toLowerCase().trim());
 
-  const iDate = idx("Date-Time"),
-        iCar = idx("Car"),
-        iClass = idx("Class"),
-        iLapS = idx("Lap_Time_S"),
-        iLap = idx("Lap_Time"),
-        iTrack = idx("Track"),
-        iEvent = idx("event"),
-        iSeason = idx("Season");
+const iDate = idx("Date-Time"),
+      iCar = idx("Car"),
+      iClass = idx("Class"),
+      iLapS = idx("Lap_Time_S"),
+      iLap = idx("Lap_Time"),
+      iTrack = idx("Track"),
+      iEvent = idx("event"),
+      iSeason = idx("Season");
 
   LAPS = rows.slice(1).map(r => ({
     date: r[iDate],
