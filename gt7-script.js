@@ -201,7 +201,7 @@ function buildTowerGroupHTML(title, standings) {
           <span class="col-driver">DRIVER</span>
           <span class="col-num">PTS</span>
           <span class="col-num">WINS</span>
-          <span class="col-num">Podiums</span>
+          <span class="col-num">PODIUMS</span>
           <span class="col-num">POLES</span>
           <span class="col-num">FL</span>
         </div>
