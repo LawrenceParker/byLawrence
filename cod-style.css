@@ -343,6 +343,17 @@ body {
 .driver-card__metric span:first-child { color: var(--muted); }
 .driver-card__metric span:last-child { color: var(--paper); font-weight: 600; }
 
+.driver-card__metric--stack {
+  flex-direction: column;
+  align-items: flew-start;
+  gap: 4px;
+}
+
+.driver-card__metric--stack span:last-child {
+  font-weight: 500;
+  color: var(--paper);
+}
+
 /* ---------- RACE LOG ACCORDION ---------- */
 .race-list {
   border: 1px solid var(--line);
