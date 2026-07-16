@@ -53,21 +53,29 @@ function parseTime(t) {
 
   t = String(t).trim();
 
-  if (!t || ["-", "–", "--"].includes(t)) return 0;
+  if (!t || t === "-" || t === "–" || t === "--") return 0;
 
   const parts = t.split(":").map(Number);
 
-  if (parts.some(isNaN)) return 0;
+  let seconds = 0;
 
   if (parts.length === 3) {
-    return (parts[0] * 3600) + (parts[1] * 60) + parts[2];
+    seconds = (parts[0] * 3600) + (parts[1] * 60) + parts[2];
+  } 
+  else if (parts.length === 2) {
+    seconds = (parts[0] * 60) + parts[1];
+  }
+  else {
+    seconds = Number(parts[0]) || 0;
   }
 
-  if (parts.length === 2) {
-    return (parts[0] * 60) + parts[1];
+  // Hardpoint sanity check
+  if (seconds > 3600) {
+    console.warn("Bad HP time:", t, seconds);
+    return 0;
   }
 
-  return parts[0];
+  return seconds;
 }
 
 function formatSecondsToMMSS(seconds) {
@@ -78,7 +86,6 @@ function formatSecondsToMMSS(seconds) {
 
   return `${mins}:${String(secs).padStart(2, "0")}`;
 }
-
 
 
 
@@ -375,8 +382,14 @@ function computeTeamPlayerStats(rows) {
     p.defuses += r.defuses;
 
     /// NEW: safe Hardpoint stats
-    p.time += parseTime(r.time);
-    p.defends += r.defends ? Number(r.defends) : 0;
+    const parsedTime = parseTime(r.time);
+
+   if (parsedTime > 3600) {
+     console.warn("Invalid time row:", r);
+   }
+   
+   p.time += parsedTime;
+   p.defends += r.defends ? Number(r.defends) : 0;
   });
 
   return Object.values(byPlayer).map(p => ({
