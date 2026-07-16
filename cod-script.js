@@ -75,6 +75,15 @@ function parseTime(t) {
   return isNaN(n) ? 0 : n;
 }
 
+function formatSecondsToMMSS(seconds) {
+  seconds = Number(seconds) || 0;
+
+  const mins = Math.floor(seconds / 60);
+  const secs = seconds % 60;
+
+  return `${mins}:${String(secs).padStart(2, "0")}`;
+}
+
 
 
 
