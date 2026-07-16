@@ -344,11 +344,15 @@ body {
 .driver-card__metric span:last-child { color: var(--paper); font-weight: 600; }
 
 .driver-card__metric--stack {
+  display: flex;
   flex-direction: column;
   align-items: flew-start;
-  gap: 4px;
+  gap: 10px;
+  font-size: 13px;
+  padding: 9px 0px 15px;
+  border-bottom: 1px solid var(--line);
 }
-
+.driver-card__metric--stack span:first-child { color: var(--muted); }
 .driver-card__metric--stack span:last-child {
   font-weight: 500;
   color: var(--paper);
