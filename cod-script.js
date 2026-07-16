@@ -50,28 +50,33 @@ async function fetchWithFallback(primary, fallback) {
 
 function parseTime(t) {
   if (t == null) return 0;
+
   t = String(t).trim();
+
   if (!t || t === "-" || t === "–" || t === "--") return 0;
+
   const parts = t.split(":").map(Number);
-  let seconds = 0;
-   
-  // Google Sheets duration format: MM:SS:00
+
   if (parts.length === 3) {
-    const [minutes, secs] = parts;
-    seconds = (minutes * 60) + secs;
+    const [hours, minutes, seconds] = parts;
+
+    return (
+      (hours * 3600) +
+      (minutes * 60) +
+      seconds
+    );
   }
 
-  // Normal MM:SS
-  else if (parts.length === 2) {
-    const [minutes, secs] = parts;
-    seconds = (minutes * 60) + secs;
-  }
-     
-  else {
-    seconds = Number(t) || 0;
+  if (parts.length === 2) {
+    const [minutes, seconds] = parts;
+
+    return (
+      (minutes * 60) +
+      seconds
+    );
   }
 
-  return seconds;
+  return Number(t) || 0;
 }
 
 function formatSecondsToMMSS(seconds) {
@@ -533,7 +538,7 @@ function renderTeamLog() {
                 <td>${p.deaths}</td>
                 <td>${p.plants || "–"}</td>
                 <td>${p.defuses || "–"}</td>
-                <td>${p.time || "–"}</td>
+                <td>${formatSecondsToMMSS(parseTime(p.time))}</td>
                 <td>${p.defends || "–"}</td>
               </tr>
             `).join("")}
