@@ -48,6 +48,31 @@ async function fetchWithFallback(primary, fallback) {
   }
 }
 
+function parseTime(t) {
+  if (!t) return 0;
+
+  // If format is mm:ss
+  if (t.includes(":")) {
+    const [m, s] = t.split(":").map(Number);
+    return (m * 60) + s;
+  }
+
+  // If it's a dash or empty
+  if (t === "–" || t.trim() === "") return 0;
+
+  // Otherwise try normal number
+  const n = Number(t);
+  return isNaN(n) ? 0 : n;
+}
+
+function formatSecondsToMMSS(sec) {
+  sec = Number(sec) || 0;
+  const m = Math.floor(sec / 60);
+  const s = sec % 60;
+  return `${m}:${s.toString().padStart(2, "0")}`;
+}
+
+
 /* ---------- GENERIC TOWER BUILDER (variable column count) ---------- */
 function buildTowerHTML(title, headerLabels, rows) {
   const colCount = headerLabels.length - 2;
@@ -79,22 +104,6 @@ function buildTowerHTML(title, headerLabels, rows) {
   `;
 }
 
-function parseTime(t) {
-  if (!t) return 0;
-
-  // If format is mm:ss
-  if (t.includes(":")) {
-    const [m, s] = t.split(":").map(Number);
-    return (m * 60) + s;
-  }
-
-  // If it's a dash or empty
-  if (t === "–" || t.trim() === "") return 0;
-
-  // Otherwise try normal number
-  const n = Number(t);
-  return isNaN(n) ? 0 : n;
-}
 
 /* =========================================================
    GUNFIGHT (1v1)
@@ -440,7 +449,7 @@ function renderTeamPlayers() {
 
     if (includePlants) values.push(p.plants);
     if (includeDefuses) values.push(p.defuses);
-    if (includeTime) values.push(p.time);
+    iif (includeTime) values.push(formatSecondsToMMSS(p.time));
     if (includeDefends) values.push(p.defends);
 
     return { primary: p.player, values };
