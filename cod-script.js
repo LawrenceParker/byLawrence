@@ -449,7 +449,7 @@ function renderTeamPlayers() {
 
     if (includePlants) values.push(p.plants);
     if (includeDefuses) values.push(p.defuses);
-    iif (includeTime) values.push(formatSecondsToMMSS(p.time));
+    if (includeTime) values.push(formatSecondsToMMSS(p.time));
     if (includeDefends) values.push(p.defends);
 
     return { primary: p.player, values };
