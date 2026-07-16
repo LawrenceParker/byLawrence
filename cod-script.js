@@ -49,22 +49,24 @@ async function fetchWithFallback(primary, fallback) {
 }
 
 function parseTime(t) {
-  if (!t) return 0;
+  if (!t || typeof t !== "string") return 0;
 
-  // If it's a dash or empty
-  if (t === "–" || t.trim() === "") return 0;
+  t = t.trim();
 
-  const parts = t.split(":").map(Number);
+  // Empty or dash
+  if (t === "" || t === "-" || t === "–" || t === "--") return 0;
+
+  const parts = t.split(":");
 
   // HH:MM:SS
   if (parts.length === 3) {
-    const [h, m, s] = parts;
+    const [h, m, s] = parts.map(x => Number(x) || 0);
     return (h * 3600) + (m * 60) + s;
   }
 
   // MM:SS
   if (parts.length === 2) {
-    const [m, s] = parts;
+    const [m, s] = parts.map(x => Number(x) || 0);
     return (m * 60) + s;
   }
 
@@ -72,6 +74,7 @@ function parseTime(t) {
   const n = Number(t);
   return isNaN(n) ? 0 : n;
 }
+
 
 
 
