@@ -49,34 +49,29 @@ async function fetchWithFallback(primary, fallback) {
 }
 
 function parseTime(t) {
-  if (!t || typeof t !== "string") return 0;
+  if (t == null) return 0;
 
-  t = t.trim();
+  t = String(t).trim();
 
-  // Empty or dash
-  if (t === "" || t === "-" || t === "–" || t === "--") return 0;
+  if (!t || ["-", "–", "--"].includes(t)) return 0;
 
-  const parts = t.split(":");
+  const parts = t.split(":").map(Number);
 
-  // HH:MM:SS
+  if (parts.some(isNaN)) return 0;
+
   if (parts.length === 3) {
-    const [h, m, s] = parts.map(x => Number(x) || 0);
-    return (h * 3600) + (m * 60) + s;
+    return (parts[0] * 3600) + (parts[1] * 60) + parts[2];
   }
 
-  // MM:SS
   if (parts.length === 2) {
-    const [m, s] = parts.map(x => Number(x) || 0);
-    return (m * 60) + s;
+    return (parts[0] * 60) + parts[1];
   }
 
-  // Plain number → assume seconds
-  const n = Number(t);
-  return isNaN(n) ? 0 : n;
+  return parts[0];
 }
 
 function formatSecondsToMMSS(seconds) {
-  seconds = Number(seconds) || 0;
+  seconds = Math.floor(Number(seconds) || 0);
 
   const mins = Math.floor(seconds / 60);
   const secs = seconds % 60;
@@ -463,7 +458,10 @@ function renderTeamPlayers() {
 
     if (includePlants) values.push(p.plants);
     if (includeDefuses) values.push(p.defuses);
-    if (includeTime) values.push(formatSecondsToMMSS(p.time));
+    if (includeTime) {
+  console.log(p.player, "raw time:", p.time, "formatted:", formatSecondsToMMSS(p.time));
+  values.push(formatSecondsToMMSS(p.time));
+}
     if (includeDefends) values.push(p.defends);
 
     return { primary: p.player, values };
@@ -606,9 +604,8 @@ function setupSubTabs() {
 async function init() {
   await Promise.all([loadGunfightData(), loadTeamData()]);
 
-   console.log(TM_SEASONS);
-   console.log(TM_GAMEMODES);
-   console.log(TM_ROWS.slice(0,5));
+   console.log(parseTime("01:49:00"));
+   console.log(formatSecondsToMMSS(parseTime("01:49:00")));
 
   gfSeason = "ALL";
   tmSeason = "ALL";
