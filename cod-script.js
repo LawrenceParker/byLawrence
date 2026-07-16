@@ -597,6 +597,10 @@ function setupSubTabs() {
 async function init() {
   await Promise.all([loadGunfightData(), loadTeamData()]);
 
+   console.log(TM_SEASONS);
+   console.log(TM_GAMEMODES);
+   console.log(TM_ROWS.slice(0,5));
+
   gfSeason = "ALL";
   tmSeason = "ALL";
   tmMode = "ALL";
