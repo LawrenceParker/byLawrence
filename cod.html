@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>WNC - COD</title>
+<title>Call of Duty — Standings & Stats</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -13,14 +13,128 @@
 
 <a class="back-link" href="wnc.html">← Back to WNC</a>
 
-<main class="soon">
-  <p class="soon__eyebrow">WEDNESDAY NIGHT CHAMPIONSHIP</p>
-  <h1 class="soon__title">COMING <span>SOON</span></h1>
-  <p class="soon__desc">
-    Call of Duty stats cooming soon!
-  </p>
-  <a class="soon__cta" href="wnc.html">Back to WNC</a>
+<header class="hero">
+  <div class="hero__inner">
+    <p class="hero__eyebrow">WNC · CALL OF DUTY</p>
+    <h1 class="hero__title">CALL OF <span>DUTY</span></h1>
+    <div class="hero__stats" id="heroStats">
+      <div class="hero__stat"><span class="hero__stat-num" id="statPlayers">–</span><span class="hero__stat-label">Players</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statMatches">–</span><span class="hero__stat-label">Matches</span></div>
+      <div class="hero__stat"><span class="hero__stat-num" id="statSeasons">–</span><span class="hero__stat-label">Seasons</span></div>
+    </div>
+  </div>
+</header>
+
+<nav class="mode-tabs">
+  <button class="mode-tab is-active" data-mode="gunfight">Gunfight</button>
+  <button class="mode-tab" data-mode="team">Team Matches</button>
+</nav>
+
+<main class="content">
+
+  <!-- ============ GUNFIGHT MODE ============ -->
+  <div class="mode-panel is-active" id="mode-gunfight">
+    <nav class="tabs">
+      <button class="tab is-active" data-tab="gf-standings">Standings</button>
+      <button class="tab" data-tab="gf-players">Players</button>
+      <button class="tab" data-tab="gf-log">Match Log</button>
+    </nav>
+
+    <section class="panel is-active" id="panel-gf-standings">
+      <div class="panel__controls">
+        <span class="control-label">Season</span>
+        <div class="chip-row" id="gfStandingsSeasonChips"></div>
+      </div>
+      <div id="gfStandingsContainer"></div>
+    </section>
+
+    <section class="panel" id="panel-gf-players">
+      <div class="panel__controls">
+        <span class="control-label">Career stats, all seasons</span>
+      </div>
+      <div class="driver-grid" id="gfPlayerGrid"></div>
+    </section>
+
+    <section class="panel" id="panel-gf-log">
+      <div class="panel__controls">
+        <span class="control-label">Season</span>
+        <div class="chip-row" id="gfLogSeasonChips"></div>
+      </div>
+      <div class="race-list">
+        <div class="race-item race-item--head">
+          <span></span>
+          <span>Date</span>
+          <span>Stage</span>
+          <span>Map</span>
+          <span>Result</span>
+          <span>Score</span>
+        </div>
+        <div id="gfLogAccordion"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ============ TEAM MATCHES MODE ============ -->
+  <div class="mode-panel" id="mode-team">
+    <nav class="tabs">
+      <button class="tab is-active" data-tab="tm-standings">Team Standings</button>
+      <button class="tab" data-tab="tm-players">Players</button>
+      <button class="tab" data-tab="tm-log">Match Log</button>
+    </nav>
+
+    <section class="panel is-active" id="panel-tm-standings">
+      <div class="panel__controls">
+        <span class="control-label">Season</span>
+        <div class="chip-row" id="tmStandingsSeasonChips"></div>
+      </div>
+      <div class="panel__controls">
+        <span class="control-label">Mode</span>
+        <div class="chip-row" id="tmStandingsModeChips"></div>
+      </div>
+      <div id="tmStandingsContainer"></div>
+    </section>
+
+    <section class="panel" id="panel-tm-players">
+      <div class="panel__controls">
+        <span class="control-label">Season</span>
+        <div class="chip-row" id="tmPlayersSeasonChips"></div>
+      </div>
+      <div class="panel__controls">
+        <span class="control-label">Mode</span>
+        <div class="chip-row" id="tmPlayersModeChips"></div>
+      </div>
+      <div id="tmPlayersContainer"></div>
+    </section>
+
+    <section class="panel" id="panel-tm-log">
+      <div class="panel__controls">
+        <span class="control-label">Season</span>
+        <div class="chip-row" id="tmLogSeasonChips"></div>
+      </div>
+      <div class="panel__controls">
+        <span class="control-label">Mode</span>
+        <div class="chip-row" id="tmLogModeChips"></div>
+      </div>
+      <div class="race-list">
+        <div class="race-item race-item--head">
+          <span></span>
+          <span>Date</span>
+          <span>Mode</span>
+          <span>Map</span>
+          <span>Result</span>
+          <span>Score</span>
+        </div>
+        <div id="tmLogAccordion"></div>
+      </div>
+    </section>
+  </div>
+
 </main>
 
+<footer class="footer">
+  <p>Data pulled live from the league spreadsheet · <span id="footerCount">–</span> entries logged</p>
+</footer>
+
+<script src="cod-script.js"></script>
 </body>
 </html>

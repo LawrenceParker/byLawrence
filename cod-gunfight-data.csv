@@ -1,0 +1,189 @@
+Season,Date,EventID,Stage,Map,MapPick,Player,Opponent,Result,RoundsWon,RoundsLost,Damage,Kills,Deaths
+Season 1,10/01/2025,COD_1,Round Robin,King,Alex,Alex,Andrew,W,6,2,600,6,2
+Season 1,10/01/2025,COD_2,Round Robin,Shipment,Conor,Conor,Harry,W,6,4,741,6,4
+Season 1,10/01/2025,COD_3,Round Robin,King,Conor,Conor,Andrew,W,6,3,690,6,3
+Season 1,10/01/2025,COD_4,Round Robin,Docks,Iestyn,Iestyn,Harry,W,6,1,600,6,1
+Season 1,10/01/2025,COD_5,Round Robin,Atrium,Michael,Michael,Liam,L,2,6,369,2,6
+Season 1,10/01/2025,COD_6,Round Robin,Gulag Showers,Alex,Alex,Conor,W,6,1,635,6,1
+Season 1,10/01/2025,COD_7,Round Robin,King,Iestyn,Iestyn,Lawrence,L,5,6,685,5,6
+Season 1,10/01/2025,COD_8,Round Robin,King,Lawrence,Lawrence,Liam,W,6,2,701,6,2
+Season 1,10/01/2025,COD_9,Round Robin,Shipment,Andrew,Andrew,Harry,L,5,6,677,5,6
+Season 1,10/01/2025,COD_10,Round Robin,Gulag Showers,Michael,Michael,Alex,W,6,5,883,6,5
+Season 1,10/01/2025,COD_11,Round Robin,King,Conor,Conor,Iestyn,W,6,3,635,6,3
+Season 1,10/01/2025,COD_12,Round Robin,Drainage,Lawrence,Lawrence,Michael,L,1,6,367,1,6
+Season 1,10/01/2025,COD_13,Round Robin,Drainage,Liam,Liam,Alex,W,6,4,758,6,4
+Season 1,10/01/2025,COD_14,Round Robin,Drainage,Andrew,Andrew,Michael,L,3,6,506,3,6
+Season 1,17/01/2025,COD_15,Round Robin,King,Andrew,Andrew,Iestyn,W,6,5,819,6,5
+Season 1,17/01/2025,COD_16,Round Robin,Mercado,Lawrence,Lawrence,Alex,L,5,6,640,5,6
+Season 1,17/01/2025,COD_17,Round Robin,Fight,Lawrence,Lawrence,Andrew,W,6,3,685,6,3
+Season 1,17/01/2025,COD_18,Round Robin,Alley,Joe,Joe,Michael,W,6,3,750,5,3
+Season 1,17/01/2025,COD_19,Round Robin,King,Alex,Alex,Harry,W,6,1,644,6,1
+Season 1,17/01/2025,COD_20,Round Robin,King,Iestyn,Iestyn,Liam,L,3,6,512,3,6
+Season 1,17/01/2025,COD_21,Round Robin,Shipment,Liam,Liam,Andrew,W,6,1,600,6,1
+Season 1,17/01/2025,COD_22,Round Robin,King,Conor,Conor,Lawrence,W,6,5,766,6,5
+Season 1,17/01/2025,COD_23,Round Robin,Unknown,Andrew,Andrew,Joe,L,4,6,621,4,6
+Season 1,17/01/2025,COD_24,Round Robin,Canal,Harry,Harry,Liam,L,0,6,108,0,6
+Season 1,17/01/2025,COD_25,Round Robin,King,Alex,Alex,Iestyn,L,3,6,456,3,6
+Season 1,17/01/2025,COD_26,Round Robin,Alley,Michael,Michael,Conor,W,6,3,706,5,3
+Season 1,17/01/2025,COD_27,Round Robin,Blacksite,Harry,Harry,Lawrence,L,3,6,465,3,5
+Season 1,17/01/2025,COD_28,Round Robin,Alley,Joe,Joe,Alex,W,6,5,644,5,5
+Season 1,17/01/2025,COD_29,Round Robin,Alley,Michael,Michael,Harry,W,6,1,646,6,1
+Season 1,17/01/2025,COD_30,Round Robin,King,Joe,Joe,Iestyn,W,6,1,600,6,1
+Season 1,17/01/2025,COD_31,Round Robin,King,Iestyn,Iestyn,Michael,W,6,2,695,6,2
+Season 1,17/01/2025,COD_32,Round Robin,Alley,Joe,Joe,Lawrence,W,6,2,636,6,2
+Season 1,17/01/2025,COD_33,Round Robin,Alley,Joe,Joe,Liam,W,6,5,833,6,5
+Season 1,17/01/2025,COD_34,Round Robin,Penthouse,Harry,Harry,Joe,L,4,6,470,4,6
+Season 1,17/01/2025,COD_35,Round Robin,Unknown,Liam,Liam,Conor,W,6,1,600,6,1
+Season 1,17/01/2025,COD_36,Round Robin,King,Conor,Conor,Joe,W,6,4,850,6,4
+Season 1,22/01/2025,COD_37,Round Robin,Exhibit,Andrew,Andrew,Liam,L,4,6,577,4,6
+Season 1,22/01/2025,COD_38,Round Robin,Fight,Lawrence,Lawrence,Harry,W,6,5,804,6,5
+Season 1,22/01/2025,COD_39,Round Robin,Canal,Iestyn,Iestyn,Andrew,W,6,5,707,6,5
+Season 1,22/01/2025,COD_40,Round Robin,Canal,Andrew,Andrew,Lawrence,W,6,5,750,6,5
+Season 1,22/01/2025,COD_41,Round Robin,Alley,Michael,Michael,Iestyn,L,5,6,596,5,6
+Season 1,22/01/2025,COD_42,Round Robin,Exhibit,Harry,Harry,Michael,L,4,6,657,4,6
+Season 1,22/01/2025,COD_43,Round Robin,Shipment,Liam,Liam,Iestyn,W,6,3,671,6,3
+Season 1,22/01/2025,COD_44,Round Robin,King,Conor,Conor,Liam,W,6,3,594,4,3
+Season 1,22/01/2025,COD_45,Round Robin,King,Conor,Conor,Michael,L,4,6,586,4,6
+Season 1,22/01/2025,COD_46,Round Robin,Fight,Lawrence,Lawrence,Conor,W,6,5,556,5,5
+Season 1,22/01/2025,COD_47,Round Robin,Shipment,Liam,Liam,Harry,W,6,2,661,6,2
+Season 1,23/01/2025,COD_48,Round Robin,Alley,Joe,Joe,Conor,W,6,4,601,6,4
+Season 1,28/01/2025,COD_49,Round Robin,Alley,Michael,Michael,Liam,L,3,6,456,3,6
+Season 1,28/01/2025,COD_50,Round Robin,Alley,Joe,Joe,Harry,W,6,3,745,6,3
+Season 1,28/01/2025,COD_51,Round Robin,Shipment,Liam,Liam,Joe,W,6,4,690,6,4
+Season 1,28/01/2025,COD_52,Round Robin,Canal,Iestyn,Iestyn,Harry,W,6,5,762,6,5
+Season 1,28/01/2025,COD_53,Round Robin,Canal,Andrew,Andrew,Michael,L,5,6,644,5,6
+Season 1,28/01/2025,COD_54,Round Robin,King,Alex,Alex,Liam,L,3,6,461,3,6
+Season 1,28/01/2025,COD_55,Round Robin,Allay,Joe,Joe,Iestyn,W,6,2,600,6,2
+Season 1,28/01/2025,COD_56,Round Robin,King,Alex,Alex,Michael,W,6,3,653,6,3
+Season 1,28/01/2025,COD_57,Round Robin,Fight,Harry,Harry,Andrew,L,0,6,203,0,6
+Season 1,28/01/2025,COD_58,Round Robin,King,Alex,Alex,Joe,W,6,5,763,6,5
+Season 1,28/01/2025,COD_59,Round Robin,Unknown,Andrew,Andrew,Alex,W,6,4,669,6,4
+Season 1,28/01/2025,COD_60,Round Robin,Alley,Michael,Michael,Joe,L,0,6,42,0,6
+Season 1,28/01/2025,COD_61,Round Robin,Exhibit,Joe,Joe,Andrew,W,6,3,799,6,3
+Season 1,28/01/2025,COD_62,Round Robin,Exhibit,Harry,Harry,Alex,L,5,6,788,5,6
+Season 1,28/01/2025,COD_63,Round Robin,Canal,Alex,Alex,Iestyn,W,6,5,713,6,5
+Season 1,28/01/2025,COD_64,Round Robin,Exhibit,Harry,Harry,Conor,W,6,4,884,6,3
+Season 1,28/01/2025,COD_65,Round Robin,King,Conor,Conor,Andrew,W,6,4,706,6,4
+Season 1,28/01/2025,COD_66,Round Robin,Canal,Michael,Michael,Lawrence,L,5,6,711,5,4
+Season 1,28/01/2025,COD_67,Round Robin,Shipment,Lawrence,Lawrence,Iestyn,W,6,5,716,6,5
+Season 1,28/01/2025,COD_68,Round Robin,King,Conor,Conor,Alex,W,6,2,739,6,2
+Season 1,28/01/2025,COD_69,Round Robin,Shipment,Liam,Liam,Lawrence,W,6,3,601,6,3
+Season 1,04/02/2025,COD_70,Round Robin,Alley,Alex,Alex,Lawrence,W,6,5,822,6,5
+Season 1,04/02/2025,COD_71,Round Robin,Shipment,Lawrence,Lawrence,Joe,L,3,6,585,3,6
+Season 1,04/02/2025,COD_72,Round Robin,Canal,Conor,Conor,Iestyn,L,4,6,474,4,6
+Season 1,04/02/2025,COD_73,Knockout,Lounge,Andrew,Andrew,Harry,W,6,3,721,6,3
+Season 1,04/02/2025,COD_74,Knockout,Mercado,Alex,Alex,Iestyn,L,3,6,421,3,6
+Season 1,04/02/2025,COD_75,Knockout,Blacksite,Liam,Liam,Michael,L,7,9,1173,7,9
+Season 1,04/02/2025,COD_76,Knockout,Canal,Lawrence,Lawrence,Conor,W,6,2,600,6,2
+Season 1,04/02/2025,COD_77,Knockout,Canal,Joe,Joe,Andrew,L,2,6,438,6,2
+Season 1,04/02/2025,COD_78,Knockout,Blacksite,Conor,Conor,Harry,L,4,6,604,4,6
+Season 1,04/02/2025,COD_79,Knockout,Exhibit,Andrew,Andrew,Lawrence,L,3,6,481,3,6
+Season 1,04/02/2025,COD_80,Knockout,Blacksite,Michael,Michael,Iestyn,L,4,6,683,3,6
+Season 1,04/02/2025,COD_81,Knockout,King,Liam,Liam,Harry,W,7,5,735,7,5
+Season 1,04/02/2025,COD_82,Knockout,Lounge,Joe,Joe,Alex,W,6,2,700,6,2
+Season 1,04/02/2025,COD_83,Knockout,Fight,Lawrence,Lawrence,Iestyn,L,6,8,848,6,8
+Season 1,04/02/2025,COD_84,Knockout,Mercado,Lawrence,Lawrence,Iestyn,L,2,6,505,2,6
+Season 1,19/02/2025,COD_85,Knockout,King,Andrew,Andrew,Liam,L,0,6,151,0,6
+Season 1,19/02/2025,COD_86,Knockout,Unknown,Michael,Michael,Joe,L,4,6,648,4,6
+Season 1,19/02/2025,COD_87,Knockout,Unknown,Liam,Liam,Joe,W,6,3,640,6,3
+Season 1,19/02/2025,COD_88,Knockout,King,Lawrence,Lawrence,Liam,L,0,6,181,0,6
+Season 1,19/02/2025,COD_89,Knockout,Shipment,Lawrence,Lawrence,Liam,L,3,6,422,3,6
+Season 1,19/02/2025,COD_90,Knockout,Canal,Iestyn,Iestyn,Liam,L,0,6,232,0,5
+Season 1,19/02/2025,COD_91,Knockout,Shipment,Iestyn,Iestyn,Liam,W,6,4,730,6,4
+Season 1,19/02/2025,COD_92,Knockout,Blacksite,Iestyn,Iestyn,Liam,W,6,4,640,6,4
+Season 1,19/02/2025,COD_93,Knockout,Exhibit,Iestyn,Iestyn,Liam,L,5,7,780,5,7
+Season 1,19/02/2025,COD_94,Knockout,Mercado,Iestyn,Iestyn,Liam,L,1,6,374,1,6
+Season 1,10/01/2025,COD_1,Round Robin,King,Andrew,Andrew,Alex,L,2,6,200,2,6
+Season 1,10/01/2025,COD_2,Round Robin,Shipment,Harry,Harry,Conor,L,4,6,845,4,6
+Season 1,10/01/2025,COD_3,Round Robin,King,Andrew,Andrew,Conor,L,3,6,459,3,6
+Season 1,10/01/2025,COD_4,Round Robin,Docks,Harry,Harry,Iestyn,L,1,6,294,1,6
+Season 1,10/01/2025,COD_5,Round Robin,Atrium,Liam,Liam,Michael,W,6,2,680,6,2
+Season 1,10/01/2025,COD_6,Round Robin,Gulag Showers,Conor,Conor,Alex,L,1,6,331,1,6
+Season 1,10/01/2025,COD_7,Round Robin,King,Lawrence,Lawrence,Iestyn,W,6,5,996,6,5
+Season 1,10/01/2025,COD_8,Round Robin,King,Liam,Liam,Lawrence,L,2,6,428,2,6
+Season 1,10/01/2025,COD_9,Round Robin,Shipment,Harry,Harry,Andrew,W,6,5,736,6,5
+Season 1,10/01/2025,COD_10,Round Robin,Gulag Showers,Alex,Alex,Michael,L,5,6,563,5,6
+Season 1,10/01/2025,COD_11,Round Robin,King,Iestyn,Iestyn,Conor,L,3,6,451,3,6
+Season 1,10/01/2025,COD_12,Round Robin,Drainage,Michael,Michael,Lawrence,W,6,1,600,6,1
+Season 1,10/01/2025,COD_13,Round Robin,Drainage,Alex,Alex,Liam,L,4,6,533,4,6
+Season 1,10/01/2025,COD_14,Round Robin,Drainage,Michael,Michael,Andrew,W,6,3,600,6,3
+Season 1,17/01/2025,COD_15,Round Robin,King,Iestyn,Iestyn,Andrew,L,5,6,777,5,6
+Season 1,17/01/2025,COD_16,Round Robin,Mercado,Alex,Alex,Lawrence,W,6,5,861,6,5
+Season 1,17/01/2025,COD_17,Round Robin,Fight,Andrew,Andrew,Lawrence,L,3,6,420,3,6
+Season 1,17/01/2025,COD_18,Round Robin,Alley,Michael,Michael,Joe,L,3,6,465,3,5
+Season 1,17/01/2025,COD_19,Round Robin,King,Harry,Harry,Alex,L,1,6,264,1,6
+Season 1,17/01/2025,COD_20,Round Robin,King,Liam,Liam,Iestyn,W,6,3,794,6,3
+Season 1,17/01/2025,COD_21,Round Robin,Shipment,Andrew,Andrew,Liam,L,1,6,175,1,6
+Season 1,17/01/2025,COD_22,Round Robin,King,Lawrence,Lawrence,Conor,L,5,6,741,5,6
+Season 1,17/01/2025,COD_23,Round Robin,Unknown,Joe,Joe,Andrew,W,6,4,690,6,4
+Season 1,17/01/2025,COD_24,Round Robin,Canal,Liam,Liam,Harry,W,6,0,600,6,0
+Season 1,17/01/2025,COD_25,Round Robin,King,Iestyn,Iestyn,Alex,W,6,3,652,6,3
+Season 1,17/01/2025,COD_26,Round Robin,Alley,Conor,Conor,Michael,L,3,6,392,3,5
+Season 1,17/01/2025,COD_27,Round Robin,Blacksite,Lawrence,Lawrence,Harry,W,6,3,644,6,3
+Season 1,17/01/2025,COD_28,Round Robin,Alley,Alex,Alex,Joe,L,5,6,717,5,5
+Season 1,17/01/2025,COD_29,Round Robin,Alley,Harry,Harry,Michael,L,1,6,277,1,6
+Season 1,17/01/2025,COD_30,Round Robin,King,Iestyn,Iestyn,Joe,L,1,6,233,1,6
+Season 1,17/01/2025,COD_31,Round Robin,King,Michael,Michael,Iestyn,L,2,6,365,2,6
+Season 1,17/01/2025,COD_32,Round Robin,Alley,Lawrence,Lawrence,Joe,L,2,6,410,2,6
+Season 1,17/01/2025,COD_33,Round Robin,Alley,Liam,Liam,Joe,L,5,6,828,5,6
+Season 1,17/01/2025,COD_34,Round Robin,Penthouse,Joe,Joe,Harry,W,6,4,680,6,4
+Season 1,17/01/2025,COD_35,Round Robin,Unknown,Conor,Conor,Liam,L,1,6,283,1,6
+Season 1,17/01/2025,COD_36,Round Robin,King,Joe,Joe,Conor,L,4,6,862,4,6
+Season 1,22/01/2025,COD_37,Round Robin,Exhibit,Liam,Liam,Andrew,W,6,4,744,6,4
+Season 1,22/01/2025,COD_38,Round Robin,Fight,Harry,Harry,Lawrence,L,5,6,534,5,6
+Season 1,22/01/2025,COD_39,Round Robin,Canal,Andrew,Andrew,Iestyn,L,5,6,800,5,6
+Season 1,22/01/2025,COD_40,Round Robin,Canal,Lawrence,Lawrence,Andrew,L,5,6,763,5,6
+Season 1,22/01/2025,COD_41,Round Robin,Alley,Iestyn,Iestyn,Michael,W,6,5,763,6,5
+Season 1,22/01/2025,COD_42,Round Robin,Exhibit,Michael,Michael,Harry,W,6,4,649,6,4
+Season 1,22/01/2025,COD_43,Round Robin,Shipment,Iestyn,Iestyn,Liam,L,3,6,621,3,6
+Season 1,22/01/2025,COD_44,Round Robin,King,Liam,Liam,Conor,L,3,6,470,3,4
+Season 1,22/01/2025,COD_45,Round Robin,King,Michael,Michael,Conor,W,6,4,662,6,4
+Season 1,22/01/2025,COD_46,Round Robin,Fight,Conor,Conor,Lawrence,L,5,6,658,5,5
+Season 1,22/01/2025,COD_47,Round Robin,Shipment,Harry,Harry,Liam,L,2,6,258,2,6
+Season 1,23/01/2025,COD_48,Round Robin,Alley,Conor,Conor,Joe,L,4,6,534,4,6
+Season 1,28/01/2025,COD_49,Round Robin,Alley,Liam,Liam,Michael,W,6,3,600,6,3
+Season 1,28/01/2025,COD_50,Round Robin,Alley,Harry,Harry,Joe,L,3,6,291,3,6
+Season 1,28/01/2025,COD_51,Round Robin,Shipment,Joe,Joe,Liam,L,4,6,642,4,6
+Season 1,28/01/2025,COD_52,Round Robin,Canal,Harry,Harry,Iestyn,L,5,6,723,5,6
+Season 1,28/01/2025,COD_53,Round Robin,Canal,Michael,Michael,Andrew,W,6,5,878,6,5
+Season 1,28/01/2025,COD_54,Round Robin,King,Liam,Liam,Alex,W,6,3,727,6,3
+Season 1,28/01/2025,COD_55,Round Robin,Allay,Iestyn,Iestyn,Joe,L,2,6,391,2,6
+Season 1,28/01/2025,COD_56,Round Robin,King,Michael,Michael,Alex,L,3,6,341,3,6
+Season 1,28/01/2025,COD_57,Round Robin,Fight,Andrew,Andrew,Harry,W,6,0,500,5,0
+Season 1,28/01/2025,COD_58,Round Robin,King,Joe,Joe,Alex,L,5,6,674,5,6
+Season 1,28/01/2025,COD_59,Round Robin,Unknown,Alex,Alex,Andrew,L,4,6,725,4,6
+Season 1,28/01/2025,COD_60,Round Robin,Alley,Joe,Joe,Michael,W,6,0,600,6,0
+Season 1,28/01/2025,COD_61,Round Robin,Exhibit,Andrew,Andrew,Joe,L,3,6,458,3,6
+Season 1,28/01/2025,COD_62,Round Robin,Exhibit,Alex,Alex,Harry,W,6,5,633,6,5
+Season 1,28/01/2025,COD_63,Round Robin,Canal,Iestyn,Iestyn,Alex,L,5,6,602,5,6
+Season 1,28/01/2025,COD_64,Round Robin,Exhibit,Conor,Conor,Harry,L,4,6,656,3,6
+Season 1,28/01/2025,COD_65,Round Robin,King,Andrew,Andrew,Conor,L,4,6,584,4,6
+Season 1,28/01/2025,COD_66,Round Robin,Canal,Lawrence,Lawrence,Michael,W,6,5,744,4,5
+Season 1,28/01/2025,COD_67,Round Robin,Shipment,Iestyn,Iestyn,Lawrence,L,5,6,560,5,6
+Season 1,28/01/2025,COD_68,Round Robin,King,Alex,Alex,Conor,L,2,6,395,2,6
+Season 1,28/01/2025,COD_69,Round Robin,Shipment,Lawrence,Lawrence,Liam,L,3,6,401,3,6
+Season 1,04/02/2025,COD_70,Round Robin,Alley,Lawrence,Lawrence,Alex,L,5,6,718,5,6
+Season 1,04/02/2025,COD_71,Round Robin,Shipment,Joe,Joe,Lawrence,W,6,3,625,6,3
+Season 1,04/02/2025,COD_72,Round Robin,Canal,Iestyn,Iestyn,Conor,W,6,4,600,6,4
+Season 1,04/02/2025,COD_73,Knockout,Lounge,Harry,Harry,Andrew,L,3,6,390,3,6
+Season 1,04/02/2025,COD_74,Knockout,Mercado,Iestyn,Iestyn,Alex,W,6,3,770,6,3
+Season 1,04/02/2025,COD_75,Knockout,Blacksite,Michael,Michael,Liam,W,9,7,1092,9,7
+Season 1,04/02/2025,COD_76,Knockout,Canal,Conor,Conor,Lawrence,L,2,6,200,2,6
+Season 1,04/02/2025,COD_77,Knockout,Canal,Andrew,Andrew,Joe,W,6,2,740,6,2
+Season 1,04/02/2025,COD_78,Knockout,Blacksite,Harry,Harry,Conor,W,6,4,753,6,4
+Season 1,04/02/2025,COD_79,Knockout,Exhibit,Lawrence,Lawrence,Andrew,W,6,3,600,6,3
+Season 1,04/02/2025,COD_80,Knockout,Blacksite,Iestyn,Iestyn,Michael,W,6,4,820,6,3
+Season 1,04/02/2025,COD_81,Knockout,King,Harry,Harry,Liam,L,5,7,601,5,7
+Season 1,04/02/2025,COD_82,Knockout,Lounge,Alex,Alex,Joe,L,2,6,200,2,6
+Season 1,04/02/2025,COD_83,Knockout,Fight,Iestyn,Iestyn,Lawrence,W,8,6,905,8,6
+Season 1,04/02/2025,COD_84,Knockout,Mercado,Iestyn,Iestyn,Lawrence,W,6,2,666,6,2
+Season 1,19/02/2025,COD_85,Knockout,King,Liam,Liam,Andrew,W,6,0,600,6,0
+Season 1,19/02/2025,COD_86,Knockout,Unknown,Joe,Joe,Michael,W,6,4,614,6,4
+Season 1,19/02/2025,COD_87,Knockout,Unknown,Joe,Joe,Liam,L,3,6,423,3,6
+Season 1,19/02/2025,COD_88,Knockout,King,Liam,Liam,Lawrence,W,6,0,600,6,0
+Season 1,19/02/2025,COD_89,Knockout,Shipment,Liam,Liam,Lawrence,W,6,3,664,6,3
+Season 1,19/02/2025,COD_90,Knockout,Canal,Liam,Liam,Iestyn,W,6,0,558,5,0
+Season 1,19/02/2025,COD_91,Knockout,Shipment,Liam,Liam,Iestyn,L,4,6,521,4,6
+Season 1,19/02/2025,COD_92,Knockout,Blacksite,Liam,Liam,Iestyn,L,4,6,615,4,6
+Season 1,19/02/2025,COD_93,Knockout,Exhibit,Liam,Liam,Iestyn,W,7,5,807,7,5
+Season 1,19/02/2025,COD_94,Knockout,Mercado,Liam,Liam,Iestyn,W,6,1,614,6,1

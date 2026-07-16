@@ -1,0 +1,331 @@
+Season,Stage,Week,MatchID,Date,Gamemode,Map,Player,Team,OpponentTeam,Result,TeamScore,OpponentScore,Kills,Deaths,Assists,NonTradedKills,HighestStreak,Damage,Plants,Defuses,FirstBloods,FirstDeaths,KillsPerRound,DmgPerRound,Time,Defends,KDR
+Season 1,,Week 1,S1-1-1,,SND,,Liam,Whining Bitches,Team Ham,W,6,2,11,3,0,7,10,1450,0,2,1,1,1.37,181.25,,,3.67
+Season 1,,Week 1,S1-1-1,,SND,,Alex,Whining Bitches,Team Ham,W,6,2,4,5,2,2,3,477,0,1,1,4,0.50,59.62,,,0.8
+Season 1,,Week 1,S1-1-1,,SND,,Conor,Whining Bitches,Team Ham,W,6,2,4,4,0,3,2,414,2,0,1,0,0.50,51.75,,,1.0
+Season 1,,Week 1,S1-1-1,,SND,,Michael,Team Ham,Whining Bitches,L,2,6,6,6,0,5,3,695,1,0,4,2,0.75,86.87,,,1.0
+Season 1,,Week 1,S1-1-1,,SND,,Andrew,Team Ham,Whining Bitches,L,2,6,5,6,1,3,3,744,1,0,1,1,0.62,93.00,,,0.83
+Season 1,,Week 1,S1-1-1,,SND,,Harry,Team Ham,Whining Bitches,L,2,6,1,7,0,1,1,451,1,0,0,0,0.12,56.37,,,0.14
+Season 1,,Week 1,S1-1-2,,SND,,Harry,Team Ham,Whining Bitches,L,4,6,6,8,1,5,1,700,0,0,2,0,0.45,51.45,,,0.75
+Season 1,,Week 1,S1-1-2,,SND,,Michael,Team Ham,Whining Bitches,L,4,6,8,6,1,5,3,926,1,0,2,1,0.54,64.00,,,1.33
+Season 1,,Week 1,S1-1-2,,SND,,Andrew,Team Ham,Whining Bitches,L,4,6,6,7,0,2,4,750,0,0,4,3,0.45,53.63,,,0.86
+Season 1,,Week 1,S1-1-2,,SND,,Liam,Whining Bitches,Team Ham,W,6,4,8,6,2,7,4,1086,1,0,0,1,0.70,98.72,,,1.33
+Season 1,,Week 1,S1-1-2,,SND,,Conor,Whining Bitches,Team Ham,W,6,4,8,7,1,2,4,1000,2,0,1,2,0.60,77.45,,,1.14
+Season 1,,Week 1,S1-1-2,,SND,,Alex,Whining Bitches,Team Ham,W,6,4,4,9,0,3,3,600,0,0,2,6,0.27,37.63,,,0.44
+Season 1,,Week 1,S1-2-1,,SND,,Harry,Team Ham,Rush B,L,2,6,5,7,,,,,1,0,,,,,,,0.71
+Season 1,,Week 1,S1-2-1,,SND,,Andrew,Team Ham,Rush B,L,2,6,5,6,,,,,0,0,,,,,,,0.83
+Season 1,,Week 1,S1-2-1,,SND,,Lawrence,Team Ham,Rush B,L,2,6,3,6,,,,,0,0,,,,,,,0.5
+Season 1,,Week 1,S1-2-1,,SND,,Joe,Rush B,Team Ham,W,6,2,8,4,,,,,2,1,,,,,,,2.0
+Season 1,,Week 1,S1-2-1,,SND,,Iestyn,Rush B,Team Ham,W,6,2,6,4,,,,,0,0,,,,,,,1.5
+Season 1,,Week 1,S1-2-1,,SND,,Jamie,Rush B,Team Ham,W,6,2,6,3,,,,,0,0,,,,,,,2.0
+Season 1,,Week 1,S1-2-2,,SND,,Andrew,Team Ham,Rush B,L,5,6,9,7,,,,,0,0,,,,,,,1.29
+Season 1,,Week 1,S1-2-2,,SND,,Harry,Team Ham,Rush B,L,5,6,8,7,,,,,2,0,,,,,,,1.14
+Season 1,,Week 1,S1-2-2,,SND,,Lawrence,Team Ham,Rush B,L,5,6,5,7,,,,,2,1,,,,,,,0.71
+Season 1,,Week 1,S1-2-2,,SND,,Joe,Rush B,Team Ham,W,6,5,11,6,,,,,2,2,,,,,,,1.83
+Season 1,,Week 1,S1-2-2,,SND,,Jamie,Rush B,Team Ham,W,6,5,9,8,,,,,0,1,,,,,,,1.12
+Season 1,,Week 1,S1-2-2,,SND,,Iestyn,Rush B,Team Ham,W,6,5,1,8,,,,,0,0,,,,,,,0.12
+Season 1,,Week 1,S1-3-1,,SND,,Joe,Rush B,Whining Bitches,W,6,0,5,4,3,2,3,548,3,0,1,1,0.83,91.33,,,1.25
+Season 1,,Week 1,S1-3-1,,SND,,Jamie,Rush B,Whining Bitches,W,6,0,7,4,1,5,2,1006,0,0,1,0,1.16,167.66,,,1.75
+Season 1,,Week 1,S1-3-1,,SND,,Iestyn,Rush B,Whining Bitches,W,6,0,6,1,3,5,4,642,0,0,2,1,1.00,107.00,,,6.0
+Season 1,,Week 1,S1-3-1,,SND,,Liam,Whining Bitches,Rush B,L,0,6,4,6,0,2,1,646,0,0,2,0,0.66,107.66,,,0.67
+Season 1,,Week 1,S1-3-1,,SND,,Alex,Whining Bitches,Rush B,L,0,6,2,6,1,0,1,341,0,0,0,1,0.33,56.83,,,0.33
+Season 1,,Week 1,S1-3-1,,SND,,Conor,Whining Bitches,Rush B,L,0,6,3,6,0,2,2,458,0,0,0,3,0.50,76.33,,,0.5
+Season 1,,Week 1,S1-3-2,,SND,,Liam,Whining Bitches,Rush B,W,6,4,13,4,0,8,3,1523,4,0,2,0,1.30,152.30,,,3.25
+Season 1,,Week 1,S1-3-2,,SND,,Alex,Whining Bitches,Rush B,W,6,4,5,7,0,4,2,649,1,0,1,4,0.50,64.90,,,0.71
+Season 1,,Week 1,S1-3-2,,SND,,Conor,Whining Bitches,Rush B,W,6,4,5,9,0,3,2,794,0,0,2,1,0.50,79.40,,,0.56
+Season 1,,Week 1,S1-3-2,,SND,,Joe,Rush B,Whining Bitches,L,4,6,11,7,1,7,3,1231,3,1,5,2,1.10,123.10,,,1.57
+Season 1,,Week 1,S1-3-2,,SND,,Jamie,Rush B,Whining Bitches,L,4,6,4,8,2,2,2,651,0,0,0,2,0.40,65.10,,,0.5
+Season 1,,Week 1,S1-3-2,,SND,,Iestyn,Rush B,Whining Bitches,L,4,6,6,10,1,4,2,636,0,0,0,1,0.50,63.60,,,0.6
+Season 1,,Week 1,S1-3-3,,SND,,Conor,Whining Bitches,Rush B,L,4,6,0,8,3,0,0,386,3,0,0,4,0.00,38.59,,,0.0
+Season 1,,Week 1,S1-3-3,,SND,,Liam,Whining Bitches,Rush B,L,4,6,14,6,1,9,7,1494,0,1,2,0,1.40,149.39,,,2.33
+Season 1,,Week 1,S1-3-3,,SND,,Alex,Whining Bitches,Rush B,L,4,6,4,10,2,4,1,918,0,0,1,3,0.40,91.80,,,0.4
+Season 1,,Week 1,S1-3-3,,SND,,Joe,Rush B,Whining Bitches,W,6,4,10,7,2,7,4,1076,3,0,5,2,1.00,107.60,,,1.43
+Season 1,,Week 1,S1-3-3,,SND,,Jamie,Rush B,Whining Bitches,W,6,4,11,6,1,7,6,1188,2,0,0,0,1.10,118.80,,,1.83
+Season 1,,Week 1,S1-3-3,,SND,,Iestyn,Rush B,Whining Bitches,W,6,4,3,5,1,2,1,803,0,0,2,1,0.30,80.30,,,0.6
+Season 1,,Week 2,S1-4-1,,Hardpoint,,Liam,Whining Bitches,Team Ham,L,152,250,18,18,,,,,,,,,,,01:49,0,1.0
+Season 1,,Week 2,S1-4-1,,Hardpoint,,Lawrence,Whining Bitches,Team Ham,L,152,250,23,22,,,,,,,,,,,02:02,7,1.05
+Season 1,,Week 2,S1-4-1,,Hardpoint,,Conor,Whining Bitches,Team Ham,L,152,250,14,20,,,,,,,,,,,01:00,4,0.7
+Season 1,,Week 2,S1-4-1,,Hardpoint,,Harry,Team Ham,Whining Bitches,W,250,152,18,18,,,,,,,,,,,02:37,3,1.0
+Season 1,,Week 2,S1-4-1,,Hardpoint,,Andrew,Team Ham,Whining Bitches,W,250,152,27,18,,,,,,,,,,,01:22,5,1.5
+Season 1,,Week 2,S1-4-1,,Hardpoint,,Iestyn,Team Ham,Whining Bitches,W,250,152,20,22,,,,,,,,,,,01:58,4,0.91
+Season 1,,Week 2,S1-4-2,,Hardpoint,,Lawrence,Team Ham,Whining Bitches,W,250,181,18,17,,,,,,,,,,,02:36,9,1.06
+Season 1,,Week 2,S1-4-2,,Hardpoint,,Harry,Team Ham,Whining Bitches,W,250,181,21,21,,,,,,,,,,,01:19,6,1.0
+Season 1,,Week 2,S1-4-2,,Hardpoint,,Andrew,Team Ham,Whining Bitches,W,250,181,22,28,,,,,,,,,,,01:34,4,0.79
+Season 1,,Week 2,S1-4-2,,Hardpoint,,Liam,Whining Bitches,Team Ham,L,181,250,28,20,,,,,,,,,,,01:33,6,1.4
+Season 1,,Week 2,S1-4-2,,Hardpoint,,Cappa,Whining Bitches,Team Ham,L,181,250,16,20,,,,,,,,,,,01:15,1,0.8
+Season 1,,Week 2,S1-4-2,,Hardpoint,,Conor,Whining Bitches,Team Ham,L,181,250,22,21,,,,,,,,,,,00:39,2,1.05
+Season 1,,Week 2,S1-5-1,,Hardpoint,,Andrew,Team Ham,Rush B,L,209,250,22,21,,,,,,,,,,,01:31,4,1.05
+Season 1,,Week 2,S1-5-1,,Hardpoint,,Lawrence,Team Ham,Rush B,L,209,250,19,24,,,,,,,,,,,01:31,6,0.79
+Season 1,,Week 2,S1-5-1,,Hardpoint,,Harry,Team Ham,Rush B,L,209,250,14,22,,,,,,,,,,,01:32,0,0.64
+Season 1,,Week 2,S1-5-1,,Hardpoint,,Joe,Rush B,Team Ham,W,250,209,33,13,,,,,,,,,,,02:27,7,2.54
+Season 1,,Week 2,S1-5-1,,Hardpoint,,Iestyn,Rush B,Team Ham,W,250,209,18,23,,,,,,,,,,,00:42,3,0.78
+Season 1,,Week 2,S1-5-1,,Hardpoint,,Jamie,Rush B,Team Ham,W,250,209,16,19,,,,,,,,,,,02:03,5,0.84
+Season 1,,Week 2,S1-5-2,,Hardpoint,,Lawrence,Team Ham,Rush B,L,178,250,24,31,,,,,,,,,,,01:30,5,0.77
+Season 1,,Week 2,S1-5-2,,Hardpoint,,Andrew,Team Ham,Rush B,L,178,250,29,29,,,,,,,,,,,01:25,6,1.0
+Season 1,,Week 2,S1-5-2,,Hardpoint,,Harry,Team Ham,Rush B,L,178,250,15,36,,,,,,,,,,,00:57,2,0.42
+Season 1,,Week 2,S1-5-2,,Hardpoint,,Joe,Rush B,Team Ham,W,250,178,40,22,,,,,,,,,,,01:35,10,1.82
+Season 1,,Week 2,S1-5-2,,Hardpoint,,Jamie,Rush B,Team Ham,W,250,178,29,20,,,,,,,,,,,02:36,11,1.45
+Season 1,,Week 2,S1-5-2,,Hardpoint,,Iestyn,Rush B,Team Ham,W,250,178,27,26,,,,,,,,,,,01:08,7,1.04
+Season 1,,Week 2,S1-6-1,,Hardpoint,,Jamie,Rush B,Whining Bitches,L,129,250,10,23,,,,,,,,,,,00:45,3,0.43
+Season 1,,Week 2,S1-6-1,,Hardpoint,,Joe,Rush B,Whining Bitches,L,129,250,21,18,,,,,,,,,,,00:21,5,1.17
+Season 1,,Week 2,S1-6-1,,Hardpoint,,Iestyn,Rush B,Whining Bitches,L,129,250,21,21,,,,,,,,,,,01:24,7,1.0
+Season 1,,Week 2,S1-6-1,,Hardpoint,,Liam,Whining Bitches,Rush B,W,250,129,31,16,,,,,,,,,,,02:07,11,1.94
+Season 1,,Week 2,S1-6-1,,Hardpoint,,Conor,Whining Bitches,Rush B,W,250,129,18,20,,,,,,,,,,,00:56,4,0.9
+Season 1,,Week 2,S1-6-1,,Hardpoint,,Cappa,Whining Bitches,Rush B,W,250,129,13,16,,,,,,,,,,,02:14,5,0.81
+Season 1,,Week 2,S1-6-2,,Hardpoint,,Jamie,Rush B,Whining Bitches,L,200,250,21,21,,,,,,,,,,,00:36,5,1.0
+Season 1,,Week 2,S1-6-2,,Hardpoint,,Joe,Rush B,Whining Bitches,L,200,250,31,20,,,,,,,,,,,01:45,7,1.55
+Season 1,,Week 2,S1-6-2,,Hardpoint,,Iestyn,Rush B,Whining Bitches,L,200,250,19,20,,,,,,,,,,,01:56,5,0.95
+Season 1,,Week 2,S1-6-2,,Hardpoint,,Liam,Whining Bitches,Rush B,W,250,200,28,23,,,,,,,,,,,01:59,5,1.22
+Season 1,,Week 2,S1-6-2,,Hardpoint,,Conor,Whining Bitches,Rush B,W,250,200,14,29,,,,,,,,,,,01:35,2,0.48
+Season 1,,Week 2,S1-6-2,,Hardpoint,,Cappa,Whining Bitches,Rush B,W,250,200,19,19,,,,,,,,,,,02:08,6,1.0
+Season 1,,Week 3,S1-7-1,,SND,,Conor,Whining Bitches,Team Ham,L,4,6,7,7,0,4,4,902,3,0,0,3,0.70,90.20,,,1.0
+Season 1,,Week 3,S1-7-1,,SND,,Alex,Whining Bitches,Team Ham,L,4,6,6,8,0,5,4,873,0,0,2,3,0.60,87.30,,,0.75
+Season 1,,Week 3,S1-7-1,,SND,,Liam,Whining Bitches,Team Ham,L,4,6,9,6,1,7,5,1181,0,0,2,0,0.90,118.10,,,1.5
+Season 1,,Week 3,S1-7-1,,SND,,Harry,Team Ham,Whining Bitches,W,6,4,3,7,1,3,3,357,1,0,0,2,0.30,35.70,,,0.43
+Season 1,,Week 3,S1-7-1,,SND,,Andrew,Team Ham,Whining Bitches,W,6,4,10,7,0,7,3,1257,0,1,3,1,1.00,125.70,,,1.43
+Season 1,,Week 3,S1-7-1,,SND,,Michael,Team Ham,Whining Bitches,W,6,4,8,8,0,7,3,1304,3,1,3,1,0.80,130.39,,,1.0
+Season 1,,Week 3,S1-7-2,,SND,,Conor,Whining Bitches,Team Ham,W,6,2,11,2,0,7,8,1195,2,1,2,0,1.37,149.37,,,5.5
+Season 1,,Week 3,S1-7-2,,SND,,Alex,Whining Bitches,Team Ham,W,6,2,4,6,1,2,2,557,0,0,1,4,0.50,69.62,,,0.67
+Season 1,,Week 3,S1-7-2,,SND,,Liam,Whining Bitches,Team Ham,W,6,2,4,5,1,2,2,747,0,0,0,1,0.50,93.37,,,0.8
+Season 1,,Week 3,S1-7-2,,SND,,Harry,Team Ham,Whining Bitches,L,2,6,3,7,0,3,1,399,1,0,1,1,0.37,49.87,,,0.43
+Season 1,,Week 3,S1-7-2,,SND,,Andrew,Team Ham,Whining Bitches,L,2,6,5,6,0,4,2,605,0,0,2,1,0.62,75.62,,,0.83
+Season 1,,Week 3,S1-7-2,,SND,,Michael,Team Ham,Whining Bitches,L,2,6,5,7,0,3,2,682,0,0,2,1,0.62,85.25,,,0.71
+Season 1,,Week 3,S1-7-3,,SND,,Harry,Team Ham,Whining Bitches,W,6,3,4,5,1,2,2,581,3,0,1,1,0.44,64.55,,,0.8
+Season 1,,Week 3,S1-7-3,,SND,,Andrew,Team Ham,Whining Bitches,W,6,3,6,5,0,3,3,717,0,0,3,1,0.33,79.66,,,1.2
+Season 1,,Week 3,S1-7-3,,SND,,Lawrence,Team Ham,Whining Bitches,W,6,3,11,4,0,7,4,1698,2,0,3,0,0.22,188.66,,,2.75
+Season 1,,Week 3,S1-7-3,,SND,,Liam,Whining Bitches,Team Ham,L,3,6,8,5,1,5,3,960,0,1,1,1,0.88,106.66,,,1.6
+Season 1,,Week 3,S1-7-3,,SND,,Conor,Whining Bitches,Team Ham,L,3,6,0,9,3,0,0,213,1,0,0,4,0.00,23.60,,,0.0
+Season 1,,Week 3,S1-7-3,,SND,,Cappa,Whining Bitches,Team Ham,L,3,6,6,7,0,5,3,633,0,0,1,2,0.67,70.33,,,0.86
+Season 1,,Week 3,S1-8-1,,SND,,Harry,Team Ham,Rush B,L,2,6,4,5,0,2,2,474,0,0,1,1,0.50,59.25,,,0.8
+Season 1,,Week 3,S1-8-1,,SND,,Andrew,Team Ham,Rush B,L,2,6,3,8,1,3,1,759,0,0,2,3,0.37,94.87,,,0.38
+Season 1,,Week 3,S1-8-1,,SND,,Michael,Team Ham,Rush B,L,2,6,2,6,0,1,2,290,0,0,0,1,0.25,36.25,,,0.33
+Season 1,,Week 3,S1-8-1,,SND,,Jamie,Rush B,Team Ham,W,6,2,5,3,2,3,3,696,0,0,1,2,0.62,87.00,,,1.67
+Season 1,,Week 3,S1-8-1,,SND,,Joe,Rush B,Team Ham,W,6,2,9,3,0,8,3,1053,2,0,4,0,1.12,131.62,,,3.0
+Season 1,,Week 3,S1-8-1,,SND,,Iestyn,Rush B,Team Ham,W,6,2,5,3,2,2,3,678,0,0,0,1,0.62,54.75,,,1.67
+Season 1,,Week 3,S1-8-2,,SND,,Jamie,Rush B,Team Ham,W,6,2,6,4,0,3,4,775,2,1,0,0,0.75,96.87,,,1.5
+Season 1,,Week 3,S1-8-2,,SND,,Joe,Rush B,Team Ham,W,6,2,10,5,0,7,3,1153,1,0,4,1,1.25,144.12,,,2.0
+Season 1,,Week 3,S1-8-2,,SND,,Iestyn,Rush B,Team Ham,W,6,2,4,6,1,2,2,805,0,0,2,1,0.50,100.32,,,0.67
+Season 1,,Week 3,S1-8-2,,SND,,Harry,Team Ham,Rush B,L,2,6,4,7,0,3,3,467,1,0,2,2,0.50,58.37,,,0.57
+Season 1,,Week 3,S1-8-2,,SND,,Andrew,Team Ham,Rush B,L,2,6,4,7,0,3,2,899,0,0,0,2,0.50,112.37,,,0.57
+Season 1,,Week 3,S1-8-2,,SND,,Michael,Team Ham,Rush B,L,2,6,7,6,0,6,5,862,1,1,0,2,0.87,107.75,,,1.17
+Season 1,,Week 3,S1-9-1,,SND,,Conor,Whining Bitches,Rush B,W,6,5,6,3,1,3,5,731,2,0,0,1,0.66,81.22,,,2.0
+Season 1,,Week 3,S1-9-1,,SND,,Alex,Whining Bitches,Rush B,W,6,5,2,8,4,1,1,493,0,0,1,5,0.22,54.77,,,0.25
+Season 1,,Week 3,S1-9-1,,SND,,Liam,Whining Bitches,Rush B,W,6,5,11,4,2,8,8,1149,0,1,2,0,1.22,127.66,,,2.75
+Season 1,,Week 3,S1-9-1,,SND,,Jamie,Rush B,Whining Bitches,L,5,6,5,7,1,4,5,785,3,0,1,0,0.55,87.22,,,0.71
+Season 1,,Week 3,S1-9-1,,SND,,Joe,Rush B,Whining Bitches,L,5,6,8,6,0,4,5,968,0,0,4,1,0.88,107.55,,,1.33
+Season 1,,Week 3,S1-9-1,,SND,,Iestyn,Rush B,Whining Bitches,L,5,6,2,6,0,1,1,307,0,0,1,2,0.22,34.11,,,0.33
+Season 1,,Week 3,S1-9-2,,SND,,Jamie,Rush B,Whining Bitches,W,6,5,8,8,0,5,4,694,1,0,2,3,0.72,63.09,,,1.0
+Season 1,,Week 3,S1-9-2,,SND,,Joe,Rush B,Whining Bitches,W,6,5,10,9,7,8,2,1509,1,0,5,2,0.90,137.18,,,1.11
+Season 1,,Week 3,S1-9-2,,SND,,Iestyn,Rush B,Whining Bitches,W,6,5,7,6,0,2,4,1197,0,1,0,0,0.63,108.81,,,1.17
+Season 1,,Week 3,S1-9-2,,SND,,Conor,Whining Bitches,Rush B,L,5,6,7,10,1,5,2,894,1,0,2,3,0.63,81.27,,,0.7
+Season 1,,Week 3,S1-9-2,,SND,,Alex,Whining Bitches,Rush B,L,5,6,0,9,0,0,0,344,0,0,0,3,0.00,31.27,,,0.0
+Season 1,,Week 3,S1-9-2,,SND,,Liam,Whining Bitches,Rush B,L,5,6,16,6,0,11,10,1954,1,1,2,0,1.45,177.63,,,2.67
+Season 1,,Week 3,S1-9-3,,SND,,Joe,Rush B,Whining Bitches,L,5,6,7,9,1,5,4,721,2,0,2,4,0.63,65.54,,,0.78
+Season 1,,Week 3,S1-9-3,,SND,,Jamie,Rush B,Whining Bitches,L,5,6,2,8,1,0,1,373,0,0,0,3,0.18,33.90,,,0.25
+Season 1,,Week 3,S1-9-3,,SND,,Iestyn,Rush B,Whining Bitches,L,5,6,10,7,4,8,4,2031,1,1,2,0,0.90,184.63,,,1.43
+Season 1,,Week 3,S1-9-3,,SND,,Liam,Whining Bitches,Rush B,W,6,5,6,8,0,4,3,1084,0,0,4,3,0.54,98.54,,,0.75
+Season 1,,Week 3,S1-9-3,,SND,,Conor,Whining Bitches,Rush B,W,6,5,8,5,0,6,5,979,3,1,1,1,0.72,89.00,,,1.6
+Season 1,,Week 3,S1-9-3,,SND,,Cappa,Whining Bitches,Rush B,W,6,5,10,6,0,4,3,1317,0,0,2,0,0.90,119.72,,,1.67
+Season 1,,Week 4,S1-12-1,,Hardpoint,,Liam,Whining Bitches,Rush B,W,250,182,31,13,,,,,,,,,,,01:14,5,2.38
+Season 1,,Week 4,S1-12-1,,Hardpoint,,Lawrence,Whining Bitches,Rush B,W,250,182,22,20,,,,,,,,,,,02:33,8,1.1
+Season 1,,Week 4,S1-12-1,,Hardpoint,,Alex,Whining Bitches,Rush B,W,250,182,15,19,,,,,,,,,,,02:38,6,0.79
+Season 1,,Week 4,S1-12-1,,Hardpoint,,Joe,Rush B,Whining Bitches,L,182,250,29,19,,,,,,,,,,,01:55,8,1.53
+Season 1,,Week 4,S1-12-1,,Hardpoint,,Iestyn,Rush B,Whining Bitches,L,182,250,9,28,,,,,,,,,,,01:08,0,0.32
+Season 1,,Week 4,S1-12-1,,Hardpoint,,Jamie,Rush B,Whining Bitches,L,182,250,13,21,,,,,,,,,,,00:49,1,0.62
+Season 1,,Week 4,S1-12-2,,Hardpoint,,Liam,Whining Bitches,Rush B,L,207,250,24,25,,,,,,,,,,,01:17,7,0.96
+Season 1,,Week 4,S1-12-2,,Hardpoint,,Lawrence,Whining Bitches,Rush B,L,207,250,17,23,,,,,,,,,,,01:04,4,0.74
+Season 1,,Week 4,S1-12-2,,Hardpoint,,Alex,Whining Bitches,Rush B,L,207,250,11,27,,,,,,,,,,,01:37,2,0.41
+Season 1,,Week 4,S1-12-2,,Hardpoint,,Joe,Rush B,Whining Bitches,W,250,207,30,16,,,,,,,,,,,02:26,14,1.88
+Season 1,,Week 4,S1-12-2,,Hardpoint,,Iestyn,Rush B,Whining Bitches,W,250,207,25,20,,,,,,,,,,,02:03,9,1.25
+Season 1,,Week 4,S1-12-2,,Hardpoint,,Jamie,Rush B,Whining Bitches,W,250,207,20,16,,,,,,,,,,,02:13,9,1.25
+Season 1,,Week 4,S1-12-3,,Hardpoint,,Liam,Whining Bitches,Rush B,W,250,191,35,20,,,,,,,,,,,01:26,5,1.75
+Season 1,,Week 4,S1-12-3,,Hardpoint,,Lawrence,Whining Bitches,Rush B,W,250,191,21,23,,,,,,,,,,,01:50,4,0.91
+Season 1,,Week 4,S1-12-3,,Hardpoint,,Alex,Whining Bitches,Rush B,W,250,191,16,22,,,,,,,,,,,02:36,5,0.73
+Season 1,,Week 4,S1-12-3,,Hardpoint,,Joe,Rush B,Whining Bitches,L,191,250,29,24,,,,,,,,,,,01:17,3,1.21
+Season 1,,Week 4,S1-12-3,,Hardpoint,,Iestyn,Rush B,Whining Bitches,L,191,250,19,25,,,,,,,,,,,01:15,7,0.76
+Season 1,,Week 4,S1-12-3,,Hardpoint,,Jamie,Rush B,Whining Bitches,L,191,250,17,23,,,,,,,,,,,00:45,2,0.74
+Season 1,,Week 4,S1-10-1,,Hardpoint,,Lawrence,Team Ham,Whining Bitches,L,178,250,17,25,,,,,,,,,,,01:37,1,0.68
+Season 1,,Week 4,S1-10-1,,Hardpoint,,Michael,Team Ham,Whining Bitches,L,178,250,16,25,,,,,,,,,,,01:35,1,0.64
+Season 1,,Week 4,S1-10-1,,Hardpoint,,Harry,Team Ham,Whining Bitches,L,178,250,8,25,,,,,,,,,,,01:00,1,0.32
+Season 1,,Week 4,S1-10-1,,Hardpoint,,Liam,Whining Bitches,Team Ham,W,250,178,35,13,,,,,,,,,,,02:36,1,2.69
+Season 1,,Week 4,S1-10-1,,Hardpoint,,Iestyn,Whining Bitches,Team Ham,W,250,178,22,13,,,,,,,,,,,01:23,1,1.69
+Season 1,,Week 4,S1-10-1,,Hardpoint,,Conor,Whining Bitches,Team Ham,W,250,178,19,13,,,,,,,,,,,00:55,1,1.46
+Season 1,,Week 4,S1-10-2,,Hardpoint,,Michael,Team Ham,Whining Bitches,L,130,250,15,17,,,,,,,,,,,01:05,1,0.88
+Season 1,,Week 4,S1-10-2,,Hardpoint,,Lawrence,Team Ham,Whining Bitches,L,130,250,14,17,,,,,,,,,,,01:04,1,0.82
+Season 1,,Week 4,S1-10-2,,Hardpoint,,Harry,Team Ham,Whining Bitches,L,130,250,6,17,,,,,,,,,,,01:10,1,0.35
+Season 1,,Week 4,S1-10-2,,Hardpoint,,Liam,Whining Bitches,Team Ham,W,250,130,25,11,,,,,,,,,,,01:21,1,2.27
+Season 1,,Week 4,S1-10-2,,Hardpoint,,Iestyn,Whining Bitches,Team Ham,W,250,130,13,11,,,,,,,,,,,02:16,1,1.18
+Season 1,,Week 4,S1-10-2,,Hardpoint,,Conor,Whining Bitches,Team Ham,W,250,130,15,11,,,,,,,,,,,01:40,1,1.36
+Season 1,,Week 4,S1-11-1,,Hardpoint,,Michael,Team Ham,Rush B,L,69,250,14,14,,,,,,,,,,,00:13,1,1.0
+Season 1,,Week 4,S1-11-1,,Hardpoint,,Harry,Team Ham,Rush B,L,69,250,5,14,,,,,,,,,,,01:03,1,0.36
+Season 1,,Week 4,S1-11-1,,Hardpoint,,Lawrence,Team Ham,Rush B,L,69,250,8,14,,,,,,,,,,,00:02,1,0.57
+Season 1,,Week 4,S1-11-1,,Hardpoint,,Liam,Rush B,Team Ham,W,250,69,19,8,,,,,,,,,,,02:19,1,2.38
+Season 1,,Week 4,S1-11-1,,Hardpoint,,Joe,Rush B,Team Ham,W,250,69,16,8,,,,,,,,,,,01:33,1,2.0
+Season 1,,Week 4,S1-11-1,,Hardpoint,,Iestyn,Rush B,Team Ham,W,250,69,9,8,,,,,,,,,,,02:04,1,1.12
+Season 1,,Week 4,S1-11-2,,Hardpoint,,Lawrence,Team Ham,Rush B,L,96,250,20,22,,,,,,,,,,,00:59,5,0.91
+Season 1,,Week 4,S1-11-2,,Hardpoint,,Michael,Team Ham,Rush B,L,96,250,16,24,,,,,,,,,,,00:39,0,0.67
+Season 1,,Week 4,S1-11-2,,Hardpoint,,Harry,Team Ham,Rush B,L,96,250,10,24,,,,,,,,,,,00:47,1,0.42
+Season 1,,Week 4,S1-11-2,,Hardpoint,,Iestyn,Rush B,Team Ham,W,250,96,17,15,,,,,,,,,,,03:16,9,1.13
+Season 1,,Week 4,S1-11-2,,Hardpoint,,Liam,Rush B,Team Ham,W,250,96,30,13,,,,,,,,,,,00:46,5,2.31
+Season 1,,Week 4,S1-11-2,,Hardpoint,,Joe,Rush B,Team Ham,W,250,96,22,18,,,,,,,,,,,01:27,6,1.22
+Season 2,Round Robin,Week 1,S2-95,07/05/2025,SnD,Alboran Hatchery,Michael,Slam Poetry,Big Dick Boys Club,W,6,1,13,3,,,,,0,1,,,,,N/A,N/A,4.33
+Season 2,Round Robin,Week 1,S2-95,07/05/2025,SnD,Alboran Hatchery,Conor,Slam Poetry,Big Dick Boys Club,W,6,1,3,3,,,,,3,0,,,,,N/A,N/A,1.0
+Season 2,Round Robin,Week 1,S2-95,07/05/2025,SnD,Alboran Hatchery,Alex,Slam Poetry,Big Dick Boys Club,W,6,1,2,5,,,,,1,0,,,,,N/A,N/A,0.4
+Season 2,Round Robin,Week 1,S2-95,07/05/2025,SnD,Alboran Hatchery,Iestyn,Big Dick Boys Club,Slam Poetry,L,1,6,8,6,,,,,0,0,,,,,N/A,N/A,1.33
+Season 2,Round Robin,Week 1,S2-95,07/05/2025,SnD,Alboran Hatchery,Andrew,Big Dick Boys Club,Slam Poetry,L,1,6,1,6,,,,,0,0,,,,,N/A,N/A,0.17
+Season 2,Round Robin,Week 1,S2-95,07/05/2025,SnD,Alboran Hatchery,Joe,Big Dick Boys Club,Slam Poetry,L,1,6,2,6,,,,,2,0,,,,,N/A,N/A,0.33
+Season 2,Round Robin,Week 1,S2-96,07/05/2025,SnD,Strike,Harry,"Cripple, Cripple, Carer",Slam Poetry,L,1,6,4,7,,,,,0,0,,,,,N/A,N/A,0.57
+Season 2,Round Robin,Week 1,S2-96,07/05/2025,SnD,Strike,Liam,"Cripple, Cripple, Carer",Slam Poetry,L,1,6,3,6,,,,,0,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 1,S2-96,07/05/2025,SnD,Strike,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,L,1,6,0,6,,,,,0,0,,,,,N/A,N/A,0.0
+Season 2,Round Robin,Week 1,S2-96,07/05/2025,SnD,Strike,Alex,Slam Poetry,"Cripple, Cripple, Carer",W,6,1,7,4,,,,,2,0,,,,,N/A,N/A,1.75
+Season 2,Round Robin,Week 1,S2-96,07/05/2025,SnD,Strike,Conor,Slam Poetry,"Cripple, Cripple, Carer",W,6,1,7,1,,,,,0,0,,,,,N/A,N/A,7.0
+Season 2,Round Robin,Week 1,S2-96,07/05/2025,SnD,Strike,Michael,Slam Poetry,"Cripple, Cripple, Carer",W,6,1,5,2,,,,,1,0,,,,,N/A,N/A,2.5
+Season 2,Round Robin,Week 1,S2-97,07/05/2025,Hardpoint,Mercado,Joe,Big Dick Boys Club,Slam Poetry,W,250,161,20,10,,,,,N/A,N/A,,,,,0:00:47,9,2.0
+Season 2,Round Robin,Week 1,S2-97,07/05/2025,Hardpoint,Mercado,Andrew,Big Dick Boys Club,Slam Poetry,W,250,161,11,15,,,,,N/A,N/A,,,,,0:02:32,7,0.73
+Season 2,Round Robin,Week 1,S2-97,07/05/2025,Hardpoint,Mercado,Iestyn,Big Dick Boys Club,Slam Poetry,W,250,161,25,16,,,,,N/A,N/A,,,,,0:01:17,8,1.56
+Season 2,Round Robin,Week 1,S2-97,07/05/2025,Hardpoint,Mercado,Conor,Slam Poetry,Big Dick Boys Club,L,161,250,13,16,,,,,N/A,N/A,,,,,0:01:15,6,0.81
+Season 2,Round Robin,Week 1,S2-97,07/05/2025,Hardpoint,Mercado,Michael,Slam Poetry,Big Dick Boys Club,L,161,250,20,18,,,,,N/A,N/A,,,,,0:01:37,5,1.11
+Season 2,Round Robin,Week 1,S2-97,07/05/2025,Hardpoint,Mercado,Alex,Slam Poetry,Big Dick Boys Club,L,161,250,8,25,,,,,N/A,N/A,,,,,0:01:27,4,0.32
+Season 2,Round Robin,Week 1,S2-98,07/05/2025,Hardpoint,Hotel,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,W,250,209,38,13,,,,,N/A,N/A,,,,,0:02:29,13,2.92
+Season 2,Round Robin,Week 1,S2-98,07/05/2025,Hardpoint,Hotel,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,W,250,209,15,24,,,,,N/A,N/A,,,,,0:02:33,4,0.62
+Season 2,Round Robin,Week 1,S2-98,07/05/2025,Hardpoint,Hotel,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,W,250,209,14,26,,,,,N/A,N/A,,,,,0:01:05,3,0.54
+Season 2,Round Robin,Week 1,S2-98,07/05/2025,Hardpoint,Hotel,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",L,209,250,30,26,,,,,N/A,N/A,,,,,0:01:34,6,1.15
+Season 2,Round Robin,Week 1,S2-98,07/05/2025,Hardpoint,Hotel,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",L,209,250,17,21,,,,,N/A,N/A,,,,,0:01:28,4,0.81
+Season 2,Round Robin,Week 1,S2-98,07/05/2025,Hardpoint,Hotel,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",L,209,250,16,20,,,,,N/A,N/A,,,,,0:01:02,3,0.8
+Season 2,Round Robin,Week 1,S2-99,07/05/2025,SnD,Mercado,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,3,13,4,,,,,1,0,,,,,N/A,N/A,3.25
+Season 2,Round Robin,Week 1,S2-99,07/05/2025,SnD,Mercado,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,3,6,5,,,,,2,1,,,,,N/A,N/A,1.2
+Season 2,Round Robin,Week 1,S2-99,07/05/2025,SnD,Mercado,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,3,5,5,,,,,0,0,,,,,N/A,N/A,1.0
+Season 2,Round Robin,Week 1,S2-99,07/05/2025,SnD,Mercado,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",L,3,6,6,7,,,,,2,0,,,,,N/A,N/A,0.86
+Season 2,Round Robin,Week 1,S2-99,07/05/2025,SnD,Mercado,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",L,3,6,4,9,,,,,0,0,,,,,N/A,N/A,0.44
+Season 2,Round Robin,Week 1,S2-99,07/05/2025,SnD,Mercado,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",L,3,6,4,8,,,,,0,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 1,S2-100,07/05/2025,Hardpoint,Embassy,Liam,"Cripple, Cripple, Carer",Slam Poetry,W,250,183,42,14,,,,,N/A,N/A,,,,,0:01:30,16,3.0
+Season 2,Round Robin,Week 1,S2-100,07/05/2025,Hardpoint,Embassy,Harry,"Cripple, Cripple, Carer",Slam Poetry,W,250,183,17,21,,,,,N/A,N/A,,,,,0:01:41,6,0.81
+Season 2,Round Robin,Week 1,S2-100,07/05/2025,Hardpoint,Embassy,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,W,250,183,16,19,,,,,N/A,N/A,,,,,0:02:28,5,0.84
+Season 2,Round Robin,Week 1,S2-100,07/05/2025,Hardpoint,Embassy,Conor,Slam Poetry,"Cripple, Cripple, Carer",L,183,250,15,27,,,,,N/A,N/A,,,,,0:00:39,5,0.56
+Season 2,Round Robin,Week 1,S2-100,07/05/2025,Hardpoint,Embassy,Michael,Slam Poetry,"Cripple, Cripple, Carer",L,183,250,26,21,,,,,N/A,N/A,,,,,0:01:36,14,1.24
+Season 2,Round Robin,Week 1,S2-100,07/05/2025,Hardpoint,Embassy,Alex,Slam Poetry,"Cripple, Cripple, Carer",L,183,250,13,27,,,,,N/A,N/A,,,,,0:01:59,10,0.48
+Season 2,Round Robin,Week 2,S2-101,14/05/2025,SnD,Dome,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,2,13,2,,,,,2,0,,,,,N/A,N/A,6.5
+Season 2,Round Robin,Week 2,S2-101,14/05/2025,SnD,Dome,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,2,4,5,,,,,0,1,,,,,N/A,N/A,0.8
+Season 2,Round Robin,Week 2,S2-101,14/05/2025,SnD,Dome,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,2,3,7,,,,,1,0,,,,,N/A,N/A,0.43
+Season 2,Round Robin,Week 2,S2-101,14/05/2025,SnD,Dome,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",L,2,6,4,6,,,,,2,0,,,,,N/A,N/A,0.67
+Season 2,Round Robin,Week 2,S2-101,14/05/2025,SnD,Dome,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",L,2,6,5,7,,,,,1,0,,,,,N/A,N/A,0.71
+Season 2,Round Robin,Week 2,S2-101,14/05/2025,SnD,Dome,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",L,2,6,5,7,,,,,0,0,,,,,N/A,N/A,0.71
+Season 2,Round Robin,Week 2,S2-102,14/05/2025,Hardpoint,Al Bagra Fortress,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,L,210,250,43,24,,,,,N/A,N/A,,,,,0:00:28,3,1.79
+Season 2,Round Robin,Week 2,S2-102,14/05/2025,Hardpoint,Al Bagra Fortress,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,L,210,250,18,23,,,,,N/A,N/A,,,,,0:02:57,7,0.78
+Season 2,Round Robin,Week 2,S2-102,14/05/2025,Hardpoint,Al Bagra Fortress,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,L,210,250,12,31,,,,,N/A,N/A,,,,,0:00:47,3,0.39
+Season 2,Round Robin,Week 2,S2-102,14/05/2025,Hardpoint,Al Bagra Fortress,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,210,27,23,,,,,N/A,N/A,,,,,0:02:22,12,1.17
+Season 2,Round Robin,Week 2,S2-102,14/05/2025,Hardpoint,Al Bagra Fortress,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,210,22,30,,,,,N/A,N/A,,,,,0:01:19,5,0.73
+Season 2,Round Robin,Week 2,S2-102,14/05/2025,Hardpoint,Al Bagra Fortress,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,210,29,20,,,,,N/A,N/A,,,,,0:01:14,2,1.45
+Season 2,Round Robin,Week 2,S2-103,14/05/2025,SnD,Mercado,Joe,Big Dick Boys Club,Slam Poetry,W,6,2,8,4,,,,,3,0,,,,,N/A,N/A,2.0
+Season 2,Round Robin,Week 2,S2-103,14/05/2025,SnD,Mercado,Andrew,Big Dick Boys Club,Slam Poetry,W,6,2,7,6,,,,,0,1,,,,,N/A,N/A,1.17
+Season 2,Round Robin,Week 2,S2-103,14/05/2025,SnD,Mercado,Iestyn,Big Dick Boys Club,Slam Poetry,W,6,2,5,4,,,,,1,0,,,,,N/A,N/A,1.25
+Season 2,Round Robin,Week 2,S2-103,14/05/2025,SnD,Mercado,Michael,Slam Poetry,Big Dick Boys Club,L,2,6,3,6,,,,,1,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 2,S2-103,14/05/2025,SnD,Mercado,Conor,Slam Poetry,Big Dick Boys Club,L,2,6,5,7,,,,,1,0,,,,,N/A,N/A,0.71
+Season 2,Round Robin,Week 2,S2-103,14/05/2025,SnD,Mercado,Alex,Slam Poetry,Big Dick Boys Club,L,2,6,4,7,,,,,0,1,,,,,N/A,N/A,0.57
+Season 2,Round Robin,Week 2,S2-104,14/05/2025,SnD,Hotel,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,W,6,4,8,7,,,,,3,1,,,,,N/A,N/A,1.14
+Season 2,Round Robin,Week 2,S2-104,14/05/2025,SnD,Hotel,Liam,"Cripple, Cripple, Carer",Slam Poetry,W,6,4,11,5,,,,,0,1,,,,,N/A,N/A,2.2
+Season 2,Round Robin,Week 2,S2-104,14/05/2025,SnD,Hotel,Harry,"Cripple, Cripple, Carer",Slam Poetry,W,6,4,6,6,,,,,0,0,,,,,N/A,N/A,1.0
+Season 2,Round Robin,Week 2,S2-104,14/05/2025,SnD,Hotel,Michael,Slam Poetry,"Cripple, Cripple, Carer",L,4,6,12,8,,,,,0,1,,,,,N/A,N/A,1.5
+Season 2,Round Robin,Week 2,S2-104,14/05/2025,SnD,Hotel,Alex,Slam Poetry,"Cripple, Cripple, Carer",L,4,6,4,9,,,,,2,0,,,,,N/A,N/A,0.44
+Season 2,Round Robin,Week 2,S2-104,14/05/2025,SnD,Hotel,Conor,Slam Poetry,"Cripple, Cripple, Carer",L,4,6,2,8,,,,,1,0,,,,,N/A,N/A,0.25
+Season 2,Round Robin,Week 2,S2-105,14/05/2025,Hardpoint,Koro Village,Andrew,Big Dick Boys Club,Slam Poetry,W,250,137,23,17,,,,,N/A,N/A,,,,,0:02:11,6,1.35
+Season 2,Round Robin,Week 2,S2-105,14/05/2025,Hardpoint,Koro Village,Joe,Big Dick Boys Club,Slam Poetry,W,250,137,26,17,,,,,N/A,N/A,,,,,0:01:46,6,1.53
+Season 2,Round Robin,Week 2,S2-105,14/05/2025,Hardpoint,Koro Village,Iestyn,Big Dick Boys Club,Slam Poetry,W,250,137,20,19,,,,,N/A,N/A,,,,,0:00:39,1,1.05
+Season 2,Round Robin,Week 2,S2-105,14/05/2025,Hardpoint,Koro Village,Conor,Slam Poetry,Big Dick Boys Club,L,137,250,18,25,,,,,N/A,N/A,,,,,0:00:58,3,0.72
+Season 2,Round Robin,Week 2,S2-105,14/05/2025,Hardpoint,Koro Village,Michael,Slam Poetry,Big Dick Boys Club,L,137,250,25,20,,,,,N/A,N/A,,,,,0:01:08,7,1.25
+Season 2,Round Robin,Week 2,S2-105,14/05/2025,Hardpoint,Koro Village,Alex,Slam Poetry,Big Dick Boys Club,L,137,250,10,24,,,,,N/A,N/A,,,,,0:01:12,1,0.42
+Season 2,Round Robin,Week 2,S2-106,14/05/2025,Hardpoint,Farm 18,Liam,"Cripple, Cripple, Carer",Slam Poetry,W,250,227,32,20,,,,,N/A,N/A,,,,,0:01:42,6,1.6
+Season 2,Round Robin,Week 2,S2-106,14/05/2025,Hardpoint,Farm 18,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,W,250,227,13,19,,,,,N/A,N/A,,,,,0:02:47,8,0.68
+Season 2,Round Robin,Week 2,S2-106,14/05/2025,Hardpoint,Farm 18,Harry,"Cripple, Cripple, Carer",Slam Poetry,W,250,227,11,24,,,,,N/A,N/A,,,,,0:01:09,4,0.46
+Season 2,Round Robin,Week 2,S2-106,14/05/2025,Hardpoint,Farm 18,Michael,Slam Poetry,"Cripple, Cripple, Carer",L,227,250,29,16,,,,,N/A,N/A,,,,,0:01:30,5,1.81
+Season 2,Round Robin,Week 2,S2-106,14/05/2025,Hardpoint,Farm 18,Alex,Slam Poetry,"Cripple, Cripple, Carer",L,227,250,18,19,,,,,N/A,N/A,,,,,0:03:16,10,0.95
+Season 2,Round Robin,Week 2,S2-106,14/05/2025,Hardpoint,Farm 18,Conor,Slam Poetry,"Cripple, Cripple, Carer",L,227,250,16,21,,,,,N/A,N/A,,,,,0:01:46,2,0.76
+Season 2,Round Robin,Week 3,S2-107,23/06/2025,Hardpoint,Koro Village,Joe,Big Dick Boys Club,Slam Poetry,L,234,250,25,22,,,,,N/A,N/A,,,,,0:01:47,15,1.14
+Season 2,Round Robin,Week 3,S2-107,23/06/2025,Hardpoint,Koro Village,Andrew,Big Dick Boys Club,Slam Poetry,L,234,250,24,22,,,,,N/A,N/A,,,,,0:02:11,12,1.09
+Season 2,Round Robin,Week 3,S2-107,23/06/2025,Hardpoint,Koro Village,Iestyn,Big Dick Boys Club,Slam Poetry,L,234,250,16,21,,,,,N/A,N/A,,,,,0:00:35,3,0.76
+Season 2,Round Robin,Week 3,S2-107,23/06/2025,Hardpoint,Koro Village,Conor,Slam Poetry,Big Dick Boys Club,W,250,234,19,19,,,,,N/A,N/A,,,,,0:01:17,10,1.0
+Season 2,Round Robin,Week 3,S2-107,23/06/2025,Hardpoint,Koro Village,Michael,Slam Poetry,Big Dick Boys Club,W,250,234,24,20,,,,,N/A,N/A,,,,,0:02:35,13,1.2
+Season 2,Round Robin,Week 3,S2-107,23/06/2025,Hardpoint,Koro Village,Alex,Slam Poetry,Big Dick Boys Club,W,250,234,22,26,,,,,N/A,N/A,,,,,0:01:51,10,0.85
+Season 2,Round Robin,Week 3,S2-108,23/06/2025,Hardpoint,El Asilo,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,L,153,250,22,19,,,,,N/A,N/A,,,,,0:01:00,3,1.16
+Season 2,Round Robin,Week 3,S2-108,23/06/2025,Hardpoint,El Asilo,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,L,153,250,12,21,,,,,N/A,N/A,,,,,0:00:54,1,0.57
+Season 2,Round Robin,Week 3,S2-108,23/06/2025,Hardpoint,El Asilo,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,L,153,250,9,24,,,,,N/A,N/A,,,,,0:00:53,0,0.38
+Season 2,Round Robin,Week 3,S2-108,23/06/2025,Hardpoint,El Asilo,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,153,26,11,,,,,N/A,N/A,,,,,0:02:21,11,2.36
+Season 2,Round Robin,Week 3,S2-108,23/06/2025,Hardpoint,El Asilo,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,153,19,18,,,,,N/A,N/A,,,,,0:01:49,8,1.06
+Season 2,Round Robin,Week 3,S2-108,23/06/2025,Hardpoint,El Asilo,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,153,19,14,,,,,N/A,N/A,,,,,0:02:05,7,1.36
+Season 2,Round Robin,Week 3,S2-109,23/06/2025,SnD,Shoot House,Joe,Big Dick Boys Club,Slam Poetry,W,6,0,7,2,,,,,0,0,,,,,N/A,N/A,3.5
+Season 2,Round Robin,Week 3,S2-109,23/06/2025,SnD,Shoot House,Andrew,Big Dick Boys Club,Slam Poetry,W,6,0,3,2,,,,,0,0,,,,,N/A,N/A,1.5
+Season 2,Round Robin,Week 3,S2-109,23/06/2025,SnD,Shoot House,Iestyn,Big Dick Boys Club,Slam Poetry,W,6,0,7,1,,,,,1,1,,,,,N/A,N/A,7.0
+Season 2,Round Robin,Week 3,S2-109,23/06/2025,SnD,Shoot House,Conor,Slam Poetry,Big Dick Boys Club,L,0,6,1,6,,,,,1,0,,,,,N/A,N/A,0.17
+Season 2,Round Robin,Week 3,S2-109,23/06/2025,SnD,Shoot House,Michael,Slam Poetry,Big Dick Boys Club,L,0,6,2,5,,,,,0,0,,,,,N/A,N/A,0.4
+Season 2,Round Robin,Week 3,S2-109,23/06/2025,SnD,Shoot House,Alex,Slam Poetry,Big Dick Boys Club,L,0,6,2,6,,,,,0,0,,,,,N/A,N/A,0.33
+Season 2,Round Robin,Week 3,S2-110,23/06/2025,SnD,Mercado,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,L,2,6,3,6,,,,,0,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 3,S2-110,23/06/2025,SnD,Mercado,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,L,2,6,3,6,,,,,0,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 3,S2-110,23/06/2025,SnD,Mercado,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,L,2,6,1,6,,,,,0,0,,,,,N/A,N/A,0.17
+Season 2,Round Robin,Week 3,S2-110,23/06/2025,SnD,Mercado,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",W,6,2,14,3,,,,,1,1,,,,,N/A,N/A,4.67
+Season 2,Round Robin,Week 3,S2-110,23/06/2025,SnD,Mercado,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",W,6,2,4,8,,,,,0,1,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 3,S2-110,23/06/2025,SnD,Mercado,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",W,6,2,6,5,,,,,1,0,,,,,N/A,N/A,1.2
+Season 2,Round Robin,Week 3,S2-111,23/06/2025,SnD,Black Gold,Liam,"Cripple, Cripple, Carer",Slam Poetry,L,5,6,5,8,,,,,0,0,,,,,N/A,N/A,0.62
+Season 2,Round Robin,Week 3,S2-111,23/06/2025,SnD,Black Gold,Harry,"Cripple, Cripple, Carer",Slam Poetry,L,5,6,4,7,,,,,2,1,,,,,N/A,N/A,0.57
+Season 2,Round Robin,Week 3,S2-111,23/06/2025,SnD,Black Gold,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,L,5,6,4,8,,,,,2,1,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 3,S2-111,23/06/2025,SnD,Black Gold,Michael,Slam Poetry,"Cripple, Cripple, Carer",W,6,5,13,5,,,,,4,0,,,,,N/A,N/A,2.6
+Season 2,Round Robin,Week 3,S2-111,23/06/2025,SnD,Black Gold,Conor,Slam Poetry,"Cripple, Cripple, Carer",W,6,5,7,9,,,,,0,1,,,,,N/A,N/A,0.78
+Season 2,Round Robin,Week 3,S2-111,23/06/2025,SnD,Black Gold,Alex,Slam Poetry,"Cripple, Cripple, Carer",W,6,5,6,8,,,,,1,0,,,,,N/A,N/A,0.75
+Season 2,Round Robin,Week 3,S2-112,23/06/2025,Hardpoint,Strike,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,W,250,75,21,6,,,,,N/A,N/A,,,,,0:02:14,7,3.5
+Season 2,Round Robin,Week 3,S2-112,23/06/2025,Hardpoint,Strike,Liam,"Cripple, Cripple, Carer",Slam Poetry,W,250,75,20,9,,,,,N/A,N/A,,,,,0:00:48,6,2.22
+Season 2,Round Robin,Week 3,S2-112,23/06/2025,Hardpoint,Strike,Harry,"Cripple, Cripple, Carer",Slam Poetry,W,250,75,10,10,,,,,N/A,N/A,,,,,0:01:39,2,1.0
+Season 2,Round Robin,Week 3,S2-112,23/06/2025,Hardpoint,Strike,Michael,Slam Poetry,"Cripple, Cripple, Carer",L,75,250,9,17,,,,,N/A,N/A,,,,,0:00:42,1,0.53
+Season 2,Round Robin,Week 3,S2-112,23/06/2025,Hardpoint,Strike,Alex,Slam Poetry,"Cripple, Cripple, Carer",L,75,250,5,17,,,,,N/A,N/A,,,,,0:00:43,0,0.29
+Season 2,Round Robin,Week 3,S2-112,23/06/2025,Hardpoint,Strike,Conor,Slam Poetry,"Cripple, Cripple, Carer",L,75,250,11,17,,,,,N/A,N/A,,,,,0:00:13,2,0.65
+Season 2,Round Robin,Week 4,S2-113,07/07/2025,SnD,Embassy,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,5,11,5,,,,,0,1,,,,,N/A,N/A,2.2
+Season 2,Round Robin,Week 4,S2-113,07/07/2025,SnD,Embassy,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,5,1,7,,,,,3,2,,,,,N/A,N/A,0.14
+Season 2,Round Robin,Week 4,S2-113,07/07/2025,SnD,Embassy,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,W,6,5,6,9,,,,,1,0,,,,,N/A,N/A,0.67
+Season 2,Round Robin,Week 4,S2-113,07/07/2025,SnD,Embassy,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",L,5,6,11,6,,,,,5,0,,,,,N/A,N/A,1.83
+Season 2,Round Robin,Week 4,S2-113,07/07/2025,SnD,Embassy,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",L,5,6,5,6,,,,,0,1,,,,,N/A,N/A,0.83
+Season 2,Round Robin,Week 4,S2-113,07/07/2025,SnD,Embassy,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",L,5,6,5,6,,,,,0,0,,,,,N/A,N/A,0.83
+Season 2,Round Robin,Week 4,S2-114,07/07/2025,Hardpoint,Hotel,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,L,245,250,43,20,,,,,N/A,N/A,,,,,0:01:49,9,2.15
+Season 2,Round Robin,Week 4,S2-114,07/07/2025,Hardpoint,Hotel,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,L,245,250,14,26,,,,,N/A,N/A,,,,,0:02:21,6,0.54
+Season 2,Round Robin,Week 4,S2-114,07/07/2025,Hardpoint,Hotel,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,L,245,250,15,29,,,,,N/A,N/A,,,,,0:01:08,2,0.52
+Season 2,Round Robin,Week 4,S2-114,07/07/2025,Hardpoint,Hotel,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,245,38,20,,,,,N/A,N/A,,,,,0:00:56,6,1.9
+Season 2,Round Robin,Week 4,S2-114,07/07/2025,Hardpoint,Hotel,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,245,23,24,,,,,N/A,N/A,,,,,0:02:21,8,0.96
+Season 2,Round Robin,Week 4,S2-114,07/07/2025,Hardpoint,Hotel,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,245,14,28,,,,,N/A,N/A,,,,,0:02:25,4,0.5
+Season 2,Round Robin,Week 4,S2-115,07/07/2025,SnD,Punta Mar,Harry,"Cripple, Cripple, Carer",Slam Poetry,L,5,6,7,7,,,,,4,0,,,,,N/A,N/A,1.0
+Season 2,Round Robin,Week 4,S2-115,07/07/2025,SnD,Punta Mar,Liam,"Cripple, Cripple, Carer",Slam Poetry,L,5,6,7,7,,,,,0,0,,,,,N/A,N/A,1.0
+Season 2,Round Robin,Week 4,S2-115,07/07/2025,SnD,Punta Mar,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,L,5,6,4,8,,,,,0,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 4,S2-115,07/07/2025,SnD,Punta Mar,Michael,Slam Poetry,"Cripple, Cripple, Carer",W,6,5,10,6,,,,,1,1,,,,,N/A,N/A,1.67
+Season 2,Round Robin,Week 4,S2-115,07/07/2025,SnD,Punta Mar,Conor,Slam Poetry,"Cripple, Cripple, Carer",W,6,5,7,5,,,,,1,1,,,,,N/A,N/A,1.4
+Season 2,Round Robin,Week 4,S2-115,07/07/2025,SnD,Punta Mar,Alex,Slam Poetry,"Cripple, Cripple, Carer",W,6,5,5,7,,,,,0,0,,,,,N/A,N/A,0.71
+Season 2,Round Robin,Week 4,S2-116,07/07/2025,SnD,Crown Raceway,Joe,Big Dick Boys Club,Slam Poetry,W,6,3,1,7,,,,,0,0,,,,,N/A,N/A,0.14
+Season 2,Round Robin,Week 4,S2-116,07/07/2025,SnD,Crown Raceway,Iestyn,Big Dick Boys Club,Slam Poetry,W,6,3,9,7,,,,,2,0,,,,,N/A,N/A,1.29
+Season 2,Round Robin,Week 4,S2-116,07/07/2025,SnD,Crown Raceway,Andrew,Big Dick Boys Club,Slam Poetry,W,6,3,12,3,,,,,0,0,,,,,N/A,N/A,4.0
+Season 2,Round Robin,Week 4,S2-116,07/07/2025,SnD,Crown Raceway,Michael,Slam Poetry,Big Dick Boys Club,L,3,6,8,7,,,,,0,0,,,,,N/A,N/A,1.14
+Season 2,Round Robin,Week 4,S2-116,07/07/2025,SnD,Crown Raceway,Conor,Slam Poetry,Big Dick Boys Club,L,3,6,5,7,,,,,0,0,,,,,N/A,N/A,0.71
+Season 2,Round Robin,Week 4,S2-116,07/07/2025,SnD,Crown Raceway,Alex,Slam Poetry,Big Dick Boys Club,L,3,6,4,8,,,,,0,0,,,,,N/A,N/A,0.5
+Season 2,Round Robin,Week 4,S2-117,16/07/2025,Hardpoint,Himmelmatt Expo,Alex,Slam Poetry,Big Dick Boys Club,L,123,250,12,18,,,,,N/A,N/A,,,,,0:01:21,3,0.67
+Season 2,Round Robin,Week 4,S2-117,16/07/2025,Hardpoint,Himmelmatt Expo,Michael,Slam Poetry,Big Dick Boys Club,L,123,250,13,20,,,,,N/A,N/A,,,,,0:01:06,3,0.65
+Season 2,Round Robin,Week 4,S2-117,16/07/2025,Hardpoint,Himmelmatt Expo,Conor,Slam Poetry,Big Dick Boys Club,L,123,250,13,20,,,,,N/A,N/A,,,,,0:00:36,2,0.65
+Season 2,Round Robin,Week 4,S2-117,16/07/2025,Hardpoint,Himmelmatt Expo,Joe,Big Dick Boys Club,Slam Poetry,W,250,123,24,10,,,,,N/A,N/A,,,,,0:01:50,7,2.4
+Season 2,Round Robin,Week 4,S2-117,16/07/2025,Hardpoint,Himmelmatt Expo,Andrew,Big Dick Boys Club,Slam Poetry,W,250,123,17,14,,,,,N/A,N/A,,,,,0:02:09,5,1.21
+Season 2,Round Robin,Week 4,S2-117,16/07/2025,Hardpoint,Himmelmatt Expo,Iestyn,Big Dick Boys Club,Slam Poetry,W,250,123,17,14,,,,,N/A,N/A,,,,,0:01:10,7,1.21
+Season 2,Playoffs,Week 5,S2-118,16/07/2025,Hardpoint,Vondel Waterfront,Liam,"Cripple, Cripple, Carer",Slam Poetry,W,250,236,34,15,,,,,N/A,N/A,,,,,0:01:15,7,2.27
+Season 2,Playoffs,Week 5,S2-118,16/07/2025,Hardpoint,Vondel Waterfront,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,W,250,236,19,23,,,,,N/A,N/A,,,,,0:02:36,11,0.83
+Season 2,Playoffs,Week 5,S2-118,16/07/2025,Hardpoint,Vondel Waterfront,Harry,"Cripple, Cripple, Carer",Slam Poetry,W,250,236,17,34,,,,,N/A,N/A,,,,,0:01:40,5,0.5
+Season 2,Playoffs,Week 5,S2-118,16/07/2025,Hardpoint,Vondel Waterfront,Alex,Slam Poetry,"Cripple, Cripple, Carer",L,236,250,21,22,,,,,N/A,N/A,,,,,0:02:46,7,0.95
+Season 2,Playoffs,Week 5,S2-118,16/07/2025,Hardpoint,Vondel Waterfront,Michael,Slam Poetry,"Cripple, Cripple, Carer",L,236,250,22,23,,,,,N/A,N/A,,,,,0:02:23,5,0.96
+Season 2,Playoffs,Week 5,S2-118,16/07/2025,Hardpoint,Vondel Waterfront,Conor,Slam Poetry,"Cripple, Cripple, Carer",L,236,250,19,25,,,,,N/A,N/A,,,,,0:01:01,4,0.76
+Season 2,Playoffs,Week 5,S2-119,16/07/2025,SnD,Al Bagra Fortress,Liam,"Cripple, Cripple, Carer",Slam Poetry,W,6,3,13,3,,,,,0,1,,,,,N/A,N/A,4.33
+Season 2,Playoffs,Week 5,S2-119,16/07/2025,SnD,Al Bagra Fortress,Harry,"Cripple, Cripple, Carer",Slam Poetry,W,6,3,4,5,,,,,0,0,,,,,N/A,N/A,0.8
+Season 2,Playoffs,Week 5,S2-119,16/07/2025,SnD,Al Bagra Fortress,Lawrence,"Cripple, Cripple, Carer",Slam Poetry,W,6,3,3,5,,,,,1,0,,,,,N/A,N/A,0.6
+Season 2,Playoffs,Week 5,S2-119,16/07/2025,SnD,Al Bagra Fortress,Michael,Slam Poetry,"Cripple, Cripple, Carer",L,3,6,7,6,,,,,0,0,,,,,N/A,N/A,1.17
+Season 2,Playoffs,Week 5,S2-119,16/07/2025,SnD,Al Bagra Fortress,Conor,Slam Poetry,"Cripple, Cripple, Carer",L,3,6,4,7,,,,,0,0,,,,,N/A,N/A,0.57
+Season 2,Playoffs,Week 5,S2-119,16/07/2025,SnD,Al Bagra Fortress,Alex,Slam Poetry,"Cripple, Cripple, Carer",L,3,6,2,7,,,,,1,0,,,,,N/A,N/A,0.29
+Season 2,Playoffs,Week 5,S2-120,16/07/2025,Hardpoint,Mercado,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,L,176,250,16,22,,,,,N/A,N/A,,,,,0:01:55,7,0.73
+Season 2,Playoffs,Week 5,S2-120,16/07/2025,Hardpoint,Mercado,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,L,176,250,23,21,,,,,N/A,N/A,,,,,0:00:42,2,1.1
+Season 2,Playoffs,Week 5,S2-120,16/07/2025,Hardpoint,Mercado,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,L,176,250,7,22,,,,,N/A,N/A,,,,,0:01:40,2,0.32
+Season 2,Playoffs,Week 5,S2-120,16/07/2025,Hardpoint,Mercado,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,176,22,17,,,,,N/A,N/A,,,,,0:02:04,10,1.29
+Season 2,Playoffs,Week 5,S2-120,16/07/2025,Hardpoint,Mercado,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,176,18,13,,,,,N/A,N/A,,,,,0:02:22,7,1.38
+Season 2,Playoffs,Week 5,S2-120,16/07/2025,Hardpoint,Mercado,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",W,250,176,25,16,,,,,N/A,N/A,,,,,0:00:43,3,1.56
+Season 2,Playoffs,Week 5,S2-121,16/07/2025,SnD,Strike,Liam,"Cripple, Cripple, Carer",Big Dick Boys Club,L,3,6,9,6,,,,,0,2,,,,,N/A,N/A,1.5
+Season 2,Playoffs,Week 5,S2-121,16/07/2025,SnD,Strike,Lawrence,"Cripple, Cripple, Carer",Big Dick Boys Club,L,3,6,3,7,,,,,1,0,,,,,N/A,N/A,0.43
+Season 2,Playoffs,Week 5,S2-121,16/07/2025,SnD,Strike,Harry,"Cripple, Cripple, Carer",Big Dick Boys Club,L,3,6,3,8,,,,,1,0,,,,,N/A,N/A,0.38
+Season 2,Playoffs,Week 5,S2-121,16/07/2025,SnD,Strike,Joe,Big Dick Boys Club,"Cripple, Cripple, Carer",W,6,3,10,3,,,,,3,0,,,,,N/A,N/A,3.33
+Season 2,Playoffs,Week 5,S2-121,16/07/2025,SnD,Strike,Andrew,Big Dick Boys Club,"Cripple, Cripple, Carer",W,6,3,8,6,,,,,1,1,,,,,N/A,N/A,1.33
+Season 2,Playoffs,Week 5,S2-121,16/07/2025,SnD,Strike,Iestyn,Big Dick Boys Club,"Cripple, Cripple, Carer",W,6,3,3,6,,,,,1,0,,,,,N/A,N/A,0.5
