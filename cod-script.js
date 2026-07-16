@@ -370,14 +370,57 @@ function renderTeamStandings() {
 
 function renderTeamPlayers() {
   const stats = computeTeamPlayerStats(filteredTeamRows());
-  const tableRows = stats.map(p => ({
-    primary: p.player,
-    values: [p.team, p.matches, p.kills, p.deaths, p.kd, p.plants, p.defuses]
-  }));
+
+  // Dynamic column selection
+  let headers = ["POS", "PLAYER", "TEAM", "MATCHES", "KILLS", "DEATHS", "K/D"];
+  let includePlants = false;
+  let includeDefuses = false;
+  let includeTime = false;
+  let includeDefends = false;
+
+  if (tmMode === "SnD") {
+    includePlants = true;
+    includeDefuses = true;
+  } else if (tmMode === "Hardpoint") {
+    includeTime = true;
+    includeDefends = true;
+  } else if (tmMode === "ALL") {
+    includePlants = true;
+    includeDefuses = true;
+    includeTime = true;
+    includeDefends = true;
+  }
+
+  if (includePlants) headers.push("PLANTS");
+  if (includeDefuses) headers.push("DEFUSES");
+  if (includeTime) headers.push("TIME");
+  if (includeDefends) headers.push("DEFENDS");
+
+  // Build rows dynamically
+  const tableRows = stats.map(p => {
+    const values = [
+      p.team,
+      p.matches,
+      p.kills,
+      p.deaths,
+      p.kd
+    ];
+
+    if (includePlants) values.push(p.plants);
+    if (includeDefuses) values.push(p.defuses);
+    if (includeTime) values.push(p.time);
+    if (includeDefends) values.push(p.defends);
+
+    return { primary: p.player, values };
+  });
+
   document.getElementById("tmPlayersContainer").innerHTML = buildTowerHTML(
-    null, ["POS", "PLAYER", "TEAM", "MATCHES", "KILLS", "DEATHS", "K/D", "PLANTS", "DEFUSES"], tableRows
+    null,
+    headers,
+    tableRows
   );
 }
+
 
 function renderTeamLog() {
   const rows = filteredTeamRows();
