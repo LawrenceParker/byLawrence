@@ -50,29 +50,25 @@ async function fetchWithFallback(primary, fallback) {
 
 function parseTime(t) {
   if (t == null) return 0;
-
   t = String(t).trim();
-
   if (!t || t === "-" || t === "–" || t === "--") return 0;
-
   const parts = t.split(":").map(Number);
-
   let seconds = 0;
-
+   
+  // Google Sheets duration format: MM:SS:00
   if (parts.length === 3) {
-    seconds = (parts[0] * 3600) + (parts[1] * 60) + parts[2];
-  } 
-  else if (parts.length === 2) {
-    seconds = (parts[0] * 60) + parts[1];
-  }
-  else {
-    seconds = Number(parts[0]) || 0;
+    const [minutes, secs] = parts;
+    seconds = (minutes * 60) + secs;
   }
 
-  // Hardpoint sanity check
-  if (seconds > 3600) {
-    console.warn("Bad HP time:", t, seconds);
-    return 0;
+  // Normal MM:SS
+  else if (parts.length === 2) {
+    const [minutes, secs] = parts;
+    seconds = (minutes * 60) + secs;
+  }
+     
+  else {
+    seconds = Number(t) || 0;
   }
 
   return seconds;
