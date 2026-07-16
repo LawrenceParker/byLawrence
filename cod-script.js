@@ -51,26 +51,28 @@ async function fetchWithFallback(primary, fallback) {
 function parseTime(t) {
   if (!t) return 0;
 
-  // If format is mm:ss
-  if (t.includes(":")) {
-    const [m, s] = t.split(":").map(Number);
-    return (m * 60) + s;
-  }
-
   // If it's a dash or empty
   if (t === "–" || t.trim() === "") return 0;
 
-  // Otherwise try normal number
+  const parts = t.split(":").map(Number);
+
+  // HH:MM:SS
+  if (parts.length === 3) {
+    const [h, m, s] = parts;
+    return (h * 3600) + (m * 60) + s;
+  }
+
+  // MM:SS
+  if (parts.length === 2) {
+    const [m, s] = parts;
+    return (m * 60) + s;
+  }
+
+  // Plain number → assume seconds
   const n = Number(t);
   return isNaN(n) ? 0 : n;
 }
 
-function formatSecondsToMMSS(sec) {
-  sec = Number(sec) || 0;
-  const m = Math.floor(sec / 60);
-  const s = sec % 60;
-  return `${m}:${s.toString().padStart(2, "0")}`;
-}
 
 
 /* ---------- GENERIC TOWER BUILDER (variable column count) ---------- */
