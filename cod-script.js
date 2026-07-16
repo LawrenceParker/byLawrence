@@ -48,48 +48,6 @@ async function fetchWithFallback(primary, fallback) {
   }
 }
 
-function parseTime(t) {
-  if (t == null) return 0;
-
-  t = String(t).trim();
-
-  if (!t || t === "-" || t === "–" || t === "--") return 0;
-
-  const parts = t.split(":").map(Number);
-
-  if (parts.length === 3) {
-    const [hours, minutes, seconds] = parts;
-
-    return (
-      (hours * 3600) +
-      (minutes * 60) +
-      seconds
-    );
-  }
-
-  if (parts.length === 2) {
-    const [minutes, seconds] = parts;
-
-    return (
-      (minutes * 60) +
-      seconds
-    );
-  }
-
-  return Number(t) || 0;
-}
-
-function formatSecondsToMMSS(seconds) {
-  seconds = Math.floor(Number(seconds) || 0);
-
-  const mins = Math.floor(seconds / 60);
-  const secs = seconds % 60;
-
-  return `${mins}:${String(secs).padStart(2, "0")}`;
-}
-
-
-
 /* ---------- GENERIC TOWER BUILDER (variable column count) ---------- */
 function buildTowerHTML(title, headerLabels, rows) {
   const colCount = headerLabels.length - 2;
@@ -120,7 +78,6 @@ function buildTowerHTML(title, headerLabels, rows) {
     </div>
   `;
 }
-
 
 /* =========================================================
    GUNFIGHT (1v1)
@@ -291,6 +248,22 @@ function onGfSeasonChange() {
   renderGunfightLog();
 }
 
+function parseTimeToSeconds(t) {
+  if (!t) return 0;
+  const parts = t.split(":").map(Number);
+  if (parts.some(isNaN)) return 0;
+  if (parts.length === 2) return parts[0] * 60 + parts[1];
+  if (parts.length === 3) return parts[0] * 3600 + parts[1] * 60 + parts[2];
+  return 0;
+}
+
+function formatSecondsToTime(s) {
+  if (!s) return "0:00";
+  const m = Math.floor(s / 60);
+  const rem = Math.round(s - m * 60);
+  return `${m}:${String(rem).padStart(2, "0")}`;
+}
+
 /* =========================================================
    TEAM MATCHES (SnD / Hardpoint)
    ========================================================= */
@@ -363,17 +336,7 @@ function computeTeamPlayerStats(rows) {
   const byPlayer = {};
   rows.forEach(r => {
     if (!byPlayer[r.player]) {
-      byPlayer[r.player] = {
-        player: r.player,
-        team: r.team,
-        matches: 0,
-        kills: 0,
-        deaths: 0,
-        plants: 0,
-        defuses: 0,
-        time: 0,
-        defends: 0
-      };
+      byPlayer[r.player] = { player: r.player, team: r.team, matches: 0, kills: 0, deaths: 0, plants: 0, defuses: 0, timeSeconds: 0, defends: 0 };
     }
     const p = byPlayer[r.player];
     p.matches += 1;
@@ -381,18 +344,9 @@ function computeTeamPlayerStats(rows) {
     p.deaths += r.deaths;
     p.plants += r.plants;
     p.defuses += r.defuses;
-
-    /// NEW: safe Hardpoint stats
-    const parsedTime = parseTime(r.time);
-
-   if (parsedTime > 3600) {
-     console.warn("Invalid time row:", r);
-   }
-   
-   p.time += parsedTime;
-   p.defends += r.defends ? Number(r.defends) : 0;
+    p.timeSeconds += parseTimeToSeconds(r.time);
+    p.defends += r.defends;
   });
-
   return Object.values(byPlayer).map(p => ({
     ...p,
     kd: p.deaths ? (p.kills / p.deaths).toFixed(2) : p.kills.toFixed(2)
@@ -434,60 +388,38 @@ function renderTeamStandings() {
 
 function renderTeamPlayers() {
   const stats = computeTeamPlayerStats(filteredTeamRows());
+  const grid = document.getElementById("tmPlayersContainer");
+  grid.innerHTML = "";
 
-  // Dynamic column selection
-  let headers = ["POS", "PLAYER", "TEAM", "MATCHES", "KILLS", "DEATHS", "K/D"];
-  let includePlants = false;
-  let includeDefuses = false;
-  let includeTime = false;
-  let includeDefends = false;
+  const showHardpointStats = tmMode === "Hardpoint";
 
-  if (tmMode === "SnD") {
-    includePlants = true;
-    includeDefuses = true;
-  } else if (tmMode === "Hardpoint") {
-    includeTime = true;
-    includeDefends = true;
-  } else if (tmMode === "ALL") {
-    includePlants = true;
-    includeDefuses = true;
-    includeTime = true;
-    includeDefends = true;
-  }
+  stats.forEach(p => {
+    const extraMetrics = showHardpointStats
+      ? `
+        <div class="driver-card__metric"><span>Time Held</span><span>${formatSecondsToTime(p.timeSeconds)}</span></div>
+        <div class="driver-card__metric"><span>Defends</span><span>${p.defends}</span></div>
+      `
+      : `
+        <div class="driver-card__metric"><span>Plants</span><span>${p.plants}</span></div>
+        <div class="driver-card__metric"><span>Defuses</span><span>${p.defuses}</span></div>
+      `;
 
-  if (includePlants) headers.push("PLANTS");
-  if (includeDefuses) headers.push("DEFUSES");
-  if (includeTime) headers.push("TIME");
-  if (includeDefends) headers.push("DEFENDS");
-
-  // Build rows dynamically
-  const tableRows = stats.map(p => {
-    const values = [
-      p.team,
-      p.matches,
-      p.kills,
-      p.deaths,
-      p.kd
-    ];
-
-    if (includePlants) values.push(p.plants);
-    if (includeDefuses) values.push(p.defuses);
-    if (includeTime) {
-  console.log(p.player, "raw time:", p.time, "formatted:", formatSecondsToMMSS(p.time));
-  values.push(formatSecondsToMMSS(p.time));
-}
-    if (includeDefends) values.push(p.defends);
-
-    return { primary: p.player, values };
+    const card = document.createElement("div");
+    card.className = "driver-card";
+    card.innerHTML = `
+      <h3 class="driver-card__name">${p.player}</h3>
+      <div class="driver-card__points">${p.kills}<span class="driver-card__points-label">Total Kills</span></div>
+      <div class="driver-card__grid">
+        <div class="driver-card__metric"><span>Team</span><span>${p.team}</span></div>
+        <div class="driver-card__metric"><span>Matches</span><span>${p.matches}</span></div>
+        <div class="driver-card__metric"><span>Deaths</span><span>${p.deaths}</span></div>
+        <div class="driver-card__metric"><span>K/D</span><span>${p.kd}</span></div>
+        ${extraMetrics}
+      </div>
+    `;
+    grid.appendChild(card);
   });
-
-  document.getElementById("tmPlayersContainer").innerHTML = buildTowerHTML(
-    null,
-    headers,
-    tableRows
-  );
 }
-
 
 function renderTeamLog() {
   const rows = filteredTeamRows();
@@ -538,7 +470,7 @@ function renderTeamLog() {
                 <td>${p.deaths}</td>
                 <td>${p.plants || "–"}</td>
                 <td>${p.defuses || "–"}</td>
-                <td>${formatSecondsToMMSS(parseTime(p.time))}</td>
+                <td>${p.time || "–"}</td>
                 <td>${p.defends || "–"}</td>
               </tr>
             `).join("")}
@@ -617,9 +549,6 @@ function setupSubTabs() {
    ========================================================= */
 async function init() {
   await Promise.all([loadGunfightData(), loadTeamData()]);
-
-   console.log(parseTime("01:49:00"));
-   console.log(formatSecondsToMMSS(parseTime("01:49:00")));
 
   gfSeason = "ALL";
   tmSeason = "ALL";

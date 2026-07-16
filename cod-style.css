@@ -56,7 +56,12 @@ body {
   overflow: hidden;
 }
 .hero::after {
-  
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 6px;
+  background: repeating-linear-gradient(90deg, var(--paper) 0 22px, var(--ink) 22px 44px);
+  opacity: 0.9;
 }
 .hero__inner {
   max-width: 960px;
@@ -152,7 +157,7 @@ body {
   display: flex;
   justify-content: center;
   gap: 4px;
-  padding: 18px 16px 50px;
+  padding: 18px 16px 0;
   max-width: 960px;
   margin: 0 auto;
 }
@@ -222,7 +227,7 @@ body {
 .tower__row {
   display: grid;
   grid-template-columns: 56px 1fr repeat(5, 82px);
-  gap: 1px;
+  gap: 10px;
   align-items: center;
   padding: 12px 14px;
   border-bottom: 1px solid var(--line);
