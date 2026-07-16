@@ -79,6 +79,23 @@ function buildTowerHTML(title, headerLabels, rows) {
   `;
 }
 
+function parseTime(t) {
+  if (!t) return 0;
+
+  // If format is mm:ss
+  if (t.includes(":")) {
+    const [m, s] = t.split(":").map(Number);
+    return (m * 60) + s;
+  }
+
+  // If it's a dash or empty
+  if (t === "–" || t.trim() === "") return 0;
+
+  // Otherwise try normal number
+  const n = Number(t);
+  return isNaN(n) ? 0 : n;
+}
+
 /* =========================================================
    GUNFIGHT (1v1)
    ========================================================= */
@@ -339,8 +356,8 @@ function computeTeamPlayerStats(rows) {
     p.plants += r.plants;
     p.defuses += r.defuses;
 
-    // NEW: Hardpoint stats
-    p.time += r.time ? Number(r.time) : 0;
+    /// NEW: safe Hardpoint stats
+    p.time += parseTime(r.time);
     p.defends += r.defends ? Number(r.defends) : 0;
   });
 
