@@ -336,7 +336,7 @@ function computeTeamPlayerStats(rows) {
   const byPlayer = {};
   rows.forEach(r => {
     if (!byPlayer[r.player]) {
-      byPlayer[r.player] = { player: r.player, team: nnew Set(), matches: 0, kills: 0, deaths: 0, plants: 0, defuses: 0, timeSeconds: 0, defends: 0 };
+      byPlayer[r.player] = { player: r.player, team: new Set(), matches: 0, kills: 0, deaths: 0, plants: 0, defuses: 0, timeSeconds: 0, defends: 0 };
     }
     const p = byPlayer[r.player];
     p.matches += 1;
