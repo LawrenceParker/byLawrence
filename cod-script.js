@@ -336,7 +336,7 @@ function computeTeamPlayerStats(rows) {
   const byPlayer = {};
   rows.forEach(r => {
     if (!byPlayer[r.player]) {
-      byPlayer[r.player] = { player: r.player, team: r.team, matches: 0, kills: 0, deaths: 0, plants: 0, defuses: 0, timeSeconds: 0, defends: 0 };
+      byPlayer[r.player] = { player: r.player, team: nnew Set(), matches: 0, kills: 0, deaths: 0, plants: 0, defuses: 0, timeSeconds: 0, defends: 0 };
     }
     const p = byPlayer[r.player];
     p.matches += 1;
@@ -346,6 +346,7 @@ function computeTeamPlayerStats(rows) {
     p.defuses += r.defuses;
     p.timeSeconds += parseTimeToSeconds(r.time);
     p.defends += r.defends;
+    p.team.add(r.team);
   });
   return Object.values(byPlayer).map(p => ({
     ...p,
@@ -410,8 +411,9 @@ function renderTeamPlayers() {
       <h3 class="driver-card__name">${p.player}</h3>
       <div class="driver-card__points">${p.kills}<span class="driver-card__points-label">Total Kills</span></div>
       <div class="driver-card__grid">
-        <div class="driver-card__metric"><span>Team</span><span>${p.team}</span></div>
+        <div class="driver-card__metric"><span>Teams</span><span>${[...p.teams].join(", ")}</span></div>
         <div class="driver-card__metric"><span>Matches</span><span>${p.matches}</span></div>
+        <div class="driver-card__metric"><span>Matches</span><span>${p.kills}</span></div>
         <div class="driver-card__metric"><span>Deaths</span><span>${p.deaths}</span></div>
         <div class="driver-card__metric"><span>K/D</span><span>${p.kd}</span></div>
         ${extraMetrics}
