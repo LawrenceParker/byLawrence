@@ -320,7 +320,17 @@ function computeTeamPlayerStats(rows) {
   const byPlayer = {};
   rows.forEach(r => {
     if (!byPlayer[r.player]) {
-      byPlayer[r.player] = { player: r.player, team: r.team, matches: 0, kills: 0, deaths: 0, plants: 0, defuses: 0 };
+      byPlayer[r.player] = {
+        player: r.player,
+        team: r.team,
+        matches: 0,
+        kills: 0,
+        deaths: 0,
+        plants: 0,
+        defuses: 0,
+        time: 0,
+        defends: 0
+      };
     }
     const p = byPlayer[r.player];
     p.matches += 1;
@@ -328,7 +338,12 @@ function computeTeamPlayerStats(rows) {
     p.deaths += r.deaths;
     p.plants += r.plants;
     p.defuses += r.defuses;
+
+    // NEW: Hardpoint stats
+    p.time += r.time ? Number(r.time) : 0;
+    p.defends += r.defends ? Number(r.defends) : 0;
   });
+
   return Object.values(byPlayer).map(p => ({
     ...p,
     kd: p.deaths ? (p.kills / p.deaths).toFixed(2) : p.kills.toFixed(2)
