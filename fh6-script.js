@@ -159,18 +159,25 @@ function buildLabel(c) {
 }
 
 /* ---------- LEADERBOARD TAB ---------- */
+
+/* Colour first4 char*/
+function colorFirst4(str) {
+  if (!str) return "";
+  return `<span class="first4">${str.slice(0, 4)}</span>${str.slice(4)}`;
+}
+
 function buildLeaderboardGroupHTML(title, cars) {
   const rows = cars.map((c, i) => `
     <div class="tower__row">
       <span class="col-pos ${i === 0 ? "pos-1" : ""}">${i + 1}</span>
-      <span class="col-driver">${c.car}</span>
+      <span class="col-driver">${colorFirst4(c.car)}</span>
       <span class="col-num">${c.class}</span>
       <span class="col-num">${c.pi}</span>
       <span class="col-num">${buildLabel(c)}</span>
       <span class="col-num">${formatLapTime(c.bestLap)}</span>
       <span class="col-num">${c.avgLap !== null ? formatLapTime(c.avgLap) : "–"}</span>
-      <span class="col-num">${c.lapCount}</span>
-      <span class="col-num">${c.shareCode}</span>
+      <span class="col-num">${c.lapCount}</span> 
+      <span class="col-num">${c.shareCode || "–"}</span>     
     </div>
   `).join("");
 
@@ -187,7 +194,7 @@ function buildLeaderboardGroupHTML(title, cars) {
           <span class="col-num">Best Lap</span>
           <span class="col-num">Avg Lap</span>
           <span class="col-num">Laps</span>
-          <span class="col-num">Share Code</span>
+          <span class="col--num">Share Code</span>          
         </div>
         <div class="tower__body">${rows}</div>
       </div>

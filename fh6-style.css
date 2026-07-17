@@ -252,6 +252,10 @@ body {
 }
 .tower__row--head .col-num { text-align: center; }
 
+.first4 {
+  color: rgb(77, 77, 77);
+}
+
 /* ---------- RACE LOG ACCORDION ---------- */
 .race-list {
   border: 1px solid var(--line);
