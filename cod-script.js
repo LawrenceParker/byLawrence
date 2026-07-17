@@ -169,6 +169,7 @@ function renderGunfightPlayers() {
       <div class="driver-card__points">${p.wins}<span class="driver-card__points-label">Career Wins</span></div>
       <div class="driver-card__grid">
         <div class="driver-card__metric"><span>Matches</span><span>${p.matches}</span></div>
+        <div class="driver-card__metric"><span>Killls</span><span>${p.kills}</span></div>
         <div class="driver-card__metric"><span>Losses</span><span>${p.losses}</span></div>
         <div class="driver-card__metric"><span>Win Rate</span><span>${p.winPct}%</span></div>
         <div class="driver-card__metric"><span>K/D</span><span>${p.kd}</span></div>
