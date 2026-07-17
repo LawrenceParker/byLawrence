@@ -253,7 +253,8 @@ body {
 .tower__row--head .col-num { text-align: center; }
 
 .first4 {
-  color: rgb(77, 77, 77);
+  color: var(--muted;
+   margin-right: 0.5rem;
 }
 
 /* ---------- RACE LOG ACCORDION ---------- */
