@@ -398,7 +398,7 @@ function renderTeamPlayers() {
     const extraMetrics = showHardpointStats
       ? `
         <div class="driver-card__metric"><span>Defends</span><span>${p.defends}</span></div>
-        <div class="driver-card__metric"><span>TToP</span><span>${formatSecondsToTime(p.timeSeconds)}</span></div>
+        <div class="driver-card__metric"><span>Time Held</span><span>${formatSecondsToTime(p.timeSeconds)}</span></div>
       `
       : `
         <div class="driver-card__metric"><span>Plants</span><span>${p.plants}</span></div>
