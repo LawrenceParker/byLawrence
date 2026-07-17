@@ -170,6 +170,7 @@ function buildLeaderboardGroupHTML(title, cars) {
       <span class="col-num">${formatLapTime(c.bestLap)}</span>
       <span class="col-num">${c.avgLap !== null ? formatLapTime(c.avgLap) : "–"}</span>
       <span class="col-num">${c.lapCount}</span>
+      <span class="col-num">${c.shareCode}</span>
     </div>
   `).join("");
 
@@ -186,6 +187,7 @@ function buildLeaderboardGroupHTML(title, cars) {
           <span class="col-num">Best Lap</span>
           <span class="col-num">Avg Lap</span>
           <span class="col-num">Laps</span>
+          <span class="col-num">Share Code</span>
         </div>
         <div class="tower__body">${rows}</div>
       </div>
