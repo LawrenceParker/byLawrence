@@ -411,7 +411,7 @@ function renderTeamPlayers() {
       <h3 class="driver-card__name">${p.player}</h3>
       <div class="driver-card__points">${p.kills}<span class="driver-card__points-label">Total Kills</span></div>
       <div class="driver-card__grid">
-        <div class="driver-card__metric--stack"><span>Teams</span><span>${[...p.team].join(", ")}</span></div>
+        <div class="driver-card__metric--stack"><span>Teams</span><span>${[...p.team].join(" / ")}</span></div>
         <div class="driver-card__metric"><span>Matches</span><span>${p.matches}</span></div>
         <div class="driver-card__metric"><span>Kills</span><span>${p.kills}</span></div>
         <div class="driver-card__metric"><span>Deaths</span><span>${p.deaths}</span></div>
