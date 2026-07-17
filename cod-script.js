@@ -398,6 +398,7 @@ function renderTeamPlayers() {
     const extraMetrics = showHardpointStats
       ? `
         <div class="driver-card__metric"><span>Defends</span><span>${p.defends}</span></div>
+        <div class="driver-card__metric"><span>TToP</span><span>${formatSecondsToTime(p.timeSeconds)}</span></div>
       `
       : `
         <div class="driver-card__metric"><span>Plants</span><span>${p.plants}</span></div>
@@ -414,8 +415,7 @@ function renderTeamPlayers() {
         <div class="driver-card__metric"><span>Matches</span><span>${p.matches}</span></div>
         <div class="driver-card__metric"><span>Kills</span><span>${p.kills}</span></div>
         <div class="driver-card__metric"><span>Deaths</span><span>${p.deaths}</span></div>
-        <div class="driver-card__metric"><span>K/D</span><span>${p.kd}</span></div>
-        <div class="driver-card__metric"><span>Time Held</span><span>${formatSecondsToTime(p.timeSeconds)}</span></div>
+        <div class="driver-card__metric"><span>K/D</span><span>${p.kd}</span></div>        
         ${extraMetrics}
       </div>
     `;
