@@ -347,6 +347,7 @@ body {
   font-size: 13px;
   padding: 9px 0px 15px;
   border-bottom: 1px solid var(--line);
+  height: 80px;
 }
 .driver-card__metric--stack span:first-child { color: var(--muted); }
 .driver-card__metric--stack span:last-child {
