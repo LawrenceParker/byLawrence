@@ -275,7 +275,7 @@ let tmMode = "ALL";
 
 function normalizeGamemode(g) {
   const u = (g || "").trim().toUpperCase();
-  if (u === "SND" || u === "SNd" || u === "SND".toUpperCase()) return "SnD";
+  if (u === "SND" || u === "SNd" || u === "SND".toUpperCase()) return "SND";
   return (g || "").trim();
 }
 
@@ -403,6 +403,7 @@ function renderTeamPlayers() {
       : `
         <div class="driver-card__metric"><span>Plants</span><span>${p.plants}</span></div>
         <div class="driver-card__metric"><span>Defuses</span><span>${p.defuses}</span></div>
+        <div class="driver-card__metric"><span>Time Held</span><span>${formatSecondsToTime(p.timeSeconds)}</span></div>
       `;
 
     const card = document.createElement("div");
