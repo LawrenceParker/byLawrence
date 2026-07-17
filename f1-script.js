@@ -5,7 +5,7 @@
    FALLBACK_DATA_URL is a local backup used if the live sheet
    can't be reached.
    ========================================================= */
-const DATA_URL = "f1-data.csv";
+const DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vQWM-z7oKwvyPqmpWWs_NK4lCL56s2uJ4fbf_Clh0oFDlhY5krsnfU-WO2iZuaddFNoYotjuBn7CBNb/pub?gid=0&single=true&output=csv";
 const FALLBACK_DATA_URL = "f1-data.csv";
 
 const COLORS = ["#2f7fe0", "#c8393b", "#f2b705", "#2fbf9e", "#ef4da0", "#8a6cd1", "#6b8f4e"];
