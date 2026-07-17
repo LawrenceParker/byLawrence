@@ -1,0 +1,51 @@
+Race,Name,Driver,Pos (Race),Points
+AUSTRALIAN GRAND PRIX,Alex,Charles Leclerc,3,15
+AUSTRALIAN GRAND PRIX,Conor,Kimi Antonelli,2,18
+AUSTRALIAN GRAND PRIX,Harry,Isack Hadjar,NC,0
+AUSTRALIAN GRAND PRIX,Joe,Lewis Hamilton,4,12
+AUSTRALIAN GRAND PRIX,Lawrence,George Russell,1,0
+CHINESE GRAND PRIX,Alex,Lewis Hamilton,3,15
+CHINESE GRAND PRIX,Conor,Max Verstappen,NC,0
+CHINESE GRAND PRIX,Harry,Charles Leclerc,4,12
+CHINESE GRAND PRIX,Joe,Kimi Antonelli,1,0
+CHINESE GRAND PRIX,Lawrence,Lando Norris,NC,0
+JAPANESE GRAND PRIX,Alex,Lando Norris,5,10
+JAPANESE GRAND PRIX,Conor,Kimi Antonelli,1,0
+JAPANESE GRAND PRIX,Harry,Charles Leclerc,3,15
+JAPANESE GRAND PRIX,Joe,George Russell,4,12
+JAPANESE GRAND PRIX,Lawrence,Lewis Hamilton,6,8
+MIAMI GRAND PRIX,Alex,George Russell,4,12
+MIAMI GRAND PRIX,Conor,Charles Leclerc,8,4
+MIAMI GRAND PRIX,Harry,Lewis Hamilton,6,8
+MIAMI GRAND PRIX,Joe,Lando Norris,2,18
+MIAMI GRAND PRIX,Lawrence,Oscar Piastri,3,15
+GRAND PRIX DU CANADA,Alex,George Russell,NC,0
+GRAND PRIX DU CANADA,Conor,Lando Norris,NC,0
+GRAND PRIX DU CANADA,Harry,Lewis Hamilton,2,18
+GRAND PRIX DU CANADA,Joe,Kimi Antonelli,1,0
+GRAND PRIX DU CANADA,Lawrence,Oscar Piastri,11,0
+MONACO GRAND PRIX,Alex,George Russell,12,0
+MONACO GRAND PRIX,Conor,Lewis Hamilton,2,18
+MONACO GRAND PRIX,Harry,Lando Norris,NC,0
+MONACO GRAND PRIX,Joe,Max Verstappen,NC,0
+MONACO GRAND PRIX,Lawrence,Charles Leclerc,NC,0
+GRAN PREMIO DE BARCELONA,Alex,Max Verstappen,4,12
+GRAN PREMIO DE BARCELONA,Conor,Lando Norris,3,15
+GRAN PREMIO DE BARCELONA,Harry,Lewis Hamilton,1,0
+GRAN PREMIO DE BARCELONA,Joe,George Russell,2,18
+GRAN PREMIO DE BARCELONA,Lawrence,Charles Leclerc,15,0
+AUSTRIAN GRAND PRIX,Alex,Max Verstappen,2,18
+AUSTRIAN GRAND PRIX,Conor,Lewis Hamilton,5,10
+AUSTRIAN GRAND PRIX,Harry,George Russell,1,0
+AUSTRIAN GRAND PRIX,Joe,Kimi Antonelli,3,15
+AUSTRIAN GRAND PRIX,Lawrence,Lando Norris,7,6
+BRITISH GRAND PRIX,Alex,George Russell,2,18
+BRITISH GRAND PRIX,Conor,Lewis Hamilton,3,15
+BRITISH GRAND PRIX,Harry,Lando Norris,4,12
+BRITISH GRAND PRIX,Joe,Kimi Antonelli,15,0
+BRITISH GRAND PRIX,Lawrence,Max Verstappen,20,0
+BELGIAN GRAND PRIX,Alex,,#N/A,#N/A
+BELGIAN GRAND PRIX,Conor,Kimi Antonelli,#N/A,#N/A
+BELGIAN GRAND PRIX,Harry,Charles Leclerc,#N/A,#N/A
+BELGIAN GRAND PRIX,Joe,Max Verstappen,#N/A,#N/A
+BELGIAN GRAND PRIX,Lawrence,Lewis Hamilton,#N/A,#N/A
