@@ -157,6 +157,18 @@ body {
 }
 .panel { display: none; }
 .panel.is-active { display: block; animation: fadeIn 0.25s ease; }
+
+.section { margin-bottom: 48px; }
+.section:last-child { margin-bottom: 0; }
+.section-title {
+  font-family: var(--font-display);
+  font-size: 24px;
+  letter-spacing: 0.02em;
+  margin: 0 0 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--line);
+  color: var(--paper);
+}
 @keyframes fadeIn { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: translateY(0); } }
 
 .panel__controls {
