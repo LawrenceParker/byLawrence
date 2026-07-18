@@ -7,7 +7,7 @@
 
   --wnc-accent: #5b84a6;
   --fh6-accent: #ef4da0;
-  --f1-accent: #2f7fe0;
+  --f1-accent:  #f2b705;
 
   --font-display: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -93,7 +93,7 @@ body {
 }
 .game-card--wnc:hover { border-top-color: var(--wnc-accent); transform: translateY(-3px); background: #20242c; }
 .game-card--fh6:hover { border-top-color: var(--fh6-accent); transform: translateY(-3px); background: #20242c; }
-.game-card--worldcup:hover { border-top-color: var(--worldcup-accent); transform: translateY(-3px); background: #20242c; }
+.game-card--worldcup:hover { border-top-color: var(--f1-accent); transform: translateY(-3px); background: #20242c; }
 
 .game-card__top {
   display: flex;
