@@ -285,33 +285,34 @@ function getRandomItem(){
     }
 
 
-    const total =
+    const totalChance =
     lootTable.reduce(
-        (sum,item)=>
-        sum + item.chance,
+        (total,item)=>{
+
+            return total + Number(item.chance);
+        },
         0
     );
 
 
     let roll =
-    Math.random() * total;
+    Math.random() * totalChance;
 
+    let current = 0;
 
     for(const item of lootTable){
 
-        roll -= item.chance;
+        current += Number(item.chance);
 
-
-        if(roll <= 0){
-
+        if(roll <= current){
             return item;
-
         }
-
     }
 
-
-    return lootTable[0];
+    // fallback safety
+    return lootTable[
+        lootTable.length - 1
+    ];
 
 }
 
