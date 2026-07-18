@@ -1,432 +1,737 @@
-/*=====================================
-    G A M B A
-======================================*/
+/* =====================================
+   GAMBA V2
+   Google Sheets Loot System
+===================================== */
 
-const game = {
-    coins: 0,
-    gems: 0,
-    boxes: 1,
-    inventory: {},
-    history: []
+
+/* =====================================
+   GOOGLE SHEET SETTINGS
+===================================== */
+
+
+const SHEET_URL =
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vSOjnDkM13VMbSWrlvAxmf6vPdQMN5IyTbYDVXuiBrAHS53LrqfGEuoCrY9AlxcgEw8RnYab2VHTDju/pub?gid=0&single=true&output=csv";
+
+
+
+let lootTable = [];
+
+
+
+/* =====================================
+   PLAYER DATA
+===================================== */
+
+
+const defaultPlayer = {
+
+    credits:1000,
+
+    totalValue:0,
+
+    boxes:1,
+
+    inventory:{},
+
+    history:[]
+
 };
 
-/*=====================================
-    ITEM DATABASE
-======================================*/
 
-const lootTable = [
 
-    {
-        name:"Rusty Sword",
-        rarity:"common",
-        chance:40,
-        coins:5
-    },
+let game = loadGame();
 
-    {
-        name:"Wooden Shield",
-        rarity:"common",
-        chance:30,
-        coins:5
-    },
 
-    {
-        name:"Iron Helmet",
-        rarity:"rare",
-        chance:15,
-        coins:15
-    },
 
-    {
-        name:"Magic Wand",
-        rarity:"epic",
-        chance:8,
-        coins:40
-    },
+/* =====================================
+   HTML ELEMENTS
+===================================== */
 
-    {
-        name:"Dragon Egg",
-        rarity:"legendary",
-        chance:5,
-        coins:120
-    },
 
-    {
-        name:"Phoenix Feather",
-        rarity:"mythic",
-        chance:2,
-        coins:500,
-        gems:5
-    }
+const creditsText =
+document.getElementById("credits");
 
-];
 
-/*=====================================
-    HTML REFERENCES
-======================================*/
+const valueText =
+document.getElementById("totalValue");
 
-const coinsText = document.getElementById("coins");
-const gemsText = document.getElementById("gems");
-const boxesText = document.getElementById("boxes");
 
-const inventoryDiv = document.getElementById("inventory");
-const historyDiv = document.getElementById("history");
+const boxesText =
+document.getElementById("boxes");
 
-const resultText = document.getElementById("result");
 
-const lootbox = document.getElementById("lootbox");
+const inventoryDiv =
+document.getElementById("inventory");
 
-const openButton = document.getElementById("openButton");
 
-const saveButton = document.getElementById("saveButton");
+const historyDiv =
+document.getElementById("history");
 
-const resetButton = document.getElementById("resetButton");
 
-/*=====================================
-    SAVE / LOAD
-======================================*/
+const resultText =
+document.getElementById("result");
 
-function saveGame(){
 
-    localStorage.setItem(
-        "gambaSave",
-        JSON.stringify(game)
-    );
+const lootbox =
+document.getElementById("lootbox");
 
-}
 
-function loadGame(){
+const openButton =
+document.getElementById("openButton");
 
-    const save =
-        localStorage.getItem("gambaSave");
 
-    if(save){
+const saveButton =
+document.getElementById("saveButton");
 
-        Object.assign(
-            game,
-            JSON.parse(save)
+
+const resetButton =
+document.getElementById("resetButton");
+
+
+
+
+/* =====================================
+   LOAD GOOGLE SHEET
+===================================== */
+
+
+async function loadLootData(){
+
+
+    try{
+
+
+        const response =
+        await fetch(SHEET_URL);
+
+
+
+        const csv =
+        await response.text();
+
+
+
+        lootTable =
+        parseCSV(csv);
+
+
+
+        console.log(
+            "Loot loaded:",
+            lootTable
         );
 
-    }
-
-}
-
-loadGame();
-
-/*=====================================
-    UPDATE UI
-======================================*/
-
-function updateUI(){
-
-    coinsText.textContent = game.coins;
-
-    gemsText.textContent = game.gems;
-
-    boxesText.textContent = game.boxes;
-
-    drawInventory();
-
-    drawHistory();
-
-}
-
-/*=====================================
-    INVENTORY
-======================================*/
-
-function addItem(item){
-
-    if(game.inventory[item.name]){
-
-        game.inventory[item.name].count++;
-
-    }else{
-
-        game.inventory[item.name]={
-            rarity:item.rarity,
-            count:1
-        };
 
     }
 
-}
 
-/*=====================================
-    DRAW INVENTORY
-======================================*/
+    catch(error){
 
-function drawInventory(){
 
-    inventoryDiv.innerHTML="";
+        console.error(
+            "Failed loading loot",
+            error
+        );
 
-    const keys =
-        Object.keys(game.inventory);
-
-    if(keys.length===0){
-
-        inventoryDiv.innerHTML=
-        "<p class='empty'>Inventory Empty</p>";
-
-        return;
 
     }
 
-    keys.forEach(name=>{
 
-        const item =
-            game.inventory[name];
+}
 
-        const card =
-            document.createElement("div");
 
-        card.className=
-            "item "+item.rarity;
 
-        card.innerHTML=`
 
-            <div class="item-name">
-                ${name}
-            </div>
 
-            <div class="item-count">
-                x${item.count}
-            </div>
+/* =====================================
+   CSV PARSER
+===================================== */
 
-        `;
 
-        inventoryDiv.appendChild(card);
+function parseCSV(csv){
+
+
+    const rows =
+    csv.split("\n");
+
+
+    const headers =
+    rows.shift()
+    .split(",");
+
+
+
+    return rows.map(row=>{
+
+
+        const values =
+        row.split(",");
+
+
+
+        let item={};
+
+
+
+        headers.forEach(
+            (header,index)=>{
+
+
+                item[
+                    header.trim()
+                ] =
+                values[index]
+                ?.trim();
+
+
+
+            }
+        );
+
+
+
+        item.chance =
+        Number(item.chance);
+
+
+
+        item.value =
+        Number(item.value);
+
+
+
+        return item;
+
 
     });
 
+
 }
 
-/*=====================================
-    HISTORY
-======================================*/
+
+
+
+
+/* =====================================
+   SAVE SYSTEM
+===================================== */
+
+
+function saveGame(){
+
+
+    localStorage.setItem(
+
+        "gambaSave",
+
+        JSON.stringify(game)
+
+    );
+
+
+}
+
+
+
+
+
+function loadGame(){
+
+
+    const saved =
+    localStorage.getItem(
+        "gambaSave"
+    );
+
+
+
+    if(saved){
+
+
+        return Object.assign(
+
+            {},
+
+            defaultPlayer,
+
+            JSON.parse(saved)
+
+        );
+
+
+    }
+
+
+
+    return structuredClone(
+        defaultPlayer
+    );
+
+
+}
+
+
+
+
+
+/* =====================================
+   UI UPDATE
+===================================== */
+
+
+function updateUI(){
+
+
+    creditsText.textContent =
+    game.credits;
+
+
+
+    valueText.textContent =
+    game.totalValue;
+
+
+
+    boxesText.textContent =
+    game.boxes;
+
+
+
+    drawInventory();
+
+
+    drawHistory();
+
+
+}
+
+
+
+
+
+/* =====================================
+   RANDOM ITEM
+===================================== */
+
+
+function getRandomItem(){
+
+
+    const total =
+    lootTable.reduce(
+
+        (sum,item)=>
+        sum + item.chance,
+
+        0
+
+    );
+
+
+
+    let roll =
+    Math.random()*total;
+
+
+
+    for(const item of lootTable){
+
+
+        roll -= item.chance;
+
+
+
+        if(roll <=0){
+
+
+            return item;
+
+
+        }
+
+
+    }
+
+
+}
+
+
+
+
+
+/* =====================================
+   ADD ITEM
+===================================== */
+
+
+function addItem(item){
+
+
+    if(
+        game.inventory[item.name]
+    ){
+
+
+        game.inventory[item.name]
+        .count++;
+
+
+    }
+
+    else{
+
+
+        game.inventory[item.name]={
+
+
+            id:item.id,
+
+            name:item.name,
+
+            rarity:item.rarity,
+
+            image:item.image,
+
+            description:item.description,
+
+            value:item.value,
+
+            count:1
+
+
+        };
+
+
+    }
+
+
+
+    game.totalValue +=
+    Number(item.value);
+
+
+
+}
+
+
+
+
+
+/* =====================================
+   OPEN LOOTBOX
+===================================== */
+
+
+function openLootbox(){
+
+
+    if(game.boxes<=0){
+
+
+        resultText.textContent =
+        "No lootboxes available";
+
+
+        return;
+
+
+    }
+
+
+
+    if(lootTable.length===0){
+
+
+        resultText.textContent =
+        "Loot is still loading...";
+
+
+        return;
+
+
+    }
+
+
+
+    game.boxes--;
+
+
+
+    lootbox.classList.remove(
+        "opening"
+    );
+
+
+    void lootbox.offsetWidth;
+
+
+    lootbox.classList.add(
+        "opening"
+    );
+
+
+
+    const reward =
+    getRandomItem();
+
+
+
+    addItem(
+        reward
+    );
+
+
+
+    resultText.innerHTML = `
+
+
+    🎉 You found:
+
+    <br><br>
+
+
+    <strong>
+
+    ${reward.name}
+
+    </strong>
+
+
+    <br>
+
+
+    ${reward.rarity}
+
+
+    <br>
+
+
+    Value: ${reward.value}
+
+
+
+    `;
+
+
+
+    addHistory(
+
+    `${reward.name}
+    (${reward.rarity})`
+
+    );
+
+
+
+    saveGame();
+
+
+
+    updateUI();
+
+
+}
+
+
+
+
+
+/* =====================================
+   INVENTORY DISPLAY
+===================================== */
+
+
+function drawInventory(){
+
+
+    inventoryDiv.innerHTML="";
+
+
+
+    Object.values(
+        game.inventory
+    )
+    .forEach(item=>{
+
+
+        const card =
+        document.createElement(
+            "div"
+        );
+
+
+
+        card.className =
+        "item " +
+        item.rarity
+        .toLowerCase();
+
+
+
+        card.innerHTML=`
+
+
+        <img src="${item.image}">
+
+
+        <div class="item-name">
+
+        ${item.name}
+
+        </div>
+
+
+        <div class="item-rarity">
+
+        ${item.rarity}
+
+        </div>
+
+
+        <div class="item-value">
+
+        💎 ${item.value}
+
+        </div>
+
+
+        <div>
+
+        x${item.count}
+
+        </div>
+
+
+        `;
+
+
+
+        inventoryDiv.appendChild(
+            card
+        );
+
+
+
+    });
+
+
+}
+
+
+
+
+
+/* =====================================
+   HISTORY
+===================================== */
+
 
 function addHistory(text){
 
-    game.history.unshift(text);
 
-    if(game.history.length>15){
+    game.history.unshift(
+        text
+    );
+
+
+    if(
+        game.history.length>15
+    ){
 
         game.history.pop();
 
     }
 
+
 }
+
+
+
 
 function drawHistory(){
 
+
     historyDiv.innerHTML="";
+
+
 
     game.history.forEach(entry=>{
 
+
         const div =
-            document.createElement("div");
+        document.createElement(
+            "div"
+        );
 
-        div.className="history-entry";
 
-        div.textContent=entry;
+        div.className =
+        "history-entry";
 
-        historyDiv.appendChild(div);
+
+        div.textContent =
+        entry;
+
+
+        historyDiv.appendChild(
+            div
+        );
+
 
     });
 
-}
-
-/*=====================================
-    RANDOM DROP
-======================================*/
-
-function getRandomItem(){
-
-    const total =
-        lootTable.reduce(
-            (sum,item)=>sum+item.chance,
-            0
-        );
-
-    let roll =
-        Math.random()*total;
-
-    for(const item of lootTable){
-
-        if(roll<item.chance){
-
-            return item;
-
-        }
-
-        roll-=item.chance;
-
-    }
 
 }
 
-/*=====================================
-    OPEN LOOTBOX
-======================================*/
-
-function openLootbox(){
-
-    if(game.boxes <= 0){
-
-        resultText.textContent =
-        "❌ You have no lootboxes left!";
-
-        return;
-
-    }
 
 
-    // Remove box
-
-    game.boxes--;
 
 
-    // Animation
-
-    lootbox.classList.remove("opening");
-
-    void lootbox.offsetWidth;
-
-    lootbox.classList.add("opening");
+/* =====================================
+   BUTTONS
+===================================== */
 
 
-    // Get reward
-
-    const reward = getRandomItem();
-
-
-    // Add item
-
-    addItem(reward);
+openButton.onclick =
+openLootbox;
 
 
-    // Give currency
 
-    let rewardText = 
-    `🎁 You found ${reward.name}!`;
+saveButton.onclick =
+()=>{
 
+saveGame();
 
-    if(reward.coins){
+resultText.textContent =
+"Game Saved";
 
-        game.coins += reward.coins;
-
-        rewardText +=
-        ` +${reward.coins} coins`;
-
-    }
+};
 
 
-    if(reward.gems){
 
-        game.gems += reward.gems;
-
-        rewardText +=
-        ` +${reward.gems} gems`;
-
-    }
+resetButton.onclick =
+()=>{
 
 
-    // History
-
-    addHistory(
-        `${getTime()} - ${reward.name} (${reward.rarity})`
-    );
+if(confirm("Delete all progress?")){
 
 
-    // Show result
+localStorage.removeItem("gambaSave");
 
-    resultText.textContent =
-        rewardText;
+location.reload();
 
-
-    // Save
-
-    saveGame();
+}
 
 
-    // Update screen
+};
 
+/* =====================================
+   START
+===================================== */
+
+
+async function startGame(){
+    await loadLootData();
     updateUI();
-
 }
 
-
-/*=====================================
-    BUTTON EVENTS
-======================================*/
-
-
-openButton.addEventListener(
-    "click",
-    openLootbox
-);
-
-
-saveButton.addEventListener(
-    "click",
-    ()=>{
-
-        saveGame();
-
-        resultText.textContent =
-        "💾 Game saved!";
-
-    }
-);
-
-
-
-resetButton.addEventListener(
-    "click",
-    ()=>{
-
-
-        const confirmReset =
-        confirm(
-            "Delete all progress?"
-        );
-
-
-        if(confirmReset){
-
-            localStorage.removeItem(
-                "gambaSave"
-            );
-
-
-            location.reload();
-
-        }
-
-
-    }
-);
-
-
-
-/*=====================================
-    UTILITIES
-======================================*/
-
-
-function getTime(){
-
-    const now =
-        new Date();
-
-    return now.toLocaleTimeString();
-
-}
-
-
-/*=====================================
-    START GAME
-======================================*/
-
-
-updateUI();
+startGame();
