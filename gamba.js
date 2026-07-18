@@ -19,6 +19,14 @@ let lootTable = [];
 const LOOTBOX_COST = 100;
 
 
+function formatCurrency(number){
+
+    return Number(number)
+        .toLocaleString();
+
+}
+
+
 
 /* =====================================
    PLAYER DATA
@@ -236,12 +244,11 @@ function updateUI(){
 
 
     creditsText.textContent =
-    game.credits;
+"Credits: " + formatCurrency(game.credits);
 
 
-
-    valueText.textContent =
-    game.totalValue;
+valueText.textContent =
+"💎 " + formatCurrency(game.totalValue)
 
 
 
@@ -420,7 +427,7 @@ function sellItem(itemName){
 
 
     resultText.textContent =
-    `💰 Sold ${itemName} for ${item.value} credits`;
+    `💰 Sold ${itemName} for ${formatCurrency(item.value)} credits`;
 
 
 
@@ -481,30 +488,36 @@ function openLootbox(){
 
 
 
-    lootbox.classList.remove(
-        "opening"
-    );
+    openButton.disabled = true;
 
+    openButton.textContent = "Opening...";
+
+    lootbox.classList.remove("opening");
 
     void lootbox.offsetWidth;
 
-
-    lootbox.classList.add(
-        "opening"
-    );
+    lootbox.classList.add("opening");
 
 
+    setTimeout(()=>{
 
-    const reward = getRandomItem();
+
+    const reward =
+    getRandomItem();
+
 
 
     if(!reward){
 
-        resultText.textContent = "⚠️ Loot failed to load";
+        resultText.textContent =
+        "Loot error";
+
+        openButton.disabled=false;
 
         return;
 
     }
+
 
 
     addItem(reward);
@@ -514,19 +527,20 @@ function openLootbox(){
     resultText.innerHTML = `
 
 
-    🎉 You found:
+    🎉 FOUND!
+
 
     <br><br>
 
 
-    <strong>
+    <strong class="${reward.rarity.toLowerCase()}">
 
     ${reward.name}
 
     </strong>
 
 
-    <br>
+    <br><br>
 
 
     ${reward.rarity}
@@ -535,11 +549,25 @@ function openLootbox(){
     <br>
 
 
-    Value: ${reward.value}
-
+    💎 Value:
+    ${formatCurrency(reward.value)}
 
 
     `;
+
+
+
+    resultText.classList.remove(
+    "reward-show"
+    );
+
+
+    void resultText.offsetWidth;
+
+
+    resultText.classList.add(
+    "reward-show"
+    );
 
 
 
@@ -553,6 +581,21 @@ function openLootbox(){
 
 
     saveGame();
+
+
+    updateUI();
+
+
+
+    openButton.disabled=false;
+
+
+    openButton.textContent =
+    "Open Lootbox";
+
+
+
+    },1500);
 
 
 
@@ -649,7 +692,7 @@ function drawInventory(){
 
         <div class="item-value">
 
-        💎 Value: ${item.value}
+        Value: ${formatCurrency(item.value)}
 
         </div>
 

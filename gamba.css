@@ -878,3 +878,143 @@ grid-template-columns:1fr;
     transform:scale(1.05);
 
 }
+
+/* ===============================
+   LOOTBOX OPEN ANIMATION
+================================ */
+
+
+.opening {
+
+    animation:
+    shake 0.8s,
+    lootGlow 0.8s;
+
+}
+
+
+
+@keyframes shake {
+
+
+0%{
+
+transform:rotate(0deg);
+
+}
+
+
+20%{
+
+transform:
+translateX(-15px)
+rotate(-10deg);
+
+}
+
+
+40%{
+
+transform:
+translateX(15px)
+rotate(10deg);
+
+}
+
+
+60%{
+
+transform:
+translateX(-15px)
+rotate(-10deg);
+
+}
+
+
+80%{
+
+transform:
+translateX(15px)
+rotate(10deg);
+
+}
+
+
+100%{
+
+transform:
+rotate(0deg);
+
+}
+
+
+}
+
+
+
+@keyframes lootGlow{
+
+
+0%{
+
+box-shadow:
+0 0 10px white;
+
+}
+
+
+50%{
+
+box-shadow:
+0 0 70px gold;
+
+}
+
+
+100%{
+
+box-shadow:
+0 0 10px white;
+
+}
+
+
+}
+
+
+
+/* Reward Reveal */
+
+.reward-show{
+
+    animation:
+    reveal .6s ease;
+
+}
+
+
+
+@keyframes reveal{
+
+
+from{
+
+opacity:0;
+
+transform:
+scale(.5);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:
+scale(1);
+
+}
+
+
+}
