@@ -4,6 +4,16 @@
    (CSV export), falls back to demo data if no sheet is configured.
    ============================================================ */
 
+window.addEventListener("error", (e) => {
+  console.error("Festival Wheels error:", e.error || e.message);
+  toastSafe(`Something broke: ${e.message}. Check the browser console for details.`);
+});
+function toastSafe(msg) {
+  // toast() is defined further down; this wrapper lets the global error
+  // handler above call it even if it fires before the rest of the file runs.
+  try { toast(msg); } catch { alert(msg); }
+}
+
 const RARITY_COLOR = {
   common: "var(--common)",
   rare: "var(--rare)",
@@ -222,7 +232,9 @@ function openSpin(wheel, autoSpin = true) {
   $("#wheelHub").classList.remove("spinning");
   if (autoSpin) {
     // let the dial paint at rest for a beat before it whips into motion
-    requestAnimationFrame(() => setTimeout(() => doSpin(), 250));
+    requestAnimationFrame(() => setTimeout(() => {
+      try { doSpin(); } catch (err) { console.error(err); toast(`Spin failed: ${err.message}`); }
+    }, 250));
   }
 }
 
