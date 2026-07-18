@@ -113,6 +113,7 @@ body {
   font-weight: 700;
   font-size: 26px;
   color: var(--accent);
+  text-transform: uppercase;
 }
 .hero__stat-label {
   font-size: 11px;
@@ -296,6 +297,7 @@ body {
   font-family: var(--font-display);
   font-size: 22px;
   margin: 6px 0 14px;
+  text-transform: uppercase;
 }
 .lb-card__points {
   font-family: var(--font-mono);
@@ -316,7 +318,7 @@ body {
 /* ---------- PICKS MATRIX ---------- */
 .picks-table { width: 100%; border-collapse: collapse; font-size: 12px; min-width: 1100px; }
 .picks-table th, .picks-table td {
-  padding: 10px 12px;
+  padding: 20px 20px;
   border: 1px solid var(--line);
   text-align: center;
   white-space: nowrap;
@@ -336,6 +338,7 @@ body {
   background: var(--surface);
   position: sticky;
   left: 0;
+  text-transform: uppercase;
 }
 .picks-cell__driver { color: var(--paper); font-weight: 600; }
 .picks-cell__meta { color: var(--muted); font-size: 11px; margin-top: 2px; }
@@ -372,6 +375,7 @@ body {
   margin-bottom: 16px;
   font-family: var(--font-mono);
   font-size: 12px;
+  text-transform: uppercase;
 }
 .chart-legend__item { display: flex; align-items: center; gap: 6px; color: var(--muted); }
 .chart-legend__swatch { width: 12px; height: 12px; border-radius: 2px; display: inline-block; }
