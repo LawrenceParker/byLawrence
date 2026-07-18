@@ -80,13 +80,6 @@ function isRaceCompleted(race) {
   return rowsForRace.length > 0 && rowsForRace.every(r => r.points !== null);
 }
 
-/* ---- Get Max Points ---- */
-function getMaxPointsForRace(race) {
-  const rows = ROWS.filter(r => r.race === race && r.points !== null);
-  if (rows.length === 0) return null;
-  return Math.max(...rows.map(r => r.points));
-}
-
 /* ---------- AGGREGATION ---------- */
 function computeStandings() {
   return NAMES.map(name => {
@@ -139,6 +132,13 @@ function renderLeaderboard() {
   });
 }
 
+
+function getMaxPointsForRace(race) {
+  const rows = ROWS.filter(r => r.race === race && r.points !== null);
+  if (!rows.length) return null;
+  return Math.max(...rows.map(r => r.points));
+}
+
 /* ---------- RENDER: RACE PICKS MATRIX ---------- */
 function renderPicksMatrix() {
   const headerRow = document.getElementById("picksHeaderRow");
@@ -151,27 +151,32 @@ function renderPicksMatrix() {
   standings.forEach(s => {
     const tr = document.createElement("tr");
     let cells = `<td class="picks-name">${s.name}</td>`;
-    ACES.forEach(race => {
-  const row = ROWS.find(r => r.race === race && r.name === s.name);
 
-  if (!row || !row.driver || row.points === null) {
-    cells += `<td class="picks-cell--empty">TBD</td>`;
-  } else {
-    const maxPoints = getMaxPointsForRace(race);
+    RACES.forEach(race => {
+      const row = ROWS.find(r => r.race === race && r.name === s.name);
 
-    let ptsClass = "pts-default";
-    if (row.points === 0) ptsClass = "pts-zero";
-    else if (row.points === maxPoints) ptsClass = "pts-max";
+      if (!row || !row.driver || row.points === null) {
+        cells += `<td class="picks-cell--empty">TBD</td>`;
+      } else {
+        const maxPoints = getMaxPointsForRace(race);
 
-    cells += `
-      <td>
-        <div class="picks-cell__driver">${row.driver}</div>
-        <div class="picks-cell__meta">P${row.pos}</div>
-        <div class="picks-cell__pts ${ptsClass}">${row.points} pts</div>
-      </td>
-    `;
-  }
-});
+        let ptsClass = "pts-default";
+        if (row.points === 0) {
+          ptsClass = "pts-zero";
+        } else if (maxPoints !== null && row.points === maxPoints) {
+          ptsClass = "pts-max";
+        }
+
+        cells += `
+          <td>
+            <div class="picks-cell__driver">${row.driver}</div>
+            <div class="picks-cell__meta">P${row.pos}</div>
+            <div class="picks-cell__pts ${ptsClass}">${row.points} pts</div>
+          </td>
+        `;
+      }
+    });
+
     tr.innerHTML = cells;
     body.appendChild(tr);
   });
