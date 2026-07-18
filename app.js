@@ -1,0 +1,509 @@
+/* ============================================================
+   FESTIVAL WHEELS — app.js
+   Static, client-only. Reads live loot tables from Google Sheets
+   (CSV export), falls back to demo data if no sheet is configured.
+   ============================================================ */
+
+const RARITY_COLOR = {
+  common: "var(--common)",
+  rare: "var(--rare)",
+  epic: "var(--epic)",
+  legendary: "var(--legendary)",
+};
+const RARITY_ORDER = ["common", "rare", "epic", "legendary"];
+
+const LS_KEYS = {
+  credits: "fw_credits",
+  inventory: "fw_inventory",
+  offer: "fw_offer",
+};
+
+let STATE = {
+  wheels: [],          // [{key,name,cost,color,tab,loot:[{id,name,rarity,value,weight,desc}]}]
+  credits: 0,
+  inventory: [],        // [{uid,name,rarity,value,wheelKey,wheelName,ts}]
+  activeFilter: "all",
+  offer: null,          // {scope:'rarity'|'wheel', target, bonusPct, expiresAt}
+  spinning: false,
+};
+
+/* ---------------- demo fallback data ---------------- */
+function demoWheels() {
+  return [
+    { key: "bronze", name: "Bronze Wheel", cost: 100, color: "#8a93a3", loot: [
+      { id: "b1", name: "Rusty Pickup", rarity: "common", value: 60, weight: 40 },
+      { id: "b2", name: "Compact Hatchback", rarity: "common", value: 90, weight: 35 },
+      { id: "b3", name: "Sport Coupe '98", rarity: "rare", value: 220, weight: 20 },
+      { id: "b4", name: "Vintage Roadster", rarity: "epic", value: 500, weight: 5 },
+    ]},
+    { key: "silver", name: "Silver Wheel", cost: 250, color: "#4ea1ff", loot: [
+      { id: "s1", name: "Rally Hatch", rarity: "common", value: 140, weight: 35 },
+      { id: "s2", name: "Turbo Coupe", rarity: "rare", value: 380, weight: 35 },
+      { id: "s3", name: "Track Special", rarity: "rare", value: 420, weight: 20 },
+      { id: "s4", name: "Widebody GT", rarity: "epic", value: 950, weight: 10 },
+    ]},
+    { key: "gold", name: "Gold Wheel", cost: 600, color: "#ffb800", loot: [
+      { id: "g1", name: "Muscle Classic", rarity: "rare", value: 500, weight: 30 },
+      { id: "g2", name: "Twin-Turbo GT", rarity: "epic", value: 1400, weight: 40 },
+      { id: "g3", name: "Rally Legend", rarity: "epic", value: 1650, weight: 22 },
+      { id: "g4", name: "Hypercar Prototype", rarity: "legendary", value: 4200, weight: 8 },
+    ]},
+    { key: "platinum", name: "Platinum Wheel", cost: 1200, color: "#b24eff", loot: [
+      { id: "p1", name: "Track-Tuned GT", rarity: "epic", value: 1800, weight: 40 },
+      { id: "p2", name: "Works Rally Car", rarity: "epic", value: 2100, weight: 32 },
+      { id: "p3", name: "Le Mans Prototype", rarity: "legendary", value: 5200, weight: 20 },
+      { id: "p4", name: "Festival One-Off", rarity: "legendary", value: 7800, weight: 8 },
+    ]},
+    { key: "diamond", name: "Diamond Wheel", cost: 2500, color: "#17e6c9", loot: [
+      { id: "d1", name: "Hypercar Prototype", rarity: "legendary", value: 6000, weight: 40 },
+      { id: "d2", name: "Bespoke Grand Tourer", rarity: "legendary", value: 8200, weight: 35 },
+      { id: "d3", name: "Festival Icon Edition", rarity: "legendary", value: 15000, weight: 15 },
+      { id: "d4", name: "One-of-One Concept", rarity: "legendary", value: 30000, weight: 10 },
+    ]},
+  ];
+}
+
+/* ---------------- CSV loading ---------------- */
+function csvUrl(sheetId, tab) {
+  return `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
+}
+
+function parseCSV(text) {
+  const rows = [];
+  let row = [], field = "", inQuotes = false;
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i], next = text[i + 1];
+    if (inQuotes) {
+      if (c === '"' && next === '"') { field += '"'; i++; }
+      else if (c === '"') { inQuotes = false; }
+      else { field += c; }
+    } else {
+      if (c === '"') inQuotes = true;
+      else if (c === ',') { row.push(field); field = ""; }
+      else if (c === '\n' || c === '\r') {
+        if (c === '\r' && next === '\n') i++;
+        row.push(field); rows.push(row); row = []; field = "";
+      } else field += c;
+    }
+  }
+  if (field.length || row.length) { row.push(field); rows.push(row); }
+  const headers = (rows.shift() || []).map(h => h.trim().toLowerCase());
+  return rows.filter(r => r.some(v => v.trim() !== "")).map(r => {
+    const obj = {};
+    headers.forEach((h, idx) => obj[h] = (r[idx] ?? "").trim());
+    return obj;
+  });
+}
+
+async function fetchTab(sheetId, tab) {
+  const res = await fetch(csvUrl(sheetId, tab));
+  if (!res.ok) throw new Error(`Failed to fetch tab "${tab}"`);
+  return parseCSV(await res.text());
+}
+
+async function loadWheelsFromSheet() {
+  const sheetId = APP_CONFIG.SHEET_ID?.trim();
+  if (!sheetId) return null;
+
+  const configRows = await fetchTab(sheetId, APP_CONFIG.CONFIG_TAB);
+  if (!configRows.length) throw new Error("Config tab is empty");
+
+  const wheels = [];
+  for (const row of configRows) {
+    const tabName = row.tab;
+    if (!tabName) continue;
+    const lootRows = await fetchTab(sheetId, tabName);
+    const loot = lootRows.map((r, i) => ({
+      id: `${row.key}_${i}`,
+      name: r.name || "Unknown Item",
+      rarity: (r.rarity || "common").toLowerCase(),
+      value: Number(r.value) || 0,
+      weight: Number(r.weight) || 1,
+      desc: r.desc || "",
+    }));
+    wheels.push({
+      key: row.key || tabName.toLowerCase(),
+      name: row.name || tabName,
+      cost: Number(row.cost) || 0,
+      color: row.color || "#ff6a33",
+      tab: tabName,
+      loot,
+    });
+  }
+  if (!wheels.length) throw new Error("No wheels found in Config tab");
+  return wheels;
+}
+
+/* ---------------- persistence ---------------- */
+function loadState() {
+  const credits = localStorage.getItem(LS_KEYS.credits);
+  STATE.credits = credits !== null ? Number(credits) : APP_CONFIG.STARTING_CREDITS;
+  try { STATE.inventory = JSON.parse(localStorage.getItem(LS_KEYS.inventory)) || []; }
+  catch { STATE.inventory = []; }
+  try { STATE.offer = JSON.parse(localStorage.getItem(LS_KEYS.offer)) || null; }
+  catch { STATE.offer = null; }
+}
+function saveCredits() { localStorage.setItem(LS_KEYS.credits, String(STATE.credits)); }
+function saveInventory() { localStorage.setItem(LS_KEYS.inventory, JSON.stringify(STATE.inventory)); }
+function saveOffer() { localStorage.setItem(LS_KEYS.offer, JSON.stringify(STATE.offer)); }
+
+/* ---------------- UI helpers ---------------- */
+function $(sel) { return document.querySelector(sel); }
+function $all(sel) { return Array.from(document.querySelectorAll(sel)); }
+
+function toast(msg) {
+  const t = $("#toast");
+  t.textContent = msg;
+  t.hidden = false;
+  clearTimeout(toast._h);
+  toast._h = setTimeout(() => { t.hidden = true; }, 2200);
+}
+
+function renderCredits() {
+  $("#creditsValue").textContent = STATE.credits.toLocaleString();
+}
+
+function switchView(view) {
+  ["wheels", "inventory", "shop"].forEach(v => {
+    $(`#view-${v}`).classList.toggle("hidden", v !== view);
+  });
+  $all(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.view === view));
+  if (view === "inventory") renderInventory();
+  if (view === "shop") renderShop();
+}
+
+/* ---------------- wheel selection cards ---------------- */
+function renderWheelGrid() {
+  const grid = $("#wheelGrid");
+  grid.innerHTML = "";
+  STATE.wheels.forEach(w => {
+    const card = document.createElement("div");
+    card.className = "wheel-card";
+    card.style.setProperty("--tier-color", w.color);
+    const affordable = STATE.credits >= w.cost;
+    card.innerHTML = `
+      <span class="tier-eyebrow">${w.loot.length} rewards</span>
+      <h3>${escapeHtml(w.name)}</h3>
+      <p class="wheel-desc">Odds favor ${topRarity(w.loot)} tier drops.</p>
+      <div class="wheel-cost">
+        <span class="cost-num">${w.cost.toLocaleString()}</span>
+        <span class="cost-tag">CREDITS</span>
+      </div>
+      <button class="spin-btn" ${affordable ? "" : "disabled"}>${affordable ? "Spin" : "Not enough credits"}</button>
+    `;
+    card.querySelector(".spin-btn").addEventListener("click", () => openSpin(w));
+    grid.appendChild(card);
+  });
+}
+
+function topRarity(loot) {
+  const rarities = new Set(loot.map(l => l.rarity));
+  for (let i = RARITY_ORDER.length - 1; i >= 0; i--) {
+    if (rarities.has(RARITY_ORDER[i])) return RARITY_ORDER[i];
+  }
+  return "common";
+}
+
+function escapeHtml(s) {
+  return String(s).replace(/[&<>"']/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+}
+
+/* ---------------- spin overlay ---------------- */
+let currentWheel = null;
+
+function openSpin(wheel) {
+  currentWheel = wheel;
+  $("#spinWheelTitle").textContent = wheel.name;
+  $("#spinResult").hidden = true;
+  $("#spinOverlay").hidden = false;
+  buildDial(wheel);
+  $("#wheelHub").textContent = `SPIN (${wheel.cost})`;
+  $("#wheelHub").classList.remove("spinning");
+}
+
+$("#closeSpin").addEventListener("click", () => { $("#spinOverlay").hidden = true; renderWheelGrid(); });
+$("#doneSpinBtn").addEventListener("click", () => { $("#spinOverlay").hidden = true; renderWheelGrid(); switchView("inventory"); });
+$("#spinAgainBtn").addEventListener("click", () => openSpin(currentWheel));
+
+function buildDial(wheel) {
+  const dial = $("#wheelDial");
+  const totalWeight = wheel.loot.reduce((s, l) => s + l.weight, 0);
+  let acc = 0;
+  const stops = [];
+  const labels = [];
+  wheel.loot.forEach(item => {
+    const startDeg = (acc / totalWeight) * 360;
+    acc += item.weight;
+    const endDeg = (acc / totalWeight) * 360;
+    const color = rarityColorHex(item.rarity);
+    stops.push(`${color} ${startDeg}deg ${endDeg}deg`);
+    const midDeg = (startDeg + endDeg) / 2;
+    labels.push({ mid: midDeg, name: item.name });
+  });
+  dial.style.background = `conic-gradient(${stops.join(",")})`;
+  dial.style.transform = "rotate(0deg)";
+  dial.querySelectorAll(".wheel-seg-label").forEach(el => el.remove());
+  labels.forEach(l => {
+    const span = document.createElement("span");
+    span.className = "wheel-seg-label";
+    span.textContent = l.name.length > 16 ? l.name.slice(0, 14) + "…" : l.name;
+    span.style.transform = `rotate(${l.mid - 90}deg) translate(78px, 0) rotate(${-(l.mid - 90)}deg)`;
+    dial.appendChild(span);
+  });
+  dial.offsetHeight; // reflow to reset transition
+}
+
+function rarityColorHex(rarity) {
+  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800" };
+  return map[rarity] || map.common;
+}
+
+function weightedPick(loot) {
+  const total = loot.reduce((s, l) => s + l.weight, 0);
+  let r = Math.random() * total;
+  for (const item of loot) {
+    if (r < item.weight) return item;
+    r -= item.weight;
+  }
+  return loot[loot.length - 1];
+}
+
+$("#wheelHub").addEventListener("click", doSpin);
+
+function doSpin() {
+  if (STATE.spinning || !currentWheel) return;
+  if (STATE.credits < currentWheel.cost) { toast("Not enough credits for this wheel."); return; }
+
+  STATE.spinning = true;
+  STATE.credits -= currentWheel.cost;
+  saveCredits(); renderCredits();
+  $("#wheelHub").classList.add("spinning");
+  $("#spinResult").hidden = true;
+
+  const wheel = currentWheel;
+  const totalWeight = wheel.loot.reduce((s, l) => s + l.weight, 0);
+  const winner = weightedPick(wheel.loot);
+
+  // find winner's angular midpoint
+  let acc = 0, mid = 0;
+  for (const item of wheel.loot) {
+    const start = (acc / totalWeight) * 360;
+    acc += item.weight;
+    const end = (acc / totalWeight) * 360;
+    if (item === winner) { mid = (start + end) / 2; break; }
+  }
+
+  const spins = 5 + Math.floor(Math.random() * 3); // 5-7 full spins
+  const targetRotation = spins * 360 + ((360 - mid) % 360);
+
+  const dial = $("#wheelDial");
+  dial.style.transform = `rotate(${targetRotation}deg)`;
+
+  setTimeout(() => {
+    finishSpin(wheel, winner);
+  }, 4600);
+}
+
+function finishSpin(wheel, item) {
+  STATE.spinning = false;
+  $("#wheelHub").classList.remove("spinning");
+
+  const uid = `inv_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+  STATE.inventory.unshift({
+    uid, name: item.name, rarity: item.rarity, value: item.value,
+    wheelKey: wheel.key, wheelName: wheel.name, ts: Date.now(),
+  });
+  saveInventory();
+  updateInvCount();
+
+  const card = $("#resultCard");
+  card.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
+  card.innerHTML = `
+    <span class="r-rarity">${item.rarity}</span>
+    <div class="r-name">${escapeHtml(item.name)}</div>
+    <div class="r-value">Worth ${item.value.toLocaleString()} credits · from ${escapeHtml(wheel.name)}</div>
+  `;
+  $("#spinResult").hidden = false;
+}
+
+/* ---------------- inventory ---------------- */
+function updateInvCount() {
+  $("#invCount").textContent = STATE.inventory.length;
+}
+
+function renderRarityFilters() {
+  const wrap = $("#rarityFilters");
+  wrap.innerHTML = `<button class="chip active" data-rarity="all">All</button>` +
+    RARITY_ORDER.map(r => `<button class="chip" data-rarity="${r}">${r}</button>`).join("");
+  wrap.querySelectorAll(".chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      STATE.activeFilter = btn.dataset.rarity;
+      wrap.querySelectorAll(".chip").forEach(b => b.classList.toggle("active", b === btn));
+      renderInventory();
+    });
+  });
+}
+
+function currentBonusFor(item) {
+  const offer = getLiveOffer();
+  if (!offer) return 0;
+  if (offer.scope === "rarity" && offer.target === item.rarity) return offer.bonusPct;
+  if (offer.scope === "wheel" && offer.target === item.wheelKey) return offer.bonusPct;
+  return 0;
+}
+
+function sellValue(item) {
+  const bonus = currentBonusFor(item);
+  return Math.round(item.value * (1 + bonus / 100));
+}
+
+function renderInventory() {
+  const grid = $("#inventoryGrid");
+  const items = STATE.activeFilter === "all"
+    ? STATE.inventory
+    : STATE.inventory.filter(i => i.rarity === STATE.activeFilter);
+
+  $("#invEmpty").hidden = STATE.inventory.length > 0;
+  grid.innerHTML = "";
+  items.forEach(item => grid.appendChild(buildItemCard(item)));
+}
+
+function buildItemCard(item) {
+  const el = document.createElement("div");
+  el.className = "item-card";
+  el.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
+  const bonus = currentBonusFor(item);
+  const val = sellValue(item);
+  el.innerHTML = `
+    <span class="i-rarity">${item.rarity}</span>
+    <div class="i-name">${escapeHtml(item.name)}</div>
+    <div class="i-source">from ${escapeHtml(item.wheelName)}</div>
+    <div class="i-footer">
+      <span class="i-value">${val.toLocaleString()}${bonus ? `<span class="boost">+${bonus}%</span>` : ""}</span>
+      <button class="sell-btn">Sell</button>
+    </div>
+  `;
+  el.querySelector(".sell-btn").addEventListener("click", () => sellItem(item.uid));
+  return el;
+}
+
+function sellItem(uid) {
+  const idx = STATE.inventory.findIndex(i => i.uid === uid);
+  if (idx === -1) return;
+  const item = STATE.inventory[idx];
+  const gained = sellValue(item);
+  STATE.credits += gained;
+  STATE.inventory.splice(idx, 1);
+  saveCredits(); saveInventory();
+  renderCredits(); updateInvCount(); renderInventory(); renderShop(); renderWheelGrid();
+  toast(`Sold ${item.name} for ${gained.toLocaleString()} credits`);
+}
+
+$("#sellAllBtn").addEventListener("click", () => {
+  if (!STATE.inventory.length) { toast("Nothing to sell."); return; }
+  const items = STATE.activeFilter === "all" ? [...STATE.inventory] : STATE.inventory.filter(i => i.rarity === STATE.activeFilter);
+  if (!items.length) { toast("Nothing to sell in this filter."); return; }
+  let total = 0;
+  items.forEach(i => total += sellValue(i));
+  const uids = new Set(items.map(i => i.uid));
+  STATE.inventory = STATE.inventory.filter(i => !uids.has(i.uid));
+  STATE.credits += total;
+  saveCredits(); saveInventory();
+  renderCredits(); updateInvCount(); renderInventory(); renderShop(); renderWheelGrid();
+  toast(`Sold ${items.length} items for ${total.toLocaleString()} credits`);
+});
+
+/* ---------------- shop / rotating offers ---------------- */
+function pickNewOffer() {
+  const scopeIsRarity = Math.random() < 0.6;
+  const bonusPct = Math.round(
+    APP_CONFIG.OFFER_BONUS_MIN + Math.random() * (APP_CONFIG.OFFER_BONUS_MAX - APP_CONFIG.OFFER_BONUS_MIN)
+  );
+  let scope, target, label;
+  if (scopeIsRarity) {
+    target = RARITY_ORDER[Math.floor(Math.random() * RARITY_ORDER.length)];
+    scope = "rarity";
+    label = `+${bonusPct}% credits selling ${target} items`;
+  } else {
+    const w = STATE.wheels[Math.floor(Math.random() * STATE.wheels.length)];
+    target = w.key; scope = "wheel";
+    label = `+${bonusPct}% credits selling items from ${w.name}`;
+  }
+  const durationMs = APP_CONFIG.OFFER_ROTATE_MINUTES * 60 * 1000;
+  STATE.offer = { scope, target, bonusPct, label, expiresAt: Date.now() + durationMs, durationMs };
+  saveOffer();
+}
+
+function getLiveOffer() {
+  if (!STATE.offer) return null;
+  if (Date.now() >= STATE.offer.expiresAt) return null;
+  return STATE.offer;
+}
+
+function ensureOffer() {
+  if (!getLiveOffer()) pickNewOffer();
+}
+
+function renderShop() {
+  ensureOffer();
+  const offer = STATE.offer;
+  $("#offerText").textContent = offer.label;
+  $("#offerDot").hidden = false;
+
+  const grid = $("#shopGrid");
+  $("#shopEmpty").hidden = STATE.inventory.length > 0;
+  grid.innerHTML = "";
+  STATE.inventory.forEach(item => grid.appendChild(buildItemCard(item)));
+}
+
+function tickOfferTimer() {
+  const offer = STATE.offer;
+  if (!offer) return;
+  const remaining = Math.max(0, offer.expiresAt - Date.now());
+  if (remaining <= 0) {
+    pickNewOffer();
+    renderShop();
+    return;
+  }
+  const pct = (remaining / offer.durationMs) * 100;
+  $("#offerTimerFill").style.width = `${pct}%`;
+  const mm = Math.floor(remaining / 60000);
+  const ss = Math.floor((remaining % 60000) / 1000).toString().padStart(2, "0");
+  $("#offerTimerLabel").textContent = `${mm}:${ss}`;
+}
+
+/* ---------------- tabs ---------------- */
+$all(".tab-btn").forEach(btn => btn.addEventListener("click", () => switchView(btn.dataset.view)));
+
+/* ---------------- boot ---------------- */
+async function boot() {
+  loadState();
+  renderCredits();
+  renderRarityFilters();
+  updateInvCount();
+
+  const status = $("#dataStatus");
+  try {
+    const sheetWheels = await loadWheelsFromSheet();
+    if (sheetWheels) {
+      STATE.wheels = sheetWheels;
+      status.hidden = true;
+    } else {
+      STATE.wheels = demoWheels();
+      status.hidden = false;
+      status.textContent = "Running on demo loot tables — add your Google Sheet ID in config.js to go live.";
+    }
+  } catch (err) {
+    console.error(err);
+    STATE.wheels = demoWheels();
+    status.hidden = false;
+    status.textContent = `Couldn't load your Google Sheet (${err.message}). Showing demo loot tables instead.`;
+  }
+
+  renderWheelGrid();
+  ensureOffer();
+  setInterval(tickOfferTimer, 1000);
+  tickOfferTimer();
+}
+
+boot();
