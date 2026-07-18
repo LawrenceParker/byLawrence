@@ -113,6 +113,7 @@ body {
 }
 .game-card--wnc .game-card__tag--wnc { background: var(--wnc-accent); }
 .game-card--fh6 .game-card__tag--fh6 { background: var(--fh6-accent); }
+.game-card--f1 .game-card__tag--f1 { background: var(--f1-accent); }
 .game-card__tag--soon { background: var(--muted); }
 
 .game-card__title {
