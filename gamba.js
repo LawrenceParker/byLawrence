@@ -16,6 +16,8 @@ const SHEET_URL =
 
 let lootTable = [];
 
+const LOOTBOX_COST = 100;
+
 
 
 /* =====================================
@@ -78,6 +80,9 @@ document.getElementById("lootbox");
 
 const openButton =
 document.getElementById("openButton");
+
+const buyBoxButton =
+document.getElementById("buyBoxButton");
 
 
 const saveButton =
@@ -262,7 +267,7 @@ function updateUI(){
 ===================================== */
 
 
-ffunction getRandomItem(){
+function getRandomItem(){
 
     if(lootTable.length === 0){
 
@@ -361,6 +366,77 @@ function addItem(item){
 
 }
 
+function sellItem(itemName){
+
+
+    const item =
+    game.inventory[itemName];
+
+
+    if(!item){
+
+        return;
+
+    }
+
+
+
+    if(item.count <=0){
+
+        return;
+
+    }
+
+
+
+    // Give credits
+
+    game.credits +=
+    Number(item.value);
+
+
+
+    // Remove item
+
+    item.count--;
+
+
+
+    // Remove empty stacks
+
+    if(item.count===0){
+
+        delete game.inventory[itemName];
+
+    }
+
+
+
+    // Update total value
+
+    game.totalValue -=
+    Number(item.value);
+
+
+
+    resultText.textContent =
+    `💰 Sold ${itemName} for ${item.value} credits`;
+
+
+
+    addHistory(
+    `Sold ${itemName}`
+    );
+
+
+
+    saveGame();
+
+
+    updateUI();
+
+}
+
 
 
 
@@ -425,7 +501,7 @@ function openLootbox(){
     if(!reward){
 
         resultText.textContent = "⚠️ Loot failed to load";
-        
+
         return;
 
     }
@@ -485,6 +561,37 @@ function openLootbox(){
 
 }
 
+/* =====================================
+   Buy Lootbox
+===================================== */
+
+function buyLootbox(){
+
+    if(game.credits < LOOTBOX_COST){
+
+        resultText.textContent =
+        "❌ Not enough credits";
+
+        return;
+
+    }
+
+
+    game.credits -= LOOTBOX_COST;
+
+
+    game.boxes++;
+
+
+    resultText.textContent =
+    "📦 Lootbox purchased!";
+
+
+    saveGame();
+
+    updateUI();
+
+}
 
 
 
@@ -523,7 +630,6 @@ function drawInventory(){
 
         card.innerHTML=`
 
-
         <img src="${item.image}">
 
 
@@ -543,19 +649,28 @@ function drawInventory(){
 
         <div class="item-value">
 
-        💎 ${item.value}
+        💎 Value: ${item.value}
 
         </div>
 
 
         <div>
 
-        x${item.count}
+        Owned: x${item.count}
 
         </div>
 
 
-        `;
+        <button 
+        class="sell-button"
+        onclick="sellItem('${item.name}')">
+
+        Sell
+
+        </button>
+
+
+`;
 
 
 
@@ -646,6 +761,9 @@ function drawHistory(){
 
 openButton.onclick =
 openLootbox;
+
+buyBoxButton.onclick =
+buyLootbox;
 
 
 

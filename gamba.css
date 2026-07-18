@@ -822,3 +822,59 @@ grid-template-columns:1fr;
 }
 
 }
+
+
+.lootbox-actions{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:20px;
+
+}
+
+
+#buyBoxButton{
+
+    background:
+    linear-gradient(
+        135deg,
+        #00c6ff,
+        #0072ff
+    );
+
+    color:white;
+
+    padding:18px 40px;
+
+    border-radius:15px;
+
+    font-weight:bold;
+
+}
+
+
+
+.sell-button{
+
+    margin-top:10px;
+
+    padding:8px 20px;
+
+    border-radius:8px;
+
+    background:#19b65b;
+
+    color:white;
+
+    cursor:pointer;
+
+}
+
+
+.sell-button:hover{
+
+    transform:scale(1.05);
+
+}
