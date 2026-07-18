@@ -120,6 +120,7 @@ async function loadWheelsFromSheet() {
       value: Number(r.value) || 0,
       weight: Number(r.weight) || 1,
       desc: r.desc || "",
+      image: r.image || "",
     }));
     wheels.push({
       key: row.key || tabName.toLowerCase(),
@@ -211,19 +212,28 @@ function escapeHtml(s) {
 /* ---------------- spin overlay ---------------- */
 let currentWheel = null;
 
-function openSpin(wheel) {
+function openSpin(wheel, autoSpin = true) {
   currentWheel = wheel;
   $("#spinWheelTitle").textContent = wheel.name;
   $("#spinResult").hidden = true;
   $("#spinOverlay").hidden = false;
   buildDial(wheel);
-  $("#wheelHub").textContent = `SPIN (${wheel.cost})`;
+  $("#wheelHub").textContent = "●";
   $("#wheelHub").classList.remove("spinning");
+  if (autoSpin) {
+    // let the dial paint at rest for a beat before it whips into motion
+    requestAnimationFrame(() => setTimeout(() => doSpin(), 250));
+  }
 }
 
-$("#closeSpin").addEventListener("click", () => { $("#spinOverlay").hidden = true; renderWheelGrid(); });
-$("#doneSpinBtn").addEventListener("click", () => { $("#spinOverlay").hidden = true; renderWheelGrid(); switchView("inventory"); });
-$("#spinAgainBtn").addEventListener("click", () => openSpin(currentWheel));
+function closeSpinOverlay() {
+  $("#spinOverlay").hidden = true;
+  renderWheelGrid();
+}
+
+$("#closeSpin").addEventListener("click", closeSpinOverlay);
+$("#doneSpinBtn").addEventListener("click", () => { closeSpinOverlay(); switchView("inventory"); });
+$("#spinAgainBtn").addEventListener("click", () => openSpin(currentWheel, true));
 
 function buildDial(wheel) {
   const dial = $("#wheelDial");
@@ -242,13 +252,18 @@ function buildDial(wheel) {
   });
   dial.style.background = `conic-gradient(${stops.join(",")})`;
   dial.style.transform = "rotate(0deg)";
-  dial.querySelectorAll(".wheel-seg-label").forEach(el => el.remove());
-  labels.forEach(l => {
-    const span = document.createElement("span");
-    span.className = "wheel-seg-label";
-    span.textContent = l.name.length > 16 ? l.name.slice(0, 14) + "…" : l.name;
-    span.style.transform = `rotate(${l.mid - 90}deg) translate(78px, 0) rotate(${-(l.mid - 90)}deg)`;
-    dial.appendChild(span);
+  dial.querySelectorAll(".wheel-seg").forEach(el => el.remove());
+  wheel.loot.forEach((item, i) => {
+    const l = labels[i];
+    const wrap = document.createElement("div");
+    wrap.className = "wheel-seg";
+    wrap.title = item.name;
+    wrap.style.transform = `rotate(${l.mid - 90}deg) translate(90px, 0) rotate(${-(l.mid - 90)}deg)`;
+    wrap.innerHTML = `
+      <img class="wheel-seg-img" src="${imageFor(item)}" alt="" loading="lazy">
+      <span class="wheel-seg-label">${escapeHtml(l.name.length > 14 ? l.name.slice(0, 12) + "…" : l.name)}</span>
+    `;
+    dial.appendChild(wrap);
   });
   dial.offsetHeight; // reflow to reset transition
 }
@@ -256,6 +271,33 @@ function buildDial(wheel) {
 function rarityColorHex(rarity) {
   const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800" };
   return map[rarity] || map.common;
+}
+
+// Inline SVG car-silhouette placeholder, tinted per rarity, used whenever
+// a loot item has no "image" URL set in the sheet.
+const _fallbackCache = {};
+function fallbackImage(rarity) {
+  const color = rarityColorHex(rarity);
+  if (_fallbackCache[color]) return _fallbackCache[color];
+  const svg = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 120">
+      <rect width="200" height="120" fill="#11161f"/>
+      <ellipse cx="100" cy="95" rx="80" ry="8" fill="#000" opacity=".35"/>
+      <path d="M25 82 Q20 55 45 50 L60 32 Q70 24 85 24 L120 24 Q135 24 145 34 L158 50 Q182 54 178 82 Z"
+            fill="${color}" opacity=".9"/>
+      <rect x="70" y="34" width="55" height="20" rx="4" fill="#11161f" opacity=".55"/>
+      <circle cx="58" cy="84" r="14" fill="#0b0e14"/>
+      <circle cx="58" cy="84" r="6" fill="${color}"/>
+      <circle cx="145" cy="84" r="14" fill="#0b0e14"/>
+      <circle cx="145" cy="84" r="6" fill="${color}"/>
+    </svg>`;
+  const uri = `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+  _fallbackCache[color] = uri;
+  return uri;
+}
+
+function imageFor(item) {
+  return item.image && item.image.trim() ? item.image.trim() : fallbackImage(item.rarity);
 }
 
 function weightedPick(loot) {
@@ -310,7 +352,7 @@ function finishSpin(wheel, item) {
 
   const uid = `inv_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
   STATE.inventory.unshift({
-    uid, name: item.name, rarity: item.rarity, value: item.value,
+    uid, name: item.name, rarity: item.rarity, value: item.value, image: item.image || "",
     wheelKey: wheel.key, wheelName: wheel.name, ts: Date.now(),
   });
   saveInventory();
@@ -319,6 +361,7 @@ function finishSpin(wheel, item) {
   const card = $("#resultCard");
   card.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
   card.innerHTML = `
+    <div class="r-image-wrap"><img src="${imageFor(item)}" alt="${escapeHtml(item.name)}"></div>
     <span class="r-rarity">${item.rarity}</span>
     <div class="r-name">${escapeHtml(item.name)}</div>
     <div class="r-value">Worth ${item.value.toLocaleString()} credits · from ${escapeHtml(wheel.name)}</div>
@@ -375,6 +418,7 @@ function buildItemCard(item) {
   const bonus = currentBonusFor(item);
   const val = sellValue(item);
   el.innerHTML = `
+    <div class="i-image"><img src="${imageFor(item)}" alt="" loading="lazy"></div>
     <span class="i-rarity">${item.rarity}</span>
     <div class="i-name">${escapeHtml(item.name)}</div>
     <div class="i-source">from ${escapeHtml(item.wheelName)}</div>
