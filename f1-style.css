@@ -342,6 +342,21 @@ body {
 .picks-cell__pts { color: var(--accent); font-weight: 700; font-family: var(--font-mono); }
 .picks-cell--empty { color: var(--muted); font-style: italic; }
 
+/* Default white */
+.picks-cell__pts.pts-default {
+  color: white;
+}
+
+/* Zero points = red */
+.picks-cell__pts.pts-zero {
+  color: #ff3b3b; 
+}
+
+/* Max points = purple */
+.picks-cell__pts.pts-max {
+  color: #b347ff;  
+}
+
 /* ---------- CHART ---------- */
 .chart-wrap {
   background: var(--surface);
