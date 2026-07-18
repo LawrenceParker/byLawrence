@@ -150,61 +150,48 @@ async function loadLootData(){
 
 function parseCSV(csv){
 
-
     const rows =
-    csv.split("\n");
+    csv.trim().split("\n");
 
 
     const headers =
     rows.shift()
-    .split(",");
+    .split(",")
+    .map(h => h.trim().toLowerCase());
 
 
-
-    return rows.map(row=>{
+    return rows
+    .filter(row => row.trim() !== "")
+    .map(row=>{
 
 
         const values =
         row.split(",");
 
 
-
         let item={};
 
 
+        headers.forEach((header,index)=>{
 
-        headers.forEach(
-            (header,index)=>{
+            item[header] =
+            values[index]?.trim();
 
-
-                item[
-                    header.trim()
-                ] =
-                values[index]
-                ?.trim();
-
-
-
-            }
-        );
-
+        });
 
 
         item.chance =
-        Number(item.chance);
-
+        Number(item.chance) || 0;
 
 
         item.value =
-        Number(item.value);
-
+        Number(item.value) || 0;
 
 
         return item;
 
 
     });
-
 
 }
 
@@ -218,60 +205,21 @@ function parseCSV(csv){
 
 
 function saveGame(){
-
-
-    localStorage.setItem(
-
-        "gambaSave",
-
-        JSON.stringify(game)
-
-    );
-
+    localStorage.setItem("gambaSave",JSON.stringify(game));
 
 }
-
-
-
-
 
 function loadGame(){
-
-
     const saved =
-    localStorage.getItem(
-        "gambaSave"
-    );
-
-
+    localStorage.getItem("gambaSave");
 
     if(saved){
-
-
-        return Object.assign(
-
-            {},
-
-            defaultPlayer,
-
-            JSON.parse(saved)
-
-        );
-
-
+        return Object.assign({},defaultPlayer,JSON.parse(saved));
     }
 
-
-
-    return structuredClone(
-        defaultPlayer
-    );
-
+    return structuredClone(defaultPlayer);
 
 }
-
-
-
 
 
 /* =====================================
@@ -314,44 +262,44 @@ function updateUI(){
 ===================================== */
 
 
-function getRandomItem(){
+ffunction getRandomItem(){
+
+    if(lootTable.length === 0){
+
+        console.error("Loot table empty");
+
+        return null;
+
+    }
 
 
     const total =
     lootTable.reduce(
-
         (sum,item)=>
         sum + item.chance,
-
         0
-
     );
 
 
-
     let roll =
-    Math.random()*total;
-
+    Math.random() * total;
 
 
     for(const item of lootTable){
 
-
         roll -= item.chance;
 
 
-
-        if(roll <=0){
-
+        if(roll <= 0){
 
             return item;
 
-
         }
-
 
     }
 
+
+    return lootTable[0];
 
 }
 
@@ -471,14 +419,19 @@ function openLootbox(){
 
 
 
-    const reward =
-    getRandomItem();
+    const reward = getRandomItem();
 
 
+    if(!reward){
 
-    addItem(
-        reward
-    );
+        resultText.textContent = "⚠️ Loot failed to load";
+        
+        return;
+
+    }
+
+
+    addItem(reward);
 
 
 
