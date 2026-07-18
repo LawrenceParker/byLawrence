@@ -7,7 +7,7 @@
 
   --wnc-accent: #5b84a6;
   --fh6-accent: #ef4da0;
-  --worldcup-accent: #2f7fe0;
+  --f1-accent: #2f7fe0;
 
   --font-display: 'Oswald', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -134,7 +134,7 @@ body {
 }
 .game-card--wnc .game-card__cta { color: var(--wnc-accent); }
 .game-card--fh6 .game-card__cta { color: var(--fh6-accent); }
-.game-card--worldcup .game-card__cta { color: var(--worldcup-accent); }
+.game-card--worldcup .game-card__cta { color: var(--f1-accent); }
 
 /* ---------- FOOTER ---------- */
 .footer {
