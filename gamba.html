@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gamba</title>
+
+    <link rel="stylesheet" href="gamba.css">
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>🎁 Gamba</h1>
+        <p>Open lootboxes. Collect items. Get rich.</p>
+    </header>
+
+    <section class="player-bar">
+
+        <div class="stat">
+            <span class="label">Coins</span>
+            <span id="coins">0</span>
+        </div>
+
+        <div class="stat">
+            <span class="label">Gems</span>
+            <span id="gems">0</span>
+        </div>
+
+        <div class="stat">
+            <span class="label">Boxes</span>
+            <span id="boxes">1</span>
+        </div>
+
+    </section>
+
+    <main>
+
+        <section class="lootbox-section">
+
+            <div id="lootbox" class="lootbox">
+                📦
+            </div>
+
+            <button id="openButton">
+                Open Lootbox
+            </button>
+
+            <p id="result">
+                Press the button to open your first lootbox.
+            </p>
+
+        </section>
+
+        <section class="inventory-section">
+
+            <h2>Inventory</h2>
+
+            <div id="inventory" class="inventory">
+
+                <p class="empty">
+                    Your inventory is empty.
+                </p>
+
+            </div>
+
+        </section>
+
+        <section class="history-section">
+
+            <h2>Recent Drops</h2>
+
+            <div id="history" class="history">
+
+            </div>
+
+        </section>
+
+        <section class="shop-section">
+
+            <h2>Shop (Coming Soon)</h2>
+
+            <div class="shop-placeholder">
+
+                Buy better lootboxes, keys and upgrades here.
+
+            </div>
+
+        </section>
+
+        <section class="collection-section">
+
+            <h2>Collection</h2>
+
+            <div id="collection">
+
+                Discover items to fill your collection.
+
+            </div>
+
+        </section>
+
+    </main>
+
+    <footer>
+
+        <button id="saveButton">
+            Save Game
+        </button>
+
+        <button id="resetButton" class="danger">
+            Reset Save
+        </button>
+
+    </footer>
+
+</div>
+
+<script src="gamba.js"></script>
+
+</body>
+</html>
