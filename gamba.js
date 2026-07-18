@@ -10,7 +10,7 @@
 
 
 const SHEET_URL =
-"https://docs.google.com/spreadsheets/d/e/2PACX-1vSOjnDkM13VMbSWrlvAxmf6vPdQMN5IyTbYDVXuiBrAHS53LrqfGEuoCrY9AlxcgEw8RnYab2VHTDju/pub?gid=0&single=true&output=csv";
+"https://docs.google.com/spreadsheets/d/e/2PACX-1vSOjnDkM13VMbSWrlvAxmf6vPdQMN5IyTbYDVXuiBrAHS53LrqfGEuoCrY9AlxcgEw8RnYab2VHTDju/pub?output=csv";
 
 
 
