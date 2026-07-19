@@ -43,21 +43,21 @@ const APP_CONFIG = {
 
   // Range of the bonus % the rotating market condition can grant (applied
   // on top of both Quick Sell and Auction payouts, for matching items)
-  OFFER_BONUS_MIN: 10,
-  OFFER_BONUS_MAX: 50,
+  OFFER_BONUS_MIN: 0,
+  OFFER_BONUS_MAX: 0,
 
   // Quick Sell: instant, guaranteed, but always at a loss off base value
-  QUICK_SELL_LOSS_PCT: 30,
+  QUICK_SELL_LOSS_PCT: 10,
 
   // Auction: a weighted table of possible outcomes. Each item's final
   // payout = base value × a random multiplier between min/max of whichever
   // tier gets picked (weight = relative odds, same idea as loot weights).
   // Tune freely — add/remove tiers, adjust ranges, whatever you like.
   AUCTION_OUTCOMES: [
-    { label: "Lowball bid", min: 0.3, max: 0.5, weight: 20 },
-    { label: "Fair market price", min: 0.7, max: 1.2, weight: 54 },
+    { label: "Lowball bid", min: 0.3, max: 0.5, weight: 25 },
+    { label: "Fair market price", min: 0.7, max: 1.2, weight: 50 },
     { label: "Strong bidding", min: 1.2, max: 1.8, weight: 20 },
-    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 5 },
+    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 4 },
     { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 1 },
   ],
 };
