@@ -31,11 +31,11 @@
 */
 
 const APP_CONFIG = {
-  SHEET_ID: "", // <-- paste your Google Sheet ID here
+  SHEET_ID: "1k1lzi3nX_1K9WbCpFoXx_IZeCA0fvqlf-NsO5MAa3Ic", // <-- paste your Google Sheet ID here
   CONFIG_TAB: "Config",
 
   // Starting credits for first-time visitors
-  STARTING_CREDITS: 500,
+  STARTING_CREDITS: 50000,
 
   // How often the auction house rotates its special "market conditions"
   // bonus, in minutes
@@ -44,7 +44,7 @@ const APP_CONFIG = {
   // Range of the bonus % the rotating market condition can grant (applied
   // on top of both Quick Sell and Auction payouts, for matching items)
   OFFER_BONUS_MIN: 10,
-  OFFER_BONUS_MAX: 30,
+  OFFER_BONUS_MAX: 50,
 
   // Quick Sell: instant, guaranteed, but always at a loss off base value
   QUICK_SELL_LOSS_PCT: 30,
@@ -54,10 +54,10 @@ const APP_CONFIG = {
   // tier gets picked (weight = relative odds, same idea as loot weights).
   // Tune freely — add/remove tiers, adjust ranges, whatever you like.
   AUCTION_OUTCOMES: [
-    { label: "Lowball bid", min: 0.5, max: 0.8, weight: 20 },
-    { label: "Fair market price", min: 0.8, max: 1.2, weight: 40 },
-    { label: "Strong bidding", min: 1.2, max: 1.8, weight: 25 },
-    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 10 },
-    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 5 },
+    { label: "Lowball bid", min: 0.5, max: 0.8, weight: 10 },
+    { label: "Fair market price", min: 0.8, max: 1.2, weight: 64 },
+    { label: "Strong bidding", min: 1.2, max: 1.8, weight: 20 },
+    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 5 },
+    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 1 },
   ],
 };
