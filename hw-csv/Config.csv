@@ -1,7 +1,7 @@
 key,name,cost,color,tab
 common,Common Wheel,10000,#8a93a3,Common
 rare,Rare Wheel,50000,#4ea1ff,Rare
-epic,Epic Wheel,100000,#ffb800,Epic
-legendary,Legendary Wheel,1000000,#b24eff,Legendary
+epic,Epic Wheel,100000,#b24eff,Epic
+legendary,Legendary Wheel,1000000,#ffb800,Legendary
 diamond,Diamond Wheel,50000000,#17e6c9,Diamond
 broke,Im Broke,0,#f2eded,Broke
