@@ -35,12 +35,12 @@ const APP_CONFIG = {
   CONFIG_TAB: "Config",
 
   // Starting credits for first-time visitors
-  STARTING_CREDITS: 500,
+  STARTING_CREDITS: 10000,
 
   // How often the shop rotates its special offer, in minutes
   OFFER_ROTATE_MINUTES: 2,
 
   // Range of the bonus % the rotating offer can grant (applied to sell value)
   OFFER_BONUS_MIN: 10,
-  OFFER_BONUS_MAX: 30,
+  OFFER_BONUS_MAX: 100,
 };
