@@ -59,10 +59,10 @@ const APP_CONFIG = {
   CONFIG_TAB: "Config",
 
   // Starting credits for first-time visitors
-  STARTING_CREDITS: 500,
+  STARTING_CREDITS: 50000,
 
   // Quick Sell: instant, guaranteed, but always at a loss off base value
-  QUICK_SELL_LOSS_PCT: 30,
+  QUICK_SELL_LOSS_PCT: 15,
 
   // Auction: a weighted table of possible outcomes. Each item's final
   // payout = base value × a random multiplier between min/max of whichever
@@ -80,9 +80,9 @@ const APP_CONFIG = {
   // automatically (even if you closed the tab while it was running).
   // duration is in seconds. Add, remove, or retune freely.
   JOBS: [
-    { key: "wash", name: "Car Wash", desc: "Detail cars in the paddock.", duration: 30, payout: 40 },
-    { key: "tow", name: "Tow Truck Run", desc: "Recover stranded racers off-route.", duration: 90, payout: 140 },
-    { key: "pit", name: "Pit Crew Shift", desc: "Work a full shift on the pit wall.", duration: 300, payout: 550 },
-    { key: "vip", name: "VIP Chauffeur", desc: "Drive festival VIPs between events.", duration: 900, payout: 2000 },
+    { key: "wash", name: "Car Wash", desc: "Wash cars in the paddock.", duration: 30, payout: 2000 },
+    { key: "tow", name: "Tow Truck Run", desc: "Recover stranded cars.", duration: 90, payout: 5000 },
+    { key: "pit", name: "Pit Crew Shift", desc: "Work a full shift on the pit wall.", duration: 300, payout: 10000 },
+    { key: "vip", name: "VIP Chauffeur", desc: "Drive festival VIPs between events.", duration: 900, payout: 25000 },
   ],
 };
