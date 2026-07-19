@@ -295,7 +295,7 @@ function buildReelStrip(wheel, winner) {
 }
 
 function rarityColorHex(rarity) {
-  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800", forzaEdition: "#DE3163"};
+  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800", forzaEdition: "#ff1a1a"};
   return map[rarity] || map.common;
 }
 
