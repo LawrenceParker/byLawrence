@@ -159,7 +159,7 @@ main{max-width:1100px; margin:0 auto; padding:40px 28px 90px; position:relative;
 }
 
 .slot-item {
-  height:230px;
+  height:100px;
   display:flex;
   flex-direction:column;
   justify-content:center;
