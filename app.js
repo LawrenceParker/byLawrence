@@ -649,7 +649,6 @@ function renderCollection() {
 }
 
 /* ---------------- shop / rotating offers ---------------- */
-/*
 
 function pickNewOffer() {
   const scopeIsRarity = Math.random() < 0.6;
@@ -709,7 +708,6 @@ function tickOfferTimer() {
   $("#offerTimerLabel").textContent = `${mm}:${ss}`;
 }
 
-*/
 
 /* ---------------- tabs ---------------- */
 $all(".tab-btn").forEach(btn => btn.addEventListener("click", () => switchView(btn.dataset.view)));
