@@ -78,9 +78,11 @@ function demoWheels() {
 }
 
 /* ---------------- CSV loading ---------------- */
-function csvUrl(sheetId, tab) {
+/* function csvUrl(sheetId, tab) {
   return `https://docs.google.com/spreadsheets/d/${sheetId}/gviz/tq?tqx=out:csv&sheet=${encodeURIComponent(tab)}`;
-}
+} */
+
+
 
 function parseCSV(text) {
   const rows = [];
@@ -109,27 +111,25 @@ function parseCSV(text) {
   });
 }
 
-async function fetchTab(sheetId, tab) {
-  const res = await fetch(csvUrl(sheetId, tab));
-  if (!res.ok) throw new Error(`Failed to fetch tab "${tab}"`);
+async function fetchTabLocal(tab) {
+  const res = await fetch(`./hw-csv/${tab}.csv`);
+  if (!res.ok) throw new Error(`Failed to fetch local CSV "${tab}.csv"`);
   return parseCSV(await res.text());
 }
 
-async function loadWheelsFromSheet() {
-  const sheetId = APP_CONFIG.SHEET_ID?.trim();
-  if (!sheetId) return null;
-
-  const configRows = await fetchTab(sheetId, APP_CONFIG.CONFIG_TAB);
-  if (!configRows.length) throw new Error("Config tab is empty");
+async function loadWheelsFromLocal() {
+  // Load Config.csv first
+  const configRows = await fetchTabLocal(APP_CONFIG.CONFIG_TAB);
+  if (!configRows.length) throw new Error("Config.csv is empty");
 
   const validRows = configRows.filter(row => row.tab);
-  if (!validRows.length) throw new Error("No wheels found in Config tab");
+  if (!validRows.length) throw new Error("No wheels found in Config.csv");
 
-  // Fetch every wheel's loot table at the same time instead of waiting for
-  // each one in turn — Promise.all still returns them in the original order.
+  // Load each wheel's CSV
   const wheels = await Promise.all(validRows.map(async row => {
     const tabName = row.tab;
-    const lootRows = await fetchTab(sheetId, tabName);
+    const lootRows = await fetchTabLocal(tabName);
+
     const loot = lootRows.map((r, i) => ({
       id: `${row.key}_${i}`,
       name: r.name || "Unknown Item",
@@ -139,6 +139,7 @@ async function loadWheelsFromSheet() {
       desc: r.desc || "",
       image: r.image || "",
     }));
+
     return {
       key: row.key || tabName.toLowerCase(),
       name: row.name || tabName,
@@ -728,7 +729,7 @@ async function boot() {
   renderWheelSkeletons();
 
   try {
-    const sheetWheels = await loadWheelsFromSheet();
+    const sheetWheels = await loadWheelsFromLocal();
     if (sheetWheels) {
       STATE.wheels = sheetWheels;
       status.hidden = true;
