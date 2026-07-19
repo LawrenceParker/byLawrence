@@ -227,13 +227,18 @@ function openSpin(wheel, autoSpin = true) {
   $("#spinWheelTitle").textContent = wheel.name;
   $("#spinResult").hidden = true;
   $("#spinOverlay").hidden = false;
-  buildDial(wheel);
-  $("#wheelHub").textContent = "●";
+
+  buildSlot(wheel);
+
+  $("#wheelHub").textContent = "SPIN";
   $("#wheelHub").classList.remove("spinning");
+
   if (autoSpin) {
-    // let the dial paint at rest for a beat before it whips into motion
     requestAnimationFrame(() => setTimeout(() => {
-      try { doSpin(); } catch (err) { console.error(err); toast(`Spin failed: ${err.message}`); }
+      try { doSpin(); } catch (err) {
+        console.error(err);
+        toast(`Spin failed: ${err.message}`);
+      }
     }, 250));
   }
 }
@@ -247,37 +252,34 @@ $("#closeSpin").addEventListener("click", closeSpinOverlay);
 $("#doneSpinBtn").addEventListener("click", () => { closeSpinOverlay(); switchView("inventory"); });
 $("#spinAgainBtn").addEventListener("click", () => openSpin(currentWheel, true));
 
-function buildDial(wheel) {
-  const dial = $("#wheelDial");
-  const totalWeight = wheel.loot.reduce((s, l) => s + l.weight, 0);
-  let acc = 0;
-  const stops = [];
-  const labels = [];
-  wheel.loot.forEach(item => {
-    const startDeg = (acc / totalWeight) * 360;
-    acc += item.weight;
-    const endDeg = (acc / totalWeight) * 360;
-    const color = rarityColorHex(item.rarity);
-    stops.push(`${color} ${startDeg}deg ${endDeg}deg`);
-    const midDeg = (startDeg + endDeg) / 2;
-    labels.push({ mid: midDeg, name: item.name });
-  });
-  dial.style.background = `conic-gradient(${stops.join(",")})`;
-  dial.style.transform = "rotate(0deg)";
-  dial.querySelectorAll(".wheel-seg").forEach(el => el.remove());
-  wheel.loot.forEach((item, i) => {
-    const l = labels[i];
-    const wrap = document.createElement("div");
-    wrap.className = "wheel-seg";
-    wrap.title = item.name;
-    wrap.style.transform = `rotate(${l.mid - 90}deg) translate(90px, 0) rotate(${-(l.mid - 90)}deg)`;
-    wrap.innerHTML = `
-      <img class="wheel-seg-img" src="${imageFor(item)}" alt="" loading="lazy">
-      <span class="wheel-seg-label">${escapeHtml(l.name.length > 14 ? l.name.slice(0, 12) + "…" : l.name)}</span>
+function buildSlot(wheel) {
+
+  const strip = $("#slotStrip");
+  strip.innerHTML = "";
+
+  const items = [
+    ...wheel.loot,
+    ...wheel.loot,
+    ...wheel.loot,
+    ...wheel.loot,
+    ...wheel.loot
+  ];
+
+  items.forEach(item => {
+
+    const el = document.createElement("div");
+    el.className = "slot-item";
+
+    el.innerHTML = `
+      <img class="slot-image" src="${imageFor(item)}" alt="">
+      <span>${escapeHtml(item.name)}</span>
     `;
-    dial.appendChild(wrap);
+
+    strip.appendChild(el);
   });
-  dial.offsetHeight; // reflow to reset transition
+
+  strip.style.transition = "none";
+  strip.style.transform = "translateY(0)";
 }
 
 function rarityColorHex(rarity) {
@@ -339,19 +341,27 @@ function doSpin() {
   const winner = weightedPick(wheel.loot);
 
   // find winner's angular midpoint
-  let acc = 0, mid = 0;
-  for (const item of wheel.loot) {
-    const start = (acc / totalWeight) * 360;
-    acc += item.weight;
-    const end = (acc / totalWeight) * 360;
-    if (item === winner) { mid = (start + end) / 2; break; }
-  }
+  const strip = $("#slotStrip");
 
-  const spins = 5 + Math.floor(Math.random() * 3); // 5-7 full spins
-  const targetRotation = spins * 360 + ((360 - mid) % 360);
+  const winnerIndex = wheel.loot.indexOf(winner);
 
-  const dial = $("#wheelDial");
-  dial.style.transform = `rotate(${targetRotation}deg)`;
+  strip.style.transition = "none";
+  strip.style.transform = "translateY(0)";
+
+  requestAnimationFrame(() => {
+
+    const loops = 5;
+
+    const stopPosition =
+      ((loops * wheel.loot.length) + winnerIndex) * 220;
+
+    strip.style.transition =
+      "transform 4.5s cubic-bezier(.17,.67,.18,1)";
+
+    strip.style.transform =
+      `translateY(-${stopPosition}px)`;
+
+  });
 
   setTimeout(() => {
     finishSpin(wheel, winner);
