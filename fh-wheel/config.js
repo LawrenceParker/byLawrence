@@ -69,11 +69,11 @@ const APP_CONFIG = {
   // tier gets picked (weight = relative odds, same idea as loot weights).
   // Tune freely — add/remove tiers, adjust ranges, whatever you like.
   AUCTION_OUTCOMES: [
-    { label: "Lowball bid", min: 0.5, max: 0.8, weight: 20 },
+    { label: "Lowball bid", min: 0.5, max: 0.7, weight: 24 },
     { label: "Fair market price", min: 0.8, max: 1.2, weight: 40 },
     { label: "Strong bidding", min: 1.2, max: 1.8, weight: 25 },
-    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 10 },
-    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 5 },
+    { label: "Bidding war!", min: 1.8, max: 2.5, weight: 10 },
+    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 1 },
   ],
   // Jobs: a free way to earn credits over time if you run out. Each job
   // runs independently on its own timer — start it, wait, it pays out
