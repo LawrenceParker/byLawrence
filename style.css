@@ -13,7 +13,6 @@
   --rare: #4ea1ff;
   --epic: #b24eff;
   --legendary: #ffb800;
-  --forza edition: #ff1a1a;
 
   --font-display: 'Rajdhani', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -310,7 +309,39 @@ main{max-width:1100px; margin:0 auto; padding:40px 28px 90px; position:relative;
 .timer-fill{height:100%; background:var(--teal); width:100%; transition:width 1s linear;}
 .timer-label{font-family:var(--font-mono); font-size:11px; color:var(--text-dim); margin-top:6px; display:block; text-align:right;}
 
-/* ---------- toast ---------- */
+/* ---------- collection book ---------- */
+.collection-progress{display:flex; align-items:center; gap:14px; margin-bottom:18px;}
+.collection-progress .progress-track{flex:1; height:8px; background:var(--surface-2); border-radius:999px; overflow:hidden;}
+.collection-progress .progress-fill{height:100%; background:linear-gradient(90deg, var(--orange), var(--teal)); width:0%; transition:width .4s ease;}
+.collection-progress .progress-label{font-family:var(--font-mono); font-size:12.5px; color:var(--text-dim); white-space:nowrap;}
+
+.collection-grid{display:grid; grid-template-columns:repeat(auto-fill, minmax(200px,1fr)); gap:14px; margin-top:18px;}
+.collection-card{
+  background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:16px;
+  border-left:4px solid var(--rarity-color, var(--common));
+}
+.collection-card .c-image{
+  width:100%; aspect-ratio:16/9; border-radius:8px; overflow:hidden; margin-bottom:10px;
+  box-shadow:inset 0 0 0 1px rgba(255,255,255,.05);
+}
+.collection-card .c-image img{width:100%; height:100%; object-fit:cover; display:block;}
+.collection-card .c-rarity{font-family:var(--font-mono); font-size:10px; letter-spacing:1.5px; color:var(--rarity-color,var(--common)); text-transform:uppercase;}
+.collection-card .c-name{font-family:var(--font-display); font-weight:700; font-size:17px; margin-top:3px;}
+.collection-card .c-source{font-size:11px; color:var(--text-dim); margin-top:2px;}
+
+.collection-card.locked{border-left-color:var(--line); opacity:.6;}
+.collection-card.locked .c-image{
+  display:flex; align-items:center; justify-content:center;
+  background:repeating-linear-gradient(135deg, var(--surface-2), var(--surface-2) 8px, var(--surface) 8px, var(--surface) 16px);
+}
+.collection-card.locked .c-image span{font-family:var(--font-display); font-size:26px; color:var(--text-dim);}
+.collection-card.locked .c-rarity{color:var(--text-dim);}
+
+.new-badge{
+  display:inline-block; background:var(--teal); color:#0b0e14;
+  font-family:var(--font-display); font-weight:700; font-size:11px; letter-spacing:1px;
+  padding:4px 10px; border-radius:999px; margin-bottom:10px;
+}
 .toast{
   position:fixed; bottom:24px; left:50%; transform:translateX(-50%);
   background:var(--surface-2); border:1px solid var(--line); padding:12px 20px; border-radius:10px;

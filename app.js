@@ -20,12 +20,13 @@ const RARITY_COLOR = {
   epic: "var(--epic)",
   legendary: "var(--legendary)",
 };
-const RARITY_ORDER = ["common", "rare", "epic", "legendary", "forza edition"];
+const RARITY_ORDER = ["common", "rare", "epic", "legendary"];
 
 const LS_KEYS = {
   credits: "fw_credits",
   inventory: "fw_inventory",
   offer: "fw_offer",
+  collection: "fw_collection",
 };
 
 let STATE = {
@@ -35,6 +36,9 @@ let STATE = {
   activeFilter: "all",
   offer: null,          // {scope:'rarity'|'wheel', target, bonusPct, expiresAt}
   spinning: false,
+  catalog: [],           // every unique item across all wheels, built once wheels load
+  collection: {},         // key -> snapshot of the item, permanent once discovered
+  collectionFilter: "all",
 };
 
 /* ---------------- demo fallback data ---------------- */
@@ -156,10 +160,13 @@ function loadState() {
   catch { STATE.inventory = []; }
   try { STATE.offer = JSON.parse(localStorage.getItem(LS_KEYS.offer)) || null; }
   catch { STATE.offer = null; }
+  try { STATE.collection = JSON.parse(localStorage.getItem(LS_KEYS.collection)) || {}; }
+  catch { STATE.collection = {}; }
 }
 function saveCredits() { localStorage.setItem(LS_KEYS.credits, String(STATE.credits)); }
 function saveInventory() { localStorage.setItem(LS_KEYS.inventory, JSON.stringify(STATE.inventory)); }
 function saveOffer() { localStorage.setItem(LS_KEYS.offer, JSON.stringify(STATE.offer)); }
+function saveCollection() { localStorage.setItem(LS_KEYS.collection, JSON.stringify(STATE.collection)); }
 
 /* ---------------- UI helpers ---------------- */
 function $(sel) { return document.querySelector(sel); }
@@ -178,12 +185,13 @@ function renderCredits() {
 }
 
 function switchView(view) {
-  ["wheels", "inventory", "shop"].forEach(v => {
+  ["wheels", "inventory", "shop", "collection"].forEach(v => {
     $(`#view-${v}`).classList.toggle("hidden", v !== view);
   });
   $all(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.view === view));
   if (view === "inventory") renderInventory();
   if (view === "shop") renderShop();
+  if (view === "collection") renderCollection();
 }
 
 /* ---------------- wheel selection cards ---------------- */
@@ -295,7 +303,7 @@ function buildReelStrip(wheel, winner) {
 }
 
 function rarityColorHex(rarity) {
-  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800", "forza edition": "#ff1a1a"};
+  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800" };
   return map[rarity] || map.common;
 }
 
@@ -372,9 +380,12 @@ function finishSpin(wheel, item) {
   saveInventory();
   updateInvCount();
 
+  const isNewDiscovery = recordDiscovery(item, wheel);
+
   const card = $("#resultCard");
   card.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
   card.innerHTML = `
+    ${isNewDiscovery ? `<span class="new-badge">NEW · Added to Collection Book</span>` : ""}
     <div class="r-image-wrap"><img src="${imageFor(item)}" alt="${escapeHtml(item.name)}"></div>
     <span class="r-rarity">${item.rarity}</span>
     <div class="r-name">${escapeHtml(item.name)}</div>
@@ -540,6 +551,107 @@ $("#sellAllBtn").addEventListener("click", () => {
   toast(`Quick sold ${items.length} items for ${total.toLocaleString()} credits`);
 });
 
+/* ---------------- collection book ---------------- */
+
+// Items are matched into a single collection entry by name (trimmed,
+// case-insensitive) — so the same car appearing in two different wheels
+// counts as one collectible, not two.
+function collectionKey(name) {
+  return name.trim().toLowerCase();
+}
+
+// Builds the full catalog of every unique item across every wheel. Called
+// once wheels are loaded/reloaded; drives the "locked" placeholders.
+function buildCatalog() {
+  const seen = new Map();
+  STATE.wheels.forEach(wheel => {
+    wheel.loot.forEach(item => {
+      const key = collectionKey(item.name);
+      if (!seen.has(key)) {
+        seen.set(key, {
+          key, name: item.name, rarity: item.rarity, value: item.value,
+          image: item.image || "", wheelName: wheel.name, wheelKey: wheel.key,
+        });
+      }
+    });
+  });
+  STATE.catalog = Array.from(seen.values());
+}
+
+// Records a permanent discovery the first time an item is won. Returns
+// true if this was a brand-new entry (so the spin reveal can show a badge).
+function recordDiscovery(item, wheel) {
+  const key = collectionKey(item.name);
+  if (STATE.collection[key]) return false;
+  STATE.collection[key] = {
+    name: item.name, rarity: item.rarity, value: item.value,
+    image: item.image || "", wheelName: wheel.name, wheelKey: wheel.key,
+    ts: Date.now(),
+  };
+  saveCollection();
+  updateCollectionCount();
+  return true;
+}
+
+function updateCollectionCount() {
+  const owned = STATE.catalog.filter(c => STATE.collection[c.key]).length;
+  $("#collectionCount").textContent = `${owned}/${STATE.catalog.length}`;
+}
+
+function renderCollectionFilters() {
+  const wrap = $("#collectionFilters");
+  const chips = [`<button class="chip active" data-wheel="all">All</button>`]
+    .concat(STATE.wheels.map(w => `<button class="chip" data-wheel="${w.key}">${escapeHtml(w.name)}</button>`));
+  wrap.innerHTML = chips.join("");
+  wrap.querySelectorAll(".chip").forEach(btn => {
+    btn.addEventListener("click", () => {
+      STATE.collectionFilter = btn.dataset.wheel;
+      wrap.querySelectorAll(".chip").forEach(b => b.classList.toggle("active", b === btn));
+      renderCollection();
+    });
+  });
+}
+
+function buildCollectionCard(entry) {
+  const owned = STATE.collection[entry.key];
+  const el = document.createElement("div");
+  el.className = "collection-card" + (owned ? "" : " locked");
+
+  if (owned) {
+    el.style.setProperty("--rarity-color", rarityColorHex(owned.rarity));
+    el.innerHTML = `
+      <div class="c-image"><img src="${imageFor(owned)}" alt="" loading="lazy"></div>
+      <span class="c-rarity">${owned.rarity}</span>
+      <div class="c-name">${escapeHtml(owned.name)}</div>
+      <div class="c-source">from ${escapeHtml(owned.wheelName)}</div>
+    `;
+  } else {
+    el.innerHTML = `
+      <div class="c-image"><span>?</span></div>
+      <span class="c-rarity">???</span>
+      <div class="c-name">Undiscovered</div>
+      <div class="c-source">from ${escapeHtml(entry.wheelName)}</div>
+    `;
+  }
+  return el;
+}
+
+function renderCollection() {
+  updateCollectionCount();
+  const grid = $("#collectionGrid");
+  const entries = STATE.collectionFilter === "all"
+    ? STATE.catalog
+    : STATE.catalog.filter(c => c.wheelKey === STATE.collectionFilter);
+
+  grid.innerHTML = "";
+  entries.forEach(entry => grid.appendChild(buildCollectionCard(entry)));
+
+  const total = STATE.catalog.length;
+  const owned = STATE.catalog.filter(c => STATE.collection[c.key]).length;
+  $("#collectionProgressLabel").textContent = `${owned} / ${total} discovered`;
+  $("#collectionProgressFill").style.width = total ? `${(owned / total) * 100}%` : "0%";
+}
+
 /* ---------------- shop / rotating offers ---------------- */
 function pickNewOffer() {
   const scopeIsRarity = Math.random() < 0.6;
@@ -632,6 +744,10 @@ async function boot() {
     status.textContent = `Couldn't load your Google Sheet (${err.message}). Showing demo loot tables instead.`;
   }
   status.classList.remove("loading");
+
+  buildCatalog();
+  renderCollectionFilters();
+  updateCollectionCount();
 
   renderWheelGrid();
   ensureOffer();

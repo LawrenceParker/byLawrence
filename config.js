@@ -31,11 +31,11 @@
 */
 
 const APP_CONFIG = {
-  SHEET_ID: "1k1lzi3nX_1K9WbCpFoXx_IZeCA0fvqlf-NsO5MAa3Ic", // <-- paste your Google Sheet ID here
+  SHEET_ID: "", // <-- paste your Google Sheet ID here
   CONFIG_TAB: "Config",
 
   // Starting credits for first-time visitors
-  STARTING_CREDITS: 50000,
+  STARTING_CREDITS: 500,
 
   // How often the auction house rotates its special "market conditions"
   // bonus, in minutes
@@ -55,9 +55,9 @@ const APP_CONFIG = {
   // Tune freely — add/remove tiers, adjust ranges, whatever you like.
   AUCTION_OUTCOMES: [
     { label: "Lowball bid", min: 0.5, max: 0.8, weight: 20 },
-    { label: "Fair market price", min: 0.8, max: 1.2, weight: 43 },
+    { label: "Fair market price", min: 0.8, max: 1.2, weight: 40 },
     { label: "Strong bidding", min: 1.2, max: 1.8, weight: 25 },
     { label: "Bidding war!", min: 1.8, max: 2.8, weight: 10 },
-    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 2 },
+    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 5 },
   ],
 };

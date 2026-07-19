@@ -6,7 +6,7 @@
 <title>Festival Wheels — Spin. Win. Sell.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=5">
+<link rel="stylesheet" href="style.css?v=6">
 </head>
 <body>
 
@@ -30,6 +30,7 @@
     <button class="tab-btn active" data-view="wheels">Wheels</button>
     <button class="tab-btn" data-view="inventory">Inventory <span class="count-badge" id="invCount">0</span></button>
     <button class="tab-btn" data-view="shop">Auction <span class="offer-dot" id="offerDot" hidden></span></button>
+    <button class="tab-btn" data-view="collection">Collection <span class="count-badge" id="collectionCount">0/0</span></button>
   </nav>
 </header>
 
@@ -87,6 +88,23 @@
     <p class="empty-state" id="shopEmpty" hidden>Nothing here yet — items you win will show up here.</p>
   </section>
 
+  <!-- COLLECTION VIEW -->
+  <section class="view hidden" id="view-collection">
+    <div class="section-head">
+      <h1>Collection Book</h1>
+      <p class="section-sub">Every car across every wheel. Win one from a spin to fill in its entry — for good, even after you sell it.</p>
+    </div>
+
+    <div class="collection-progress">
+      <div class="progress-track"><div class="progress-fill" id="collectionProgressFill"></div></div>
+      <span class="progress-label" id="collectionProgressLabel">0 / 0 discovered</span>
+    </div>
+
+    <div class="filter-group" id="collectionFilters"></div>
+
+    <div class="collection-grid" id="collectionGrid"></div>
+  </section>
+
 </main>
 
 <!-- SPIN OVERLAY — kept as a sibling of <main>, not nested inside it.
@@ -136,7 +154,7 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="config.js?v=5"></script>
-<script src="app.js?v=5"></script>
+<script src="config.js?v=6"></script>
+<script src="app.js?v=6"></script>
 </body>
 </html>
