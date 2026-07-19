@@ -118,10 +118,13 @@ async function loadWheelsFromSheet() {
   const configRows = await fetchTab(sheetId, APP_CONFIG.CONFIG_TAB);
   if (!configRows.length) throw new Error("Config tab is empty");
 
-  const wheels = [];
-  for (const row of configRows) {
+  const validRows = configRows.filter(row => row.tab);
+  if (!validRows.length) throw new Error("No wheels found in Config tab");
+
+  // Fetch every wheel's loot table at the same time instead of waiting for
+  // each one in turn — Promise.all still returns them in the original order.
+  const wheels = await Promise.all(validRows.map(async row => {
     const tabName = row.tab;
-    if (!tabName) continue;
     const lootRows = await fetchTab(sheetId, tabName);
     const loot = lootRows.map((r, i) => ({
       id: `${row.key}_${i}`,
@@ -132,16 +135,16 @@ async function loadWheelsFromSheet() {
       desc: r.desc || "",
       image: r.image || "",
     }));
-    wheels.push({
+    return {
       key: row.key || tabName.toLowerCase(),
       name: row.name || tabName,
       cost: Number(row.cost) || 0,
       color: row.color || "#ff6a33",
       tab: tabName,
       loot,
-    });
-  }
-  if (!wheels.length) throw new Error("No wheels found in Config tab");
+    };
+  }));
+
   return wheels;
 }
 
@@ -184,6 +187,13 @@ function switchView(view) {
 }
 
 /* ---------------- wheel selection cards ---------------- */
+function renderWheelSkeletons(n = 5) {
+  const grid = $("#wheelGrid");
+  grid.innerHTML = Array.from({ length: n })
+    .map(() => `<div class="wheel-card skeleton"></div>`)
+    .join("");
+}
+
 function renderWheelGrid() {
   const grid = $("#wheelGrid");
   grid.innerHTML = "";
@@ -227,18 +237,11 @@ function openSpin(wheel, autoSpin = true) {
   $("#spinWheelTitle").textContent = wheel.name;
   $("#spinResult").hidden = true;
   $("#spinOverlay").hidden = false;
-
-  buildSlot(wheel);
-
-  $("#wheelHub").textContent = "SPIN";
-  $("#wheelHub").classList.remove("spinning");
-
+  buildReelStrip(wheel, wheel.loot[0]); // idle preview before the real spin kicks off
   if (autoSpin) {
+    // let the reel paint at rest for a beat before it whips into motion
     requestAnimationFrame(() => setTimeout(() => {
-      try { doSpin(); } catch (err) {
-        console.error(err);
-        toast(`Spin failed: ${err.message}`);
-      }
+      try { doSpin(); } catch (err) { console.error(err); toast(`Spin failed: ${err.message}`); }
     }, 250));
   }
 }
@@ -252,34 +255,43 @@ $("#closeSpin").addEventListener("click", closeSpinOverlay);
 $("#doneSpinBtn").addEventListener("click", () => { closeSpinOverlay(); switchView("inventory"); });
 $("#spinAgainBtn").addEventListener("click", () => openSpin(currentWheel, true));
 
-function buildSlot(wheel) {
+const ITEM_H = 92;        // must match --item-h in style.css
+const STRIP_FILLER = 28;  // rows of random filler above the winner, for spin length/feel
 
+function buildSlotRow(item) {
+  const row = document.createElement("div");
+  row.className = "slot-item";
+  row.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
+  row.innerHTML = `
+    <img src="${imageFor(item)}" alt="" loading="lazy">
+    <div class="slot-item-text">
+      <span class="slot-item-rarity">${item.rarity}</span>
+      <span class="slot-item-name">${escapeHtml(item.name)}</span>
+    </div>
+  `;
+  return row;
+}
+
+// Builds the vertical reel strip: a run of random filler rows, then the
+// winner, then one trailing filler row so the viewport has something to
+// show below the winner once it's centered. Returns the winner's index.
+function buildReelStrip(wheel, winner) {
   const strip = $("#slotStrip");
+  strip.style.transition = "none";
+  strip.style.transform = "translateY(0px)";
   strip.innerHTML = "";
 
-  const items = [
-    ...wheel.loot,
-    ...wheel.loot,
-    ...wheel.loot,
-    ...wheel.loot,
-    ...wheel.loot
-  ];
+  const items = [];
+  for (let i = 0; i < STRIP_FILLER; i++) {
+    items.push(wheel.loot[Math.floor(Math.random() * wheel.loot.length)]);
+  }
+  const winnerIndex = items.length;
+  items.push(winner);
+  items.push(wheel.loot[Math.floor(Math.random() * wheel.loot.length)]);
 
-  items.forEach(item => {
-
-    const el = document.createElement("div");
-    el.className = "slot-item";
-
-    el.innerHTML = `
-      <img class="slot-image" src="${imageFor(item)}" alt="">
-      <span>${escapeHtml(item.name)}</span>
-    `;
-
-    strip.appendChild(el);
-  });
-
-  strip.style.transition = "none";
-  strip.style.transform = "translateY(0)";
+  items.forEach(item => strip.appendChild(buildSlotRow(item)));
+  strip.offsetHeight; // reflow so the transition-reset above actually applies
+  return winnerIndex;
 }
 
 function rarityColorHex(rarity) {
@@ -324,8 +336,6 @@ function weightedPick(loot) {
   return loot[loot.length - 1];
 }
 
-$("#wheelHub").addEventListener("click", doSpin);
-
 function doSpin() {
   if (STATE.spinning || !currentWheel) return;
   if (STATE.credits < currentWheel.cost) { toast("Not enough credits for this wheel."); return; }
@@ -333,44 +343,26 @@ function doSpin() {
   STATE.spinning = true;
   STATE.credits -= currentWheel.cost;
   saveCredits(); renderCredits();
-  $("#wheelHub").classList.add("spinning");
   $("#spinResult").hidden = true;
 
   const wheel = currentWheel;
-  const totalWeight = wheel.loot.reduce((s, l) => s + l.weight, 0);
   const winner = weightedPick(wheel.loot);
+  const winnerIndex = buildReelStrip(wheel, winner);
 
-  // find winner's angular midpoint
   const strip = $("#slotStrip");
-
-  const winnerIndex = wheel.loot.indexOf(winner);
-
-  strip.style.transition = "none";
-  strip.style.transform = "translateY(0)";
-
   requestAnimationFrame(() => {
-
-    const loops = 5;
-
-    const stopPosition =
-      ((loops * wheel.loot.length) + winnerIndex) * 220;
-
-    strip.style.transition =
-      "transform 4.5s cubic-bezier(.17,.67,.18,1)";
-
-    strip.style.transform =
-      `translateY(-${stopPosition}px)`;
-
+    strip.style.transition = "transform 4s cubic-bezier(.08,.82,.17,1)";
+    const targetY = -(winnerIndex - 1) * ITEM_H; // lands the winner in the center row
+    strip.style.transform = `translateY(${targetY}px)`;
   });
 
   setTimeout(() => {
     finishSpin(wheel, winner);
-  }, 4600);
+  }, 4300);
 }
 
 function finishSpin(wheel, item) {
   STATE.spinning = false;
-  $("#wheelHub").classList.remove("spinning");
 
   const uid = `inv_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
   STATE.inventory.unshift({
@@ -549,6 +541,11 @@ async function boot() {
   updateInvCount();
 
   const status = $("#dataStatus");
+  status.hidden = false;
+  status.classList.add("loading");
+  status.innerHTML = `<span class="spinner"></span> Loading loot tables…`;
+  renderWheelSkeletons();
+
   try {
     const sheetWheels = await loadWheelsFromSheet();
     if (sheetWheels) {
@@ -565,6 +562,7 @@ async function boot() {
     status.hidden = false;
     status.textContent = `Couldn't load your Google Sheet (${err.message}). Showing demo loot tables instead.`;
   }
+  status.classList.remove("loading");
 
   renderWheelGrid();
   ensureOffer();

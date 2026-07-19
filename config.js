@@ -31,16 +31,16 @@
 */
 
 const APP_CONFIG = {
-  SHEET_ID: "1k1lzi3nX_1K9WbCpFoXx_IZeCA0fvqlf-NsO5MAa3Ic", // <-- paste your Google Sheet ID here
+  SHEET_ID: "", // <-- paste your Google Sheet ID here
   CONFIG_TAB: "Config",
 
   // Starting credits for first-time visitors
-  STARTING_CREDITS: 100000,
+  STARTING_CREDITS: 500,
 
   // How often the shop rotates its special offer, in minutes
-  OFFER_ROTATE_MINUTES: 2,
+  OFFER_ROTATE_MINUTES: 3,
 
   // Range of the bonus % the rotating offer can grant (applied to sell value)
   OFFER_BONUS_MIN: 10,
-  OFFER_BONUS_MAX: 100,
+  OFFER_BONUS_MAX: 30,
 };

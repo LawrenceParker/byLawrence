@@ -6,7 +6,7 @@
 <title>Festival Wheels — Spin. Win. Sell.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=3">
+<link rel="stylesheet" href="style.css?v=4">
 </head>
 <body>
 
@@ -49,32 +49,6 @@
     </div>
   </section>
 
-  <!-- SPIN OVERLAY -->
-  <div class="spin-overlay" id="spinOverlay" hidden>
-    <div class="spin-stage">
-      <button class="close-spin" id="closeSpin" aria-label="Close">✕</button>
-      <h2 class="spin-wheel-title" id="spinWheelTitle">—</h2>
-      <div class="slot-wrap">
-
-  <div class="slot-pointer"></div>
-
-  <div class="slot-machine" id="slotMachine">
-    <div class="slot-window" id="slotReel">
-      <div class="slot-strip" id="slotStrip"></div>
-    </div>
-  </div>
-  <div class="wheel-hub" id="wheelHub">SPIN</div>
-</div>
-      <div class="spin-result" id="spinResult" hidden>
-        <div class="result-card" id="resultCard"></div>
-        <div class="spin-actions">
-          <button class="btn btn-ghost" id="spinAgainBtn">Spin Again</button>
-          <button class="btn btn-primary" id="doneSpinBtn">To Inventory</button>
-        </div>
-      </div>
-    </div>
-  </div>
-
   <!-- INVENTORY VIEW -->
   <section class="view hidden" id="view-inventory">
     <div class="section-head">
@@ -115,9 +89,38 @@
 
 </main>
 
+<!-- SPIN OVERLAY — kept as a sibling of <main>, not nested inside it.
+     main{} sets position:relative + z-index:1, which creates its own
+     stacking context; anything nested inside it (no matter its own
+     z-index) is capped at that context and can end up trapped behind
+     the sticky header. Living outside main avoids that entirely. -->
+<div class="spin-overlay" id="spinOverlay" hidden>
+  <div class="spin-stage">
+    <button class="close-spin" id="closeSpin" aria-label="Close">✕</button>
+    <h2 class="spin-wheel-title" id="spinWheelTitle">—</h2>
+    <div class="slot-frame">
+      <div class="slot-pointer-left"></div>
+      <div class="slot-pointer-right"></div>
+      <div class="slot-viewport">
+        <div class="slot-strip" id="slotStrip"></div>
+        <div class="slot-fade-top"></div>
+        <div class="slot-fade-bottom"></div>
+        <div class="slot-center-line"></div>
+      </div>
+    </div>
+    <div class="spin-result" id="spinResult" hidden>
+      <div class="result-card" id="resultCard"></div>
+      <div class="spin-actions">
+        <button class="btn btn-ghost" id="spinAgainBtn">Spin Again</button>
+        <button class="btn btn-primary" id="doneSpinBtn">To Inventory</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" hidden></div>
 
-<script src="config.js?v=3"></script>
-<script src="app.js?v=3"></script>
+<script src="config.js?v=4"></script>
+<script src="app.js?v=4"></script>
 </body>
 </html>
