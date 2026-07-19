@@ -14,12 +14,6 @@ function toastSafe(msg) {
   try { toast(msg); } catch { alert(msg); }
 }
 
-const RARITY_COLOR = {
-  common: "var(--common)",
-  rare: "var(--rare)",
-  epic: "var(--epic)",
-  legendary: "var(--legendary)",
-};
 const RARITY_ORDER = ["common", "rare", "epic", "legendary"];
 
 const LS_KEYS = {
@@ -303,8 +297,9 @@ function buildReelStrip(wheel, winner) {
   return winnerIndex;
 }
 
+/* ==== RARITY COLOURS ==== */
 function rarityColorHex(rarity) {
-  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#ffb800" };
+  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#ffb800", legendary: "#b24eff" };
   return map[rarity] || map.common;
 }
 
