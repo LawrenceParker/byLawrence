@@ -6,7 +6,7 @@
 <title>Festival Wheels — Spin. Win. Sell.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=4">
+<link rel="stylesheet" href="style.css?v=5">
 </head>
 <body>
 
@@ -29,7 +29,7 @@
   <nav class="tabs" id="tabs">
     <button class="tab-btn active" data-view="wheels">Wheels</button>
     <button class="tab-btn" data-view="inventory">Inventory <span class="count-badge" id="invCount">0</span></button>
-    <button class="tab-btn" data-view="shop">Shop <span class="offer-dot" id="offerDot" hidden></span></button>
+    <button class="tab-btn" data-view="shop">Auction <span class="offer-dot" id="offerDot" hidden></span></button>
   </nav>
 </header>
 
@@ -59,22 +59,22 @@
       <div class="filter-group" id="rarityFilters">
         <button class="chip active" data-rarity="all">All</button>
       </div>
-      <button class="btn btn-sell-all" id="sellAllBtn">Sell All</button>
+      <button class="btn btn-sell-all" id="sellAllBtn">Quick Sell All</button>
     </div>
     <div class="inventory-grid" id="inventoryGrid"></div>
     <p class="empty-state" id="invEmpty" hidden>No items yet — go spin a wheel.</p>
   </section>
 
-  <!-- SHOP VIEW -->
+  <!-- AUCTION HOUSE VIEW -->
   <section class="view hidden" id="view-shop">
     <div class="section-head">
-      <h1>Shop</h1>
-      <p class="section-sub">Sell here for boosted payouts while an offer is live.</p>
+      <h1>Auction House</h1>
+      <p class="section-sub">Quick Sell for a guaranteed payout, or send it to auction for a shot at more.</p>
     </div>
 
     <div class="offer-banner" id="offerBanner">
       <div class="offer-info">
-        <span class="offer-eyebrow">FESTIVAL OFFER</span>
+        <span class="offer-eyebrow">MARKET CONDITIONS</span>
         <span class="offer-text" id="offerText">Loading offer…</span>
       </div>
       <div class="offer-timer">
@@ -84,7 +84,7 @@
     </div>
 
     <div class="inventory-grid" id="shopGrid"></div>
-    <p class="empty-state" id="shopEmpty" hidden>Nothing to sell yet — items you win will show up here.</p>
+    <p class="empty-state" id="shopEmpty" hidden>Nothing here yet — items you win will show up here.</p>
   </section>
 
 </main>
@@ -118,9 +118,25 @@
   </div>
 </div>
 
+<!-- AUCTION OVERLAY — also a sibling of <main>, same reasoning as the spin overlay above -->
+<div class="spin-overlay" id="auctionOverlay" hidden>
+  <div class="spin-stage">
+    <button class="close-spin" id="closeAuction" aria-label="Close">✕</button>
+    <h2 class="spin-wheel-title">Auction House</h2>
+    <div class="auction-preview" id="auctionPreview"></div>
+    <p class="auction-status" id="auctionStatus">Opening the floor…</p>
+    <div class="spin-result" id="auctionResultWrap" hidden>
+      <div class="result-card" id="auctionResultCard"></div>
+      <div class="spin-actions">
+        <button class="btn btn-primary" id="auctionDoneBtn">Done</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="toast" id="toast" hidden></div>
 
-<script src="config.js?v=4"></script>
-<script src="app.js?v=4"></script>
+<script src="config.js?v=5"></script>
+<script src="app.js?v=5"></script>
 </body>
 </html>

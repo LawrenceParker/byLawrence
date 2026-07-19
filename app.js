@@ -409,9 +409,22 @@ function currentBonusFor(item) {
   return 0;
 }
 
-function sellValue(item) {
+function quickSellValue(item) {
   const bonus = currentBonusFor(item);
-  return Math.round(item.value * (1 + bonus / 100));
+  const afterLoss = item.value * (1 - APP_CONFIG.QUICK_SELL_LOSS_PCT / 100);
+  return Math.max(1, Math.round(afterLoss * (1 + bonus / 100)));
+}
+
+function pickAuctionOutcome() {
+  const tiers = APP_CONFIG.AUCTION_OUTCOMES;
+  const total = tiers.reduce((s, t) => s + t.weight, 0);
+  let r = Math.random() * total;
+  for (const t of tiers) {
+    if (r < t.weight) return { label: t.label, multiplier: t.min + Math.random() * (t.max - t.min) };
+    r -= t.weight;
+  }
+  const t = tiers[tiers.length - 1];
+  return { label: t.label, multiplier: t.min };
 }
 
 function renderInventory() {
@@ -430,45 +443,101 @@ function buildItemCard(item) {
   el.className = "item-card";
   el.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
   const bonus = currentBonusFor(item);
-  const val = sellValue(item);
+  const quick = quickSellValue(item);
   el.innerHTML = `
     <div class="i-image"><img src="${imageFor(item)}" alt="" loading="lazy"></div>
     <span class="i-rarity">${item.rarity}</span>
     <div class="i-name">${escapeHtml(item.name)}</div>
     <div class="i-source">from ${escapeHtml(item.wheelName)}</div>
-    <div class="i-footer">
-      <span class="i-value">${val.toLocaleString()}${bonus ? `<span class="boost">+${bonus}%</span>` : ""}</span>
-      <button class="sell-btn">Sell</button>
+    <div class="i-base">Base ${item.value.toLocaleString()}${bonus ? `<span class="boost">+${bonus}% today</span>` : ""}</div>
+    <div class="i-actions">
+      <button class="quick-sell-btn">Quick Sell<span class="btn-sub">${quick.toLocaleString()} cr</span></button>
+      <button class="auction-btn">Auction<span class="btn-sub">Gamble for more</span></button>
     </div>
   `;
-  el.querySelector(".sell-btn").addEventListener("click", () => sellItem(item.uid));
+  el.querySelector(".quick-sell-btn").addEventListener("click", () => quickSellItem(item.uid));
+  el.querySelector(".auction-btn").addEventListener("click", () => openAuction(item.uid));
   return el;
 }
 
-function sellItem(uid) {
+function quickSellItem(uid) {
   const idx = STATE.inventory.findIndex(i => i.uid === uid);
   if (idx === -1) return;
   const item = STATE.inventory[idx];
-  const gained = sellValue(item);
+  const gained = quickSellValue(item);
   STATE.credits += gained;
   STATE.inventory.splice(idx, 1);
   saveCredits(); saveInventory();
   renderCredits(); updateInvCount(); renderInventory(); renderShop(); renderWheelGrid();
-  toast(`Sold ${item.name} for ${gained.toLocaleString()} credits`);
+  toast(`Quick sold ${item.name} for ${gained.toLocaleString()} credits`);
 }
+
+/* ---------------- auction flow ---------------- */
+function openAuction(uid) {
+  const idx = STATE.inventory.findIndex(i => i.uid === uid);
+  if (idx === -1) return;
+  const item = STATE.inventory[idx];
+
+  // committed the moment the gavel starts — pull it from inventory now so
+  // it can't be sold twice while the auction is "in progress"
+  STATE.inventory.splice(idx, 1);
+  saveInventory(); updateInvCount(); renderInventory(); renderShop(); renderWheelGrid();
+
+  $("#auctionOverlay").hidden = false;
+  $("#auctionResultWrap").hidden = true;
+  $("#auctionPreview").innerHTML = `<img src="${imageFor(item)}" alt="${escapeHtml(item.name)}">`;
+
+  const statusEl = $("#auctionStatus");
+  const lines = ["Opening the floor…", "Going once…", "Going twice…"];
+  let step = 0;
+  statusEl.textContent = lines[0];
+  const stepInterval = setInterval(() => {
+    step++;
+    if (step < lines.length) statusEl.textContent = lines[step];
+  }, 650);
+
+  setTimeout(() => {
+    clearInterval(stepInterval);
+    resolveAuction(item);
+  }, 2300);
+}
+
+function resolveAuction(item) {
+  const outcome = pickAuctionOutcome();
+  const bonus = currentBonusFor(item);
+  const payout = Math.max(1, Math.round(item.value * outcome.multiplier * (1 + bonus / 100)));
+
+  STATE.credits += payout;
+  saveCredits(); renderCredits();
+
+  $("#auctionStatus").textContent = "SOLD!";
+  const gainPct = Math.round((outcome.multiplier - 1) * 100);
+  const card = $("#auctionResultCard");
+  card.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
+  card.innerHTML = `
+    <span class="r-rarity">${outcome.label}</span>
+    <div class="r-name">${escapeHtml(item.name)}</div>
+    <div class="r-value">Sold for ${payout.toLocaleString()} credits (${gainPct >= 0 ? "+" : ""}${gainPct}% vs base ${item.value.toLocaleString()})</div>
+  `;
+  $("#auctionResultWrap").hidden = false;
+  toast(`Auctioned ${item.name} for ${payout.toLocaleString()} credits`);
+}
+
+$("#closeAuction").addEventListener("click", () => { $("#auctionOverlay").hidden = true; });
+$("#auctionDoneBtn").addEventListener("click", () => { $("#auctionOverlay").hidden = true; });
 
 $("#sellAllBtn").addEventListener("click", () => {
   if (!STATE.inventory.length) { toast("Nothing to sell."); return; }
   const items = STATE.activeFilter === "all" ? [...STATE.inventory] : STATE.inventory.filter(i => i.rarity === STATE.activeFilter);
   if (!items.length) { toast("Nothing to sell in this filter."); return; }
   let total = 0;
-  items.forEach(i => total += sellValue(i));
+  items.forEach(i => total += quickSellValue(i));
   const uids = new Set(items.map(i => i.uid));
   STATE.inventory = STATE.inventory.filter(i => !uids.has(i.uid));
   STATE.credits += total;
   saveCredits(); saveInventory();
   renderCredits(); updateInvCount(); renderInventory(); renderShop(); renderWheelGrid();
-  toast(`Sold ${items.length} items for ${total.toLocaleString()} credits`);
+  toast(`Quick sold ${items.length} items for ${total.toLocaleString()} credits`);
 });
 
 /* ---------------- shop / rotating offers ---------------- */
@@ -481,11 +550,11 @@ function pickNewOffer() {
   if (scopeIsRarity) {
     target = RARITY_ORDER[Math.floor(Math.random() * RARITY_ORDER.length)];
     scope = "rarity";
-    label = `+${bonusPct}% credits selling ${target} items`;
+    label = `+${bonusPct}% payouts on ${target} items today`;
   } else {
     const w = STATE.wheels[Math.floor(Math.random() * STATE.wheels.length)];
     target = w.key; scope = "wheel";
-    label = `+${bonusPct}% credits selling items from ${w.name}`;
+    label = `+${bonusPct}% payouts on items from ${w.name} today`;
   }
   const durationMs = APP_CONFIG.OFFER_ROTATE_MINUTES * 60 * 1000;
   STATE.offer = { scope, target, bonusPct, label, expiresAt: Date.now() + durationMs, durationMs };
