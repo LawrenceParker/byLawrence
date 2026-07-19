@@ -649,6 +649,8 @@ function renderCollection() {
 }
 
 /* ---------------- shop / rotating offers ---------------- */
+/*
+
 function pickNewOffer() {
   const scopeIsRarity = Math.random() < 0.6;
   const bonusPct = Math.round(
@@ -706,6 +708,8 @@ function tickOfferTimer() {
   const ss = Math.floor((remaining % 60000) / 1000).toString().padStart(2, "0");
   $("#offerTimerLabel").textContent = `${mm}:${ss}`;
 }
+
+*/
 
 /* ---------------- tabs ---------------- */
 $all(".tab-btn").forEach(btn => btn.addEventListener("click", () => switchView(btn.dataset.view)));
