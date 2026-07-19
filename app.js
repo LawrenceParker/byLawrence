@@ -353,7 +353,7 @@ function doSpin() {
     const loops = 5;
 
     const stopPosition =
-      ((loops * wheel.loot.length) + winnerIndex) * 220;
+      ((loops * wheel.loot.length) + winnerIndex) * 100;
 
     strip.style.transition =
       "transform 4.5s cubic-bezier(.17,.67,.18,1)";
