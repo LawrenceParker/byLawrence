@@ -270,7 +270,7 @@ function renderWheelGrid() {
       card.innerHTML = `
         <span class="tier-eyebrow">${Math.min(SUPER_WHEEL_PULLS, poolSize)} of ${SUPER_WHEEL_PULLS} slots</span>
         <h3>${escapeHtml(w.name)}</h3>
-        <p class="wheel-desc">${poolSize} car${poolSize === 1 ? "" : "s"} left to collect.</p>
+        <p class="wheel-desc">Guaranteed 5 cars not in your collectioon.</p>
         <div class="wheel-cost">
           <span class="cost-num">${w.cost.toLocaleString()}</span>
           <span class="cost-tag">CREDITS</span>
