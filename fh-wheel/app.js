@@ -140,6 +140,7 @@ function mapWheelDef(row, loot) {
     cost: Number(row.cost) || 0,
     color: row.color || "#ff6a33",
     tab: row.tab,
+    mode: (row.mode || "standard").toLowerCase(), // "standard" | "super"
     loot,
   };
 }
@@ -156,6 +157,11 @@ async function loadWheelsFromLocalCSV() {
   if (!validRows.length) throw new Error(`No wheels found in ${dir}/config.csv`);
 
   const wheels = await Promise.all(validRows.map(async row => {
+    // "super" wheels have no loot CSV of their own — their pool is built
+    // live from every car you haven't collected yet (see getSuperWheelPool)
+    if ((row.mode || "").toLowerCase() === "super") {
+      return mapWheelDef(row, []);
+    }
     const lootRows = await fetchCSV(`${dir}/${row.tab}.csv`);
     return mapWheelDef(row, lootRows.map((r, i) => mapLootRow(row, r, i)));
   }));
@@ -180,6 +186,9 @@ async function loadWheelsFromSheet() {
   // Fetch every wheel's loot table at the same time instead of waiting for
   // each one in turn — Promise.all still returns them in the original order.
   const wheels = await Promise.all(validRows.map(async row => {
+    if ((row.mode || "").toLowerCase() === "super") {
+      return mapWheelDef(row, []);
+    }
     const lootRows = await fetchSheetTab(sheetId, row.tab);
     return mapWheelDef(row, lootRows.map((r, i) => mapLootRow(row, r, i)));
   }));
@@ -225,6 +234,7 @@ function switchView(view) {
     $(`#view-${v}`).classList.toggle("hidden", v !== view);
   });
   $all(".tab-btn").forEach(b => b.classList.toggle("active", b.dataset.view === view));
+  if (view === "wheels") renderWheelGrid();
   if (view === "inventory") renderInventory();
   if (view === "shop") renderShop();
   if (view === "collection") renderCollection();
@@ -246,18 +256,36 @@ function renderWheelGrid() {
     const card = document.createElement("div");
     card.className = "wheel-card";
     card.style.setProperty("--tier-color", w.color);
-    const affordable = STATE.credits >= w.cost;
-    card.innerHTML = `
-      <span class="tier-eyebrow">${w.loot.length} rewards</span>
-      <h3>${escapeHtml(w.name)}</h3>
-      <p class="wheel-desc">Odds favor ${topRarity(w.loot)} tier drops.</p>
-      <div class="wheel-cost">
-        <span class="cost-num">${w.cost.toLocaleString()}</span>
-        <span class="cost-tag">CREDITS</span>
-      </div>
-      <button class="spin-btn" ${affordable ? "" : "disabled"}>${affordable ? "Spin" : "Not enough credits"}</button>
-    `;
-    card.querySelector(".spin-btn").addEventListener("click", () => openSpin(w));
+
+    if (w.mode === "super") {
+      const poolSize = getSuperWheelPool().length;
+      const affordable = STATE.credits >= w.cost && poolSize > 0;
+      const label = poolSize === 0 ? "Collection Complete!" : (affordable ? "Spin" : "Not enough credits");
+      card.innerHTML = `
+        <span class="tier-eyebrow">${Math.min(SUPER_WHEEL_PULLS, poolSize)} of ${SUPER_WHEEL_PULLS} slots</span>
+        <h3>${escapeHtml(w.name)}</h3>
+        <p class="wheel-desc">${poolSize} car${poolSize === 1 ? "" : "s"} left to collect.</p>
+        <div class="wheel-cost">
+          <span class="cost-num">${w.cost.toLocaleString()}</span>
+          <span class="cost-tag">CREDITS</span>
+        </div>
+        <button class="spin-btn" ${affordable ? "" : "disabled"}>${label}</button>
+      `;
+      card.querySelector(".spin-btn").addEventListener("click", () => openSuperSpin(w));
+    } else {
+      const affordable = STATE.credits >= w.cost;
+      card.innerHTML = `
+        <span class="tier-eyebrow">${w.loot.length} rewards</span>
+        <h3>${escapeHtml(w.name)}</h3>
+        <p class="wheel-desc">Odds favor ${topRarity(w.loot)} tier drops.</p>
+        <div class="wheel-cost">
+          <span class="cost-num">${w.cost.toLocaleString()}</span>
+          <span class="cost-tag">CREDITS</span>
+        </div>
+        <button class="spin-btn" ${affordable ? "" : "disabled"}>${affordable ? "Spin" : "Not enough credits"}</button>
+      `;
+      card.querySelector(".spin-btn").addEventListener("click", () => openSpin(w));
+    }
     grid.appendChild(card);
   });
 }
@@ -430,6 +458,107 @@ function finishSpin(wheel, item) {
   `;
   $("#spinResult").hidden = false;
 }
+
+/* ---------------- super wheel (5 sequential pulls, undiscovered cars only) ---------------- */
+
+// Every catalog entry you haven't discovered yet, with uniform odds — every
+// undiscovered car is equally likely to come up. Recomputed fresh on every
+// pull, so a car won mid-session immediately drops out of the pool for the
+// remaining pulls in that same spin (since recordDiscovery already updated
+// STATE.collection by the time the next pull reads it).
+function getSuperWheelPool() {
+  return STATE.catalog
+    .filter(entry => !STATE.collection[entry.key])
+    .map(entry => ({
+      name: entry.name, rarity: entry.rarity, value: entry.value,
+      weight: 1, image: entry.image, wheelName: entry.wheelName, wheelKey: entry.wheelKey,
+    }));
+}
+
+const SUPER_WHEEL_PULLS = 5;
+
+function openSuperSpin(wheel) {
+  if (STATE.spinning) return;
+  if (STATE.credits < wheel.cost) { toast("Not enough credits for the Super Wheel."); return; }
+  const pool = getSuperWheelPool();
+  if (!pool.length) { toast("You've already collected every car — nothing left for the Super Wheel!"); return; }
+
+  currentWheel = wheel;
+  $("#spinWheelTitle").textContent = wheel.name;
+  $("#spinResult").hidden = true;
+  $("#superSummary").hidden = true;
+  $("#spinOverlay").hidden = false;
+
+  buildReelStrip({ loot: pool }, pool[0]); // idle preview before the first pull
+  requestAnimationFrame(() => setTimeout(() => {
+    doSuperSpin(wheel).catch(err => {
+      console.error(err);
+      toast(`Spin failed: ${err.message}`);
+      STATE.spinning = false;
+    });
+  }, 250));
+}
+
+async function doSuperSpin(wheel) {
+  STATE.spinning = true;
+  STATE.credits -= wheel.cost;
+  saveCredits(); renderCredits();
+
+  $("#spinRoundIndicator").hidden = false;
+  const strip = $("#slotStrip");
+  const wins = [];
+
+  for (let round = 1; round <= SUPER_WHEEL_PULLS; round++) {
+    const pool = getSuperWheelPool();
+    if (!pool.length) break; // ran out of undiscovered cars partway through
+
+    $("#spinRoundIndicator").textContent = `Pull ${round} of ${SUPER_WHEEL_PULLS}`;
+    const winner = weightedPick(pool);
+    const winnerIndex = buildReelStrip({ loot: pool }, winner);
+
+    await new Promise(resolve => {
+      requestAnimationFrame(() => {
+        strip.style.transition = "transform 4s cubic-bezier(.08,.82,.17,1)";
+        strip.style.transform = `translateY(${-(winnerIndex - 1) * ITEM_H}px)`;
+      });
+      setTimeout(resolve, 4300);
+    });
+
+    const uid = `inv_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
+    STATE.inventory.unshift({
+      uid, name: winner.name, rarity: winner.rarity, value: winner.value, image: winner.image || "",
+      wheelKey: wheel.key, wheelName: wheel.name, ts: Date.now(),
+    });
+    saveInventory(); updateInvCount();
+    recordDiscovery(winner, wheel);
+    wins.push(winner);
+
+    if (round < SUPER_WHEEL_PULLS) await new Promise(r => setTimeout(r, 500));
+  }
+
+  STATE.spinning = false;
+  $("#spinRoundIndicator").hidden = true;
+  showSuperSummary(wins);
+}
+
+function showSuperSummary(wins) {
+  $("#superSummaryCount").textContent = wins.length;
+  const grid = $("#superSummaryGrid");
+  grid.innerHTML = "";
+  wins.forEach(w => grid.appendChild(buildItemCard(w, false)));
+
+  $("#superSummary").hidden = false;
+  const remaining = getSuperWheelPool().length;
+  const againBtn = $("#superAgainBtn");
+  againBtn.disabled = remaining === 0;
+  againBtn.textContent = remaining === 0 ? "Collection Complete!" : "Spin Again";
+}
+
+$("#superAgainBtn").addEventListener("click", () => {
+  if ($("#superAgainBtn").disabled) return;
+  openSuperSpin(currentWheel);
+});
+$("#superDoneBtn").addEventListener("click", () => { closeSpinOverlay(); switchView("inventory"); });
 
 /* ---------------- inventory ---------------- */
 function updateInvCount() {
