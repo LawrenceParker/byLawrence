@@ -87,10 +87,10 @@ const APP_CONFIG = {
   // Tune freely — add/remove tiers, adjust ranges, whatever you like.
   AUCTION_OUTCOMES: [
     { label: "STOLEN (1 credit was left at the scene)", min: 0.0, max: 0.0, weight: 1},
-    { label: "Lowball bid", min: 0.3, max: 0.5, weight: 14 },
+    { label: "Lowball bid", min: 0.4, max: 0.5, weight: 14 },
     { label: "Fair market price", min: 0.9, max: 1.1, weight: 50 },
     { label: "Strong bidding", min: 1.2, max: 1.5, weight: 20 },
-    { label: "Bidding war!", min: 1.6, max: 2.0, weight: 14 },
+    { label: "Bidding war!", min: 1.6, max: 1.8, weight: 14 },
     { label: "Jackpot buyer!", min: 2.0, max: 3.0, weight: 1 },
   ],
   // Jobs: a free way to earn credits over time if you run out. Each job
@@ -99,8 +99,8 @@ const APP_CONFIG = {
   // duration is in seconds. Add, remove, or retune freely.
   JOBS: [
     { key: "wash", name: "Car Wash", desc: "Detail cars in the paddock.", duration: 30, payout: 15000 },
-    { key: "tow", name: "Tow Truck Run", desc: "Recover stranded racers.", duration: 90, payout: 50000 },
-    { key: "pit", name: "Pit Crew Shift", desc: "Work a full shift on the pit wall.", duration: 300, payout: 75000 },
-    { key: "vip", name: "VIP Chauffeur", desc: "Drive festival VIPs between events.", duration: 500, payout: 100000 },
+    { key: "tow", name: "Tow Truck Run", desc: "Recover stranded racers.", duration: 60, payout: 30000 },
+    { key: "pit", name: "Pit Crew Shift", desc: "Work a full shift on the pit wall.", duration: 180, payout: 60000 },
+    { key: "vip", name: "VIP Chauffeur", desc: "Drive festival VIPs between events.", duration: 300, payout: 120000 },
   ],
 };
