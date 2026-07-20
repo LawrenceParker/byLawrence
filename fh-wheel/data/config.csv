@@ -1,0 +1,7 @@
+key,name,cost,color,mode
+bronze,Bronze Wheel,100,#8a93a3,standard
+silver,Silver Wheel,250,#4ea1ff,standard
+gold,Gold Wheel,600,#ffb800,standard
+platinum,Platinum Wheel,1200,#b24eff,standard
+diamond,Diamond Wheel,2500,#17e6c9,standard
+super,Super Wheel Spin,5000,#ff2e63,super
