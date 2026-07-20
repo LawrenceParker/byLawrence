@@ -1,7 +1,7 @@
 key,name,cost,color,tab,mode
-bronze,Bronze Wheel,100,#8a93a3,Bronze,standard
-silver,Silver Wheel,250,#4ea1ff,Silver,standard
-gold,Gold Wheel,600,#ffb800,Gold,standard
-platinum,Platinum Wheel,1200,#b24eff,Platinum,standard
-diamond,Diamond Wheel,2500,#17e6c9,Diamond,standard
+basic,Basic Wheel,0,#8a93a3,Basic,standard
+premium,Rare Wheel,0,#4ea1ff,Premium,standard
+epic,Epic Wheel,0,#b24eff,Epic,standard
+legendary,Legendary Wheel,0,#ffb800,Legendary,standard
+forza edition,Forza Edition,0,#17e6c9,Forza Edition,standard
 super,Super Wheel Spin,5000,#ff2e63,Super,super
