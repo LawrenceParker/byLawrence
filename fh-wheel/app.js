@@ -675,8 +675,8 @@ function buildItemCard(item, sellable) {
   el.style.setProperty("--rarity-color", rarityColorHex(item.rarity));
   const actionsHtml = sellable ? `
     <div class="i-actions">
-      <button class="quick-sell-btn">Quick Sell<span class="btn-sub">${quickSellValue(item).toLocaleString()} cr</span></button>
-      <button class="auction-btn">Auction<span class="btn-sub">Gamble for more</span></button>
+      <button class="quick-sell-btn">Quick Sell (-50% Base Value)<span class="btn-sub">${quickSellValue(item).toLocaleString()} cr</span></button>
+      <button class="auction-btn">Auction<span class="btn-sub"></span></button>
     </div>` : "";
   el.innerHTML = `
     <div class="i-image"><img src="${imageFor(item)}" alt="" loading="lazy"></div>
