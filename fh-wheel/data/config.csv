@@ -1,7 +1,7 @@
 key,name,cost,color,mode
-common,Common,30000,#8a93a3,standard
-rare,Rare,100000,#4ea1ff,standard
-epic,Epic,250000,#b24eff,standard
-forza specials,Forza Specials,750000,#fc355a,standard
-legendary,Legendary,1000000,#ffb800,standard
-super,Super Wheel Spin,10000000,#17e6c9,super
+common,Common Wheel,30000,#8a93a3,standard
+rare,Rare Wheel,100000,#4ea1ff,standard
+epic,Epic Wheel,250000,#b24eff,standard
+legendary,Legendary Wheel,1000000,#ffb800,standard
+forza edition,Forza Edition Wheel,750000,#fc355a,standard
+super,Supper Wheel Spin,5000000,#17e6c9,super
