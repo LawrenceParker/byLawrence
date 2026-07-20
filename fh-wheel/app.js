@@ -20,7 +20,7 @@ const RARITY_COLOR = {
   epic: "var(--epic)",
   legendary: "var(--legendary)",
 };
-const RARITY_ORDER = ["common", "rare", "epic", "legendary", "forzaedition", "barnfind", "treasure"];
+const RARITY_ORDER = ["common", "rare", "epic", "legendary", "forza edition", "barn find", "treasure"];
 
 const LS_KEYS = {
   credits: "fw_credits",
@@ -283,7 +283,7 @@ function renderWheelGrid() {
       card.innerHTML = `
         <span class="tier-eyebrow">${w.loot.length} rewards</span>
         <h3>${escapeHtml(w.name)}</h3>
-        <p class="wheel-desc">Odds favor ${topRarity(w.loot)} tier drops.</p>
+        <p class="wheel-desc">Rewards worth ${valueRange(w.loot)} credits.</p>
         <div class="wheel-cost">
           <span class="cost-num">${w.cost.toLocaleString()}</span>
           <span class="cost-tag">CREDITS</span>
@@ -302,6 +302,16 @@ function topRarity(loot) {
     if (rarities.has(RARITY_ORDER[i])) return RARITY_ORDER[i];
   }
   return "common";
+}
+
+function valueRange(loot) {
+  if (!loot.length) return "0";
+
+  const values = loot.map(item => item.value);
+  const min = Math.min(...values);
+  const max = Math.max(...values);
+
+  return `${min.toLocaleString()} - ${max.toLocaleString()}`;
 }
 
 function escapeHtml(s) {
@@ -377,8 +387,8 @@ function buildReelStrip(stripEl, loot, winner) {
 }
 
 function rarityColorHex(rarity) {
-  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#FF7B1C", forzaedition: "#fc355a", barnfind: "#02b30d", treasure: "#ffed1c" }; 
-  return map[rarity] || map.common;
+  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#FF7B1C", "forza edition": "#fc355a", "barn find": "#02b30d", treasure: "#ffed1c" }; 
+  return map[String(rarity).trim().toLowerCase()] || map.common;
 }
 
 // Inline SVG car-silhouette placeholder, tinted per rarity, used whenever
