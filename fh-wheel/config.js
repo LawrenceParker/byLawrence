@@ -76,30 +76,31 @@ const APP_CONFIG = {
   ITEMS_TAB: "Items",
 
   // Starting credits for first-time visitors
-  STARTING_CREDITS: 500,
+  STARTING_CREDITS: 100000,
 
   // Quick Sell: instant, guaranteed, but always at a loss off base value
-  QUICK_SELL_LOSS_PCT: 30,
+  QUICK_SELL_LOSS_PCT: 50,
 
   // Auction: a weighted table of possible outcomes. Each item's final
   // payout = base value × a random multiplier between min/max of whichever
   // tier gets picked (weight = relative odds, same idea as loot weights).
   // Tune freely — add/remove tiers, adjust ranges, whatever you like.
   AUCTION_OUTCOMES: [
-    { label: "Lowball bid", min: 0.5, max: 0.8, weight: 20 },
-    { label: "Fair market price", min: 0.8, max: 1.2, weight: 40 },
-    { label: "Strong bidding", min: 1.2, max: 1.8, weight: 25 },
-    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 10 },
-    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 5 },
+    {label: "Stolen",min: 0.0, max: 0.0, weight: 100}
+    { label: "Lowball bid", min: 0.5, max: 0.8, weight: 0 },
+    { label: "Fair market price", min: 0.8, max: 1.2, weight: 0 },
+    { label: "Strong bidding", min: 1.2, max: 1.8, weight: 5 },
+    { label: "Bidding war!", min: 1.8, max: 2.8, weight: 0 },
+    { label: "Jackpot buyer!", min: 3.0, max: 5.0, weight: 0 },
   ],
   // Jobs: a free way to earn credits over time if you run out. Each job
   // runs independently on its own timer — start it, wait, it pays out
   // automatically (even if you closed the tab while it was running).
   // duration is in seconds. Add, remove, or retune freely.
   JOBS: [
-    { key: "wash", name: "Car Wash", desc: "Detail cars in the paddock.", duration: 30, payout: 40 },
-    { key: "tow", name: "Tow Truck Run", desc: "Recover stranded racers off-route.", duration: 90, payout: 140 },
-    { key: "pit", name: "Pit Crew Shift", desc: "Work a full shift on the pit wall.", duration: 300, payout: 550 },
-    { key: "vip", name: "VIP Chauffeur", desc: "Drive festival VIPs between events.", duration: 900, payout: 2000 },
+    { key: "wash", name: "Car Wash", desc: "Detail cars in the paddock.", duration: 30, payout: 15000 },
+    { key: "tow", name: "Tow Truck Run", desc: "Recover stranded racers.", duration: 90, payout: 50000 },
+    { key: "pit", name: "Pit Crew Shift", desc: "Work a full shift on the pit wall.", duration: 300, payout: 75000 },
+    { key: "vip", name: "VIP Chauffeur", desc: "Drive festival VIPs between events.", duration: 500, payout: 100000 },
   ],
 };
