@@ -20,7 +20,7 @@ const RARITY_COLOR = {
   epic: "var(--epic)",
   legendary: "var(--legendary)",
 };
-const RARITY_ORDER = ["common", "rare", "epic", "legendary", "forza edition", "barn find", "treasure"];
+const RARITY_ORDER = ["common", "rare", "epic", "legendary", "forzaedition", "barnfind", "treasure"];
 
 const LS_KEYS = {
   credits: "fw_credits",
@@ -377,7 +377,7 @@ function buildReelStrip(stripEl, loot, winner) {
 }
 
 function rarityColorHex(rarity) {
-  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#FF7B1C", "forza edition": "#930ee8", "barn find": "#02b30d", treasure: "ffed1c";  
+  const map = { common: "#8a93a3", rare: "#4ea1ff", epic: "#b24eff", legendary: "#FF7B1C", forzaedition: "#930ee8", barnfind: "#02b30d", treasure: "ffed1c";  
   return map[rarity] || map.common;
 }
 
