@@ -12,19 +12,32 @@
   page itself is cached. This is what ships in the starter files.
 
     data/config.csv   — one row per wheel:
-       key,name,cost,color,tab
-       bronze,Bronze Wheel,100,#8a93a3,Bronze
+       key,name,cost,color,mode
+       bronze,Bronze Wheel,100,#8a93a3,standard
+       super,Super Wheel Spin,5000,#ff2e63,super
 
-    data/<tab>.csv     — one file per wheel (name must match the "tab"
-                          column above exactly, case-sensitive), columns:
-       name,rarity,value,weight,image,desc
-       1965 Mustang Fastback,rare,340,15,,
+    - key: unique short id for the wheel, used to link its rows in items.csv
+    - mode: "standard" (has its own loot rows) or "super" (special —
+      pulls only from cars you haven't collected yet, no items.csv rows
+      needed for it). Leave blank for "standard".
 
+    data/items.csv    — every wheel's loot rows in ONE file, tagged by a
+                         "wheel" column matching the wheel's key above:
+       wheel,name,rarity,value,weight,image,desc
+       bronze,Rusty Pickup,common,800,40,,
+       bronze,Vintage Roadster,epic,42000,5,,
+       silver,Turbo Coupe,rare,15000,35,,
+
+    - wheel: which wheel this row belongs to (must match a "key" in config.csv)
     - rarity: common / rare / epic / legendary (controls color)
     - value: credits earned when this item is sold
     - weight: relative odds of landing this segment (bigger = more common)
     - image: optional direct image URL — leave blank for a placeholder
     - desc: optional, currently unused in the UI
+
+    Since every wheel's rows live in the same file, tuning weights and
+    values is one spreadsheet to scroll/sort through instead of hunting
+    across several per-wheel files.
 
     Editing these is just editing text files — commit the change and
     redeploy (or refresh, if you're serving locally). No sharing settings,
@@ -37,11 +50,12 @@
 
   "sheet" — reads live from a Google Sheet instead, useful if you want to
   edit loot tables from anywhere without touching the repo. Slower to load
-  since every tab is a separate request to Google's servers. Set:
+  since it's requests to Google's servers. Set:
        DATA_SOURCE: "sheet"
        SHEET_ID: "the long ID from your sheet's URL"
-  and share the sheet as "Anyone with the link" → Viewer. Same
-  Config-tab-plus-one-tab-per-wheel structure as the CSV files above.
+  and share the sheet as "Anyone with the link" → Viewer. Mirrors the local
+  structure: a Config tab (wheels) plus one Items tab shared by every wheel,
+  same "wheel" column linking rows to a wheel's key.
 
   Leaving DATA_SOURCE unset/invalid, or leaving SHEET_ID blank while set
   to "sheet", falls back to small built-in demo data so the site still
@@ -51,12 +65,15 @@
 const APP_CONFIG = {
   DATA_SOURCE: "local", // "local" | "sheet"
 
-  // Used when DATA_SOURCE is "local": folder path (relative to wheel.html)
+  // Used when DATA_SOURCE is "local": folder path (relative to wheel.html),
+  // and the filename of the shared items file within it
   LOCAL_DATA_DIR: "data",
+  ITEMS_FILE: "items.csv",
 
   // Used when DATA_SOURCE is "sheet"
   SHEET_ID: "",
   CONFIG_TAB: "Config",
+  ITEMS_TAB: "Items",
 
   // Starting credits for first-time visitors
   STARTING_CREDITS: 500,

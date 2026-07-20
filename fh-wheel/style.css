@@ -162,6 +162,7 @@ main{max-width:1100px; margin:0 auto; padding:40px 28px 90px; position:relative;
   background:var(--surface); border:1px solid var(--line); border-radius:20px;
   padding:32px; max-width:480px; width:100%; text-align:center; position:relative;
   margin:auto;
+  --item-h: 92px;
 }
 .close-spin{
   position:absolute; top:14px; right:14px; background:var(--surface-2); border:1px solid var(--line);
@@ -179,7 +180,6 @@ main{max-width:1100px; margin:0 auto; padding:40px 28px 90px; position:relative;
 
 .slot-frame{
   position:relative; width:100%; max-width:340px; margin:0 auto;
-  --item-h: 92px;
 }
 .slot-viewport{
   height:calc(var(--item-h) * 3);
@@ -225,6 +225,33 @@ main{max-width:1100px; margin:0 auto; padding:40px 28px 90px; position:relative;
 }
 .slot-pointer-left{left:-3px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-left:12px solid var(--teal);}
 .slot-pointer-right{right:-3px; border-top:10px solid transparent; border-bottom:10px solid transparent; border-right:12px solid var(--teal);}
+
+/* ---------- super wheel: 5 parallel reels in a horizontal line ---------- */
+.super-reels{position:relative; width:100%; max-width:420px; margin:0 auto;}
+.super-reels-row{
+  display:flex;
+  border-radius:14px; border:2px solid var(--line); background:var(--surface-2);
+  box-shadow: inset 0 0 24px rgba(0,0,0,.4);
+  overflow:hidden;
+}
+/* .mini reuses .slot-viewport for sizing/overflow, but the shared row above
+   supplies the border/background/shadow — this resets the individual
+   per-column chrome so the 5 columns read as one continuous housing. */
+.slot-viewport.mini{
+  flex:1; min-width:0;
+  border:none; border-radius:0; background:none; box-shadow:none;
+  border-right:1px solid var(--line);
+}
+.slot-viewport.mini:last-child{border-right:none;}
+.slot-viewport.mini .slot-item{padding:0 4px; gap:4px; border-left-width:3px;}
+.slot-viewport.mini .slot-item img{width:32px; height:22px;}
+.slot-viewport.mini .slot-item-text{gap:0;}
+.slot-viewport.mini .slot-item-name{font-size:9px;}
+.slot-viewport.mini .slot-item-rarity{font-size:7px; letter-spacing:.5px;}
+/* the fade/center-line/pointer elements are appended as direct children of
+   #superReels (a positioned ancestor of the row), so — same classes as the
+   single reel — they span the full width as one shared payline instead of
+   five separate ones */
 
 .spin-result{margin-top:22px;}
 .result-card{

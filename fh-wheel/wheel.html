@@ -6,7 +6,7 @@
 <title>Festival Wheels — Spin. Win. Sell.</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@500;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="style.css?v=9">
+<link rel="stylesheet" href="style.css?v=11">
 </head>
 <body>
 
@@ -118,7 +118,7 @@
     <button class="close-spin" id="closeSpin" aria-label="Close">✕</button>
     <h2 class="spin-wheel-title" id="spinWheelTitle">—</h2>
     <p class="spin-round-indicator" id="spinRoundIndicator" hidden></p>
-    <div class="slot-frame">
+    <div class="slot-frame" id="slotFrameSingle">
       <div class="slot-pointer-left"></div>
       <div class="slot-pointer-right"></div>
       <div class="slot-viewport">
@@ -128,6 +128,7 @@
         <div class="slot-center-line"></div>
       </div>
     </div>
+    <div class="super-reels" id="superReels" hidden></div>
     <div class="spin-result" id="spinResult" hidden>
       <div class="result-card" id="resultCard"></div>
       <div class="spin-actions">
@@ -164,7 +165,7 @@
 
 <div class="toast" id="toast" hidden></div>
 
-<script src="config.js?v=9"></script>
-<script src="app.js?v=9"></script>
+<script src="config.js?v=11"></script>
+<script src="app.js?v=11"></script>
 </body>
 </html>

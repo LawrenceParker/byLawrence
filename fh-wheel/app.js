@@ -122,9 +122,9 @@ async function fetchSheetTab(sheetId, tab) {
 }
 
 // Shared row -> data mapping, used by both the local-CSV and Google-Sheets loaders.
-function mapLootRow(row, r, i) {
+function mapLootRow(wheelKey, r, i) {
   return {
-    id: `${row.key}_${i}`,
+    id: `${wheelKey}_${i}`,
     name: r.name || "Unknown Item",
     rarity: (r.rarity || "common").toLowerCase(),
     value: Number(r.value) || 0,
@@ -135,63 +135,69 @@ function mapLootRow(row, r, i) {
 }
 function mapWheelDef(row, loot) {
   return {
-    key: row.key || row.tab.toLowerCase(),
-    name: row.name || row.tab,
+    key: row.key,
+    name: row.name || row.key,
     cost: Number(row.cost) || 0,
     color: row.color || "#ff6a33",
-    tab: row.tab,
     mode: (row.mode || "standard").toLowerCase(), // "standard" | "super"
     loot,
   };
 }
 
-// Local CSV files — the default and fastest option. Reads config.csv plus
-// one <tab>.csv per wheel from APP_CONFIG.LOCAL_DATA_DIR, all fetched in
-// parallel. No network round-trip to Google, so this loads near-instantly.
+// Local CSV files — the default and fastest option. Reads config.csv (one
+// row per wheel) plus a single items.csv holding every wheel's loot rows,
+// each tagged with a "wheel" column matching that wheel's key. Both fetched
+// in parallel with nothing else, so this loads near-instantly — and since
+// every drop rate lives in one file, tuning weights/values is a single
+// spreadsheet to scroll through instead of hunting across per-wheel files.
 async function loadWheelsFromLocalCSV() {
   const dir = (APP_CONFIG.LOCAL_DATA_DIR || "data").replace(/\/+$/, "");
-  const configRows = await fetchCSV(`${dir}/config.csv`);
+  const itemsFile = APP_CONFIG.ITEMS_FILE || "items.csv";
+
+  const [configRows, itemRows] = await Promise.all([
+    fetchCSV(`${dir}/config.csv`),
+    fetchCSV(`${dir}/${itemsFile}`),
+  ]);
   if (!configRows.length) throw new Error(`${dir}/config.csv is empty`);
 
-  const validRows = configRows.filter(row => row.tab);
-  if (!validRows.length) throw new Error(`No wheels found in ${dir}/config.csv`);
+  const validRows = configRows.filter(row => row.key);
+  if (!validRows.length) throw new Error(`No wheels found in ${dir}/config.csv (every row needs a "key")`);
 
-  const wheels = await Promise.all(validRows.map(async row => {
-    // "super" wheels have no loot CSV of their own — their pool is built
+  const wheels = validRows.map(row => {
+    // "super" wheels have no loot rows of their own — their pool is built
     // live from every car you haven't collected yet (see getSuperWheelPool)
-    if ((row.mode || "").toLowerCase() === "super") {
-      return mapWheelDef(row, []);
-    }
-    const lootRows = await fetchCSV(`${dir}/${row.tab}.csv`);
-    return mapWheelDef(row, lootRows.map((r, i) => mapLootRow(row, r, i)));
-  }));
+    if (row.mode?.toLowerCase() === "super") return mapWheelDef(row, []);
+    const lootRows = itemRows.filter(r => (r.wheel || "").toLowerCase() === row.key.toLowerCase());
+    return mapWheelDef(row, lootRows.map((r, i) => mapLootRow(row.key, r, i)));
+  });
 
   return wheels;
 }
 
 // Google Sheets — kept as an option if you'd rather edit loot tables from
-// a spreadsheet than local files. Slower to load since every tab is a
-// request to Google's servers, but editable from anywhere without touching
-// the repo. Set DATA_SOURCE to "sheet" in config.js to use this instead.
+// a spreadsheet than local files. Slower to load since it's requests to
+// Google's servers, but editable from anywhere without touching the repo.
+// Set DATA_SOURCE to "sheet" in config.js to use this instead. Mirrors the
+// local-CSV structure: a Config tab (wheels) plus one Items tab shared by
+// every wheel, joined by the same "wheel" column.
 async function loadWheelsFromSheet() {
   const sheetId = APP_CONFIG.SHEET_ID?.trim();
   if (!sheetId) return null;
 
-  const configRows = await fetchSheetTab(sheetId, APP_CONFIG.CONFIG_TAB);
+  const [configRows, itemRows] = await Promise.all([
+    fetchSheetTab(sheetId, APP_CONFIG.CONFIG_TAB),
+    fetchSheetTab(sheetId, APP_CONFIG.ITEMS_TAB || "Items"),
+  ]);
   if (!configRows.length) throw new Error("Config tab is empty");
 
-  const validRows = configRows.filter(row => row.tab);
-  if (!validRows.length) throw new Error("No wheels found in Config tab");
+  const validRows = configRows.filter(row => row.key);
+  if (!validRows.length) throw new Error('No wheels found in the Config tab (every row needs a "key")');
 
-  // Fetch every wheel's loot table at the same time instead of waiting for
-  // each one in turn — Promise.all still returns them in the original order.
-  const wheels = await Promise.all(validRows.map(async row => {
-    if ((row.mode || "").toLowerCase() === "super") {
-      return mapWheelDef(row, []);
-    }
-    const lootRows = await fetchSheetTab(sheetId, row.tab);
-    return mapWheelDef(row, lootRows.map((r, i) => mapLootRow(row, r, i)));
-  }));
+  const wheels = validRows.map(row => {
+    if (row.mode?.toLowerCase() === "super") return mapWheelDef(row, []);
+    const lootRows = itemRows.filter(r => (r.wheel || "").toLowerCase() === row.key.toLowerCase());
+    return mapWheelDef(row, lootRows.map((r, i) => mapLootRow(row.key, r, i)));
+  });
 
   return wheels;
 }
@@ -309,8 +315,11 @@ function openSpin(wheel, autoSpin = true) {
   currentWheel = wheel;
   $("#spinWheelTitle").textContent = wheel.name;
   $("#spinResult").hidden = true;
+  $("#superSummary").hidden = true;
+  $("#slotFrameSingle").hidden = false;
+  $("#superReels").hidden = true;
   $("#spinOverlay").hidden = false;
-  buildReelStrip(wheel, wheel.loot[0]); // idle preview before the real spin kicks off
+  buildReelStrip($("#slotStrip"), wheel.loot, wheel.loot[0]); // idle preview before the real spin kicks off
   if (autoSpin) {
     // let the reel paint at rest for a beat before it whips into motion
     requestAnimationFrame(() => setTimeout(() => {
@@ -345,25 +354,25 @@ function buildSlotRow(item) {
   return row;
 }
 
-// Builds the vertical reel strip: a run of random filler rows, then the
-// winner, then one trailing filler row so the viewport has something to
-// show below the winner once it's centered. Returns the winner's index.
-function buildReelStrip(wheel, winner) {
-  const strip = $("#slotStrip");
-  strip.style.transition = "none";
-  strip.style.transform = "translateY(0px)";
-  strip.innerHTML = "";
+// Builds a vertical reel strip inside the given element: a run of random
+// filler rows, then the winner, then one trailing filler row so the
+// viewport has something to show below the winner once it's centered.
+// Returns the winner's index within the strip.
+function buildReelStrip(stripEl, loot, winner) {
+  stripEl.style.transition = "none";
+  stripEl.style.transform = "translateY(0px)";
+  stripEl.innerHTML = "";
 
   const items = [];
   for (let i = 0; i < STRIP_FILLER; i++) {
-    items.push(wheel.loot[Math.floor(Math.random() * wheel.loot.length)]);
+    items.push(loot[Math.floor(Math.random() * loot.length)]);
   }
   const winnerIndex = items.length;
   items.push(winner);
-  items.push(wheel.loot[Math.floor(Math.random() * wheel.loot.length)]);
+  items.push(loot[Math.floor(Math.random() * loot.length)]);
 
-  items.forEach(item => strip.appendChild(buildSlotRow(item)));
-  strip.offsetHeight; // reflow so the transition-reset above actually applies
+  items.forEach(item => stripEl.appendChild(buildSlotRow(item)));
+  stripEl.offsetHeight; // reflow so the transition-reset above actually applies
   return winnerIndex;
 }
 
@@ -420,7 +429,7 @@ function doSpin() {
 
   const wheel = currentWheel;
   const winner = weightedPick(wheel.loot);
-  const winnerIndex = buildReelStrip(wheel, winner);
+  const winnerIndex = buildReelStrip($("#slotStrip"), wheel.loot, winner);
 
   const strip = $("#slotStrip");
   requestAnimationFrame(() => {
@@ -459,13 +468,10 @@ function finishSpin(wheel, item) {
   $("#spinResult").hidden = false;
 }
 
-/* ---------------- super wheel (5 sequential pulls, undiscovered cars only) ---------------- */
+/* ---------------- super wheel (5 reels at once, undiscovered cars only) ---------------- */
 
 // Every catalog entry you haven't discovered yet, with uniform odds — every
-// undiscovered car is equally likely to come up. Recomputed fresh on every
-// pull, so a car won mid-session immediately drops out of the pool for the
-// remaining pulls in that same spin (since recordDiscovery already updated
-// STATE.collection by the time the next pull reads it).
+// undiscovered car is equally likely to come up.
 function getSuperWheelPool() {
   return STATE.catalog
     .filter(entry => !STATE.collection[entry.key])
@@ -475,7 +481,42 @@ function getSuperWheelPool() {
     }));
 }
 
+// Weighted sampling WITHOUT replacement — used so the 5 simultaneous reels
+// can't land on the same car twice, since (unlike a sequential spin) none
+// of the wins are committed to the collection until all 5 reels have
+// stopped, so we can't rely on STATE.collection to rule out repeats.
+function weightedSampleWithoutReplacement(pool, count) {
+  const remaining = [...pool];
+  const picks = [];
+  const n = Math.min(count, remaining.length);
+  for (let i = 0; i < n; i++) {
+    const winner = weightedPick(remaining);
+    picks.push(winner);
+    remaining.splice(remaining.indexOf(winner), 1);
+  }
+  return picks;
+}
+
 const SUPER_WHEEL_PULLS = 5;
+
+// Builds the 5-column reel row inside #superReels and returns the 5 strip
+// elements in left-to-right order.
+function buildSuperReelsFrame() {
+  const container = $("#superReels");
+  container.innerHTML = `
+    <div class="super-reels-row">
+      ${Array.from({ length: SUPER_WHEEL_PULLS }).map((_, i) => `
+        <div class="slot-viewport mini"><div class="slot-strip" id="slotStrip${i}"></div></div>
+      `).join("")}
+    </div>
+    <div class="slot-fade-top"></div>
+    <div class="slot-fade-bottom"></div>
+    <div class="slot-center-line"></div>
+    <div class="slot-pointer-left"></div>
+    <div class="slot-pointer-right"></div>
+  `;
+  return Array.from({ length: SUPER_WHEEL_PULLS }).map((_, i) => $(`#slotStrip${i}`));
+}
 
 function openSuperSpin(wheel) {
   if (STATE.spinning) return;
@@ -487,11 +528,15 @@ function openSuperSpin(wheel) {
   $("#spinWheelTitle").textContent = wheel.name;
   $("#spinResult").hidden = true;
   $("#superSummary").hidden = true;
+  $("#slotFrameSingle").hidden = true;
+  $("#superReels").hidden = false;
   $("#spinOverlay").hidden = false;
 
-  buildReelStrip({ loot: pool }, pool[0]); // idle preview before the first pull
+  const strips = buildSuperReelsFrame();
+  strips.forEach(stripEl => buildReelStrip(stripEl, pool, pool[Math.floor(Math.random() * pool.length)])); // idle preview
+
   requestAnimationFrame(() => setTimeout(() => {
-    doSuperSpin(wheel).catch(err => {
+    doSuperSpin(wheel, strips).catch(err => {
       console.error(err);
       toast(`Spin failed: ${err.message}`);
       STATE.spinning = false;
@@ -499,46 +544,58 @@ function openSuperSpin(wheel) {
   }, 250));
 }
 
-async function doSuperSpin(wheel) {
+async function doSuperSpin(wheel, strips) {
   STATE.spinning = true;
   STATE.credits -= wheel.cost;
   saveCredits(); renderCredits();
 
+  const pool = getSuperWheelPool();
+  const winners = weightedSampleWithoutReplacement(pool, SUPER_WHEEL_PULLS);
+
   $("#spinRoundIndicator").hidden = false;
-  const strip = $("#slotStrip");
-  const wins = [];
+  $("#spinRoundIndicator").textContent = winners.length < SUPER_WHEEL_PULLS
+    ? `Only ${winners.length} car${winners.length === 1 ? "" : "s"} left to find!`
+    : "Spinning all 5 reels…";
 
-  for (let round = 1; round <= SUPER_WHEEL_PULLS; round++) {
-    const pool = getSuperWheelPool();
-    if (!pool.length) break; // ran out of undiscovered cars partway through
+  // build every strip with its own winner (columns beyond the number of
+  // available winners just stay on their idle preview and dim out)
+  const winnerIndexes = strips.map((stripEl, i) => {
+    if (i >= winners.length) {
+      stripEl.closest(".slot-viewport").style.opacity = "0.25";
+      return null;
+    }
+    return buildReelStrip(stripEl, pool, winners[i]);
+  });
 
-    $("#spinRoundIndicator").textContent = `Pull ${round} of ${SUPER_WHEEL_PULLS}`;
-    const winner = weightedPick(pool);
-    const winnerIndex = buildReelStrip({ loot: pool }, winner);
-
-    await new Promise(resolve => {
+  // animate all 5 at once, but stagger the stop time left-to-right so
+  // they lock in one after another like a real slot machine
+  const animations = strips.map((stripEl, i) => {
+    if (winnerIndexes[i] == null) return Promise.resolve();
+    const duration = 3.2 + i * 0.35; // seconds
+    return new Promise(resolve => {
       requestAnimationFrame(() => {
-        strip.style.transition = "transform 4s cubic-bezier(.08,.82,.17,1)";
-        strip.style.transform = `translateY(${-(winnerIndex - 1) * ITEM_H}px)`;
+        stripEl.style.transition = `transform ${duration}s cubic-bezier(.1,.8,.2,1)`;
+        stripEl.style.transform = `translateY(${-(winnerIndexes[i] - 1) * ITEM_H}px)`;
       });
-      setTimeout(resolve, 4300);
+      setTimeout(resolve, duration * 1000 + 150);
     });
+  });
+  await Promise.all(animations);
 
+  // commit every win together, only once every reel has landed
+  winners.forEach(winner => {
     const uid = `inv_${Date.now()}_${Math.floor(Math.random() * 1e6)}`;
     STATE.inventory.unshift({
       uid, name: winner.name, rarity: winner.rarity, value: winner.value, image: winner.image || "",
       wheelKey: wheel.key, wheelName: wheel.name, ts: Date.now(),
     });
-    saveInventory(); updateInvCount();
     recordDiscovery(winner, wheel);
-    wins.push(winner);
-
-    if (round < SUPER_WHEEL_PULLS) await new Promise(r => setTimeout(r, 500));
-  }
+  });
+  saveInventory(); updateInvCount();
 
   STATE.spinning = false;
   $("#spinRoundIndicator").hidden = true;
-  showSuperSummary(wins);
+  showSuperSummary(winners);
 }
 
 function showSuperSummary(wins) {
