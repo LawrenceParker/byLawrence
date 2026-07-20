@@ -359,6 +359,7 @@ function buildSlotRow(item) {
     <div class="slot-item-text">
       <span class="slot-item-rarity">${item.rarity}</span>
       <span class="slot-item-name">${escapeHtml(item.name)}</span>
+      <span class="slot-item-value">${item.value.toLocaleString()} cr</span>
     </div>
   `;
   return row;
