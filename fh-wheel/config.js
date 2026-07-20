@@ -62,7 +62,7 @@ const APP_CONFIG = {
   STARTING_CREDITS: 50000,
 
   // Quick Sell: instant, guaranteed, but always at a loss off base value
-  QUICK_SELL_LOSS_PCT: 15,
+  QUICK_SELL_LOSS_PCT: 70,
 
   // Auction: a weighted table of possible outcomes. Each item's final
   // payout = base value × a random multiplier between min/max of whichever
