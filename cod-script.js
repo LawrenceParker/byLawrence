@@ -4,9 +4,9 @@
    Two independent datasets, each with a live Google Sheets CSV
    URL (once published) and a local fallback file.
    ========================================================= */
-const GF_DATA_URL = "";
+const GF_DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vT6mq8h3fwk72fRff7hvf38CRMuomDDTx9qVea46vrJ2cdZ73bW21Fv28AbVRSozZaE7o4o6t7WxVsx/pub?gid=1796462109&single=true&output=csv";
 const GF_FALLBACK_URL = "cod-gunfight-data.csv";
-const TM_DATA_URL = "";
+const TM_DATA_URL = "https://docs.google.com/spreadsheets/d/e/2PACX-1vTu7BylmlsZC1ORxG7-Ylo0oRK7Ott174qY66JDEfvEtUf_cp-zWT_MktpKr3yAMgKEi-YOgHDYljBw/pub?gid=1778587563&single=true&output=csv";
 const TM_FALLBACK_URL = "cod-team-matches-data.csv";
 
 /* ---------- CSV PARSING ---------- */
