@@ -163,3 +163,68 @@ a:focus-visible, button:focus-visible {
   outline: 2px solid var(--paper);
   outline-offset: 2px;
 }
+
+/* ---------- APP LAYOUT ---------- */
+.app {
+    display:flex;
+    min-height:100vh;
+}
+
+/* ---------- SIDEBAR ---------- */
+
+.sidebar {
+    width:90px;
+    background:#111318;
+    border-right:1px solid var(--line);
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    padding:20px 0;
+}
+
+.sidebar__logo {
+    font-family:var(--font-display);
+    font-size:28px;
+    margin-bottom:40px;
+}
+
+
+.nav-btn {
+    width:60px;
+    height:60px;
+    margin:8px;
+    border:none;
+    background:transparent;
+    color:var(--muted);
+    font-size:22px;
+    cursor:pointer;
+    border-radius:8px;
+    transition:.2s;
+}
+
+
+.nav-btn span {
+    display:none;
+}
+
+.nav-btn:hover,
+.nav-btn.active {
+    background:#20242c;
+    color:var(--paper);
+}
+
+/* ---------- CONTENT PANEL ---------- */
+
+.panel {
+    flex:1;
+    overflow:auto;
+}
+
+.page {
+    display:none;
+    padding:40px;
+}
+
+.page.active {
+    display:block;
+}
