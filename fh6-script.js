@@ -133,8 +133,7 @@ function renderHero() {
   document.getElementById("statLaps").textContent = LAPS.length;
   const dated = LAPS.filter(r => r.date).map(r => r.date).sort();
   document.getElementById("statLatest").textContent = dated.length ? dated[dated.length - 1].split(" ")[0] : "–";
-  document.getElementById("footerCount").textContent = LAPS.length;
-}
+ }
 
 /* ---------- TRACK CHIPS (shared by both tabs) ---------- */
 let currentTrack = null;
