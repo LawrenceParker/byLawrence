@@ -177,6 +177,7 @@ font-size:10px;
 letter-spacing:.22em;
 text-transform:uppercase;
 color:var(--muted);
+margin: 10px;
 }
 
 .mode-tabs{
