@@ -228,3 +228,10 @@ a:focus-visible, button:focus-visible {
 .page.active {
     display:block;
 }
+
+#content-frame {
+  width:100%;
+  height:100vh;
+  border:none;
+  background:var(--ink);
+}
