@@ -1,16 +1,20 @@
-function showPage(pageName){
-    document.querySelectorAll(".page")
-        .forEach(page=>{
-            page.classList.remove("active");
-        });
+const buttons = document.querySelectorAll(".nav-btn");
+const pages = document.querySelectorAll(".page");
 
-    document.getElementById(pageName)
-        .classList.add("active");
+buttons.forEach(button => {
+  button.addEventListener("click", () => {
+    const target = button.dataset.page;
 
-    document.querySelectorAll(".nav-btn")
-        .forEach(btn=>{
-            btn.classList.remove("active");
-        });
+    pages.forEach(page => {
+      page.classList.remove("active");
+    });
 
-    event.currentTarget.classList.add("active");
-}
+    document.getElementById(target).classList.add("active");
+
+    buttons.forEach(btn => {
+      btn.classList.remove("active");
+    });
+
+    button.classList.add("active");
+  });
+});
