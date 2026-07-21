@@ -1,20 +1,16 @@
 const buttons = document.querySelectorAll(".nav-btn");
-const pages = document.querySelectorAll(".page");
+const frame = document.getElementById("content-frame");
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-    const target = button.dataset.page;
 
-    pages.forEach(page => {
-      page.classList.remove("active");
-    });
-
-    document.getElementById(target).classList.add("active");
+    frame.src = button.dataset.page;
 
     buttons.forEach(btn => {
       btn.classList.remove("active");
     });
 
     button.classList.add("active");
+
   });
 });
