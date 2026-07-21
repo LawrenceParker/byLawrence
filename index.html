@@ -4,57 +4,77 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>byLawrence</title>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
 <link rel="stylesheet" href="home-style.css">
 </head>
 
 <body>
 
 <div class="app">
-
-<nav class="sidebar">
-  <div class="sidebar__logo">bL</div>
-
-  <button class="nav-btn active" data-page="">🏠</button>
-  <button class="nav-btn" data-page="wnc.html">WNC</button>
-  <button class="nav-btn" data-page="fh6.html">FH</button>  
-  <button class="nav-btn" data-page="f1.html">F1</button>
+<nav class="sidebar">  
+  <div class="sidebar__logo">
+    bL
+  </div>
+  
+  <div class="nav-group">
+    <h3>WNC</h3>
+    <button class="nav-btn active" data-page="">
+      Home
+    </button>
+    <button class="nav-btn" data-page="callofduty.html">
+      Call of Duty
+    </button>
+    <button class="nav-btn" data-page="gran-turismo.html">
+      Gran Turismo 7
+    </button>
+  </div>
+  
+  <div class="nav-group">
+    <h3>FH6</h3>
+    <button class="nav-btn" data-page="fh6.html">
+      Time Attack
+    </button>
+  </div>
+  
+  <div class="nav-group">
+    <h3>F1</h3>
+    <button class="nav-btn" data-page="f1.html">
+      Driver Picks
+    </button>
+  </div>
 </nav>
 
-
-<main class="panel">
+<main class="panel">  
 <section id="home" class="page active">
-<header class="hero">
+<header class="hero">  
   <div class="hero__inner">
     <p class="hero__eyebrow">createdbyL</p>
     <h1 class="hero__title">BY LAWRENCE</h1>
     <p class="hero__sub">Tournaments, stats, and other things.</p>
-  </div>
+  </div>  
 </header>
+  <div class="home-content">
+    <p>byLawrence</p>
+    <p>Use the navigation to view projects and trackers.</p>
+  </div>
 </section>
 
-<main class="panel">
-<section id="home" class="page active">
-  <!-- Your Game Hub cards -->
-</section>
-  
-<section id="viewer" class="page active">
-  <iframe id="content-frame" src="wnc.html"></iframe>
-</section>
-  
 <section id="viewer" class="page">
   <iframe id="content-frame"></iframe>
-</section> 
-  
+</section>
+
 <footer class="footer">
   <p>updated automatically</p>
 </footer>
-</main>
 
 </main>
 </div>
+
 <script src="home-script.js"></script>
+
 </body>
 </html>
