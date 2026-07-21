@@ -517,8 +517,7 @@ function renderHero() {
   document.getElementById("statPlayers").textContent = allPlayers.size;
   document.getElementById("statMatches").textContent = gfMatches + tmMatches;
   document.getElementById("statSeasons").textContent = allSeasons.size;
-  document.getElementById("footerCount").textContent = GF_ROWS.length + TM_ROWS.length;
-}
+  }
 
 /* =========================================================
    MODE + TAB SWITCHING
