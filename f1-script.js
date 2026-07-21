@@ -110,8 +110,7 @@ function renderHero() {
   document.getElementById("statRaces").textContent = completedCount;
   document.getElementById("statRacers").textContent = NAMES.length;
   document.getElementById("statLeader").textContent = standings.length ? standings[0].name : "–";
-  document.getElementById("footerCount").textContent = ROWS.length;
-}
+ }
 
 /* ---------- RENDER: LEADERBOARD ---------- */
 const POSITION_LABELS = ["1st", "2nd", "3rd", "4th", "5th", "6th", "7th", "8th", "9th", "10th"];
