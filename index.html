@@ -18,9 +18,9 @@
   <div class="sidebar__logo">bL</div>
 
   <button class="nav-btn active" data-page="home">🏠</button>
-  <button class="nav-btn" data-page="wnc">WNC</button>
-  <button class="nav-btn" data-page="fh6">FH</button>  
-  <button class="nav-btn" data-page="f1">F1</button>
+  <button class="nav-btn" data-page="wnc.html">WNC</button>
+  <button class="nav-btn" data-page="fh6.html">FH</button>  
+  <button class="nav-btn" data-page="f1.html">F1</button>
 </nav>
 
 
@@ -72,32 +72,30 @@
 </section>
 
 
-<section id="wnc" class="page">
-  <h1>WNC</h1>
-  <p>Gran Turismo 7 championship standings and Call of Duty tracking.</p>
-  <div class="placeholder-box">WNC Dashboard Coming Here</div>
+<main class="panel">
+
+<section id="home" class="page active">
+  ...your Game Hub home cards...
 </section>
 
-
-<section id="fh6" class="page">
-  <h1>FH6 · Time Attack</h1>
-  <p>Car-by-car leaderboards, lap times, averages and history.</p>
-  <div class="placeholder-box">FH6 Leaderboard Coming Here</div>
+<section id="viewer" class="page">
+  <iframe id="content-frame" src="fh6.html"></iframe>
 </section>
 
-
-<section id="worldcup" class="page">
-  <h1>World Cup 2026 · Penalties</h1>
-  <p>Penalty shootout predictions and results tracker.</p>
-  <div class="placeholder-box">World Cup Tracker Coming Here</div>
+<section id="viewer" class="page">
+  <iframe id="content-frame" src="f1.html"></iframe>
 </section>
 
-
-<section id="f1" class="page">
-  <h1>F1 2026 · Picks</h1>
-  <p>Race picks, driver standings and championship points.</p>
-  <div class="placeholder-box">F1 Dashboard Coming Here</div>
+<section id="viewer" class="page">
+  <iframe id="content-frame" src="wnc.html"></iframe>
 </section>
+  
+
+<footer class="footer">
+  <p>Game Hub · tracked and updated automatically</p>
+</footer>
+
+</main>
 
 
 <footer class="footer">
