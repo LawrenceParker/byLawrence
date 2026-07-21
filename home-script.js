@@ -1,16 +1,9 @@
+console.log("Game Hub JS loaded");
+
 const buttons = document.querySelectorAll(".nav-btn");
-const frame = document.getElementById("content-frame");
 
 buttons.forEach(button => {
   button.addEventListener("click", () => {
-
-    frame.src = button.dataset.page;
-
-    buttons.forEach(btn => {
-      btn.classList.remove("active");
-    });
-
-    button.classList.add("active");
-
+    console.log("Clicked:", button.dataset.page);
   });
 });
