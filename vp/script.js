@@ -5,8 +5,8 @@
 const CSV_PATH = 'players.csv';
 const STORAGE_KEY = 'vctPacks.history.v1';
 
-const TIER_LABEL = { gold:'GOLD', platinum:'PLATINUM', diamond:'DIAMOND', immortal:'IMMORTAL', radiant:'RADIANT' };
-const TIER_COLOR = { gold:'#c9a24a', platinum:'#21d0c4', diamond:'#b083ff', immortal:'#ff3d5e', radiant:'#ffe38a' };
+const TIER_LABEL = { silver: 'SILVER', gold:'GOLD', platinum:'PLATINUM', diamond:'DIAMOND', immortal:'IMMORTAL', radiant:'RADIANT' };
+const TIER_COLOR = { silver: '#b8c5c8', gold:'#c9a24a', platinum:'#21d0c4', diamond:'#b083ff', immortal:'#ff3d5e', radiant:'#ffe38a' };
 
 const ROLE_ICONS = {
   Duelist: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,7 +37,8 @@ function tierFor(ovr){
   if(ovr>=85) return 'immortal';
   if(ovr>=75) return 'diamond';
   if(ovr>=65) return 'platinum';
-  return 'gold';
+  if(ovr>=60) return 'gold'
+  return 'silver';
 }
 
 function portraitSVG(role, accent){
