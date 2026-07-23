@@ -268,19 +268,21 @@ function pickPlayer(){
 
 function renderCard(p){
   const tier = tierFor(p.ovr);
-  const accent = TIER_COLOR[tier];
 
   card.setAttribute('data-tier', tier);
-  document.getElementById('tierTag').textContent = TIER_LABEL[tier];
-  document.getElementById('ovrNum').textContent = p.ovr;
   document.getElementById('roleFull').textContent = p.role;
-  document.getElementById('pName').textContent = p.name;
-  document.getElementById('pTeamLine').textContent = p.team || '';
   document.getElementById('atkVal').textContent = p.atk;
   document.getElementById('defVal').textContent = p.def_;
+  document.getElementById('setName').textContent = p.tournament;
+  document.getElementById('pName').textContent = p.name;
+  document.getElementById('pTeamLine').textContent = p.team || '';
+  document.getElementById('ovrNum').textContent = p.ovr;
 
   const iconContainer = document.getElementById('roleIcon');
   imgOrFallback(iconContainer, p.roleIcon, ROLE_ICONS[p.role] || '');
+
+  const barIconContainer = document.getElementById('barIcon');
+  barIconContainer.innerHTML = ROLE_ICONS[p.role] || '';
 
   document.getElementById('pullCaption').textContent = `${p.name} — ${TIER_LABEL[tier]} ${p.role.toUpperCase()}`;
 
@@ -338,23 +340,27 @@ function buildMiniCardMarkup(p, tier, index){
       <div class="card" data-tier="${tier}">
         <div class="card-bg-pattern"></div>
         <div class="holo-sheen"></div>
-        <div class="card-tier-tag">${TIER_LABEL[tier]}</div>
-        <div class="card-role-top">${escapeHtml(p.role)}</div>
-        <div class="card-ovr"><div class="num">${p.ovr}</div></div>
+        <div class="card-top-pin"></div>
+        <div class="card-role-name">${escapeHtml(p.role)}</div>
+        <div class="card-stat-corner left">
+          <div class="stat-num">${p.atk}</div>
+          <div class="stat-lbl">ATK</div>
+        </div>
+        <div class="card-stat-corner right">
+          <div class="stat-num">${p.def_}</div>
+          <div class="stat-lbl">DEF</div>
+        </div>
         <div class="card-emblem-wrap">
           <div class="card-emblem-plate">
             <div class="card-emblem-icon" data-emblem-index="${index}"></div>
           </div>
         </div>
-        <div class="card-name-plate">
-          <div class="name">${escapeHtml(p.name)}</div>
-          <div class="team-line">${escapeHtml(p.team || '')}</div>
-        </div>
-        <div class="card-divider"></div>
-        <div class="card-stats">
-          <div class="stat"><div class="v">${p.atk}</div><div class="k">ATK</div></div>
-          <div class="stat"><div class="v">${p.def_}</div><div class="k">DEF</div></div>
-        </div>
+        <div class="card-set-name">${escapeHtml(p.tournament)}</div>
+        <div class="card-name-bar"><span class="bar-icon" data-bar-icon-index="${index}"></span><span>${escapeHtml(p.name)}</span></div>
+        <div class="card-team-name">${escapeHtml(p.team || '')}</div>
+        <div class="card-bottom-badge"><div class="badge-num">${p.ovr}</div></div>
+        <div class="card-corner-tri left"></div>
+        <div class="card-corner-tri right"></div>
       </div>
     </div>
   `;
@@ -411,6 +417,13 @@ function renderCollection(){
     const p = emblemQueue[idx];
     if(!p) return;
     imgOrFallback(container, p.roleIcon, ROLE_ICONS[p.role] || '');
+  });
+
+  collectionGroups.querySelectorAll('.bar-icon[data-bar-icon-index]').forEach(container => {
+    const idx = parseInt(container.getAttribute('data-bar-icon-index'), 10);
+    const p = emblemQueue[idx];
+    if(!p) return;
+    container.innerHTML = ROLE_ICONS[p.role] || '';
   });
 }
 
