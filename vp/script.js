@@ -32,6 +32,11 @@ const ROLE_ICONS = {
   </svg>`
 };
 
+const FLIP_ICON_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+  <path d="M18 4v3.5H14.5M6 20v-3.5H9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+</svg>`;
+
 const LOCK_ICON = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <rect x="4" y="10" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
   <path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="1.8"/>
@@ -71,32 +76,39 @@ function rankIconPath(tier){
 /* fallback "character" silhouette for the centre art slot, tuned for the
    card's light photo backdrop — dark navy shape with a thin accent outline */
 function centreFallbackSVG(role, accent){
+  const gid = 'cfg' + Math.random().toString(36).slice(2, 9);
   const shapes = {
     Duelist: `
-      <polygon points="90,14 155,84 140,180 40,180 25,84" fill="#10151d" opacity="0.94"/>
+      <polygon points="90,14 155,84 140,180 40,180 25,84" fill="url(#${gid})" opacity="0.95"/>
       <polygon points="90,14 155,84 140,180 40,180 25,84" fill="none" stroke="${accent}" stroke-width="2.5"/>
       <circle cx="90" cy="70" r="24" fill="none" stroke="${accent}" stroke-width="3"/>
       <path d="M90 46 L90 94 M66 70 L114 70" stroke="${accent}" stroke-width="2.5"/>
     `,
     Initiator: `
-      <circle cx="90" cy="96" r="78" fill="#10151d" opacity="0.94"/>
+      <circle cx="90" cy="96" r="78" fill="url(#${gid})" opacity="0.95"/>
       <circle cx="90" cy="96" r="78" fill="none" stroke="${accent}" stroke-width="2.5"/>
       <circle cx="90" cy="96" r="40" fill="none" stroke="${accent}" stroke-width="2.5"/>
       <circle cx="90" cy="96" r="12" fill="${accent}"/>
     `,
     Controller: `
-      <ellipse cx="90" cy="100" rx="74" ry="86" fill="#10151d" opacity="0.94"/>
+      <ellipse cx="90" cy="100" rx="74" ry="86" fill="url(#${gid})" opacity="0.95"/>
       <ellipse cx="90" cy="100" rx="74" ry="86" fill="none" stroke="${accent}" stroke-width="2.5"/>
       <path d="M30 108 C54 72 126 72 150 108" stroke="${accent}" stroke-width="3" fill="none" opacity="0.9"/>
       <path d="M42 132 C62 108 118 108 138 132" stroke="${accent}" stroke-width="2.5" fill="none" opacity="0.65"/>
     `,
     Sentinel: `
-      <polygon points="90,10 158,38 158,114 90,182 22,114 22,38" fill="#10151d" opacity="0.94"/>
+      <polygon points="90,10 158,38 158,114 90,182 22,114 22,38" fill="url(#${gid})" opacity="0.95"/>
       <polygon points="90,10 158,38 158,114 90,182 22,114 22,38" fill="none" stroke="${accent}" stroke-width="2.5"/>
       <path d="M90 48 V132 M54 74 H126" stroke="${accent}" stroke-width="2.5"/>
     `
   };
   return `<svg viewBox="0 0 180 200" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="${gid}" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0%" stop-color="${accent}" stop-opacity="0.4"/>
+        <stop offset="100%" stop-color="${accent}" stop-opacity="0.08"/>
+      </linearGradient>
+    </defs>
     ${shapes[role] || shapes.Duelist}
   </svg>`;
 }
@@ -179,7 +191,9 @@ const pack = document.getElementById('pack');
 const openBtn = document.getElementById('openBtn');
 const cardOuter = document.getElementById('cardOuter');
 const card3d = document.getElementById('card3d');
+const flipInner = document.getElementById('flipInner');
 const card = document.getElementById('card');
+const cardBack = document.getElementById('cardBack');
 const burst = document.getElementById('burst');
 const rays = document.getElementById('rays');
 const historyGrid = document.getElementById('historyGrid');
@@ -188,6 +202,17 @@ const csvFileInput = document.getElementById('csvFileInput');
 const clearHistBtn = document.getElementById('clearHistBtn');
 const collectionGroups = document.getElementById('collectionGroups');
 const collectionSummary = document.getElementById('collectionSummary');
+
+/* click-to-flip for the main reveal card */
+flipInner.addEventListener('click', () => {
+  flipInner.classList.toggle('is-flipped');
+});
+
+/* click-to-flip for collection cards, via event delegation */
+collectionGroups.addEventListener('click', (e) => {
+  const flipTarget = e.target.closest('.flip-inner');
+  if(flipTarget) flipTarget.classList.toggle('is-flipped');
+});
 
 /* ---------- tabs ---------- */
 document.querySelectorAll('.tab-btn').forEach(btn => {
@@ -331,17 +356,38 @@ function pickPlayer(){
   return currentPoolFiltered[Math.floor(Math.random() * currentPoolFiltered.length)];
 }
 
+/* extensible list of extra fields shown on the card back — add an entry here
+   (and parse the matching CSV column in normalizePlayers) whenever a new
+   stat column is added to players.csv later */
+const EXTRA_STAT_FIELDS = [
+  { key: 'team', label: 'Team' },
+  { key: 'tournament', label: 'Set' }
+];
+
+function buildBackStatRows(p){
+  return EXTRA_STAT_FIELDS
+    .filter(f => p[f.key] !== undefined && p[f.key] !== null && p[f.key] !== '')
+    .map(f => `
+      <div class="back-stat-row">
+        <span class="row-label">${escapeHtml(f.label)}</span>
+        <span class="row-value">${escapeHtml(String(p[f.key]))}</span>
+      </div>
+    `).join('');
+}
+
 function renderCard(p){
   const tier = tierFor(p.ovr);
   const accent = TIER_COLOR[tier];
 
   card.setAttribute('data-tier', tier);
-  document.getElementById('roleName').textContent = p.role;
+  cardBack.setAttribute('data-tier', tier);
+
+  /* front face */
   document.getElementById('playerName').textContent = p.name;
+  document.getElementById('setName').textContent = p.tournament;
   document.getElementById('teamName').textContent = p.team || '';
-  document.getElementById('attRating').textContent = p.atk;
-  document.getElementById('defRating').textContent = p.def_;
-  document.getElementById('roleRating').textContent = p.ovr;
+  document.getElementById('attRatingFront').textContent = p.atk;
+  document.getElementById('defRatingFront').textContent = p.def_;
 
   const rankContainer = document.getElementById('rankIcon');
   imgOrFallback(rankContainer, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
@@ -352,7 +398,23 @@ function renderCard(p){
   const centreContainer = document.getElementById('centreImage');
   imgOrFallback(centreContainer, p.centreImage, centreFallbackSVG(p.role, accent));
 
+  /* back face */
+  document.getElementById('backPlayerName').textContent = p.name;
+  document.getElementById('backTeamName').textContent = p.team || p.role;
+  document.getElementById('attRatingBack').textContent = p.atk;
+  document.getElementById('defRatingBack').textContent = p.def_;
+  document.getElementById('roleRatingBack').textContent = p.ovr;
+  document.getElementById('backStatList').innerHTML = buildBackStatRows(p);
+
+  const backRankContainer = document.getElementById('backRankIcon');
+  imgOrFallback(backRankContainer, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
+
+  const backRoleContainer = document.getElementById('backRoleIcon');
+  imgOrFallback(backRoleContainer, p.roleIcon, ROLE_ICONS[p.role] || '');
+
   document.getElementById('pullCaption').textContent = `${p.name} — ${TIER_LABEL[tier]} ${p.role.toUpperCase()}`;
+
+  flipInner.classList.remove('is-flipped');
 
   return tier;
 }
@@ -403,31 +465,66 @@ clearHistBtn.addEventListener('click', () => {
 
 /* ---------- collection tab ---------- */
 function buildMiniCardMarkup(p, tier, index){
+  const statRows = buildBackStatRows(p);
   return `
     <div class="collection-scale">
-      <div class="player-card" data-tier="${tier}">
-        <div class="card-bg-pattern"></div>
-        <div class="holo-sheen"></div>
-        <div class="rank-icon" data-rank-index="${index}"></div>
-        <div class="role-icon" data-role-index="${index}"></div>
-        <div class="centre-image" data-centre-index="${index}"></div>
-        <div class="card-info">
-          <div class="role-name">${escapeHtml(p.role)}</div>
-          <div class="player-name">${escapeHtml(p.name)}</div>
-          <div class="team-name">${escapeHtml(p.team || '')}</div>
-          <div class="ratings">
-            <div class="rating">
-              <span class="rating-label">ATT RTG</span>
-              <span class="rating-value">${p.atk}</span>
+      <div class="flip-inner">
+        <div class="card-face card-front">
+          <div class="player-card" data-tier="${tier}">
+            <div class="card-bg-pattern"></div>
+            <div class="card-dash-accent"></div>
+            <div class="holo-sheen"></div>
+            <div class="rank-icon" data-rank-index="${index}"></div>
+            <div class="role-icon" data-role-index="${index}"></div>
+            <div class="centre-image" data-centre-index="${index}"></div>
+            <div class="player-name">${escapeHtml(p.name)}</div>
+            <div class="set-name">${escapeHtml(p.tournament)}</div>
+            <div class="paint-stroke"></div>
+            <div class="team-name">${escapeHtml(p.team || '')}</div>
+            <div class="glance-stats">
+              <div class="glance-stat">
+                <span class="glance-label">ATT RTG</span>
+                <span class="glance-value">${p.atk}</span>
+              </div>
+              <div class="glance-divider"></div>
+              <div class="glance-stat">
+                <span class="glance-label">DEF RTG</span>
+                <span class="glance-value">${p.def_}</span>
+              </div>
             </div>
-            <div class="rating center">
-              <span class="rating-label">ROLE RTG</span>
-              <span class="rating-value">${p.ovr}</span>
+            <div class="card-corner-dash"></div>
+            <div class="flip-hint">${FLIP_ICON_SVG}</div>
+          </div>
+        </div>
+        <div class="card-face card-back">
+          <div class="player-card back-face" data-tier="${tier}">
+            <div class="card-bg-pattern"></div>
+            <div class="back-header">
+              <div class="back-role-icon" data-back-role-index="${index}"></div>
+              <div class="back-header-text">
+                <div class="back-player-name">${escapeHtml(p.name)}</div>
+                <div class="back-team-name">${escapeHtml(p.team || p.role)}</div>
+              </div>
+              <div class="back-rank-icon" data-back-rank-index="${index}"></div>
             </div>
-            <div class="rating">
-              <span class="rating-label">DEF RTG</span>
-              <span class="rating-value">${p.def_}</span>
+            <div class="back-divider"></div>
+            <div class="back-section-label">Full Ratings</div>
+            <div class="back-hero-stats">
+              <div class="hero-stat">
+                <span class="hero-value">${p.atk}</span>
+                <span class="hero-label">ATT RTG</span>
+              </div>
+              <div class="hero-stat center">
+                <span class="hero-value">${p.ovr}</span>
+                <span class="hero-label">ROLE RTG</span>
+              </div>
+              <div class="hero-stat">
+                <span class="hero-value">${p.def_}</span>
+                <span class="hero-label">DEF RTG</span>
+              </div>
             </div>
+            <div class="back-stat-list">${statRows}</div>
+            <div class="flip-hint">${FLIP_ICON_SVG}</div>
           </div>
         </div>
       </div>
@@ -503,6 +600,21 @@ function renderCollection(){
     if(!p) return;
     const tier = tierFor(p.ovr);
     imgOrFallback(container, p.centreImage, centreFallbackSVG(p.role, TIER_COLOR[tier]));
+  });
+
+  collectionGroups.querySelectorAll('.back-rank-icon[data-back-rank-index]').forEach(container => {
+    const idx = parseInt(container.getAttribute('data-back-rank-index'), 10);
+    const p = ownedQueue[idx];
+    if(!p) return;
+    const tier = tierFor(p.ovr);
+    imgOrFallback(container, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
+  });
+
+  collectionGroups.querySelectorAll('.back-role-icon[data-back-role-index]').forEach(container => {
+    const idx = parseInt(container.getAttribute('data-back-role-index'), 10);
+    const p = ownedQueue[idx];
+    if(!p) return;
+    imgOrFallback(container, p.roleIcon, ROLE_ICONS[p.role] || '');
   });
 }
 
