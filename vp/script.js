@@ -1,12 +1,12 @@
 /* ============================================================
-   VCT PACKS — data loading, pack logic, persistence
+   VCT PACKS — data loading, pack logic, collection, persistence
    ============================================================ */
 
 const CSV_PATH = 'players.csv';
-const STORAGE_KEY = 'vctPacks.history.v1';
+const STORAGE_KEY = 'vctPacks.history.v2';
 
-const TIER_LABEL = { iron: 'IRON', bronze: 'BRONZE', silver: 'SILVER', gold:'GOLD', platinum:'PLATINUM', diamond:'DIAMOND', ascendant: 'ascendant', immortal:'IMMORTAL', radiant:'RADIANT' };
-const TIER_COLOR = { iron: '#8A8B8D', bronze: '#AA7B52', silver: '#b8c5c8', gold:'#c9a24a', platinum:'#21d0c4', diamond:'#b083ff', ascendant: '#39A57D', immortal:'#ff3d5e', radiant:'#ffe38a' };
+const TIER_LABEL = { gold:'GOLD', platinum:'PLATINUM', diamond:'DIAMOND', immortal:'IMMORTAL', radiant:'RADIANT' };
+const TIER_COLOR = { gold:'#c9a24a', platinum:'#21d0c4', diamond:'#b083ff', immortal:'#ff3d5e', radiant:'#ffe38a' };
 
 const ROLE_ICONS = {
   Duelist: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -32,53 +32,17 @@ const ROLE_ICONS = {
   </svg>`
 };
 
+const LOCK_ICON = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect x="4" y="10" width="16" height="11" rx="1.5" stroke="currentColor" stroke-width="1.8"/>
+  <path d="M7 10V7a5 5 0 0 1 10 0v3" stroke="currentColor" stroke-width="1.8"/>
+</svg>`;
+
 function tierFor(ovr){
   if(ovr>=95) return 'radiant';
-  if(ovr>=93) return 'immortal';
-  if(ovr>=90) return 'ascendant';
-  if(ovr>=85) return 'diamond';
-  if(ovr>=80) return 'platinum';
-  if(ovr>=70) return 'gold'
-  if(ovr>=65) return 'silver'
-  if(ovr>=60) return 'bronze'
-  return 'iron';
-}
-
-function portraitSVG(role, accent){
-  const shapes = {
-    Duelist: `
-      <polygon points="75,10 130,70 118,150 32,150 20,70" fill="url(#pg)" opacity="0.9"/>
-      <polygon points="75,10 130,70 118,150 32,150 20,70" fill="none" stroke="${accent}" stroke-width="2"/>
-      <circle cx="75" cy="60" r="20" fill="none" stroke="${accent}" stroke-width="2.5"/>
-      <path d="M75 40 L75 80 M55 60 L95 60" stroke="${accent}" stroke-width="2"/>
-    `,
-    Initiator: `
-      <circle cx="75" cy="80" r="65" fill="url(#pg)" opacity="0.9"/>
-      <circle cx="75" cy="80" r="65" fill="none" stroke="${accent}" stroke-width="2"/>
-      <circle cx="75" cy="80" r="34" fill="none" stroke="${accent}" stroke-width="2"/>
-      <circle cx="75" cy="80" r="10" fill="${accent}" opacity="0.8"/>
-    `,
-    Controller: `
-      <ellipse cx="75" cy="85" rx="62" ry="72" fill="url(#pg)" opacity="0.9"/>
-      <ellipse cx="75" cy="85" rx="62" ry="72" fill="none" stroke="${accent}" stroke-width="2"/>
-      <path d="M25 90 C45 60 105 60 125 90" stroke="${accent}" stroke-width="2.5" fill="none" opacity="0.85"/>
-      <path d="M35 110 C52 90 98 90 115 110" stroke="${accent}" stroke-width="2" fill="none" opacity="0.6"/>
-    `,
-    Sentinel: `
-      <polygon points="75,8 132,32 132,95 75,152 18,95 18,32" fill="url(#pg)" opacity="0.9"/>
-      <polygon points="75,8 132,32 132,95 75,152 18,95 18,32" fill="none" stroke="${accent}" stroke-width="2"/>
-      <path d="M75 40 V110 M45 62 H105" stroke="${accent}" stroke-width="2"/>
-    `
-  };
-  return `<svg viewBox="0 0 150 165" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <linearGradient id="pg" x1="0" y1="0" x2="1" y2="1">
-        <stop offset="0%" stop-color="${accent}" stop-opacity="0.35"/>
-        <stop offset="100%" stop-color="${accent}" stop-opacity="0.05"/>
-      </linearGradient>
-    </defs>
-    ${shapes[role] || shapes.Duelist}
-  </svg>`;
+  if(ovr>=85) return 'immortal';
+  if(ovr>=75) return 'diamond';
+  if(ovr>=65) return 'platinum';
+  return 'gold';
 }
 
 /* ---------- CSV parsing (handles quoted fields) ---------- */
@@ -117,21 +81,34 @@ function normalizePlayers(rawRows){
     name: r.Player,
     role: r.Role,
     team: r.Team || '',
+    tournament: r.Tournament || 'Set 1',
     atk: parseInt(r.attRTG, 10) || 0,
     def_: parseInt(r.defRTG, 10) || 0,
     ovr: parseInt(r.roleRTG, 10) || 0,
-    roleIcon: r.RoleIcon || '',
-    playerImage: r.PlayerImage || ''
+    roleIcon: r.RoleIcon || ''
   })).filter(p => p.name && p.role);
+}
+
+function playerKey(p){
+  return `${p.name}||${p.role}||${p.tournament}`;
 }
 
 /* ---------- state ---------- */
 let PLAYERS = [];
+let TOURNAMENTS = [];
+let currentTournament = null;
+let currentPoolFiltered = [];
 let history = loadHistory();
 
 /* ---------- DOM refs ---------- */
 const loadState = document.getElementById('loadState');
 const errorState = document.getElementById('errorState');
+const packHub = document.getElementById('packHub');
+const hubGrid = document.getElementById('hubGrid');
+const packScreen = document.getElementById('packScreen');
+const packScreenTitle = document.getElementById('packScreenTitle');
+const packEmblemSub = document.getElementById('packEmblemSub');
+const backToHubBtn = document.getElementById('backToHubBtn');
 const packWrap = document.getElementById('packWrap');
 const pack = document.getElementById('pack');
 const openBtn = document.getElementById('openBtn');
@@ -144,6 +121,20 @@ const historyGrid = document.getElementById('historyGrid');
 const holoSheen = document.getElementById('holoSheen');
 const csvFileInput = document.getElementById('csvFileInput');
 const clearHistBtn = document.getElementById('clearHistBtn');
+const collectionGroups = document.getElementById('collectionGroups');
+const collectionSummary = document.getElementById('collectionSummary');
+
+/* ---------- tabs ---------- */
+document.querySelectorAll('.tab-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-panel').forEach(p => p.classList.remove('active'));
+    btn.classList.add('active');
+    const tab = btn.dataset.tab;
+    document.getElementById(tab === 'packs' ? 'panelPacks' : 'panelCollection').classList.add('active');
+    if(tab === 'collection') renderCollection();
+  });
+});
 
 /* ---------- persistence ---------- */
 function loadHistory(){
@@ -161,6 +152,9 @@ function saveHistory(){
   } catch(e){
     console.warn('Could not save pulls:', e);
   }
+}
+function ownedKeySet(){
+  return new Set(history.map(h => playerKey(h.p)));
 }
 
 /* ---------- data loading ---------- */
@@ -184,9 +178,14 @@ function onCSVLoaded(text){
     showErrorState();
     return;
   }
+  TOURNAMENTS = [...new Set(PLAYERS.map(p => p.tournament))];
+
   loadState.style.display = 'none';
   errorState.style.display = 'none';
-  packWrap.style.display = 'flex';
+
+  renderHub();
+  packHub.style.display = 'flex';
+
   renderStatsFromHistory();
   renderHistory();
 }
@@ -205,11 +204,54 @@ csvFileInput.addEventListener('change', (e) => {
   reader.readAsText(file);
 });
 
+/* ---------- pack hub ---------- */
+function renderHub(){
+  hubGrid.innerHTML = TOURNAMENTS.map(t => {
+    const count = PLAYERS.filter(p => p.tournament === t).length;
+    return `
+      <div class="hub-tile" data-tournament="${escapeHtml(t)}">
+        <div class="mark"></div>
+        <div class="hub-name">${escapeHtml(t)}</div>
+        <div class="hub-count">${count} Cards</div>
+      </div>
+    `;
+  }).join('');
+
+  hubGrid.querySelectorAll('.hub-tile').forEach(tile => {
+    tile.addEventListener('click', () => openPackScreen(tile.dataset.tournament));
+  });
+}
+
+function openPackScreen(tournament){
+  currentTournament = tournament;
+  currentPoolFiltered = PLAYERS.filter(p => p.tournament === tournament);
+
+  packScreenTitle.textContent = tournament;
+  packEmblemSub.textContent = tournament;
+
+  packHub.style.display = 'none';
+  packScreen.style.display = 'flex';
+  packWrap.style.display = 'flex';
+  cardOuter.classList.remove('show','reveal');
+  card3d.classList.remove('flip');
+  openBtn.disabled = false;
+}
+
+backToHubBtn.addEventListener('click', () => {
+  packScreen.style.display = 'none';
+  packHub.style.display = 'flex';
+});
+
+function escapeHtml(str){
+  const div = document.createElement('div');
+  div.textContent = str;
+  return div.innerHTML;
+}
+
 /* ---------- image fallback helper ---------- */
-function imgOrFallback(container, src, fallbackHTML, extraClass){
+function imgOrFallback(container, src, fallbackHTML){
   if(src){
     const img = document.createElement('img');
-    if(extraClass) img.className = extraClass;
     img.onerror = () => { container.innerHTML = fallbackHTML; };
     img.src = src;
     container.innerHTML = '';
@@ -219,9 +261,9 @@ function imgOrFallback(container, src, fallbackHTML, extraClass){
   }
 }
 
-/* ---------- card rendering ---------- */
+/* ---------- card rendering (main reveal) ---------- */
 function pickPlayer(){
-  return PLAYERS[Math.floor(Math.random() * PLAYERS.length)];
+  return currentPoolFiltered[Math.floor(Math.random() * currentPoolFiltered.length)];
 }
 
 function renderCard(p){
@@ -233,16 +275,12 @@ function renderCard(p){
   document.getElementById('ovrNum').textContent = p.ovr;
   document.getElementById('roleFull').textContent = p.role;
   document.getElementById('pName').textContent = p.name;
-  document.getElementById('pTeamLine').textContent = p.team || p.role;
+  document.getElementById('pTeamLine').textContent = p.team || '';
   document.getElementById('atkVal').textContent = p.atk;
   document.getElementById('defVal').textContent = p.def_;
 
   const iconContainer = document.getElementById('roleIcon');
-  iconContainer.style.color = accent;
-  imgOrFallback(iconContainer, p.roleIcon, ROLE_ICONS[p.role] || '', null);
-
-  const portraitContainer = document.getElementById('portrait');
-  imgOrFallback(portraitContainer, p.playerImage, portraitSVG(p.role, accent), 'portrait-img');
+  imgOrFallback(iconContainer, p.roleIcon, ROLE_ICONS[p.role] || '');
 
   document.getElementById('pullCaption').textContent = `${p.name} — ${TIER_LABEL[tier]} ${p.role.toUpperCase()}`;
 
@@ -252,7 +290,6 @@ function renderCard(p){
 /* ---------- history + stats ---------- */
 function addToHistory(p, tier){
   history.unshift({ p, tier, ts: Date.now() });
-  if(history.length > 60) history.pop();
   saveHistory();
   renderHistory();
   renderStatsFromHistory();
@@ -263,11 +300,11 @@ function renderHistory(){
     historyGrid.innerHTML = '<div class="empty-hist">No pulls yet — open a pack to start your collection.</div>';
     return;
   }
-  historyGrid.innerHTML = history.map(h => `
+  historyGrid.innerHTML = history.slice(0, 60).map(h => `
     <div class="mini-card" data-tier="${h.tier}">
       <div class="m-ovr">${h.p.ovr}</div>
-      <div class="m-name">${h.p.name}</div>
-      <div class="m-role">${h.p.role}</div>
+      <div class="m-name">${escapeHtml(h.p.name)}</div>
+      <div class="m-role">${escapeHtml(h.p.role)}</div>
     </div>
   `).join('');
 }
@@ -286,12 +323,96 @@ function renderStatsFromHistory(){
 
 clearHistBtn.addEventListener('click', () => {
   if(!history.length) return;
-  if(!confirm('Clear your saved pull history? This cannot be undone.')) return;
+  if(!confirm('Clear your saved pull history and collection? This cannot be undone.')) return;
   history = [];
   saveHistory();
   renderHistory();
   renderStatsFromHistory();
+  renderCollection();
 });
+
+/* ---------- collection tab ---------- */
+function buildMiniCardMarkup(p, tier, index){
+  return `
+    <div class="collection-scale">
+      <div class="card" data-tier="${tier}">
+        <div class="card-bg-pattern"></div>
+        <div class="holo-sheen"></div>
+        <div class="card-tier-tag">${TIER_LABEL[tier]}</div>
+        <div class="card-role-top">${escapeHtml(p.role)}</div>
+        <div class="card-ovr"><div class="num">${p.ovr}</div></div>
+        <div class="card-emblem-wrap">
+          <div class="card-emblem-plate">
+            <div class="card-emblem-icon" data-emblem-index="${index}"></div>
+          </div>
+        </div>
+        <div class="card-name-plate">
+          <div class="name">${escapeHtml(p.name)}</div>
+          <div class="team-line">${escapeHtml(p.team || '')}</div>
+        </div>
+        <div class="card-divider"></div>
+        <div class="card-stats">
+          <div class="stat"><div class="v">${p.atk}</div><div class="k">ATK</div></div>
+          <div class="stat"><div class="v">${p.def_}</div><div class="k">DEF</div></div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function buildLockedCardMarkup(){
+  return `
+    <div class="locked-card">
+      <div class="lock-icon">${LOCK_ICON}</div>
+      <div class="lock-txt">Locked</div>
+    </div>
+  `;
+}
+
+function renderCollection(){
+  if(!PLAYERS.length){
+    collectionGroups.innerHTML = '<div class="empty-hist">Load player data on the Packs tab first.</div>';
+    return;
+  }
+  const owned = ownedKeySet();
+  const totalOwned = new Set(PLAYERS.filter(p => owned.has(playerKey(p))).map(p => playerKey(p))).size;
+  collectionSummary.innerHTML = `<div class="stat-chip">CARDS COLLECTED <b>${totalOwned} / ${PLAYERS.length}</b></div>`;
+
+  // players that are owned and need an emblem icon filled in after insertion (avoids
+  // embedding raw SVG markup inside HTML attributes)
+  const emblemQueue = [];
+
+  collectionGroups.innerHTML = TOURNAMENTS.map(t => {
+    const rows = PLAYERS.filter(p => p.tournament === t);
+    const ownedInGroup = rows.filter(p => owned.has(playerKey(p))).length;
+    const cardsHtml = rows.map(p => {
+      const key = playerKey(p);
+      if(owned.has(key)){
+        const idx = emblemQueue.length;
+        emblemQueue.push(p);
+        return buildMiniCardMarkup(p, tierFor(p.ovr), idx);
+      }
+      return buildLockedCardMarkup();
+    }).join('');
+
+    return `
+      <div class="collection-group">
+        <div class="collection-group-head">
+          <h3>${escapeHtml(t)}</h3>
+          <div class="prog">${ownedInGroup} / ${rows.length} collected</div>
+        </div>
+        <div class="collection-grid">${cardsHtml}</div>
+      </div>
+    `;
+  }).join('');
+
+  collectionGroups.querySelectorAll('.card-emblem-icon[data-emblem-index]').forEach(container => {
+    const idx = parseInt(container.getAttribute('data-emblem-index'), 10);
+    const p = emblemQueue[idx];
+    if(!p) return;
+    imgOrFallback(container, p.roleIcon, ROLE_ICONS[p.role] || '');
+  });
+}
 
 /* ---------- burst fx ---------- */
 function fireBurst(tier){
@@ -315,6 +436,7 @@ function fireBurst(tier){
 
 /* ---------- pack open flow ---------- */
 function openPack(){
+  if(!currentPoolFiltered.length) return;
   openBtn.disabled = true;
   pack.classList.add('shaking');
 
