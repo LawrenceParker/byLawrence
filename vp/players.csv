@@ -1,4 +1,4 @@
-  Player,  Team,  Event,  Role,  attRTG,  defRTG,  ovrRTG
+Player,Team,Tournament,Role,attRTG,defRTG,ovrRTG
 alym,FUR,Stage 1,Controller,65,64,64
 alym,FUR,Stage 1,Duelist,81,82,81
 artzin,FUR,Stage 1,Controller,58,59,59
