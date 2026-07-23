@@ -148,7 +148,7 @@ function normalizePlayers(rawRows){
     tournament: r.Tournament || 'Set 1',
     atk: parseInt(r.attRTG, 10) || 0,
     def_: parseInt(r.defRTG, 10) || 0,
-    ovr: parseInt(r.ovrRTG, 10) || 0,
+    ovr: parseInt(r.roleRTG, 10) || 0,
     roleIcon: r.RoleIcon || '',
     centreImage: r.CentreImage || ''
   })).filter(p => p.name && p.role);
@@ -341,7 +341,7 @@ function renderCard(p){
   document.getElementById('teamName').textContent = p.team || '';
   document.getElementById('attRating').textContent = p.atk;
   document.getElementById('defRating').textContent = p.def_;
-  document.getElementById('ovrRating').textContent = p.ovr;
+  document.getElementById('roleRating').textContent = p.ovr;
 
   const rankContainer = document.getElementById('rankIcon');
   imgOrFallback(rankContainer, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
@@ -421,7 +421,7 @@ function buildMiniCardMarkup(p, tier, index){
               <span class="rating-value">${p.atk}</span>
             </div>
             <div class="rating center">
-              <span class="rating-label">OVR RTG</span>
+              <span class="rating-label">ROLE RTG</span>
               <span class="rating-value">${p.ovr}</span>
             </div>
             <div class="rating">
