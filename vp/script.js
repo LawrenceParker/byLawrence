@@ -148,7 +148,7 @@ function normalizePlayers(rawRows){
     tournament: r.Tournament || 'Set 1',
     atk: parseInt(r.attRTG, 10) || 0,
     def_: parseInt(r.defRTG, 10) || 0,
-    ovr: parseInt(r.roleRTG, 10) || 0,
+    ovr: parseInt(r.ovrRTG, 10) || 0,
     roleIcon: r.RoleIcon || '',
     centreImage: r.CentreImage || ''
   })).filter(p => p.name && p.role);
