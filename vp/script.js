@@ -341,7 +341,7 @@ function renderCard(p){
   document.getElementById('teamName').textContent = p.team || '';
   document.getElementById('attRating').textContent = p.atk;
   document.getElementById('defRating').textContent = p.def_;
-  document.getElementById('roleRating').textContent = p.ovr;
+  document.getElementById('ovrRating').textContent = p.ovr;
 
   const rankContainer = document.getElementById('rankIcon');
   imgOrFallback(rankContainer, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
@@ -421,7 +421,7 @@ function buildMiniCardMarkup(p, tier, index){
               <span class="rating-value">${p.atk}</span>
             </div>
             <div class="rating center">
-              <span class="rating-label">ROLE RTG</span>
+              <span class="rating-label">OVR RTG</span>
               <span class="rating-value">${p.ovr}</span>
             </div>
             <div class="rating">
