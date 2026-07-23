@@ -79,8 +79,9 @@ function parseCSV(text){
 function normalizePlayers(rawRows){
   return rawRows.map(r => ({
     name: r.Player,
-    role: r.Role,
     team: r.Team || '',
+    role: r.Role,
+    tournament: r.Tournament || 'Set 1',    
     tournament: r.Tournament || 'Set 1',
     atk: parseInt(r.attRTG, 10) || 0,
     def_: parseInt(r.defRTG, 10) || 0,
