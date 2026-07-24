@@ -85,37 +85,45 @@
 
               <!-- FRONT FACE -->
               <div class="card-face card-front">
+                <div class="lanyard-strap"></div>
                 <div class="player-card" id="card" data-tier="gold">
                   <div class="card-bg-pattern"></div>
-                  <div class="card-dash-accent"></div>
                   <div class="holo-sheen" id="holoSheen"></div>
 
-                  <!-- Top Left -->
-                  <div class="rank-icon" id="rankIcon"></div>
-                  <!-- Top Right -->
-                  <div class="role-icon" id="roleIcon"></div>
-                  <!-- Character -->
-                  <div class="centre-image" id="centreImage"></div>
+                  <div class="id-frame"></div>
 
-                  <div class="player-name" id="playerName">PLAYER_NAME</div>
-                  <div class="set-name" id="setName">SET NAME</div>
+                  <div class="role-pill" id="rolePill">ROLE</div>
 
-                  <div class="paint-stroke"></div>
-                  <div class="team-name" id="teamName">TEAM_NAME</div>
-
-                  <div class="glance-stats">
-                    <div class="glance-stat">
-                      <span class="glance-label">ATT RTG</span>
-                      <span class="glance-value" id="attRatingFront">99</span>
+                  <div class="stat-capsule">
+                    <div class="capsule-stat">
+                      <span class="capsule-value" id="ovrRatingFront">99</span>
+                      <span class="capsule-label">OVR</span>
                     </div>
-                    <div class="glance-divider"></div>
-                    <div class="glance-stat">
-                      <span class="glance-label">DEF RTG</span>
-                      <span class="glance-value" id="defRatingFront">99</span>
+                    <div class="capsule-stat">
+                      <span class="capsule-value" id="attRatingFront">99</span>
+                      <span class="capsule-label">ATT</span>
+                    </div>
+                    <div class="capsule-stat">
+                      <span class="capsule-value" id="defRatingFront">99</span>
+                      <span class="capsule-label">DEF</span>
                     </div>
                   </div>
 
-                  <div class="card-corner-dash"></div>
+                  <!-- Character -->
+                  <div class="centre-image" id="centreImage"></div>
+
+                  <div class="frame-diamond">
+                    <div class="diamond-icon" id="diamondRoleIcon"></div>
+                  </div>
+
+                  <div class="player-name" data-text="PLAYER_NAME" id="playerName">PLAYER_NAME</div>
+                  <div class="team-name" id="teamName">TEAM_NAME</div>
+
+                  <div class="id-footer">
+                    <div class="id-tag" id="setTag">SET 1</div>
+                    <div class="id-barcode" id="idBarcode"></div>
+                  </div>
+
                   <div class="flip-hint" title="Click to flip">
                     <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                       <path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
