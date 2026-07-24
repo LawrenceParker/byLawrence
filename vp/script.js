@@ -8,6 +8,30 @@ const STORAGE_KEY = 'vctPacks.history.v2';
 const TIER_LABEL = { gold:'GOLD', platinum:'PLATINUM', diamond:'DIAMOND', immortal:'IMMORTAL', radiant:'RADIANT' };
 const TIER_COLOR = { gold:'#c9a24a', platinum:'#21d0c4', diamond:'#b083ff', immortal:'#ff3d5e', radiant:'#ffe38a' };
 
+const ROLE_ICONS = {
+  Duelist: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 42L26 22" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M22 18L34 6L42 6L42 14L30 26" stroke="currentColor" stroke-width="3" stroke-linejoin="round" stroke-linecap="round"/>
+    <circle cx="10" cy="38" r="3" stroke="currentColor" stroke-width="2.5"/>
+  </svg>`,
+  Initiator: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="24" cy="24" r="6" stroke="currentColor" stroke-width="3"/>
+    <circle cx="24" cy="24" r="14" stroke="currentColor" stroke-width="2" opacity="0.6"/>
+    <circle cx="24" cy="24" r="21" stroke="currentColor" stroke-width="1.5" opacity="0.3"/>
+    <circle cx="24" cy="24" r="2.5" fill="currentColor"/>
+  </svg>`,
+  Controller: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M6 30C10 20 16 14 24 14C32 14 38 20 42 30" stroke="currentColor" stroke-width="3" stroke-linecap="round"/>
+    <path d="M10 36C14 28 18 24 24 24C30 24 34 28 38 36" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" opacity="0.7"/>
+    <circle cx="24" cy="10" r="3" fill="currentColor"/>
+  </svg>`,
+  Sentinel: `<svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M24 5L40 11V22C40 32 33 40 24 43C15 40 8 32 8 22V11L24 5Z" stroke="currentColor" stroke-width="3" stroke-linejoin="round"/>
+    <path d="M24 15V32" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+    <path d="M17 22H31" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"/>
+  </svg>`
+};
+
 const FLIP_ICON_SVG = `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
   <path d="M4 12a8 8 0 0 1 14-5.3M20 12a8 8 0 0 1-14 5.3" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
   <path d="M18 4v3.5H14.5M6 20v-3.5H9.5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -139,7 +163,7 @@ function normalizePlayers(rawRows){
     tournament: r.Tournament || 'Set 1',
     atk: parseInt(r.attRTG, 10) || 0,
     def_: parseInt(r.defRTG, 10) || 0,
-    ovr: parseInt(r.ovrRTG, 10) || 0,
+    ovr: parseInt(r.roleRTG, 10) || 0,
     roleIcon: r.RoleIcon || '',
     centreImage: r.CentreImage || ''
   })).filter(p => p.name && p.role);
