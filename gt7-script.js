@@ -1,4 +1,4 @@
-/* ========================================================
+/* =========================================================
    DATA SOURCE
    -----------------------------------------------------------
    Primary source: your live Google Sheet, published as CSV
@@ -159,7 +159,8 @@ function renderHero() {
   document.getElementById("statSeasons").textContent = SEASONS.length;
   document.getElementById("statRaces").textContent = new Set(RACES.map(r => r.season + "-" + r.round + "-" + r.race)).size;
   document.getElementById("statDrivers").textContent = drivers.size;
-  document.getElementById("statUpdated").textContent = dated.length ? dated[dated.length - 1] : "–";  
+  document.getElementById("statUpdated").textContent = dated.length ? dated[dated.length - 1] : "–";
+  document.getElementById("footerCount").textContent = RACES.length;
 }
 
 /* ---------- RENDER: STANDINGS TAB ---------- */
