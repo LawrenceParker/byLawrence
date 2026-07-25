@@ -75,45 +75,13 @@ function rankIconPath(tier){
 
 /* fallback "character" silhouette for the centre art slot, tuned for the
    card's light photo backdrop — dark navy shape with a thin accent outline */
-function centreFallbackSVG(role, accent){
-  const gid = 'cfg' + Math.random().toString(36).slice(2, 9);
-  // a single generic head-and-shoulders silhouette, muted gray-blue like a
-  // placeholder ID badge photo, with a faint tier-accent glow behind it
+function centreFallbackSVG(){
+  // a single generic head-and-shoulders silhouette in translucent white,
+  // designed to read clearly against the bright tier-coloured art panel
   return `<svg viewBox="0 0 150 180" xmlns="http://www.w3.org/2000/svg">
-    <defs>
-      <radialGradient id="${gid}" cx="50%" cy="35%" r="65%">
-        <stop offset="0%" stop-color="${accent}" stop-opacity="0.3"/>
-        <stop offset="100%" stop-color="${accent}" stop-opacity="0"/>
-      </radialGradient>
-    </defs>
-    <circle cx="75" cy="80" r="70" fill="url(#${gid})"/>
-    <circle cx="75" cy="62" r="34" fill="#4b5a68"/>
-    <path d="M20 178 C20 128 45 104 75 104 C105 104 130 128 130 178 Z" fill="#4b5a68"/>
+    <circle cx="75" cy="60" r="34" fill="rgba(255,255,255,0.9)"/>
+    <path d="M18 178 C18 126 44 100 75 100 C106 100 132 126 132 178 Z" fill="rgba(255,255,255,0.9)"/>
   </svg>`;
-}
-
-/* deterministic pseudo-barcode derived from the player's name, so each card
-   gets a consistent (but decorative-only) barcode pattern */
-function generateBarcodeSVG(seedStr, accent){
-  let seed = 0;
-  for(let i=0;i<seedStr.length;i++){ seed = (seed * 31 + seedStr.charCodeAt(i)) >>> 0; }
-  const rand = () => {
-    seed = (seed * 1103515245 + 12345) >>> 0;
-    return (seed >>> 8) / 16777216;
-  };
-  const barCount = 40;
-  const totalWidth = 280;
-  let x = 0;
-  let bars = '';
-  for(let i=0; i<barCount && x < totalWidth; i++){
-    const w = 2 + Math.floor(rand() * 5);
-    const isAccent = rand() > 0.72;
-    if(rand() > 0.28){
-      bars += `<rect x="${x}" y="0" width="${w}" height="32" fill="${isAccent ? accent : '#e9e6df'}" opacity="${isAccent ? 0.9 : 0.8}"/>`;
-    }
-    x += w + 1 + Math.floor(rand() * 3);
-  }
-  return `<svg viewBox="0 0 ${totalWidth} 32" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">${bars}</svg>`;
 }
 
 function tierFor(ovr){
@@ -163,9 +131,29 @@ function normalizePlayers(rawRows){
     tournament: r.Tournament || 'Set 1',
     atk: parseInt(r.attRTG, 10) || 0,
     def_: parseInt(r.defRTG, 10) || 0,
-    ovr: parseInt(r.ovrRTG, 10) || 0,
+    ovr: parseInt(r.roleRTG, 10) || 0,
     roleIcon: r.RoleIcon || '',
-    centreImage: r.CentreImage || ''
+    centreImage: r.CentreImage || '',
+    // full match stats — kept as raw strings since formats vary (ratios,
+    // percentages), left blank until filled in via the CSV
+    maps: r.Maps || '',
+    rnd: r.RND || '',
+    acs: r.ACS || '',
+    kd: r.KD || '',
+    kast: r.KAST || '',
+    adr: r.ADR || '',
+    kpr: r.KPR || '',
+    apr: r.APR || '',
+    fkfd: r.FKFD || '',
+    fkpr: r.FKPR || '',
+    fdpr: r.FDPR || '',
+    hsPercent: r.HSPercent || '',
+    kmax: r.Kmax || '',
+    k: r.K || '',
+    d: r.D || '',
+    a: r.A || '',
+    fk: r.FK || '',
+    fd: r.FD || ''
   })).filter(p => p.name && p.role);
 }
 
@@ -362,55 +350,72 @@ function pickPlayer(){
 /* extensible list of extra fields shown on the card back — add an entry here
    (and parse the matching CSV column in normalizePlayers) whenever a new
    stat column is added to players.csv later */
-const EXTRA_STAT_FIELDS = [
-  { key: 'team', label: 'Team' },
-  { key: 'tournament', label: 'Set' }
+/* the full match-stat sheet shown on the card back, in the order requested.
+   Values are blank until filled in via the matching CSV column — blanks
+   render as a dim "—" placeholder rather than being hidden, so the grid
+   layout stays stable. */
+const STAT_FIELD_DEFS = [
+  { key: 'maps',      label: 'Maps' },
+  { key: 'rnd',       label: 'RND' },
+  { key: 'acs',       label: 'ACS' },
+  { key: 'kd',        label: 'K:D' },
+  { key: 'kast',      label: 'KAST' },
+  { key: 'adr',       label: 'ADR' },
+  { key: 'kpr',       label: 'KPR' },
+  { key: 'apr',       label: 'APR' },
+  { key: 'fkfd',      label: 'FK:FD' },
+  { key: 'fkpr',      label: 'FKPR' },
+  { key: 'fdpr',      label: 'FDPR' },
+  { key: 'hsPercent', label: 'HS%' },
+  { key: 'kmax',      label: 'Kmax' },
+  { key: 'k',         label: 'K' },
+  { key: 'd',         label: 'D' },
+  { key: 'a',         label: 'A' },
+  { key: 'fk',        label: 'FK' },
+  { key: 'fd',        label: 'FD' }
 ];
 
-function buildBackStatRows(p){
-  return EXTRA_STAT_FIELDS
-    .filter(f => p[f.key] !== undefined && p[f.key] !== null && p[f.key] !== '')
-    .map(f => `
-      <div class="back-stat-row">
-        <span class="row-label">${escapeHtml(f.label)}</span>
-        <span class="row-value">${escapeHtml(String(p[f.key]))}</span>
+function buildBackStatTiles(p){
+  return STAT_FIELD_DEFS.map(f => {
+    const raw = p[f.key];
+    const hasValue = raw !== undefined && raw !== null && raw !== '';
+    return `
+      <div class="back-stat-tile">
+        <span class="tile-label">${escapeHtml(f.label)}</span>
+        <span class="tile-value${hasValue ? '' : ' empty'}">${hasValue ? escapeHtml(String(raw)) : '—'}</span>
       </div>
-    `).join('');
+    `;
+  }).join('');
 }
 
 function renderCard(p){
   const tier = tierFor(p.ovr);
-  const accent = TIER_COLOR[tier];
 
   card.setAttribute('data-tier', tier);
   cardBack.setAttribute('data-tier', tier);
 
   /* front face */
-  const nameEl = document.getElementById('playerName');
-  nameEl.textContent = p.name;
-  nameEl.setAttribute('data-text', p.name);
-
-  document.getElementById('rolePill').textContent = p.role;
+  document.getElementById('playerName').textContent = p.name;
   document.getElementById('teamName').textContent = p.team || '';
   document.getElementById('setTag').textContent = p.tournament;
   document.getElementById('ovrRatingFront').textContent = p.ovr;
   document.getElementById('attRatingFront').textContent = p.atk;
   document.getElementById('defRatingFront').textContent = p.def_;
-  document.getElementById('idBarcode').innerHTML = generateBarcodeSVG(p.name, accent);
+  document.getElementById('roleChipText').textContent = p.role;
 
-  const diamondContainer = document.getElementById('diamondRoleIcon');
-  imgOrFallback(diamondContainer, p.roleIcon, ROLE_ICONS[p.role] || '');
+  const rankContainer = document.getElementById('rankBadge');
+  imgOrFallback(rankContainer, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
+
+  const roleChipContainer = document.getElementById('roleChipIcon');
+  imgOrFallback(roleChipContainer, p.roleIcon, ROLE_ICONS[p.role] || '');
 
   const centreContainer = document.getElementById('centreImage');
-  imgOrFallback(centreContainer, p.centreImage, centreFallbackSVG(p.role, accent));
+  imgOrFallback(centreContainer, p.centreImage, centreFallbackSVG());
 
   /* back face */
   document.getElementById('backPlayerName').textContent = p.name;
   document.getElementById('backTeamName').textContent = p.team || p.role;
-  document.getElementById('attRatingBack').textContent = p.atk;
-  document.getElementById('defRatingBack').textContent = p.def_;
-  document.getElementById('roleRatingBack').textContent = p.ovr;
-  document.getElementById('backStatList').innerHTML = buildBackStatRows(p);
+  document.getElementById('backStatGrid').innerHTML = buildBackStatTiles(p);
 
   const backRankContainer = document.getElementById('backRankIcon');
   imgOrFallback(backRankContainer, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
@@ -471,42 +476,41 @@ clearHistBtn.addEventListener('click', () => {
 
 /* ---------- collection tab ---------- */
 function buildMiniCardMarkup(p, tier, index){
-  const statRows = buildBackStatRows(p);
-  const barcodeSvg = generateBarcodeSVG(p.name, TIER_COLOR[tier]);
+  const statTiles = buildBackStatTiles(p);
   return `
     <div class="collection-scale">
       <div class="flip-inner">
         <div class="card-face card-front">
-          <div class="lanyard-strap"></div>
           <div class="player-card" data-tier="${tier}">
             <div class="card-bg-pattern"></div>
             <div class="holo-sheen"></div>
-            <div class="id-frame"></div>
-            <div class="role-pill">${escapeHtml(p.role)}</div>
-            <div class="stat-capsule">
-              <div class="capsule-stat">
-                <span class="capsule-value">${p.ovr}</span>
-                <span class="capsule-label">OVR</span>
+            <div class="art-panel">
+              <div class="centre-image" data-centre-index="${index}"></div>
+            </div>
+            <div class="rank-badge" data-rank-index="${index}"></div>
+            <div class="role-chip">
+              <span class="role-chip-icon" data-rolechip-index="${index}"></span>
+              <span class="role-chip-text">${escapeHtml(p.role)}</span>
+            </div>
+            <div class="identity-block">
+              <div class="player-name">${escapeHtml(p.name)}</div>
+              <div class="team-name">${escapeHtml(p.team || '')}</div>
+            </div>
+            <div class="stat-row">
+              <div class="stat-cell">
+                <span class="stat-value">${p.atk}</span>
+                <span class="stat-label">ATT</span>
               </div>
-              <div class="capsule-stat">
-                <span class="capsule-value">${p.atk}</span>
-                <span class="capsule-label">ATT</span>
+              <div class="stat-cell ovr">
+                <span class="stat-value">${p.ovr}</span>
+                <span class="stat-label">OVR</span>
               </div>
-              <div class="capsule-stat">
-                <span class="capsule-value">${p.def_}</span>
-                <span class="capsule-label">DEF</span>
+              <div class="stat-cell">
+                <span class="stat-value">${p.def_}</span>
+                <span class="stat-label">DEF</span>
               </div>
             </div>
-            <div class="centre-image" data-centre-index="${index}"></div>
-            <div class="frame-diamond">
-              <div class="diamond-icon" data-diamond-index="${index}"></div>
-            </div>
-            <div class="player-name" data-text="${escapeHtml(p.name)}">${escapeHtml(p.name)}</div>
-            <div class="team-name">${escapeHtml(p.team || '')}</div>
-            <div class="id-footer">
-              <div class="id-tag">${escapeHtml(p.tournament)}</div>
-              <div class="id-barcode">${barcodeSvg}</div>
-            </div>
+            <div class="set-tag">${escapeHtml(p.tournament)}</div>
             <div class="flip-hint">${FLIP_ICON_SVG}</div>
           </div>
         </div>
@@ -522,22 +526,8 @@ function buildMiniCardMarkup(p, tier, index){
               <div class="back-rank-icon" data-back-rank-index="${index}"></div>
             </div>
             <div class="back-divider"></div>
-            <div class="back-section-label">Full Ratings</div>
-            <div class="back-hero-stats">
-              <div class="hero-stat">
-                <span class="hero-value">${p.atk}</span>
-                <span class="hero-label">ATT RTG</span>
-              </div>
-              <div class="hero-stat center">
-                <span class="hero-value">${p.ovr}</span>
-                <span class="hero-label">ROLE RTG</span>
-              </div>
-              <div class="hero-stat">
-                <span class="hero-value">${p.def_}</span>
-                <span class="hero-label">DEF RTG</span>
-              </div>
-            </div>
-            <div class="back-stat-list">${statRows}</div>
+            <div class="back-section-label">Match Stats</div>
+            <div class="back-stat-grid">${statTiles}</div>
             <div class="flip-hint">${FLIP_ICON_SVG}</div>
 
           </div>
@@ -594,8 +584,16 @@ function renderCollection(){
     `;
   }).join('');
 
-  collectionGroups.querySelectorAll('.diamond-icon[data-diamond-index]').forEach(container => {
-    const idx = parseInt(container.getAttribute('data-diamond-index'), 10);
+  collectionGroups.querySelectorAll('.rank-badge[data-rank-index]').forEach(container => {
+    const idx = parseInt(container.getAttribute('data-rank-index'), 10);
+    const p = ownedQueue[idx];
+    if(!p) return;
+    const tier = tierFor(p.ovr);
+    imgOrFallback(container, rankIconPath(tier), TIER_RANK_ICONS[tier] || '');
+  });
+
+  collectionGroups.querySelectorAll('.role-chip-icon[data-rolechip-index]').forEach(container => {
+    const idx = parseInt(container.getAttribute('data-rolechip-index'), 10);
     const p = ownedQueue[idx];
     if(!p) return;
     imgOrFallback(container, p.roleIcon, ROLE_ICONS[p.role] || '');
@@ -605,8 +603,7 @@ function renderCollection(){
     const idx = parseInt(container.getAttribute('data-centre-index'), 10);
     const p = ownedQueue[idx];
     if(!p) return;
-    const tier = tierFor(p.ovr);
-    imgOrFallback(container, p.centreImage, centreFallbackSVG(p.role, TIER_COLOR[tier]));
+    imgOrFallback(container, p.centreImage, centreFallbackSVG());
   });
 
   collectionGroups.querySelectorAll('.back-rank-icon[data-back-rank-index]').forEach(container => {

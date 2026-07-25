@@ -447,7 +447,7 @@ main{
   position:relative;
   width:100%; height:100%;
   border:4px solid var(--t-border, var(--line));
-  border-radius:16px;
+  border-radius:18px;
   overflow:hidden;
   background: linear-gradient(160deg, var(--bg-2) 0%, #0a0e13 60%, #070a0e 100%);
   box-shadow: 0 25px 60px rgba(0,0,0,0.55), var(--t-glow, none);
@@ -474,171 +474,149 @@ main{
   pointer-events:none;
 }
 
-/* ---- lanyard clip, threaded behind the top of the card ---- */
-.lanyard-strap{
+/* ---- angled colour block behind the character art ---- */
+.art-panel{
   position:absolute;
-  top:-58px; left:50%;
-  transform:translateX(-50%);
-  width:52px; height:72px;
-  border-radius:8px 8px 3px 3px;
+  top:0; left:0; right:0; height:290px;
+  clip-path: polygon(0 0, 100% 0, 100% 82%, 0 100%);
   background:
-    repeating-linear-gradient(to bottom, #8a6a3f 0 9px, #6f552f 9px 18px);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.25), 0 6px 10px rgba(0,0,0,0.35);
-}
-.lanyard-strap::after{
-  content:"";
-  position:absolute; left:50%; bottom:-6px;
-  width:34px; height:12px;
-  transform:translateX(-50%);
-  background:radial-gradient(ellipse at center, rgba(0,0,0,0.45), transparent 70%);
-}
-
-/* ---- ID frame (open rectangle with pill/capsule/diamond attached) ---- */
-.id-frame{
-  position:absolute;
-  top:60px; left:20px; right:52px; bottom:230px;
-  border:2px solid var(--t-accent, var(--red));
-  z-index:2;
-  pointer-events:none;
-}
-
-.role-pill{
-  position:absolute; top:46px; left:20px;
-  min-width:110px;
-  padding:5px 16px;
-  border-radius:14px;
-  border:2px solid var(--t-accent, var(--red));
-  background:var(--bg-2);
-  color:var(--t-accent, var(--red));
-  font-family:'Rajdhani', sans-serif;
-  font-weight:700;
-  font-size:13px;
-  letter-spacing:2px;
-  text-align:center;
-  text-transform:uppercase;
-  z-index:4;
-}
-
-.stat-capsule{
-  position:absolute; top:40px; left:226px;
-  width:64px; height:200px;
-  border-radius:32px;
-  border:2px solid var(--t-accent, var(--red));
-  background:var(--bg-2);
+    radial-gradient(120% 90% at 20% 0%, rgba(255,255,255,0.22), transparent 55%),
+    linear-gradient(155deg, var(--t-accent, var(--red)) 0%, rgba(8,11,15,0.94) 100%);
+  z-index:1;
   display:flex;
-  flex-direction:column;
   align-items:center;
-  justify-content:space-evenly;
-  z-index:4;
-}
-.capsule-stat{ display:flex; flex-direction:column; align-items:center; line-height:1; }
-.capsule-value{
-  font-family:'Teko', sans-serif;
-  font-weight:700;
-  font-size:26px;
-  color:var(--ink);
-}
-.capsule-label{
-  font-size:9px;
-  letter-spacing:1px;
-  color:var(--ink-dim);
-  text-transform:uppercase;
-  margin-top:2px;
-}
-.capsule-stat:first-child .capsule-value{
-  color:var(--t-accent, var(--red));
-  font-size:30px;
+  justify-content:center;
 }
 
-.frame-diamond{
-  position:absolute; top:245px; left:114px;
-  width:50px; height:50px;
-  transform:rotate(45deg);
-  border:2px dashed var(--t-accent, var(--red));
-  background:var(--bg-2);
-  display:flex; align-items:center; justify-content:center;
-  z-index:4;
-}
-.diamond-icon{
-  width:22px; height:22px;
-  transform:rotate(-45deg);
-  color:var(--t-accent, var(--red));
-}
-.diamond-icon svg{ width:100%; height:100%; }
-.diamond-icon img{ width:100%; height:100%; object-fit:contain; }
-
-/* ---- centre character art, sat inside the frame ---- */
 .centre-image{
-  position:absolute;
-  left:50%; top:76px;
-  width:150px; height:180px;
-  transform:translateX(-50%);
-  z-index:3;
-  pointer-events:none;
+  width:170px; height:210px;
+  margin-top:6px;
   display:flex; align-items:center; justify-content:center;
+  filter:drop-shadow(0 10px 18px rgba(0,0,0,0.35));
 }
 .centre-image img{ width:100%; height:100%; object-fit:contain; }
 .centre-image svg{ width:100%; height:100%; }
 
-/* ---- identity block, glitch-styled name ---- */
-.player-name{
-  position:absolute; top:300px; left:0; right:0;
+/* ---- rank crest, top-left ---- */
+.rank-badge{
+  position:absolute; top:16px; left:16px;
+  width:38px; height:38px;
+  clip-path:polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background:rgba(6,9,13,0.55);
+  border:2px solid rgba(255,255,255,0.85);
+  display:flex; align-items:center; justify-content:center;
+  z-index:3;
+}
+.rank-badge svg{ width:56%; height:56%; color:#fff; }
+.rank-badge img{ width:100%; height:100%; object-fit:contain; }
+
+/* ---- role chip, sitting on the diagonal seam ---- */
+.role-chip{
+  position:absolute; top:266px; right:18px;
+  display:flex; align-items:center; gap:6px;
+  padding:6px 14px 6px 8px;
+  border-radius:16px;
+  background:var(--bg-2);
+  border:2px solid var(--t-accent, var(--red));
+  box-shadow:0 6px 14px rgba(0,0,0,0.35);
+  z-index:4;
+}
+.role-chip-icon{
+  width:18px; height:18px;
+  color:var(--t-accent, var(--red));
+  display:flex;
+}
+.role-chip-icon svg{ width:100%; height:100%; }
+.role-chip-icon img{ width:100%; height:100%; object-fit:contain; }
+.role-chip-text{
+  font-family:'Rajdhani', sans-serif;
+  font-weight:700;
+  font-size:12px;
+  letter-spacing:1.5px;
+  color:var(--ink);
+  text-transform:uppercase;
+}
+
+/* ---- identity block ---- */
+.identity-block{
+  position:absolute; top:308px; left:0; right:0;
   text-align:center;
+  z-index:3;
+  padding:0 20px;
+}
+.player-name{
   font-family:'Teko', sans-serif;
   font-weight:700;
-  font-size:32px;
+  font-size:34px;
   letter-spacing:1px;
   color:var(--ink);
   text-transform:uppercase;
-  z-index:6;
-  padding:0 14px;
-}
-.player-name::before{
-  content: attr(data-text);
-  position:absolute; inset:0;
-  padding:0 14px;
-  color:var(--t-accent, var(--red));
-  transform:translate(-3px, 0);
-  opacity:.75;
-  z-index:-1;
+  line-height:1;
 }
 .team-name{
-  position:absolute; top:336px; left:0; right:0;
-  text-align:center;
+  margin-top:6px;
   font-size:13px;
   font-weight:600;
   letter-spacing:2.5px;
   color:var(--ink-dim);
   text-transform:uppercase;
   min-height:16px;
-  z-index:6;
 }
 
-/* ---- ID footer: tiny set tag + decorative barcode ---- */
-.id-footer{
-  position:absolute; left:20px; right:20px; bottom:24px;
-  display:flex; flex-direction:column; align-items:center; gap:8px;
-  z-index:6;
+/* ---- ATT / OVR / DEF quick stat row ---- */
+.stat-row{
+  position:absolute; left:24px; right:24px; top:392px; height:76px;
+  display:flex; align-items:center; justify-content:space-between;
+  z-index:3;
 }
-.id-tag{
+.stat-cell{
+  flex:1;
+  display:flex; flex-direction:column; align-items:center;
+  position:relative;
+}
+.stat-cell + .stat-cell::before{
+  content:"";
+  position:absolute; left:0; top:6px; bottom:6px;
+  width:1px;
+  background:rgba(255,255,255,0.1);
+}
+.stat-value{
+  font-family:'Teko', sans-serif;
+  font-weight:700;
+  font-size:30px;
+  color:var(--ink);
+}
+.stat-label{
+  font-size:10px;
+  letter-spacing:1.5px;
+  color:var(--ink-dim);
+  text-transform:uppercase;
+  margin-top:2px;
+}
+.stat-cell.ovr .stat-value{
+  color:var(--t-accent, var(--red));
+  font-size:38px;
+  text-shadow:0 0 18px rgba(0,0,0,0.3);
+}
+.stat-cell.ovr .stat-label{ color:var(--t-accent, var(--red)); opacity:.85; }
+
+.set-tag{
+  position:absolute; left:0; right:0; bottom:16px;
+  text-align:center;
   font-size:10px;
   letter-spacing:3px;
   color:var(--ink-dim);
   text-transform:uppercase;
   font-weight:600;
+  z-index:3;
 }
-.id-barcode{
-  width:100%; height:32px;
-  display:flex; align-items:stretch;
-}
-.id-barcode svg{ width:100%; height:100%; }
 
 /* flip affordance, bottom-right */
 .flip-hint{
-  position:absolute; bottom:12px; right:16px;
-  width:24px; height:24px;
-  color:var(--t-accent, var(--red));
-  opacity:.7;
+  position:absolute; bottom:14px; right:16px;
+  width:22px; height:22px;
+  color:var(--ink-dim);
+  opacity:.6;
   z-index:6;
   pointer-events:none;
 }
@@ -709,56 +687,41 @@ main{
   z-index:6;
 }
 
-.back-hero-stats{
-  position:absolute; top:112px; left:0; right:0;
-  display:flex; justify-content:center; align-items:center; gap:34px;
-  z-index:6;
-}
-.hero-stat{ display:flex; flex-direction:column; align-items:center; }
-.hero-value{
-  font-family:'Teko', sans-serif;
-  font-weight:700;
-  font-size:36px;
-  color:var(--ink);
-}
-.hero-label{
-  font-size:10px;
-  letter-spacing:1.5px;
-  color:var(--ink-dim);
-  text-transform:uppercase;
-  margin-top:4px;
-}
-.hero-stat.center{ transform:translateY(-6px); }
-.hero-stat.center .hero-value{
-  color:var(--t-accent, var(--red));
-  font-size:46px;
-  text-shadow:0 0 16px rgba(0,0,0,0.35);
-}
-
-.back-stat-list{
-  position:absolute; top:200px; left:24px; right:24px; bottom:46px;
+.back-stat-grid{
+  position:absolute; top:104px; left:20px; right:20px; bottom:20px;
   overflow-y:auto;
   z-index:6;
-  display:flex; flex-direction:column; gap:8px;
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap:2px;
+  align-content:start;
 }
-.back-stat-row{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:7px 2px;
-  border-bottom:1px solid rgba(255,255,255,0.06);
+.back-stat-tile{
+  display:flex; flex-direction:column; align-items:center; justify-content:center;
+  padding:9px 2px;
+  background:rgba(255,255,255,0.02);
+  border:1px solid rgba(255,255,255,0.06);
 }
-.back-stat-row .row-label{
+.back-stat-tile .tile-label{
   font-family:'Rajdhani', sans-serif;
-  font-size:12px;
-  letter-spacing:1.5px;
+  font-size:9px;
+  letter-spacing:1px;
   color:var(--ink-dim);
   text-transform:uppercase;
   font-weight:600;
+  margin-bottom:4px;
+  text-align:center;
 }
-.back-stat-row .row-value{
+.back-stat-tile .tile-value{
   font-family:'Teko', sans-serif;
   font-weight:700;
-  font-size:18px;
+  font-size:19px;
   color:var(--ink);
+}
+.back-stat-tile .tile-value.empty{
+  color:var(--ink-dim);
+  font-size:16px;
+  opacity:.5;
 }
 
 /* ---------- TIER THEMES ---------- */
