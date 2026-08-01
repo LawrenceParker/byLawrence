@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>VCT VAULT</title>
+<title>VCT VAULT — Pack Opening</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <style>
@@ -445,7 +445,7 @@ const PACKS = [
 ];
 
 const STARTING_CREDITS = 5000;
-const STORAGE_KEY = "state";
+const STORAGE_KEY = "vct_vault_state_v1";
 
 /* =========================================================
    ICONS
@@ -480,28 +480,30 @@ function avatarBlock(player){
 }
 
 /* =========================================================
-   STATE (persisted via window.storage, personal scope)
+   STATE (persisted via localStorage — this page is meant to be self-hosted,
+   e.g. on GitHub Pages, so we use standard browser storage, not the
+   Claude.ai-artifact-only window.storage API)
    ========================================================= */
 let state = { credits: STARTING_CREDITS, owned: [], discovered: [] };
 let currentPage = "packs";
 let uidCounter = 1;
 
-async function loadState(){
+function loadState(){
   try{
-    const res = await window.storage.get(STORAGE_KEY, false);
-    if(res && res.value){
-      state = JSON.parse(res.value);
+    const raw = localStorage.getItem(STORAGE_KEY);
+    if(raw){
+      state = JSON.parse(raw);
       uidCounter = (state.owned.reduce((m,o)=>Math.max(m, o.uid||0), 0)) + 1;
     }
   }catch(e){
-    // no saved state yet — use defaults
+    // no saved state yet, or storage unavailable (e.g. private browsing) — use defaults
   }
   render();
 }
 
-async function saveState(){
+function saveState(){
   try{
-    await window.storage.set(STORAGE_KEY, JSON.stringify(state), false);
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
   }catch(e){
     console.error("Could not save progress", e);
   }
@@ -967,8 +969,22 @@ function startApp(){
   loadState();
 }
 
-document.getElementById('overlayClose').addEventListener('click', closeOverlay);
-initApp();
+// Safety net: if something unexpected throws before the app finishes booting,
+// don't leave the person staring at "FETCHING PLAYER DATA…" forever - surface
+// a message so it's obvious something needs attention (check the browser
+// console for the actual error).
+window.addEventListener('error', (e)=>{
+  if(!dataReady){
+    showCsvGate(`Something went wrong while starting the app (${e.message || 'see browser console for details'}). You can still load your CSV manually below.`);
+  }
+});
+
+try{
+  document.getElementById('overlayClose')?.addEventListener('click', closeOverlay);
+  initApp();
+}catch(e){
+  showCsvGate(`Something went wrong while starting the app (${e.message || 'see browser console for details'}). You can still load your CSV manually below.`);
+}
 </script>
 </body>
 </html>
