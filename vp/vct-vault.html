@@ -21,7 +21,7 @@
   --bronze: #9c6b3e;   --bronze-glow:#c98b52;
   --silver: #aeb7c2;   --silver-glow:#e3e9ef;
   --gold: #f0b429;     --gold-glow:#ffd76a;
-  --diamond: #5cc8ff;  --diamond-glow:#a4e4ff;
+  --diamond: #c58aff;  --diamond-glow:#eddcff;
   --radiant: #f2e9c9;  --radiant-glow:#fff6d9;
 }
 
@@ -129,63 +129,62 @@ body{
 }
 .chip.active{ background:var(--red); color:#000; border-color:var(--red); }
 
-/* ---------- card component ---------- */
-.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:16px; }
+/* ---------- card component (Sorare-inspired) ---------- */
+.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:18px; }
 
 @keyframes borderFlow{ 0%{background-position:0% 50%;} 100%{background-position:300% 50%;} }
+@keyframes holoSweep{ 0%{ background-position:130% -30%; } 100%{ background-position:-30% 130%; } }
 
 .pcard{
-  position:relative; aspect-ratio:3/4.2;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-  padding:2.5px; background:var(--line);
-  background-size:250% 250%; animation:borderFlow 7s linear infinite;
+  position:relative; aspect-ratio:3/4.3; border-radius:16px;
+  padding:3px; background:var(--line);
+  background-size:220% 220%; animation:borderFlow 7s linear infinite;
+  box-shadow:0 8px 20px -10px rgba(0,0,0,.6);
 }
-.pcard.locked{ opacity:.42; filter:grayscale(1); animation:none; }
+.pcard.locked{ opacity:.4; filter:grayscale(1); animation:none; box-shadow:none; }
 
 .pcard-inner{
-  position:relative; width:100%; height:100%; background:var(--panel-2);
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  padding:12px 10px 10px; display:flex; flex-direction:column; overflow:hidden;
+  position:relative; width:100%; height:100%; border-radius:14px;
+  background:#0c0c0d; display:flex; flex-direction:column; overflow:hidden;
+}
+.pcard-inner::after{
+  content:''; position:absolute; inset:0; pointer-events:none; z-index:3;
+  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.32) 45%, transparent 60%);
+  background-size:250% 250%; mix-blend-mode:overlay; animation:holoSweep 4.5s ease-in-out infinite;
 }
 
-.pcard .tiertag{
-  position:absolute; top:0; right:0; font-size:9.5px; letter-spacing:1.5px; font-weight:700;
-  padding:3px 8px 3px 12px; text-transform:uppercase; color:#000; z-index:2;
-  clip-path: polygon(14px 0,100% 0,100% 100%,0 100%);
+.pcard-photo{ position:relative; flex:1; min-height:0; overflow:hidden; }
+.pcard-photo > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; }
+.pcard-photo > .avatar-fallback{
+  display:none; position:absolute; inset:0; align-items:center; justify-content:center;
 }
-.vault-owned{
-  position:absolute; top:8px; left:0; font-size:8.5px; letter-spacing:1px; font-weight:700;
-  padding:2px 8px 2px 6px; text-transform:uppercase; color:var(--ink); background:rgba(0,0,0,.55);
-  border-left:2px solid var(--gold); z-index:2;
-}
-.pcard[data-tier="bronze"] .tiertag{ background:var(--bronze); }
-.pcard[data-tier="silver"] .tiertag{ background:var(--silver); }
-.pcard[data-tier="gold"]   .tiertag{ background:var(--gold); }
-.pcard[data-tier="diamond"] .tiertag{ background:var(--diamond); }
-.pcard[data-tier="radiant"] .tiertag{ background:linear-gradient(90deg,#fff,#f2e9c9,#ffd76a); }
+.pcard-photo > .avatar-fallback svg{ width:44%; height:44%; opacity:.55; color:rgba(255,255,255,.85); }
+.pcard-lockmark{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue'; font-size:44px; color:rgba(255,255,255,.5); }
 
-.pcard-inner .rtg{ font-family:'Bebas Neue'; font-size:32px; line-height:1; margin-top:14px;}
-.pcard-inner .role-row{ display:flex; align-items:center; gap:6px; margin:4px 0 6px; color:var(--ink-dim);}
-.pcard-inner .role-row svg{ width:14px; height:14px; }
-.pcard-inner .role-row span{ font-size:10.5px; letter-spacing:1px; text-transform:uppercase; font-weight:700;}
-.stat-row{ display:flex; gap:5px; margin-bottom:6px; }
-.stat-box{ flex:1; background:rgba(255,255,255,.04); border:1px solid var(--line); text-align:center; padding:3px 0; }
-.stat-box .stat-k{ display:block; font-size:8px; letter-spacing:1px; color:var(--ink-dim); font-weight:700; }
-.stat-box .stat-v{ display:block; font-family:'Bebas Neue'; font-size:14px; line-height:1.1; }
-.pcard-inner .avatar{
-  flex:1; display:flex; align-items:center; justify-content:center; margin:0 0 6px; min-height:0;
-  background:radial-gradient(circle, rgba(255,255,255,.05), transparent 70%); position:relative; overflow:hidden;
+.pcard-rating{
+  position:absolute; top:8px; left:8px; z-index:2;
+  background:rgba(0,0,0,.55); border-radius:8px; padding:3px 9px 2px;
+  font-family:'Bebas Neue'; font-size:19px; color:#fff; line-height:1;
 }
-.pcard-inner .avatar img{ width:100%; height:100%; object-fit:cover; }
-.pcard-inner .avatar .avatar-fallback{ display:none; align-items:center; justify-content:center; width:100%; height:100%; }
-.pcard-inner .avatar svg{ width:38px; height:38px; opacity:.8; }
-.pcard-inner .pname{ font-family:'Bebas Neue'; font-size:16px; letter-spacing:.5px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-.pcard-inner .pteam{ font-size:10px; color:var(--ink-dim); font-weight:700; letter-spacing:1px; text-transform:uppercase; display:flex; justify-content:space-between; align-items:center; margin-top:2px;}
-.pcard-inner .count-badge{
-  background:var(--red); color:#fff; font-size:10px; font-weight:700; padding:1px 6px;
-  clip-path: polygon(4px 0,100% 0,100% 100%,0 100%);
+.pcard-topbadge{
+  position:absolute; top:8px; right:8px; z-index:2;
+  background:rgba(0,0,0,.6); border-radius:8px; padding:3px 8px;
+  font-size:10px; font-weight:700; letter-spacing:.5px; color:#fff;
 }
-.pcard-inner .locked-q{ font-family:'Bebas Neue'; font-size:40px; text-align:center; margin:auto; color:var(--ink-dim);}
+
+.pcard-plate{
+  padding:8px 10px 10px; text-align:center; position:relative; z-index:2;
+  background:linear-gradient(180deg, rgba(255,255,255,.03), rgba(0,0,0,.25));
+  border-top:1px solid rgba(255,255,255,.08);
+}
+.pcard-name{ font-family:'Bebas Neue'; font-size:16px; letter-spacing:.5px; color:#fff; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.pcard-team{ font-size:9.5px; color:rgba(255,255,255,.55); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:1px;}
+.pcard-meta{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:5px; }
+.tier-pill{ font-size:8.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
+.role-pill{ display:flex; align-items:center; gap:3px; font-size:8.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.55); }
+.role-pill svg{ width:10px; height:10px; }
+.pcard-stats{ display:flex; justify-content:center; gap:12px; margin-top:6px; font-size:9px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.5); }
+.pcard-stats b{ color:#fff; font-weight:700; }
 
 /* ---------- inventory ---------- */
 .inv-row{
@@ -279,43 +278,27 @@ body{
 @keyframes flashAnim{ 0%{opacity:0;} 12%{opacity:1;} 100%{opacity:0;} }
 
 .reveal-row{ display:flex; gap:22px; flex-wrap:wrap; justify-content:center; }
-.reveal-card{ width:172px; height:246px; position:relative; opacity:0; transform:scale(.75); }
-.reveal-card.shown{ animation:cardPopIn .45s cubic-bezier(.2,.8,.2,1) forwards; }
+.reveal-card{
+  width:200px; position:relative; opacity:0; transform:scale(.55) rotateZ(-8deg);
+}
+.reveal-card::before{
+  content:''; position:absolute; inset:-50px; z-index:-1; border-radius:50%;
+  background:radial-gradient(circle, var(--tier-color) 0%, transparent 70%);
+  opacity:0; filter:blur(18px);
+}
+.reveal-card.shown{ animation:cardPopIn .55s cubic-bezier(.2,.8,.2,1) forwards; }
+.reveal-card.shown::before{ animation:burstGlow .9s ease-out forwards; }
 @keyframes cardPopIn{
-  0%{ opacity:0; transform:scale(.75); }
-  60%{ opacity:1; transform:scale(1.05); }
-  100%{ opacity:1; transform:scale(1); }
+  0%{ opacity:0; transform:scale(.55) rotateZ(-8deg); }
+  55%{ opacity:1; transform:scale(1.08) rotateZ(3deg); }
+  78%{ transform:scale(.96) rotateZ(-1deg); }
+  100%{ opacity:1; transform:scale(1) rotateZ(0deg); }
 }
-.pcard-full-frame{
-  width:100%; height:100%; padding:2.5px;
-  clip-path: polygon(0 0, calc(100% - 14px) 0, 100% 14px, 100% 100%, 14px 100%, 0 calc(100% - 14px));
-  background-size:250% 250%; animation:borderFlow 7s linear infinite;
+@keyframes burstGlow{
+  0%{ opacity:.9; transform:scale(.25); }
+  100%{ opacity:0; transform:scale(1.5); }
 }
-.pcard-full{
-  width:100%; height:100%; padding:14px 12px 12px; display:flex; flex-direction:column;
-  clip-path: polygon(0 0, calc(100% - 12px) 0, 100% 12px, 100% 100%, 12px 100%, 0 calc(100% - 12px));
-  background:var(--panel-2); position:relative; overflow:hidden;
-}
-.pcard-full::after{
-  content:''; position:absolute; inset:0; background:radial-gradient(circle at 50% 30%, var(--tier-color) 0%, transparent 70%);
-  opacity:0; animation: cardGlow .8s ease .1s;
-}
-@keyframes cardGlow{ 0%{opacity:.6;} 100%{opacity:0;} }
-.pcard-full .ptag{ font-size:10px; font-weight:700; letter-spacing:1.5px; text-transform:uppercase; color:var(--tier-color); }
-.pcard-full .prtg{ font-family:'Bebas Neue'; font-size:38px; line-height:1; margin-top:4px; }
-.pcard-full .prole{ display:flex; align-items:center; gap:6px; color:var(--ink-dim); margin:4px 0 8px;}
-.pcard-full .prole svg{ width:15px; height:15px; }
-.pcard-full .prole span{ font-size:10.5px; letter-spacing:1px; text-transform:uppercase; font-weight:700;}
-.pcard-full .pavatar{ flex:1; display:flex; align-items:center; justify-content:center; min-height:0; position:relative; overflow:hidden; }
-.pcard-full .pavatar img{ width:100%; height:100%; object-fit:cover; }
-.pcard-full .pavatar .avatar-fallback{ display:none; align-items:center; justify-content:center; width:100%; height:100%; }
-.pcard-full .pavatar svg{ width:46px; height:46px; opacity:.85; }
-.pcard-full .pname{ font-family:'Bebas Neue'; font-size:19px; }
-.pcard-full .pteamline{ font-size:10.5px; color:var(--ink-dim); font-weight:700; text-transform:uppercase; letter-spacing:1px; }
-.dupe-badge{
-  position:absolute; top:8px; right:8px; background:var(--red); color:#fff; font-size:10px; font-weight:700;
-  padding:2px 7px; clip-path: polygon(4px 0,100% 0,100% 100%,0 100%); z-index:2;
-}
+.reveal-card .pcard{ width:100%; }
 
 .reveal-footer{ margin-top:30px; display:flex; flex-direction:column; align-items:center; gap:14px; }
 .reveal-summary{ font-size:13px; color:var(--ink-dim); font-weight:600; }
@@ -409,16 +392,21 @@ function rowsToCards(rows){
 }
 
 const TIERS = {
-  bronze:  { label:"Bronze",  color:"#9c6b3e", glow:"#c98b52", weight:0.42,
-             grad:"linear-gradient(120deg, #6e4423, #c98b52, #6e4423, #c98b52)" },
-  silver:  { label:"Silver",  color:"#aeb7c2", glow:"#e3e9ef", weight:0.32,
-             grad:"linear-gradient(120deg, #7c8791, #e3e9ef, #7c8791, #e3e9ef)" },
+  bronze:  { label:"Bronze",  color:"#c9915c", glow:"#c98b52", weight:0.42,
+             grad:"linear-gradient(120deg, #6e4423, #c98b52, #6e4423, #c98b52)",
+             cardA:"#3d2313", cardB:"#a9673a" },
+  silver:  { label:"Silver",  color:"#c7d0d8", glow:"#e3e9ef", weight:0.32,
+             grad:"linear-gradient(120deg, #7c8791, #e3e9ef, #7c8791, #e3e9ef)",
+             cardA:"#3c4249", cardB:"#c3ccd3" },
   gold:    { label:"Gold",    color:"#f0b429", glow:"#ffd76a", weight:0.16,
-             grad:"linear-gradient(120deg, #b9791a, #ffd76a, #b9791a, #ffd76a)" },
-  diamond: { label:"Diamond", color:"#5cc8ff", glow:"#a4e4ff", weight:0.075,
-             grad:"linear-gradient(120deg, #2f8fc4, #a4e4ff, #2f8fc4, #a4e4ff)" },
+             grad:"linear-gradient(120deg, #b9791a, #ffd76a, #b9791a, #ffd76a)",
+             cardA:"#4a3405", cardB:"#e8ab1f" },
+  diamond: { label:"Diamond", color:"#c58aff", glow:"#eddcff", weight:0.075,
+             grad:"linear-gradient(120deg, #5b1f8a, #eddcff, #5b1f8a, #eddcff)",
+             cardA:"#2c0f47", cardB:"#9b4fe0" },
   radiant: { label:"Radiant", color:"#f2e9c9", glow:"#fff6d9", weight:0.025,
-             grad:"linear-gradient(120deg, #ffd76a, #ffffff, #f2e9c9, #ffffff, #ffd76a)" }
+             grad:"linear-gradient(120deg, #ffd76a, #ffffff, #f2e9c9, #ffffff, #ffd76a)",
+             cardA:"#3a3220", cardB:"#f0dfa0" }
 };
 const TIER_ORDER = ["bronze","silver","gold","diamond","radiant"];
 
@@ -477,6 +465,48 @@ function avatarBlock(player){
   return `<img src="${src}" alt="${player}" loading="lazy"
       onerror="this.onerror=function(){ this.style.display='none'; this.nextElementSibling.style.display='flex'; }; this.src='${SILHOUETTE_SRC}';">
     <span class="avatar-fallback">${AVATAR_SVG}</span>`;
+}
+
+// Shared card visual - used by Vault, My Collection, and the pack-reveal moment,
+// so every place a card shows up looks identical.
+function cardMarkup(c, opts){
+  opts = opts || {};
+  const t = TIERS[c.tier];
+
+  if(opts.locked){
+    return `
+    <div class="pcard locked" style="background:${t.grad}">
+      <div class="pcard-inner">
+        <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
+          <div class="pcard-lockmark">?</div>
+        </div>
+        <div class="pcard-plate">
+          <div class="pcard-name">LOCKED</div>
+          <div class="pcard-team">${c.tournament}</div>
+        </div>
+      </div>
+    </div>`;
+  }
+
+  return `
+    <div class="pcard" style="background:${t.grad}">
+      <div class="pcard-inner">
+        <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
+          ${avatarBlock(c.player)}
+          <div class="pcard-rating">${c.rtg}</div>
+          ${opts.badge ? `<div class="pcard-topbadge">${opts.badge}</div>` : ''}
+        </div>
+        <div class="pcard-plate">
+          <div class="pcard-name">${c.player}</div>
+          <div class="pcard-team">${c.team}</div>
+          <div class="pcard-meta">
+            <span class="tier-pill" style="color:${t.color}">● ${t.label}</span>
+            <span class="role-pill">${roleIcon(c.role)}${c.role}</span>
+          </div>
+          <div class="pcard-stats"><span>ATT <b>${c.att}</b></span><span>DEF <b>${c.def}</b></span></div>
+        </div>
+      </div>
+    </div>`;
 }
 
 /* =========================================================
@@ -630,24 +660,9 @@ function renderVault(){
   );
   list = [...list].sort((a,b)=> b.rtg - a.rtg);
 
-  const cards = list.map(c=>{
+  const cardsWithBadge = list.map(c=>{
     const isDiscovered = state.discovered.includes(c.id);
-    return `
-      <div class="pcard" data-tier="${c.tier}" style="background:${TIERS[c.tier].grad}">
-        <div class="tiertag">${TIERS[c.tier].label}</div>
-        ${isDiscovered ? '<div class="vault-owned">IN COLLECTION</div>' : ''}
-        <div class="pcard-inner">
-          <div class="rtg" style="color:${TIERS[c.tier].color}">${c.rtg}</div>
-          <div class="role-row">${roleIcon(c.role)}<span>${c.role}</span></div>
-          <div class="stat-row">
-            <div class="stat-box"><span class="stat-k">ATT</span><span class="stat-v">${c.att}</span></div>
-            <div class="stat-box"><span class="stat-k">DEF</span><span class="stat-v">${c.def}</span></div>
-          </div>
-          <div class="avatar">${avatarBlock(c.player)}</div>
-          <div class="pname">${c.player}</div>
-          <div class="pteam"><span>${c.team}</span><span>${c.tournament}</span></div>
-        </div>
-      </div>`;
+    return cardMarkup(c, { badge: isDiscovered ? 'OWNED' : null });
   }).join('');
 
   return `
@@ -658,7 +673,7 @@ function renderVault(){
     </div>
     <div class="filterbar">${tourChips}</div>
     <div class="filterbar">${tierChips}</div>
-    <div class="card-grid">${cards || `<div class="empty-state" style="grid-column:1/-1"><div class="big">No cards match this filter</div>Try a different rarity or event.</div>`}</div>
+    <div class="card-grid">${cardsWithBadge || `<div class="empty-state" style="grid-column:1/-1"><div class="big">No cards match this filter</div>Try a different rarity or event.</div>`}</div>
   `;
 }
 
@@ -687,31 +702,9 @@ function renderCollection(){
     const isDiscovered = state.discovered.includes(c.id);
     const qty = ownedCountFor(c.id);
     if(!isDiscovered){
-      return `
-      <div class="pcard locked" data-tier="${c.tier}" style="background:${TIERS[c.tier].grad}">
-        <div class="tiertag">${TIERS[c.tier].label}</div>
-        <div class="pcard-inner">
-          <div class="locked-q">?</div>
-          <div class="pname" style="text-align:center;">LOCKED</div>
-          <div class="pteam" style="justify-content:center;">${c.tournament}</div>
-        </div>
-      </div>`;
+      return cardMarkup(c, { locked:true });
     }
-    return `
-      <div class="pcard" data-tier="${c.tier}" style="background:${TIERS[c.tier].grad}">
-        <div class="tiertag">${TIERS[c.tier].label}</div>
-        <div class="pcard-inner">
-          <div class="rtg" style="color:${TIERS[c.tier].color}">${c.rtg}</div>
-          <div class="role-row">${roleIcon(c.role)}<span>${c.role}</span></div>
-          <div class="stat-row">
-            <div class="stat-box"><span class="stat-k">ATT</span><span class="stat-v">${c.att}</span></div>
-            <div class="stat-box"><span class="stat-k">DEF</span><span class="stat-v">${c.def}</span></div>
-          </div>
-          <div class="avatar">${avatarBlock(c.player)}</div>
-          <div class="pname">${c.player}</div>
-          <div class="pteam"><span>${c.team}</span>${qty>0?`<span class="count-badge">×${qty}</span>`:'<span style="opacity:.5">0 held</span>'}</div>
-        </div>
-      </div>`;
+    return cardMarkup(c, { badge: qty>0 ? `×${qty}` : '0 held' });
   }).join('');
 
   return `
@@ -878,21 +871,8 @@ function showRevealStage(){
   const stage = document.getElementById('packStage');
   const cardsHtml = pendingPulls.map((c,i)=>{
     return `
-    <div class="reveal-card" data-idx="${i}">
-      <div class="pcard-full-frame" style="background:${TIERS[c.tier].grad}">
-        <div class="pcard-full" style="--tier-color:${TIERS[c.tier].color}">
-          <div class="ptag">${TIERS[c.tier].label}</div>
-          <div class="prtg">${c.rtg}</div>
-          <div class="prole">${roleIcon(c.role)}<span>${c.role}</span></div>
-          <div class="stat-row">
-            <div class="stat-box"><span class="stat-k">ATT</span><span class="stat-v">${c.att}</span></div>
-            <div class="stat-box"><span class="stat-k">DEF</span><span class="stat-v">${c.def}</span></div>
-          </div>
-          <div class="pavatar">${avatarBlock(c.player)}</div>
-          <div class="pname">${c.player}</div>
-          <div class="pteamline">${c.team} · ${c.tournament}</div>
-        </div>
-      </div>
+    <div class="reveal-card" data-idx="${i}" style="--tier-color:${TIERS[c.tier].color}">
+      ${cardMarkup(c)}
     </div>`;
   }).join('');
 
