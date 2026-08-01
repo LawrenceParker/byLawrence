@@ -464,13 +464,18 @@ function roleIcon(role){ return ICONS[role] || ICONS.Sentinel; }
 
 // Headshot PNGs are optional — drop files into a `headshots/` folder next to this
 // HTML file, named by slugified player name (e.g. "TenZ" -> headshots/tenz.png).
-// If a file isn't found, this silently falls back to the placeholder icon.
+// If a player-specific file isn't found, this falls back to a single shared
+// silhouette image (headshots/silhouette.png), and if even that's missing,
+// falls back to the built-in placeholder icon.
+const SILHOUETTE_SRC = "headshots/silhouette.png";
+
 function headshotSlug(player){
   return player.toLowerCase().replace(/[^a-z0-9]/g,'');
 }
 function avatarBlock(player){
   const src = `headshots/${headshotSlug(player)}.png`;
-  return `<img src="${src}" alt="${player}" loading="lazy" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+  return `<img src="${src}" alt="${player}" loading="lazy"
+      onerror="this.onerror=function(){ this.style.display='none'; this.nextElementSibling.style.display='flex'; }; this.src='${SILHOUETTE_SRC}';">
     <span class="avatar-fallback">${AVATAR_SVG}</span>`;
 }
 
