@@ -133,7 +133,6 @@ body{
 .card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:18px; }
 
 @keyframes borderFlow{ 0%{background-position:0% 50%;} 100%{background-position:300% 50%;} }
-@keyframes holoSweep{ 0%{ background-position:130% -30%; } 100%{ background-position:-30% 130%; } }
 
 .pcard{
   position:relative; aspect-ratio:3/4.3; border-radius:16px;
@@ -146,11 +145,6 @@ body{
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:14px;
   background:#0c0c0d; display:flex; flex-direction:column; overflow:hidden;
-}
-.pcard-inner::after{
-  content:''; position:absolute; inset:0; pointer-events:none; z-index:3;
-  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.32) 45%, transparent 60%);
-  background-size:250% 250%; mix-blend-mode:overlay; animation:holoSweep 4.5s ease-in-out infinite;
 }
 
 .pcard-photo{ position:relative; flex:1; min-height:0; overflow:hidden; }
@@ -166,8 +160,14 @@ body{
   background:rgba(0,0,0,.55); border-radius:8px; padding:3px 9px 2px;
   font-family:'Bebas Neue'; font-size:19px; color:#fff; line-height:1;
 }
-.pcard-topbadge{
-  position:absolute; top:8px; right:8px; z-index:2;
+.pcard-tourtag{
+  position:absolute; top:8px; right:8px; z-index:2; max-width:62%;
+  background:rgba(0,0,0,.55); border-radius:8px; padding:3px 7px;
+  font-size:8px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.85);
+  text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+.pcard-cornerbadge{
+  position:absolute; bottom:8px; right:8px; z-index:2;
   background:rgba(0,0,0,.6); border-radius:8px; padding:3px 8px;
   font-size:10px; font-weight:700; letter-spacing:.5px; color:#fff;
 }
@@ -181,8 +181,7 @@ body{
 .pcard-team{ font-size:9.5px; color:rgba(255,255,255,.55); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:1px;}
 .pcard-meta{ display:flex; align-items:center; justify-content:center; gap:8px; margin-top:5px; }
 .tier-pill{ font-size:8.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
-.role-pill{ display:flex; align-items:center; gap:3px; font-size:8.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.55); }
-.role-pill svg{ width:10px; height:10px; }
+.role-pill{ font-size:8.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.55); }
 .pcard-stats{ display:flex; justify-content:center; gap:12px; margin-top:6px; font-size:9px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.5); }
 .pcard-stats b{ color:#fff; font-weight:700; }
 
@@ -479,6 +478,7 @@ function cardMarkup(c, opts){
       <div class="pcard-inner">
         <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
           <div class="pcard-lockmark">?</div>
+          <div class="pcard-tourtag">${c.tournament}</div>
         </div>
         <div class="pcard-plate">
           <div class="pcard-name">LOCKED</div>
@@ -494,14 +494,15 @@ function cardMarkup(c, opts){
         <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
           ${avatarBlock(c.player)}
           <div class="pcard-rating">${c.rtg}</div>
-          ${opts.badge ? `<div class="pcard-topbadge">${opts.badge}</div>` : ''}
+          <div class="pcard-tourtag">${c.tournament}</div>
+          ${opts.badge ? `<div class="pcard-cornerbadge">${opts.badge}</div>` : ''}
         </div>
         <div class="pcard-plate">
           <div class="pcard-name">${c.player}</div>
           <div class="pcard-team">${c.team}</div>
           <div class="pcard-meta">
             <span class="tier-pill" style="color:${t.color}">● ${t.label}</span>
-            <span class="role-pill">${roleIcon(c.role)}${c.role}</span>
+            <span class="role-pill">${c.role}</span>
           </div>
           <div class="pcard-stats"><span>ATT <b>${c.att}</b></span><span>DEF <b>${c.def}</b></span></div>
         </div>
