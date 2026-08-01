@@ -910,6 +910,11 @@ function showRevealStage(){
   document.getElementById('collectBtn').addEventListener('click', closeOverlay);
 }
 
+function closeOverlay(){
+  document.getElementById('overlay').classList.remove('show');
+  render();
+}
+
 /* =========================================================
    INIT — load player data from CSV, then start the app
    ========================================================= */
