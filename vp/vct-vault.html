@@ -128,6 +128,15 @@ body{
   cursor:pointer;
 }
 .chip.active{ background:var(--red); color:#000; border-color:var(--red); }
+.select-filter{
+  font-family:'Rajdhani', sans-serif; font-size:12.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:7px 14px; border:1px solid var(--line); color:var(--ink); background:var(--panel);
+  cursor:pointer; appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c8c90' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat; background-position:right 10px center; background-size:14px;
+  padding-right:32px;
+}
+.select-filter:focus{ outline:none; border-color:var(--red); }
 
 /* ---------- card component (Sorare-inspired) ---------- */
 .card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(158px,1fr)); gap:18px; }
@@ -152,7 +161,7 @@ body{
 .pcard-photo > .avatar-fallback{
   display:none; position:absolute; inset:0; align-items:center; justify-content:center;
 }
-.pcard-photo > .avatar-fallback svg{ width:44%; height:44%; opacity:.55; color:rgba(255,255,255,.85); }
+.pcard-photo > .avatar-fallback svg{ width:36%; height:36%; opacity:.6; color:rgba(255,255,255,.85); }
 .pcard-lockmark{ position:absolute; inset:0; display:flex; align-items:center; justify-content:center; font-family:'Bebas Neue'; font-size:44px; color:rgba(255,255,255,.5); }
 
 .pcard-rating{
@@ -229,6 +238,7 @@ body{
 #overlay{
   position:fixed; inset:0; background:rgba(4,7,9,.94); backdrop-filter:blur(6px);
   z-index:1000; display:none; align-items:center; justify-content:center; flex-direction:column;
+  overflow-y:auto; padding:40px 20px;
 }
 #overlay.show{ display:flex; }
 .overlay-close{
@@ -241,20 +251,26 @@ body{
 .tour-tag{ font-family:'Bebas Neue'; letter-spacing:4px; color:var(--ink-dim); font-size:15px; }
 
 .sleeve{
-  width:210px; height:290px; position:relative;
-  background:linear-gradient(155deg, var(--panel-2) 0%, var(--bg-deep) 100%);
-  border:2px solid var(--red);
-  clip-path: polygon(0 8%, 100% 0, 100% 92%, 0 100%);
-  display:flex; align-items:center; justify-content:center;
+  width:200px; aspect-ratio:3/4.3; position:relative;
+  border-radius:16px; padding:3px;
+  background:linear-gradient(120deg, #45464a, #9a9ca1, #45464a, #9a9ca1);
+  background-size:220% 220%; animation:borderFlow 7s linear infinite;
+  box-shadow:0 8px 20px -10px rgba(0,0,0,.6);
   transition:transform .15s;
 }
-.sleeve::before{
+.sleeve-inner{
+  width:100%; height:100%; border-radius:14px; overflow:hidden;
+  background:linear-gradient(160deg, #1c1c1f 0%, #0a0a0b 100%);
+  display:flex; align-items:center; justify-content:center; flex-direction:column;
+  position:relative;
+}
+.sleeve-inner::before{
   content:''; position:absolute; inset:0;
-  background: repeating-linear-gradient(115deg, rgba(255,70,85,.08) 0 3px, transparent 3px 30px);
+  background: repeating-linear-gradient(115deg, rgba(255,255,255,.035) 0 3px, transparent 3px 30px);
 }
 .sleeve-mark{ font-family:'Bebas Neue'; font-size:22px; letter-spacing:3px; color:var(--red); text-align:center; z-index:2;}
-.sleeve-sub{ font-size:11px; color:var(--ink-dim); letter-spacing:2px; margin-top:6px; text-align:center; z-index:2;}
-.sleeve.shaking{ animation:shake .45s ease; }
+.sleeve-sub{ font-size:11px; color:var(--ink-dim); letter-spacing:2px; margin-top:6px; text-align:center; z-index:2; padding:0 14px;}
+.sleeve.shaking{ animation:shake .45s ease, borderFlow 7s linear infinite; }
 .sleeve.burst{ animation:burstOut .35s ease forwards; }
 @keyframes shake{
   0%,100%{ transform:translateX(0) rotate(0); }
@@ -283,7 +299,7 @@ body{
 .reveal-card::before{
   content:''; position:absolute; inset:-50px; z-index:-1; border-radius:50%;
   background:radial-gradient(circle, var(--tier-color) 0%, transparent 70%);
-  opacity:0; filter:blur(18px);
+  opacity:0; filter:blur(18px); pointer-events:none;
 }
 .reveal-card.shown{ animation:cardPopIn .55s cubic-bezier(.2,.8,.2,1) forwards; }
 .reveal-card.shown::before{ animation:burstGlow .9s ease-out forwards; }
@@ -299,7 +315,10 @@ body{
 }
 .reveal-card .pcard{ width:100%; }
 
-.reveal-footer{ margin-top:30px; display:flex; flex-direction:column; align-items:center; gap:14px; }
+.reveal-footer{
+  margin-top:30px; display:flex; flex-direction:column; align-items:center; gap:14px;
+  position:relative; z-index:5;
+}
 .reveal-summary{ font-size:13px; color:var(--ink-dim); font-weight:600; }
 
 @media (max-width:600px){
@@ -598,7 +617,7 @@ document.getElementById('nav').addEventListener('click', (e)=>{
   if(!btn) return;
   currentPage = btn.dataset.page;
   collectionFilter = {tournament:'all', tier:'all'};
-  vaultFilter = {tournament:'all', tier:'all'};
+  vaultFilter = {tournament:'all', tier:'all', team:'all'};
   render();
 });
 
@@ -644,7 +663,7 @@ function renderPacks(){
 /* =========================================================
    RENDER: VAULT PAGE (browse every card, no packing required)
    ========================================================= */
-let vaultFilter = { tournament:'all', tier:'all' };
+let vaultFilter = { tournament:'all', tier:'all', team:'all' };
 
 function renderVault(){
   const tournaments = ['all', ...new Set(CARDS.map(c=>c.tournament))];
@@ -654,10 +673,15 @@ function renderVault(){
   const tierChips = ['all', ...TIER_ORDER].map(t=>`
     <button class="chip ${vaultFilter.tier===t?'active':''}" data-vtier="${t}">${t==='all'?'All Rarities':TIERS[t].label}</button>
   `).join('');
+  const teams = [...new Set(CARDS.map(c=>c.team))].sort();
+  const teamOptions = ['all', ...teams].map(team=>
+    `<option value="${team}" ${vaultFilter.team===team?'selected':''}>${team==='all'?'All Teams':team}</option>`
+  ).join('');
 
   let list = CARDS.filter(c=>
     (vaultFilter.tournament==='all' || c.tournament===vaultFilter.tournament) &&
-    (vaultFilter.tier==='all' || c.tier===vaultFilter.tier)
+    (vaultFilter.tier==='all' || c.tier===vaultFilter.tier) &&
+    (vaultFilter.team==='all' || c.team===vaultFilter.team)
   );
   list = [...list].sort((a,b)=> b.rtg - a.rtg);
 
@@ -674,7 +698,10 @@ function renderVault(){
     </div>
     <div class="filterbar">${tourChips}</div>
     <div class="filterbar">${tierChips}</div>
-    <div class="card-grid">${cardsWithBadge || `<div class="empty-state" style="grid-column:1/-1"><div class="big">No cards match this filter</div>Try a different rarity or event.</div>`}</div>
+    <div class="filterbar">
+      <select class="select-filter" id="vaultTeamFilter">${teamOptions}</select>
+    </div>
+    <div class="card-grid">${cardsWithBadge || `<div class="empty-state" style="grid-column:1/-1"><div class="big">No cards match this filter</div>Try a different rarity, event, or team.</div>`}</div>
   `;
 }
 
@@ -794,6 +821,10 @@ function attachPageHandlers(){
   document.querySelectorAll('[data-vtier]').forEach(btn=>{
     btn.addEventListener('click', ()=>{ vaultFilter.tier = btn.dataset.vtier; render(); });
   });
+  const vaultTeamFilter = document.getElementById('vaultTeamFilter');
+  if(vaultTeamFilter){
+    vaultTeamFilter.addEventListener('change', (e)=>{ vaultFilter.team = e.target.value; render(); });
+  }
   document.querySelectorAll('[data-sell]').forEach(btn=>{
     btn.addEventListener('click', ()=> sellOne(btn.dataset.sell));
   });
@@ -839,7 +870,7 @@ function showSleeveStage(){
   stage.innerHTML = `
     <div class="tour-tag">${activePack.tournament}</div>
     <div class="sleeve" id="sleeve">
-      <div>
+      <div class="sleeve-inner">
         <div class="sleeve-mark">VCT<br>VAULT</div>
         <div class="sleeve-sub">${activePack.name}</div>
       </div>
