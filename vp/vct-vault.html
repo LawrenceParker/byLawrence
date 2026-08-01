@@ -918,49 +918,33 @@ const CSV_FILENAME = "VCT_PlayerRatings.csv";
 async function initApp(){
   try{
     const res = await fetch(CSV_FILENAME, { cache: "no-store" });
-    if(!res.ok) throw new Error("fetch not ok");
+    if(!res.ok) throw new Error(`fetch returned ${res.status}`);
     const text = await res.text();
     const parsed = Papa.parse(text, { header:true, skipEmptyLines:true });
     const parsedCards = rowsToCards(parsed.data);
-    if(parsedCards.length === 0) throw new Error("empty csv");
+    if(parsedCards.length === 0) throw new Error("CSV parsed but contained no valid rows");
     CARDS = parsedCards;
     startApp();
   }catch(e){
-    // Fetch only works when this file is served over http(s) - e.g. GitHub Pages
-    // or a local dev server. Opened directly via file://, browsers block it, so
-    // fall back to letting the person pick the CSV by hand.
-    showCsvGate();
+    showCsvError(e.message);
   }
 }
 
-function showCsvGate(message){
+function showCsvError(detail){
   document.getElementById('pageContent').innerHTML = `
     <div class="csv-gate">
       <div class="eyebrow">Load Player Data</div>
-      <div class="page-title">SELECT YOUR CSV</div>
-      <div class="page-sub">${message || `Couldn't automatically load <b>${CSV_FILENAME}</b> from this folder. This works out of the box when the page is hosted on a server (e.g. GitHub Pages) sitting next to the CSV file - opened straight from disk, the browser blocks that fetch. Select the file below instead.`}</div>
-      <label class="btn" style="margin-top:18px; display:inline-block; cursor:pointer;">
-        CHOOSE CSV FILE
-        <input type="file" id="csvInput" accept=".csv" style="display:none;">
-      </label>
+      <div class="page-title">COULDN'T LOAD CSV</div>
+      <div class="page-sub">
+        Couldn't automatically load <b>${CSV_FILENAME}</b> from this folder${detail ? ` (${detail})` : ''}.
+        Make sure the file is named exactly <b>${CSV_FILENAME}</b>, sits in the same folder as this page,
+        and has been pushed to your host. This only works when the page is served over http(s)
+        (e.g. GitHub Pages) — opened directly from disk via file://, browsers block the request.
+      </div>
+      <button class="btn" style="margin-top:18px;" id="retryBtn">RETRY</button>
     </div>
   `;
-  document.getElementById('csvInput').addEventListener('change', (e)=>{
-    const file = e.target.files[0];
-    if(!file) return;
-    const reader = new FileReader();
-    reader.onload = (evt)=>{
-      const parsed = Papa.parse(evt.target.result, { header:true, skipEmptyLines:true });
-      const parsedCards = rowsToCards(parsed.data);
-      if(parsedCards.length === 0){
-        showCsvGate("That file didn't look like the expected format (needs Player, Team, Tournament, Role, attRTG, defRTG, roleRTG columns). Try again.");
-        return;
-      }
-      CARDS = parsedCards;
-      startApp();
-    };
-    reader.readAsText(file);
-  });
+  document.getElementById('retryBtn').addEventListener('click', initApp);
 }
 
 function startApp(){
@@ -975,7 +959,7 @@ function startApp(){
 // console for the actual error).
 window.addEventListener('error', (e)=>{
   if(!dataReady){
-    showCsvGate(`Something went wrong while starting the app (${e.message || 'see browser console for details'}). You can still load your CSV manually below.`);
+    showCsvError(e.message || 'see browser console for details');
   }
 });
 
@@ -983,7 +967,7 @@ try{
   document.getElementById('overlayClose')?.addEventListener('click', closeOverlay);
   initApp();
 }catch(e){
-  showCsvGate(`Something went wrong while starting the app (${e.message || 'see browser console for details'}). You can still load your CSV manually below.`);
+  showCsvError(e.message || 'see browser console for details');
 }
 </script>
 </body>
