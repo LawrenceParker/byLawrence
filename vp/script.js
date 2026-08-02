@@ -79,13 +79,25 @@ const AVATAR_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" s
 const SILHOUETTE_SRC = "headshots/silhouette.png";
 
 function headshotSlug(player){
-  return player.toLowerCase().replace(/[^a-z0-9]/g,'');
+  return encodeURIComponent(player.trim());
 }
+
 function avatarBlock(player){
   const src = `headshots/${headshotSlug(player)}.png`;
-  return `<img src="${src}" alt="${player}" loading="lazy"
-      onerror="this.onerror=function(){ this.style.display='none'; this.nextElementSibling.style.display='flex'; }; this.src='${SILHOUETTE_SRC}';">
-    <span class="avatar-fallback">${AVATAR_SVG}</span>`;
+
+  return `
+    <img
+      src="${src}"
+      alt="${player}"
+      loading="lazy"
+      onerror="this.onerror=function(){
+        this.style.display='none';
+        this.nextElementSibling.style.display='flex';
+      };
+      this.src='${SILHOUETTE_SRC}';"
+    >
+    <span class="avatar-fallback">${AVATAR_SVG}</span>
+  `;
 }
 
 /* =========================================================
