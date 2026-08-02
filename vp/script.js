@@ -60,6 +60,72 @@ const TIERS = {
 };
 const TIER_ORDER = ["gold","platinum","diamond","ascendant","immortal","radiant"];
 
+const TEAM_NAMES = {
+  // =========================
+  // AMERICAS
+  // =========================
+  "100T": "100 Thieves",
+  "C9": "Cloud9",
+  "EG": "Evil Geniuses",
+  "FUR": "FURIA",
+  "KRÜ": "KRÜ Esports",
+  "LEV": "LEVIATÁN",
+  "LOUD": "LOUD",
+  "MIBR": "MIBR",
+  "NRG": "NRG",
+  "SEN": "Sentinels",
+  "G2": "G2 Esports",
+  "ENVY": "ENVY",
+
+  // =========================
+  // EMEA
+  // =========================
+  "BBL": "BBL Esports",
+  "FNC": "FNATIC",
+  "FUT": "FUT Esports",
+  "M8": "Gentle Mates",
+  "GX": "GIANTX",
+  "KC": "Karmine Corp",
+  "NAVI": "Natus Vincere",
+  "TH": "Team Heretics",
+  "TL": "Team Liquid",
+  "VIT": "Team Vitality",
+  "EF": "Eternal Fire",
+  "PCF": "PCIFIC Esports",
+
+  // =========================
+  // PACIFIC
+  // =========================
+  "DFM": "DetonatioN FocusMe",
+  "KRX": "KIWOOM DRX",
+  "FS": "FULL SENSE",
+  "GEN": "Gen.G",
+  "GE": "Global Esports",
+  "PRX": "Paper Rex",
+  "RRQ": "Rex Regum Qeon",
+  "T1": "T1",
+  "TS": "Team Secret",
+  "ZETA": "ZETA DIVISION",
+  "VL": "VARREL",
+  "NS": "Nongshim RedForce",
+
+  // =========================
+  // CHINA
+  // =========================
+  "AG": "All Gamers",
+  "BLG": "Bilibili Gaming",
+  "EDG": "EDward Gaming",
+  "FPX": "FunPlus Phoenix",
+  "NOVA": "Nova Esports",
+  "TEC": "Titan Esports Club",
+  "TE": "Trace Esports",
+  "TYLOO": "TYLOO",
+  "WOL": "Wolves Esports",
+  "XLG": "Xi Lai Gaming",
+  "DRG": "Dragon Ranger Gaming",
+  "JDG": "JDG Esports"
+};
+
 /* =========================================================
    AVATAR / HEADSHOT HANDLING
    ========================================================= */
@@ -167,7 +233,7 @@ function render(){
       return `
         <div class="team-block">
           <div class="team-header">
-            <div class="team-name">${team}</div>            
+            <div class="team-name">${TEAM_NAMES[team] || team}</div>            
           </div>
           ${tourGroupsHtml}
         </div>`;
