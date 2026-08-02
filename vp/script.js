@@ -119,7 +119,7 @@ const TEAM_NAMES = {
   "NOVA": "Nova Esports",
   "TEC": "Titan Esports Club",
   "TE": "Trace Esports",
-  "TYLOO": "TYLOO",
+  "TYL": "TYLOO",
   "WOL": "Wolves Esports",
   "XLG": "Xi Lai Gaming",
   "DRG": "Dragon Ranger Gaming",
