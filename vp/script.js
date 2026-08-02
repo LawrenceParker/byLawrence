@@ -279,8 +279,8 @@ function render(){
     b.classList.toggle('active', b.dataset.page===currentPage);
   });
   const root = document.getElementById('pageContent');
-  if(currentPage==='packs') root.innerHTML = renderPacks();
   if(currentPage==='vault') root.innerHTML = renderVault();
+  if(currentPage==='packs') root.innerHTML = renderPacks();
   if(currentPage==='collection') root.innerHTML = renderCollection();
   if(currentPage==='inventory') root.innerHTML = renderInventory();
   attachPageHandlers();
