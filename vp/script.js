@@ -69,32 +69,22 @@ const TIER_ORDER = ["gold","platinum","diamond","ascendant","immortal","radiant"
 /* =========================================================
    AVATAR / HEADSHOT HANDLING
    ========================================================= */
+
 const AVATAR_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg>`;
 
-// Headshot PNGs are optional — drop files into a `headshots/` folder next to this
-// HTML file, named by slugified player name (e.g. "TenZ" -> headshots/tenz.png).
-// If a player-specific file isn't found, this falls back to a single shared
-// silhouette image (headshots/silhouette.png), and if even that's missing,
-// falls back to the built-in placeholder icon.
-const SILHOUETTE_SRC = "headshots/silhouette.png";
-
-function headshotSlug(player){
-  return encodeURIComponent(player.trim());
-}
+const HEADSHOT_DIR = "./headshots/";
+const SILHOUETTE_SRC = `${HEADSHOT_DIR}silhouette.png`;
 
 function avatarBlock(player){
-  const src = `headshots/${headshotSlug(player)}.png`;
+  const filename = encodeURIComponent(player.trim());
+  const src = `${HEADSHOT_DIR}${filename}.png`;
 
   return `
     <img
       src="${src}"
       alt="${player}"
       loading="lazy"
-      onerror="this.onerror=function(){
-        this.style.display='none';
-        this.nextElementSibling.style.display='flex';
-      };
-      this.src='${SILHOUETTE_SRC}';"
+      onerror="console.warn('Missing headshot:', this.src); this.onerror=null; this.src='${SILHOUETTE_SRC}';"
     >
     <span class="avatar-fallback">${AVATAR_SVG}</span>
   `;
