@@ -6,11 +6,12 @@ let dataReady = false;
 
 // Tier is derived from roleRTG, not stored in the CSV.
 function tierFromRtg(r){
-  if(r>=90) return 'radiant';
-  if(r>=80) return 'diamond';
-  if(r>=70) return 'gold';
-  if(r>=60) return 'silver';
-  return 'bronze';
+  if(r>=95) return 'radiant';
+  if(r>=90) return 'immortal';
+  if(r>=80) return 'ascendant'; 
+  if(r>=70) return 'diamond';
+  if(r>=60) return 'platinum';   
+  return 'gold';
 }
 
 // Card id is built from its own fields (not row position) so IDs stay stable
@@ -39,23 +40,68 @@ function rowsToCards(rows){
 }
 
 const TIERS = {
-  bronze:  { label:"Bronze",  color:"#c9915c", glow:"#c98b52", weight:0.42,
-             grad:"linear-gradient(120deg, #6e4423, #c98b52, #6e4423, #c98b52)",
-             cardA:"#3d2313", cardB:"#a9673a" },
-  silver:  { label:"Silver",  color:"#c7d0d8", glow:"#e3e9ef", weight:0.32,
-             grad:"linear-gradient(120deg, #7c8791, #e3e9ef, #7c8791, #e3e9ef)",
-             cardA:"#3c4249", cardB:"#c3ccd3" },
-  gold:    { label:"Gold",    color:"#f0b429", glow:"#ffd76a", weight:0.16,
-             grad:"linear-gradient(120deg, #b9791a, #ffd76a, #b9791a, #ffd76a)",
-             cardA:"#4a3405", cardB:"#e8ab1f" },
-  diamond: { label:"Diamond", color:"#c58aff", glow:"#eddcff", weight:0.075,
-             grad:"linear-gradient(120deg, #5b1f8a, #eddcff, #5b1f8a, #eddcff)",
-             cardA:"#2c0f47", cardB:"#9b4fe0" },
-  radiant: { label:"Radiant", color:"#f2e9c9", glow:"#fff6d9", weight:0.025,
-             grad:"linear-gradient(120deg, #ffd76a, #ffffff, #f2e9c9, #ffffff, #ffd76a)",
-             cardA:"#3a3220", cardB:"#f0dfa0" }
+  gold: { 
+    label:"Gold", 
+    color:"#edcc57", 
+    glow:"#fff0a3", 
+    weight:0.16,
+    grad:"linear-gradient(120deg, #9e7a24, #edcc57, #fff0a3, #edcc57, #9e7a24)",
+    cardA:"#403207", 
+    cardB:"#d6ad3d" 
+  },
+   
+  platinum: { 
+    label:"Platinum", 
+    color:"#3ca5b7", 
+    glow:"#a8edf5", 
+    weight:0.075,
+    grad:"linear-gradient(120deg, #176070, #3ca5b7, #b9f5fa, #3ca5b7, #176070)",
+    cardA:"#0d343b", 
+    cardB:"#2f91a3" 
+  },
+   
+  diamond: { 
+    label:"Diamond", 
+    color:"#a36ef1", 
+    glow:"#e2ccff", 
+    weight:0.075,
+    grad:"linear-gradient(120deg, #542a9b, #a36ef1, #e2ccff, #a36ef1, #542a9b)",
+    cardA:"#29154f", 
+    cardB:"#8050c9" 
+  },
+
+  ascendant: { 
+    label:"Ascendant", 
+    color:"#21a163", 
+    glow:"#8df0bb", 
+    weight:0.075,
+    grad:"linear-gradient(120deg, #12613c, #21a163, #9af5c3, #21a163, #12613c)",
+    cardA:"#0b3824", 
+    cardB:"#19834f" 
+  },
+   
+  immortal: { 
+    label:"Immortal", 
+    color:"#8d1f44", 
+    glow:"#e56a91", 
+    weight:0.075,
+    grad:"linear-gradient(120deg, #4d1029, #8d1f44, #f08aaa, #8d1f44, #4d1029)",
+    cardA:"#310b1b", 
+    cardB:"#741938" 
+  },
+  
+  radiant: { 
+    label:"Radiant", 
+    color:"#f6efba", 
+    glow:"#ffffff", 
+    weight:0.025,
+    grad:"linear-gradient(120deg, #d4c66f, #f6efba, #ffffff, #f6efba, #d4c66f)",
+    cardA:"#3a3520", 
+    cardB:"#e5d98c" 
+  }
 };
-const TIER_ORDER = ["bronze","silver","gold","diamond","radiant"];
+
+const TIER_ORDER = ["gold","platinum","diamond","ascendant", "immortal", "radiant"];
 
 let RTG_MIN = 56, RTG_MAX = 96; // sane defaults, recalculated once CSV loads
 function computeRtgRange(){
