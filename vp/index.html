@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Valorant Championship Cards</title>
+<title>VCT VAULT — Player Cards</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.4.1/papaparse.min.js"></script>
 <link rel="stylesheet" href="styles.css">
@@ -12,21 +12,8 @@
 <div class="app">
   <div class="topbar">
     <div class="brand">
-      <div class="brand-mark">VCC</div>
-      <div class="brand-name">VALORANT CHAMPIOONSHIP <span>CARDS</span></div>
-    </div>
-    <div class="nav" id="nav">
-      <button data-page="vault" class="active">VAULT</button>
-      <button data-page="packs">PACKS</button>
-      <button data-page="collection">MY COLLEECTION</button>
-      <button data-page="inventory">INVENTORY</button>
-    </div>
-    <div class="wallet">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7h18M3 7v10a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V7M3 7l2-4h14l2 4M8 12h.01M16 12h.01"/></svg>
-      <div>
-        <div class="wallet-amt" id="creditsDisplay">0</div>
-        <div class="wallet-label">Credits</div>
-      </div>
+      <div class="brand-mark">V</div>
+      <div class="brand-name">VCT <span>VAULT</span></div>
     </div>
   </div>
 
@@ -38,13 +25,9 @@
   </div>
 </div>
 
-<div id="toast"></div>
-
-<div class="flash" id="flash"></div>
-
-<div id="overlay">
-  <button class="overlay-close" id="overlayClose">✕ CLOSE</button>
-  <div class="pack-stage" id="packStage"></div>
+<div id="cardModal">
+  <button class="modal-close" id="modalClose">✕ CLOSE</button>
+  <div class="modal-stage" id="modalStage"></div>
 </div>
 
 <script src="script.js"></script>
