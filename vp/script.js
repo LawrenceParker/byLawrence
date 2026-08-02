@@ -65,14 +65,6 @@ const TIER_ORDER = ["gold","platinum","diamond","ascendant","immortal","radiant"
    ========================================================= */
 const AVATAR_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg>`;
 
-// Headshot PNGs are optional — drop files into a `headshots/` folder next to this
-// HTML file. Since hosts like GitHub Pages are case-sensitive, each player is
-// looked up two ways before giving up: a lowercased slug (e.g. "TenZ" ->
-// headshots/tenz.png) and the exact in-game name as typed in the CSV (e.g.
-// headshots/TenZ.png) - whichever one you actually saved the file as will be
-// found. If neither exists, this falls back to a single shared silhouette
-// image (headshots/silhouette.png), and if even that's missing, falls back
-// to the built-in placeholder icon.
 const SILHOUETTE_SRC = "headshots/silhouette.png";
 
 function headshotSlug(player){
@@ -190,8 +182,8 @@ function render(){
   document.getElementById('pageContent').innerHTML = `
     <div class="page-head">
       <div class="eyebrow">Player Cards</div>
-      <div class="page-title">THE VAULT</div>
-      <div class="page-sub">Every player card across each tournament — grouped by team, or ranked by rating.</div>
+      <div class="page-title">THE CARDS</div>
+      <div class="page-sub">Every player card across each tournament grouped by team, or ranked by rating.</div>
     </div>
     <div class="controlbar">
       <select class="select-filter" id="tourFilter">${tourOptions}</select>
@@ -239,9 +231,7 @@ function showCsvError(detail){
       <div class="page-title">COULDN'T LOAD CSV</div>
       <div class="page-sub">
         Couldn't automatically load <b>${CSV_FILENAME}</b> from this folder${detail ? ` (${detail})` : ''}.
-        Make sure the file is named exactly <b>${CSV_FILENAME}</b>, sits in the same folder as this page,
-        and has been pushed to your host. This only works when the page is served over http(s)
-        (e.g. GitHub Pages) — opened directly from disk via file://, browsers block the request.
+        Make sure the file is named exactly <b>${CSV_FILENAME}</b>, sits in the same folder as this page
       </div>
       <button class="btn" style="margin-top:18px;" id="retryBtn">RETRY</button>
     </div>
