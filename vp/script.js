@@ -167,8 +167,7 @@ function render(){
       return `
         <div class="team-block">
           <div class="team-header">
-            <div class="team-name">${team}</div>
-            <div class="team-count">${teamCards.length} Player${teamCards.length>1?'s':''}</div>
+            <div class="team-name">${team}</div>            
           </div>
           ${tourGroupsHtml}
         </div>`;
