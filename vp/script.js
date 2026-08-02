@@ -10,7 +10,7 @@ function tierFromRtg(r){
   if(r>=90) return 'immortal';
   if(r>=85) return 'ascendant'; 
   if(r>=75) return 'diamond';
-  if(r>=60) return 'platinum';   
+  if(r>=65) return 'platinum';   
   return 'gold';
 }
 
