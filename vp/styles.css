@@ -27,6 +27,11 @@ body{
   overflow-x:hidden;
 }
 
+footer {
+  text-align: center;
+  collor: var(--ink-dim);
+}
+
 ::selection{ background:var(--red); color:#fff; }
 
 /* ---------- layout shell ---------- */
@@ -282,7 +287,7 @@ body{
   position:fixed; inset:0; background:#fff; opacity:0; z-index:1001; pointer-events:none;
 }
 .flash.go{ animation:flashAnim .4s ease; }
-@keyframes flashAnim{ 0%{opacity:0;} 12%{opacity:1;} 100%{opacity:0;} }
+@keyframes flashAnim{ 0%{opacity:0;} 12%{opacity:0.5;} 100%{opacity:0;} }
 
 .reveal-row{ display:flex; gap:22px; flex-wrap:wrap; justify-content:center; }
 .reveal-card{
