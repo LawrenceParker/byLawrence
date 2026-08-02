@@ -39,55 +39,77 @@ function rowsToCards(rows){
 }
 
 const TIERS = {
-radiant:  { label:"Radiant",  color:"#f5f1d6", glow:"#f5f1d6",
-            grad:"linear-gradient(120deg, #8c8a7a, #f5f1d6, #8c8a7a, #f5f1d6)",
-            cardA:"#6b6a5f", cardB:"#d4cfb3" },
-
-immortal: { label:"Immortal", color:"#743465", glow:"#743465",
-            grad:"linear-gradient(120deg, #3d1b34, #743465, #3d1b34, #743465)",
-            cardA:"#2a1224", cardB:"#5c2a50" },
-
-ascendant:{ label:"Ascendant", color:"#1ca85f", glow:"#1ca85f",
-            grad:"linear-gradient(120deg, #0e5c35, #1ca85f, #0e5c35, #1ca85f)",
-            cardA:"#083a22", cardB:"#15804a" },
-
-diamond:  { label:"Diamond",  color:"#a771ed", glow:"#a771ed",
-            grad:"linear-gradient(120deg, #5c3a86, #a771ed, #5c3a86, #a771ed)",
-            cardA:"#3e275c", cardB:"#8257c0" },
-
-platinum: { label:"Platinum", color:"#36a0b3", glow:"#36a0b3",
-            grad:"linear-gradient(120deg, #1c5560, #36a0b3, #1c5560, #36a0b3)",
-            cardA:"#12363d", cardB:"#2a7f8e" },
-
-gold:     { label:"Gold",     color:"#e8c046", glow:"#e8c046",
-            grad:"linear-gradient(120deg, #7a6724, #e8c046, #7a6724, #e8c046)",
-            cardA:"#4d3f17", cardB:"#b89a38" }
-
+  radiant:  { label:"Radiant",  color:"#f5f1d6", glow:"#f5f1d6",
+              grad:"linear-gradient(120deg, #8c8a7a, #f5f1d6, #8c8a7a, #f5f1d6)",
+              cardA:"#6b6a5f", cardB:"#d4cfb3" },
+  immortal: { label:"Immortal", color:"#743465", glow:"#743465",
+              grad:"linear-gradient(120deg, #3d1b34, #743465, #3d1b34, #743465)",
+              cardA:"#2a1224", cardB:"#5c2a50" },
+  ascendant:{ label:"Ascendant", color:"#1ca85f", glow:"#1ca85f",
+              grad:"linear-gradient(120deg, #0e5c35, #1ca85f, #0e5c35, #1ca85f)",
+              cardA:"#083a22", cardB:"#15804a" },
+  diamond:  { label:"Diamond",  color:"#a771ed", glow:"#a771ed",
+              grad:"linear-gradient(120deg, #5c3a86, #a771ed, #5c3a86, #a771ed)",
+              cardA:"#3e275c", cardB:"#8257c0" },
+  platinum: { label:"Platinum", color:"#36a0b3", glow:"#36a0b3",
+              grad:"linear-gradient(120deg, #1c5560, #36a0b3, #1c5560, #36a0b3)",
+              cardA:"#12363d", cardB:"#2a7f8e" },
+  gold:     { label:"Gold",     color:"#e8c046", glow:"#e8c046",
+              grad:"linear-gradient(120deg, #7a6724, #e8c046, #7a6724, #e8c046)",
+              cardA:"#4d3f17", cardB:"#b89a38" }
 };
 const TIER_ORDER = ["gold","platinum","diamond","ascendant","immortal","radiant"];
 
 /* =========================================================
    AVATAR / HEADSHOT HANDLING
    ========================================================= */
-
 const AVATAR_SVG = `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="8" r="3.4"/><path d="M4.5 20c1.2-4 4-6 7.5-6s6.3 2 7.5 6"/></svg>`;
 
-const HEADSHOT_DIR = "./headshots/";
-const SILHOUETTE_SRC = `${HEADSHOT_DIR}silhouette.png`;
+// Headshot PNGs are optional — drop files into a `headshots/` folder next to this
+// HTML file. Since hosts like GitHub Pages are case-sensitive, each player is
+// looked up two ways before giving up: a lowercased slug (e.g. "TenZ" ->
+// headshots/tenz.png) and the exact in-game name as typed in the CSV (e.g.
+// headshots/TenZ.png) - whichever one you actually saved the file as will be
+// found. If neither exists, this falls back to a single shared silhouette
+// image (headshots/silhouette.png), and if even that's missing, falls back
+// to the built-in placeholder icon.
+const SILHOUETTE_SRC = "headshots/silhouette.png";
 
+function headshotSlug(player){
+  return player.toLowerCase().replace(/[^a-z0-9]/g,'');
+}
+// strips characters that aren't valid in filenames, but keeps the original case
+function headshotExactName(player){
+  return player.replace(/[\/\\:*?"<>|]/g,'').trim();
+}
+function avatarCandidates(player){
+  const lower = `headshots/${headshotSlug(player)}.png`;
+  const exact = `headshots/${headshotExactName(player)}.png`;
+  const list = [lower];
+  if(exact !== lower) list.push(exact); // don't bother retrying an identical URL
+  list.push(SILHOUETTE_SRC);
+  return list;
+}
+function escapeAttr(str){
+  return String(str).replace(/&/g,'&amp;').replace(/"/g,'&quot;');
+}
 function avatarBlock(player){
-  const filename = encodeURIComponent(player.trim());
-  const src = `${HEADSHOT_DIR}${filename}.png`;
-
-  return `
-    <img
-      src="${src}"
-      alt="${player}"
-      loading="lazy"
-      onerror="console.warn('Missing headshot:', this.src); this.onerror=null; this.src='${SILHOUETTE_SRC}';"
-    >
-    <span class="avatar-fallback">${AVATAR_SVG}</span>
-  `;
+  const candidates = avatarCandidates(player);
+  return `<img src="${candidates[0]}" alt="${escapeAttr(player)}" loading="lazy"
+      data-player="${escapeAttr(player)}" data-attempt="0" onerror="advanceAvatarSrc(this)">
+    <span class="avatar-fallback">${AVATAR_SVG}</span>`;
+}
+function advanceAvatarSrc(img){
+  const candidates = avatarCandidates(img.dataset.player);
+  const attempt = parseInt(img.dataset.attempt, 10) + 1;
+  if(attempt < candidates.length){
+    img.dataset.attempt = attempt;
+    img.src = candidates[attempt];
+  } else {
+    img.onerror = null;
+    img.style.display = 'none';
+    img.nextElementSibling.style.display = 'flex';
+  }
 }
 
 /* =========================================================
