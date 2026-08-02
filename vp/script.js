@@ -6,11 +6,12 @@ let dataReady = false;
 
 // Tier is derived from roleRTG, not stored in the CSV.
 function tierFromRtg(r){
-  if(r>=90) return 'radiant';
-  if(r>=80) return 'diamond';
-  if(r>=70) return 'gold';
-  if(r>=60) return 'silver';
-  return 'bronze';
+  if(r>=95) return 'radiant';
+  if(r>=90) return 'immortal';
+  if(r>=85) return 'ascendant';
+  if(r>=75) return 'diamond';
+  if(r>=65) return 'platinum';
+  return 'gold';
 }
 
 // Card id is built from its own fields (not row position) so IDs stay stable
@@ -38,23 +39,32 @@ function rowsToCards(rows){
 }
 
 const TIERS = {
-  bronze:  { label:"Bronze",  color:"#c9915c", glow:"#c98b52",
-             grad:"linear-gradient(120deg, #6e4423, #c98b52, #6e4423, #c98b52)",
-             cardA:"#3d2313", cardB:"#a9673a" },
-  silver:  { label:"Silver",  color:"#c7d0d8", glow:"#e3e9ef",
-             grad:"linear-gradient(120deg, #7c8791, #e3e9ef, #7c8791, #e3e9ef)",
-             cardA:"#3c4249", cardB:"#c3ccd3" },
-  gold:    { label:"Gold",    color:"#f0b429", glow:"#ffd76a",
-             grad:"linear-gradient(120deg, #b9791a, #ffd76a, #b9791a, #ffd76a)",
-             cardA:"#4a3405", cardB:"#e8ab1f" },
-  diamond: { label:"Diamond", color:"#c58aff", glow:"#eddcff",
-             grad:"linear-gradient(120deg, #5b1f8a, #eddcff, #5b1f8a, #eddcff)",
-             cardA:"#2c0f47", cardB:"#9b4fe0" },
-  radiant: { label:"Radiant", color:"#f2e9c9", glow:"#fff6d9",
-             grad:"linear-gradient(120deg, #ffd76a, #ffffff, #f2e9c9, #ffffff, #ffd76a)",
-             cardA:"#3a3220", cardB:"#f0dfa0" }
+radiant:  { label:"Radiant",  color:"#f5f1d6", glow:"#f5f1d6",
+            grad:"linear-gradient(120deg, #8c8a7a, #f5f1d6, #8c8a7a, #f5f1d6)",
+            cardA:"#6b6a5f", cardB:"#d4cfb3" },
+
+immortal: { label:"Immortal", color:"#743465", glow:"#743465",
+            grad:"linear-gradient(120deg, #3d1b34, #743465, #3d1b34, #743465)",
+            cardA:"#2a1224", cardB:"#5c2a50" },
+
+ascendant:{ label:"Ascendant", color:"#1ca85f", glow:"#1ca85f",
+            grad:"linear-gradient(120deg, #0e5c35, #1ca85f, #0e5c35, #1ca85f)",
+            cardA:"#083a22", cardB:"#15804a" },
+
+diamond:  { label:"Diamond",  color:"#a771ed", glow:"#a771ed",
+            grad:"linear-gradient(120deg, #5c3a86, #a771ed, #5c3a86, #a771ed)",
+            cardA:"#3e275c", cardB:"#8257c0" },
+
+platinum: { label:"Platinum", color:"#36a0b3", glow:"#36a0b3",
+            grad:"linear-gradient(120deg, #1c5560, #36a0b3, #1c5560, #36a0b3)",
+            cardA:"#12363d", cardB:"#2a7f8e" },
+
+gold:     { label:"Gold",     color:"#e8c046", glow:"#e8c046",
+            grad:"linear-gradient(120deg, #7a6724, #e8c046, #7a6724, #e8c046)",
+            cardA:"#4d3f17", cardB:"#b89a38" }
+
 };
-const TIER_ORDER = ["bronze","silver","gold","diamond","radiant"];
+const TIER_ORDER = ["gold","platinum","diamond","ascendant","immortal","radiant"];
 
 /* =========================================================
    AVATAR / HEADSHOT HANDLING
