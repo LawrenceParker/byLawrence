@@ -88,11 +88,18 @@ body{
 /* ---------- team blocks ---------- */
 .team-block{ margin-bottom:44px; }
 .team-header{
-  display:flex; align-items:baseline; gap:12px; margin-bottom:18px;
+  display:flex; align-items:baseline; gap:12px; margin-bottom:20px;
   padding-bottom:10px; border-bottom:2px solid var(--line);
 }
 .team-name{ font-family:'Bebas Neue'; font-size:28px; letter-spacing:1.5px; }
 .team-count{ font-size:12px; color:var(--ink-dim); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+
+.tour-group{ margin-bottom:24px; }
+.tour-group:last-child{ margin-bottom:0; }
+.tour-label{
+  font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--ink-dim); margin-bottom:14px;
+}
 
 /* ---------- card component (Sorare-inspired) ---------- */
 .card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:26px; }
@@ -101,12 +108,10 @@ body{
 
 .pcard{
   position:relative; aspect-ratio:3/4.3; border-radius:18px;
-  padding:3px; background:var(--line); cursor:pointer;
+  padding:3px; background:var(--line);
   background-size:220% 220%; animation:borderFlow 7s linear infinite;
   box-shadow:0 8px 20px -10px rgba(0,0,0,.6);
-  transition:transform .15s;
 }
-.pcard:hover{ transform:translateY(-4px); }
 
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:16px;
@@ -152,46 +157,6 @@ body{
 
 .csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
 .csv-gate .page-sub{ margin:0 auto; }
-
-/* ---------- card modal (enlarge + flip) ---------- */
-#cardModal{
-  position:fixed; inset:0; background:rgba(4,7,9,.94); backdrop-filter:blur(6px);
-  z-index:1000; display:none; align-items:center; justify-content:center; flex-direction:column;
-  overflow-y:auto; padding:40px 20px;
-}
-#cardModal.show{ display:flex; }
-.modal-close{
-  position:absolute; top:22px; right:26px; background:none; border:none; color:var(--ink-dim);
-  font-family:'Bebas Neue'; font-size:15px; letter-spacing:2px; cursor:pointer; z-index:5;
-}
-.modal-close:hover{ color:var(--red); }
-
-.modal-stage{ display:flex; flex-direction:column; align-items:center; gap:26px; }
-
-.modal-flip-outer{ width:320px; max-width:80vw; aspect-ratio:3/4.3; perspective:1800px; }
-.modal-flip-inner{
-  position:relative; width:100%; height:100%;
-  transform-style:preserve-3d; transition:transform .6s cubic-bezier(.2,.8,.2,1);
-}
-.modal-flip-inner.flipped{ transform:rotateY(180deg); }
-.modal-face{ position:absolute; inset:0; backface-visibility:hidden; }
-.modal-face.back{ transform:rotateY(180deg); }
-.modal-face .pcard{ width:100%; height:100%; cursor:default; animation:borderFlow 7s linear infinite; }
-.modal-face .pcard:hover{ transform:none; }
-
-.pcard-backpanel{ padding:20px 18px; text-align:left; justify-content:flex-start; }
-.pcard-back-header{ text-align:center; padding-bottom:14px; border-bottom:1px solid var(--line); margin-bottom:14px; }
-.pcard-back-header .pcard-name{ font-size:26px; }
-.pcard-back-header .pcard-team{ font-size:13px; margin-top:4px; }
-.stat-list{ display:flex; flex-direction:column; gap:10px; flex:1; overflow-y:auto; }
-.stat-line{
-  display:flex; justify-content:space-between; align-items:center;
-  padding:9px 12px; background:rgba(255,255,255,.04); border:1px solid var(--line); border-radius:8px;
-}
-.stat-line-k{ font-size:12.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:var(--ink-dim); }
-.stat-line-v{ font-family:'Bebas Neue'; font-size:20px; color:#fff; }
-
-.modal-actions{ display:flex; gap:14px; }
 
 @media (max-width:600px){
   .page-title{ font-size:32px; }

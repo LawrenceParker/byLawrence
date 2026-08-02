@@ -27,9 +27,7 @@ function rowToCard(r){
     att: Number(r.attRTG),
     def: Number(r.defRTG),
     rtg,
-    tier: tierFromRtg(rtg),
-    raw: r // keep the original row so the card-back can show any stat columns
-           // added to the CSV later, without needing code changes
+    tier: tierFromRtg(rtg)
   };
 }
 
@@ -81,12 +79,12 @@ function avatarBlock(player){
 }
 
 /* =========================================================
-   CARD MARKUP - shared by the gallery grid and the enlarge/flip modal
+   CARD MARKUP
    ========================================================= */
 function cardMarkup(c){
   const t = TIERS[c.tier];
   return `
-    <div class="pcard" data-card-id="${c.id}" style="background:${t.grad}">
+    <div class="pcard" style="background:${t.grad}">
       <div class="pcard-inner">
         <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
           ${avatarBlock(c.player)}
@@ -106,55 +104,16 @@ function cardMarkup(c){
     </div>`;
 }
 
-// Turns a raw CSV column name into a readable label. Known columns get a
-// friendly name; anything added to the CSV later (down the line, more stats)
-// falls back to a generic camelCase-to-Words conversion automatically.
-const KNOWN_STAT_LABELS = { attRTG: "Attack Rating", defRTG: "Defense Rating", roleRTG: "Role Rating" };
-function labelize(key){
-  if(KNOWN_STAT_LABELS[key]) return KNOWN_STAT_LABELS[key];
-  return key
-    .replace(/([a-z])([A-Z])/g, '$1 $2')
-    .replace(/_/g, ' ')
-    .replace(/^./, s=>s.toUpperCase());
-}
-
-// Back of the card - full stat breakdown, built from whatever columns exist
-// in the CSV row beyond the identity fields (Player/Team/Tournament/Role).
-// New stat columns added to the CSV later show up here automatically.
-const IDENTITY_FIELDS = new Set(['player','team','tournament','role']);
-function cardBackMarkup(c){
-  const t = TIERS[c.tier];
-  const extraStats = Object.entries(c.raw || {})
-    .filter(([k, v]) => k.trim() !== '' && !IDENTITY_FIELDS.has(k.toLowerCase()) && v !== '' && v !== undefined);
-
-  const rows = extraStats.map(([k, v]) => `
-    <div class="stat-line">
-      <span class="stat-line-k">${labelize(k)}</span>
-      <span class="stat-line-v">${v}</span>
-    </div>`).join('');
-
-  return `
-    <div class="pcard" style="background:${t.grad}">
-      <div class="pcard-inner pcard-backpanel">
-        <div class="pcard-back-header">
-          <div class="pcard-name">${c.player}</div>
-          <div class="pcard-team">${c.team} · ${c.tournament}</div>
-        </div>
-        <div class="stat-list">${rows || '<div class="stat-line"><span class="stat-line-k">No additional stats yet</span></div>'}</div>
-      </div>
-    </div>`;
-}
-
-function cardById(id){ return CARDS.find(c=>c.id===id); }
-
 /* =========================================================
-   GALLERY - grouped by team (default) or flat sorted by rating
+   GALLERY - grouped by team (default, split further by tournament),
+   or a flat list sorted by rating
    ========================================================= */
 let filters = { tournament: 'all', mode: 'team' };
 
 function render(){
-  const tournaments = ['all', ...new Set(CARDS.map(c=>c.tournament))];
-  const tourOptions = tournaments.map(t=>
+  // preserve first-seen order from the CSV for a stable, sensible tournament order
+  const tournamentOrder = [...new Set(CARDS.map(c=>c.tournament))];
+  const tourOptions = ['all', ...tournamentOrder].map(t=>
     `<option value="${t}" ${filters.tournament===t?'selected':''}>${t==='all'?'All Events':t}</option>`
   ).join('');
 
@@ -167,14 +126,25 @@ function render(){
   } else {
     const teams = [...new Set(list.map(c=>c.team))].sort();
     contentHtml = teams.map(team=>{
-      const teamCards = list.filter(c=>c.team===team).sort((a,b)=> b.rtg - a.rtg);
+      const teamCards = list.filter(c=>c.team===team);
+      const teamTournaments = tournamentOrder.filter(t => teamCards.some(c=>c.tournament===t));
+
+      const tourGroupsHtml = teamTournaments.map(tour=>{
+        const cards = teamCards.filter(c=>c.tournament===tour).sort((a,b)=> b.rtg - a.rtg);
+        return `
+          <div class="tour-group">
+            <div class="tour-label">${tour}</div>
+            <div class="card-grid">${cards.map(cardMarkup).join('')}</div>
+          </div>`;
+      }).join('');
+
       return `
         <div class="team-block">
           <div class="team-header">
             <div class="team-name">${team}</div>
             <div class="team-count">${teamCards.length} Player${teamCards.length>1?'s':''}</div>
           </div>
-          <div class="card-grid">${teamCards.map(cardMarkup).join('')}</div>
+          ${tourGroupsHtml}
         </div>`;
     }).join('');
   }
@@ -206,58 +176,7 @@ function render(){
   document.querySelectorAll('[data-mode]').forEach(btn=>{
     btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; render(); });
   });
-  document.querySelectorAll('.pcard[data-card-id]').forEach(el=>{
-    el.addEventListener('click', ()=> openCardModal(el.dataset.cardId));
-  });
 }
-
-/* =========================================================
-   CARD MODAL - click to enlarge, button to flip and see full stats
-   ========================================================= */
-let modalCard = null;
-let modalFlipped = false;
-
-function openCardModal(cardId){
-  const c = cardById(cardId);
-  if(!c) return;
-  modalCard = c;
-  modalFlipped = false;
-  renderModal();
-  document.getElementById('cardModal').classList.add('show');
-}
-
-function renderModal(){
-  const stage = document.getElementById('modalStage');
-  stage.innerHTML = `
-    <div class="modal-flip-outer">
-      <div class="modal-flip-inner ${modalFlipped ? 'flipped' : ''}" id="modalFlipInner">
-        <div class="modal-face front">${cardMarkup(modalCard)}</div>
-        <div class="modal-face back">${cardBackMarkup(modalCard)}</div>
-      </div>
-    </div>
-    <div class="modal-actions">
-      <button class="btn ghost" id="flipBtn">${modalFlipped ? 'SHOW FRONT' : 'FLIP CARD · FULL STATS'}</button>
-    </div>
-  `;
-  document.getElementById('flipBtn').addEventListener('click', ()=>{
-    modalFlipped = !modalFlipped;
-    renderModal();
-  });
-}
-
-function closeCardModal(){
-  document.getElementById('cardModal').classList.remove('show');
-  modalCard = null;
-}
-
-document.getElementById('cardModal').addEventListener('click', (e)=>{
-  if(e.target.id === 'cardModal') closeCardModal();
-});
-document.addEventListener('keydown', (e)=>{
-  if(e.key === 'Escape' && document.getElementById('cardModal').classList.contains('show')){
-    closeCardModal();
-  }
-});
 
 /* =========================================================
    INIT — load player data from CSV, then start the app
@@ -312,7 +231,6 @@ window.addEventListener('error', (e)=>{
 });
 
 try{
-  document.getElementById('modalClose')?.addEventListener('click', closeCardModal);
   initApp();
 }catch(e){
   showCsvError(e.message || 'see browser console for details');
