@@ -103,7 +103,7 @@ const TIERS = {
 
 const TIER_ORDER = ["gold","platinum","diamond","ascendant", "immortal", "radiant"];
 
-let RTG_MIN = 56, RTG_MAX = 96; // sane defaults, recalculated once CSV loads
+let RTG_MIN = 55, RTG_MAX = 99; // sane defaults, recalculated once CSV loads
 function computeRtgRange(){
   RTG_MIN = Math.min(...CARDS.map(c=>c.rtg));
   RTG_MAX = Math.max(...CARDS.map(c=>c.rtg));
@@ -117,11 +117,11 @@ function sellPrice(rtg){
 const PACKS = [
   {
     id:"stage1", tournament:"Stage 1", name:"STAGE 1 PACK", price:150, count:1,
-    desc:"Early-season form. One card pulled from every roster that fought through the opening stage."
+    desc:"Stage 1..."
   },
   {
-    id:"masters", tournament:"MASTERS LONDON", name:"MASTERS LONDON PACK", price:200, count:1,
-    desc:"The international stage. One card pulled from the higher-stakes Masters London field."
+    id:"masters", tournament:"MASTERS LONDON", name:"MASTERS LONDON PACK", price:150, count:1,
+    desc:"Masters London..."
   }
 ];
 
