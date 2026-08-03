@@ -119,17 +119,24 @@ body{
 .pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
 
 /* ---- rarity border system - each tier is a genuinely different effect,
-   not just a recolor, escalating like Marvel Snap variant borders. The
-   gradients themselves are static (no scrolling stripe - that read as too
-   artificial); instead, higher tiers get a rotating highlight that sweeps
-   around the frame like light reflecting off foil, plus a glow pulse. ---- */
-@keyframes rotateShine{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
-@keyframes borderGlow{ 0%,100%{ box-shadow:0 0 10px -2px var(--glow-c,#fff); } 50%{ box-shadow:0 0 22px 1px var(--glow-c,#fff); } }
+   not just a recolor, escalating like Marvel Snap variant borders. Static
+   gradient base per tier, and starting at Diamond, an animated "border
+   beam" chases around the frame. This is the same trick React libraries
+   like Magic UI's <BorderBeam /> use under the hood - a rotating
+   conic-gradient, clipped with a CSS mask so it only ever renders inside
+   the border's own ring width, never bleeding onto the photo. No React
+   here (this is a plain HTML/CSS/JS site, so pulling in a whole framework
+   for one effect isn't worth it) - but the visual result is the same. */
+@keyframes borderBeamSpin{ to{ transform:rotate(360deg); } }
 
-.pcard::before{
+.pcard::after{
   content:'';
-  position:absolute; inset:0; z-index:0; border-radius:inherit;
-  background:conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,.65) 12deg, transparent 26deg, transparent 360deg);
+  position:absolute; inset:0; z-index:3; border-radius:inherit;
+  padding:9px; /* must match .pcard's own padding - defines the beam's width */
+  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+  mask-composite:exclude;
+  pointer-events:none;
   opacity:0;
 }
 
@@ -142,28 +149,38 @@ body{
 .pcard[data-tier="diamond"]{
   background:linear-gradient(135deg, #5c3a86 0%, #a771ed 35%, #e2caff 50%, #a771ed 65%, #5c3a86 100%);
 }
-.pcard[data-tier="diamond"]::before{ opacity:1; animation:rotateShine 6s linear infinite; }
+.pcard[data-tier="diamond"]::after{
+  opacity:1;
+  background:conic-gradient(from 0deg, transparent 0deg, rgba(226,202,255,.95) 18deg, transparent 42deg, transparent 360deg);
+  animation:borderBeamSpin 6s linear infinite;
+}
 
 .pcard[data-tier="ascendant"]{
-  --glow-c:#1ca85f;
   background:linear-gradient(135deg, #0e5c35 0%, #1ca85f 35%, #8ff5bb 50%, #1ca85f 65%, #0e5c35 100%);
-  animation:borderGlow 2.6s ease-in-out infinite;
 }
-.pcard[data-tier="ascendant"]::before{ opacity:1; animation:rotateShine 4.6s linear infinite; }
+.pcard[data-tier="ascendant"]::after{
+  opacity:1;
+  background:conic-gradient(from 0deg, transparent 0deg, rgba(143,245,187,.95) 18deg, transparent 42deg, transparent 360deg);
+  animation:borderBeamSpin 4.6s linear infinite;
+}
 
 .pcard[data-tier="immortal"]{
-  --glow-c:#a4508c;
   background:linear-gradient(135deg, #3d1b34 0%, #743465 35%, #d68bc2 50%, #743465 65%, #3d1b34 100%);
-  animation:borderGlow 2.1s ease-in-out infinite;
 }
-.pcard[data-tier="immortal"]::before{ opacity:1; animation:rotateShine 3.4s linear infinite; }
+.pcard[data-tier="immortal"]::after{
+  opacity:1;
+  background:conic-gradient(from 0deg, transparent 0deg, rgba(214,139,194,.95) 18deg, transparent 42deg, transparent 360deg);
+  animation:borderBeamSpin 3.4s linear infinite;
+}
 
 .pcard[data-tier="radiant"]{
-  --glow-c:#f5f1d6;
   background:linear-gradient(135deg, #ff8a80 0%, #ffd97a 25%, #f7f6c9 50%, #8ff5d6 75%, #8ab8ff 100%);
-  animation:borderGlow 1.7s ease-in-out infinite;
 }
-.pcard[data-tier="radiant"]::before{ opacity:1; animation:rotateShine 2.4s linear infinite; }
+.pcard[data-tier="radiant"]::after{
+  opacity:1;
+  background:conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,.95) 14deg, transparent 36deg, transparent 360deg);
+  animation:borderBeamSpin 2.2s linear infinite;
+}
 
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:9px;
