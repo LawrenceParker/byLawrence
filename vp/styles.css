@@ -101,11 +101,12 @@ body{
   color:var(--ink-dim); margin-bottom:14px;
 }
 
-/* ---------- card component ---------- */
-.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:26px; }
+/* ---------- card component (classic trading card) ---------- */
+.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:26px; }
 
 .pcard{
-  position:relative; aspect-ratio:3/5;
+  position:relative; aspect-ratio:5/7; border-radius:14px;
+  padding:9px; /* this is the visible card border thickness */
   --foil-opacity: 0;
   --foil-shift: 50% 50%;
   transform-style:preserve-3d;
@@ -114,12 +115,50 @@ body{
 
 /* glare clipping to match the card shape - VanillaTilt injects
    .js-tilt-glare as a direct child of .pcard */
-.pcard .js-tilt-glare{ overflow:hidden; }
+.pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
 .pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
 
+/* ---- rarity border system - each tier is a genuinely different effect,
+   not just a recolor, escalating like Marvel Snap variant borders:
+   Gold = flat matte, Platinum = brushed metal, Diamond = shimmering
+   gradient, Ascendant = shimmer + glow, Immortal = faster shimmer + strong
+   glow, Radiant = full animated holo rainbow. ---- */
+@keyframes borderShimmer{ 0%{background-position:0% 50%;} 100%{background-position:200% 50%;} }
+@keyframes borderGlow{ 0%,100%{ box-shadow:0 0 10px -2px var(--glow-c,#fff); } 50%{ box-shadow:0 0 22px 1px var(--glow-c,#fff); } }
+
+.pcard[data-tier="gold"]{
+  background:#c79a3c;
+}
+.pcard[data-tier="platinum"]{
+  background:linear-gradient(135deg, #1c5560 0%, #36a0b3 35%, #9fe4ee 50%, #36a0b3 65%, #1c5560 100%);
+}
+.pcard[data-tier="diamond"]{
+  background:linear-gradient(120deg, #5c3a86, #a771ed, #e2caff, #a771ed, #5c3a86);
+  background-size:220% 220%;
+  animation:borderShimmer 4.5s linear infinite;
+}
+.pcard[data-tier="ascendant"]{
+  --glow-c:#1ca85f;
+  background:linear-gradient(120deg, #0e5c35, #1ca85f, #8ff5bb, #1ca85f, #0e5c35);
+  background-size:220% 220%;
+  animation:borderShimmer 3.4s linear infinite, borderGlow 2.6s ease-in-out infinite;
+}
+.pcard[data-tier="immortal"]{
+  --glow-c:#a4508c;
+  background:linear-gradient(120deg, #3d1b34, #743465, #d68bc2, #743465, #3d1b34);
+  background-size:220% 220%;
+  animation:borderShimmer 2.6s linear infinite, borderGlow 2.1s ease-in-out infinite;
+}
+.pcard[data-tier="radiant"]{
+  --glow-c:#f5f1d6;
+  background:linear-gradient(120deg, #ff8a80, #ffd97a, #f7f6c9, #8ff5d6, #8ab8ff, #d99bff, #ff8a80);
+  background-size:280% 280%;
+  animation:borderShimmer 2.2s linear infinite, borderGlow 1.7s ease-in-out infinite;
+}
+
 .pcard-inner{
-  position:relative; width:100%; height:100%;
-  background:#0c0c0d; overflow:hidden;
+  position:relative; width:100%; height:100%; border-radius:9px;
+  background:#0c0c0d; display:flex; flex-direction:column; overflow:hidden;
 }
 .pcard-inner::before{
   content:'';
@@ -135,57 +174,39 @@ body{
   transition:background-position .3s ease;
 }
 
-.pcard-photo{ position:absolute; inset:0; z-index:1; overflow:hidden; }
+.pcard-photo{ position:relative; flex:1; min-height:0; overflow:hidden; }
 .pcard-photo > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
 .pcard-photo > .avatar-fallback{
   display:none; position:absolute; inset:0; align-items:center; justify-content:center;
 }
 .pcard-photo > .avatar-fallback svg{ width:36%; height:36%; opacity:.6; color:rgba(255,255,255,.85); }
 
-/* the actual in-game frame graphic, laid over the photo. Its own artwork
-   supplies the nameplate bar and rank-badge shapes below - this overlay is
-   purely decorative/structural, so it never captures clicks. */
-.pcard-frame{
-  position:absolute; inset:0; z-index:5; width:100%; height:100%;
-  pointer-events:none; user-select:none;
-}
-
 .pcard-rating{
-  position:absolute; top:12px; left:12px; z-index:6;
-  background:rgba(0,0,0,.55); border-radius:9px; padding:6px 13px 5px;
-  font-family:'Bebas Neue'; font-size:33px; color:#fff; line-height:1;
+  position:absolute; top:10px; left:10px; z-index:6;
+  width:38px; height:38px; border-radius:50%;
+  background:#0c0c0d; border:2.5px solid var(--rating-ring,#fff);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Bebas Neue'; font-size:18px; color:#fff; line-height:1;
+  box-shadow:0 2px 6px rgba(0,0,0,.5);
 }
 .pcard-tourtag{
-  position:absolute; top:12px; right:12px; z-index:6; max-width:62%;
-  background:rgba(0,0,0,.55); border-radius:9px; padding:6px 11px;
-  font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.85);
+  position:absolute; top:12px; right:10px; z-index:6; max-width:56%;
+  background:rgba(0,0,0,.6); border-radius:6px; padding:4px 9px;
+  font-size:10px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.85);
   text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
 }
 
-/* positioned to sit exactly inside the frame's nameplate bar art */
-.pcard-nameplate{
-  position:absolute; z-index:6;
-  top:62.1%; height:6.3%; left:19%; width:62.3%;
-  display:flex; align-items:center; justify-content:center;
+.pcard-plate{
+  padding:10px 12px 12px; text-align:center; position:relative; z-index:2;
+  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.3));
+  border-top:1px solid rgba(255,255,255,.08);
 }
-.pcard-name{
-  font-family:'Bebas Neue'; font-size:22px; letter-spacing:.5px; color:#1c2410;
-  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:100%;
-}
-
-/* positioned within the frame's lower rank-badge zone - real cards put a
-   single rank icon here, we use the space for the rest of the card's info */
-.pcard-hexinfo{
-  position:absolute; z-index:6;
-  top:70.5%; height:26%; left:8%; width:84%;
-  display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:6px;
-  text-align:center; text-shadow:0 1px 4px rgba(0,0,0,.9);
-}
-.pcard-team{ font-size:13px; color:rgba(255,255,255,.75); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
-.pcard-meta{ display:flex; align-items:center; justify-content:center; gap:10px; }
-.tier-pill{ font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
-.role-pill{ font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.75); }
-.pcard-stats{ display:flex; justify-content:center; gap:14px; font-size:13px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.7); }
+.pcard-name{ font-family:'Bebas Neue'; font-size:22px; letter-spacing:.5px; color:#fff; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
+.pcard-team{ font-size:11px; color:rgba(255,255,255,.6); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:1px;}
+.pcard-meta{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:7px; }
+.tier-pill{ font-size:10.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
+.role-pill{ font-size:10.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.6); }
+.pcard-stats{ display:flex; justify-content:center; gap:12px; margin-top:8px; font-size:11.5px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.55); }
 .pcard-stats b{ color:#fff; font-weight:700; }
 
 .empty-state{

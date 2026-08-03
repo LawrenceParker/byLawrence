@@ -122,14 +122,11 @@ function cardMarkup(c){
       <div class="pcard-inner">
         <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
           ${avatarBlock(c.player)}
+          <div class="pcard-rating" style="--rating-ring:${t.color}">${c.rtg}</div>
+          <div class="pcard-tourtag">${c.tournament}</div>
         </div>
-        <img class="pcard-frame" src="assets/card-border.png" alt="" aria-hidden="true">
-        <div class="pcard-rating">${c.rtg}</div>
-        <div class="pcard-tourtag">${c.tournament}</div>
-        <div class="pcard-nameplate">
+        <div class="pcard-plate">
           <div class="pcard-name">${c.player}</div>
-        </div>
-        <div class="pcard-hexinfo">
           <div class="pcard-team">${c.team}</div>
           <div class="pcard-meta">
             <span class="tier-pill" style="color:${t.color}">● ${t.label}</span>
