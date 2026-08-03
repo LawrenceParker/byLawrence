@@ -1,0 +1,203 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap');
+
+:root{
+  --bg: #000000;
+  --bg-deep: #000000;
+  --panel: #0c0c0d;
+  --panel-2: #131315;
+  --line: rgba(255,255,255,.12);
+  --ink: #ffffff;
+  --ink-dim: #8c8c90;
+  --red: #ff4655;
+  --red-dim: #7a2029;
+  --bronze: #9c6b3e;   --bronze-glow:#c98b52;
+  --silver: #aeb7c2;   --silver-glow:#e3e9ef;
+  --gold: #f0b429;     --gold-glow:#ffd76a;
+  --diamond: #c58aff;  --diamond-glow:#eddcff;
+  --radiant: #f2e9c9;  --radiant-glow:#fff6d9;
+}
+
+*{box-sizing:border-box; margin:0; padding:0;}
+
+body{
+  background: radial-gradient(ellipse at 50% -15%, #151516 0%, transparent 55%), #000;
+  color: var(--ink);
+  font-family:'Rajdhani', sans-serif;
+  min-height:100vh;
+  overflow-x:hidden;
+}
+
+::selection{ background:var(--red); color:#fff; }
+
+/* ---------- layout shell ---------- */
+.app{ max-width:1400px; margin:0 auto; padding:0 24px 80px; }
+
+/* ---------- top bar ---------- */
+.topbar{
+  display:flex; align-items:center; justify-content:space-between;
+  padding:20px 0; border-bottom:1px solid var(--line); gap:24px; flex-wrap:wrap;
+}
+.brand{ display:flex; align-items:center; gap:10px; }
+.brand-mark{
+  width:28px; height:28px; background:var(--red);
+  clip-path: polygon(0 0, 100% 0, 100% 70%, 70% 100%, 0 100%);
+  display:flex; align-items:center; justify-content:center;
+  font-family:'Bebas Neue'; color:#000; font-size:16px;
+}
+.brand-name{ font-family:'Bebas Neue'; letter-spacing:2px; font-size:22px; }
+.brand-name span{ color:var(--red); }
+
+/* ---------- headers ---------- */
+.page-head{ margin:36px 0 22px; }
+.eyebrow{ font-size:12px; letter-spacing:4px; color:var(--red); text-transform:uppercase; font-weight:700; }
+.page-title{ font-family:'Bebas Neue'; font-size:42px; letter-spacing:2px; margin-top:4px; }
+.page-sub{ color:var(--ink-dim); font-size:15px; max-width:640px; margin-top:6px; font-weight:600;}
+
+.btn{
+  font-family:'Bebas Neue'; letter-spacing:2px; font-size:15px;
+  background:var(--red); color:#000; border:none; padding:10px 24px; cursor:pointer;
+  transition:filter .15s, transform .15s;
+}
+.btn:hover{ filter:brightness(1.15); transform:translateY(-1px); }
+.btn:disabled{ background:#2c2c2e; color:#6c6c70; cursor:not-allowed; }
+.btn.ghost{ background:transparent; border:1px solid var(--line); color:var(--ink); }
+.btn.ghost:hover{ border-color:var(--red); }
+
+/* ---------- control bar (tournament + view mode) ---------- */
+.controlbar{
+  display:flex; align-items:center; justify-content:space-between; gap:16px;
+  flex-wrap:wrap; margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--line);
+}
+.mode-toggle{ display:flex; gap:8px; }
+.chip{
+  font-size:12.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:8px 18px; border:1px solid var(--line); color:var(--ink-dim); background:var(--panel);
+  cursor:pointer;
+}
+.chip.active{ background:var(--red); color:#000; border-color:var(--red); }
+.select-filter{
+  font-family:'Rajdhani', sans-serif; font-size:12.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:8px 16px; border:1px solid var(--line); color:var(--ink); background:var(--panel);
+  cursor:pointer; appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c8c90' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat; background-position:right 12px center; background-size:14px;
+  padding-right:36px;
+}
+.select-filter:focus{ outline:none; border-color:var(--red); }
+
+/* ---------- team blocks ---------- */
+.team-block{ margin-bottom:44px; }
+.team-header{
+  display:flex; align-items:baseline; gap:12px; margin-bottom:20px;
+  padding-bottom:10px; border-bottom:2px solid var(--line);
+}
+.team-name{ font-family:'Bebas Neue'; font-size:28px; letter-spacing:1.5px; }
+.team-count{ font-size:12px; color:var(--ink-dim); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+
+.tour-group{ margin-bottom:24px; }
+.tour-group:last-child{ margin-bottom:0; }
+.tour-label{
+  font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
+  color:var(--ink-dim); margin-bottom:14px;
+}
+
+/* ---------- card component ---------- */
+.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(240px,1fr)); gap:26px; }
+
+.pcard{
+  position:relative; aspect-ratio:3/5;
+  --foil-opacity: 0;
+  --foil-shift: 50% 50%;
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+
+/* glare clipping to match the card shape - VanillaTilt injects
+   .js-tilt-glare as a direct child of .pcard */
+.pcard .js-tilt-glare{ overflow:hidden; }
+.pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
+
+.pcard-inner{
+  position:relative; width:100%; height:100%;
+  background:#0c0c0d; overflow:hidden;
+}
+.pcard-inner::before{
+  content:'';
+  position:absolute; inset:0; z-index:4; pointer-events:none;
+  background:conic-gradient(from 180deg, #f80e35, #eedf10, #21e985, #0dbde9, #c929f1, #f80e35);
+  background-size:250% 250%;
+  background-position:var(--foil-shift);
+  opacity:var(--foil-opacity);
+  mix-blend-mode:color-dodge;
+  mask-image:repeating-radial-gradient(transparent 0 3px, black 3px 5px);
+  mask-repeat:no-repeat;
+  mask-size:cover;
+  transition:background-position .3s ease;
+}
+
+.pcard-photo{ position:absolute; inset:0; z-index:1; overflow:hidden; }
+.pcard-photo > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
+.pcard-photo > .avatar-fallback{
+  display:none; position:absolute; inset:0; align-items:center; justify-content:center;
+}
+.pcard-photo > .avatar-fallback svg{ width:36%; height:36%; opacity:.6; color:rgba(255,255,255,.85); }
+
+/* the actual in-game frame graphic, laid over the photo. Its own artwork
+   supplies the nameplate bar and rank-badge shapes below - this overlay is
+   purely decorative/structural, so it never captures clicks. */
+.pcard-frame{
+  position:absolute; inset:0; z-index:5; width:100%; height:100%;
+  pointer-events:none; user-select:none;
+}
+
+.pcard-rating{
+  position:absolute; top:12px; left:12px; z-index:6;
+  background:rgba(0,0,0,.55); border-radius:9px; padding:6px 13px 5px;
+  font-family:'Bebas Neue'; font-size:33px; color:#fff; line-height:1;
+}
+.pcard-tourtag{
+  position:absolute; top:12px; right:12px; z-index:6; max-width:62%;
+  background:rgba(0,0,0,.55); border-radius:9px; padding:6px 11px;
+  font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.85);
+  text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
+}
+
+/* positioned to sit exactly inside the frame's nameplate bar art */
+.pcard-nameplate{
+  position:absolute; z-index:6;
+  top:62.1%; height:6.3%; left:19%; width:62.3%;
+  display:flex; align-items:center; justify-content:center;
+}
+.pcard-name{
+  font-family:'Bebas Neue'; font-size:22px; letter-spacing:.5px; color:#1c2410;
+  overflow:hidden; text-overflow:ellipsis; white-space:nowrap; max-width:100%;
+}
+
+/* positioned within the frame's lower rank-badge zone - real cards put a
+   single rank icon here, we use the space for the rest of the card's info */
+.pcard-hexinfo{
+  position:absolute; z-index:6;
+  top:70.5%; height:26%; left:8%; width:84%;
+  display:flex; flex-direction:column; align-items:center; justify-content:flex-start; gap:6px;
+  text-align:center; text-shadow:0 1px 4px rgba(0,0,0,.9);
+}
+.pcard-team{ font-size:13px; color:rgba(255,255,255,.75); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
+.pcard-meta{ display:flex; align-items:center; justify-content:center; gap:10px; }
+.tier-pill{ font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
+.role-pill{ font-size:12px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.75); }
+.pcard-stats{ display:flex; justify-content:center; gap:14px; font-size:13px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.7); }
+.pcard-stats b{ color:#fff; font-weight:700; }
+
+.empty-state{
+  text-align:center; padding:70px 20px; color:var(--ink-dim); border:1px dashed var(--line);
+}
+.empty-state .big{ font-family:'Bebas Neue'; font-size:26px; color:var(--ink); margin-bottom:8px; letter-spacing:1px;}
+
+.csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
+.csv-gate .page-sub{ margin:0 auto; }
+
+@media (max-width:600px){
+  .page-title{ font-size:32px; }
+  .topbar{ flex-direction:column; align-items:stretch; }
+  .controlbar{ flex-direction:column; align-items:stretch; }
+}
