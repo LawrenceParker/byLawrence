@@ -118,7 +118,7 @@ function advanceAvatarSrc(img){
 function cardMarkup(c){
   const t = TIERS[c.tier];
   return `
-    <div class="pcard" data-tier="${c.tier}" style="background:${t.grad}">
+    <div class="pcard" data-tier="${c.tier}">
       <div class="pcard-inner">
         <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
           ${avatarBlock(c.player)}
