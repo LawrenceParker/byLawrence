@@ -234,6 +234,13 @@ body{
    RARITY COLOURS
    --------------------------------------------------------- */
 
+```css
+/* =========================================================
+   STATIC RARITY GLOW
+   Glow remains ON — no pulsing/breathing
+   The border gradient still slowly moves.
+   ========================================================= */
+
 .pcard[data-tier="gold"]{
   --rarity-color:#e8c046;
   --rarity-glow:rgba(232,192,70,.65);
@@ -249,11 +256,15 @@ body{
     );
   background-size:300% 300%;
 
+  animation:borderFlow 8s linear infinite;
+
   box-shadow:
-    0 0 5px rgba(232,192,70,.55),
-    0 0 14px rgba(232,192,70,.22),
+    0 0 5px rgba(232,192,70,.65),
+    0 0 14px rgba(232,192,70,.3),
+    0 0 28px rgba(232,192,70,.12),
     0 8px 20px -10px rgba(0,0,0,.8);
 }
+
 
 .pcard[data-tier="platinum"]{
   --rarity-color:#54c6d8;
@@ -270,26 +281,15 @@ body{
     );
   background-size:300% 300%;
 
-  animation:
-    borderFlow 7s linear infinite,
-    platinumGlow 3.2s ease-in-out infinite;
+  animation:borderFlow 7s linear infinite;
+
+  box-shadow:
+    0 0 6px rgba(54,160,179,.75),
+    0 0 17px rgba(54,160,179,.4),
+    0 0 32px rgba(54,160,179,.18),
+    0 8px 20px -10px rgba(0,0,0,.8);
 }
 
-@keyframes platinumGlow{
-  0%,100%{
-    box-shadow:
-      0 0 5px rgba(54,160,179,.65),
-      0 0 16px rgba(54,160,179,.3),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-  50%{
-    box-shadow:
-      0 0 8px rgba(100,220,235,.95),
-      0 0 24px rgba(54,160,179,.55),
-      0 0 40px rgba(54,160,179,.2),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-}
 
 .pcard[data-tier="diamond"]{
   --rarity-color:#b77cff;
@@ -306,27 +306,15 @@ body{
     );
   background-size:350% 350%;
 
-  animation:
-    borderFlow 5.5s linear infinite,
-    diamondGlow 2.5s ease-in-out infinite;
+  animation:borderFlow 5.5s linear infinite;
+
+  box-shadow:
+    0 0 7px rgba(167,113,237,.85),
+    0 0 20px rgba(167,113,237,.55),
+    0 0 38px rgba(167,113,237,.25),
+    0 8px 20px -10px rgba(0,0,0,.8);
 }
 
-@keyframes diamondGlow{
-  0%,100%{
-    box-shadow:
-      0 0 6px rgba(167,113,237,.8),
-      0 0 18px rgba(167,113,237,.5),
-      0 0 30px rgba(167,113,237,.2),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-  50%{
-    box-shadow:
-      0 0 10px rgba(210,170,255,1),
-      0 0 28px rgba(167,113,237,.85),
-      0 0 50px rgba(167,113,237,.45),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-}
 
 .pcard[data-tier="ascendant"]{
   --rarity-color:#24c879;
@@ -343,27 +331,15 @@ body{
     );
   background-size:400% 400%;
 
-  animation:
-    borderFlow 4.5s linear infinite,
-    ascendantGlow 2.2s ease-in-out infinite;
+  animation:borderFlow 4.5s linear infinite;
+
+  box-shadow:
+    0 0 7px rgba(28,168,95,.9),
+    0 0 21px rgba(28,168,95,.6),
+    0 0 42px rgba(28,168,95,.3),
+    0 8px 20px -10px rgba(0,0,0,.8);
 }
 
-@keyframes ascendantGlow{
-  0%,100%{
-    box-shadow:
-      0 0 6px rgba(28,168,95,.85),
-      0 0 18px rgba(28,168,95,.55),
-      0 0 36px rgba(28,168,95,.25),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-  50%{
-    box-shadow:
-      0 0 9px rgba(75,240,150,1),
-      0 0 25px rgba(28,168,95,.85),
-      0 0 52px rgba(28,168,95,.5),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-}
 
 .pcard[data-tier="immortal"]{
   --rarity-color:#d66abb;
@@ -380,28 +356,82 @@ body{
     );
   background-size:450% 450%;
 
-  animation:
-    borderFlow 3.5s linear infinite,
-    immortalGlow 2.4s ease-in-out infinite,
-    immortalFlicker 3.1s infinite;
+  animation:borderFlow 3.5s linear infinite;
+
+  box-shadow:
+    0 0 8px rgba(180,80,155,1),
+    0 0 23px rgba(180,80,155,.8),
+    0 0 46px rgba(180,80,155,.5),
+    0 8px 20px -10px rgba(0,0,0,.8);
 }
 
-@keyframes immortalGlow{
-  0%,100%{
-    box-shadow:
-      0 0 7px rgba(180,80,155,1),
-      0 0 20px rgba(180,80,155,.75),
-      0 0 42px rgba(180,80,155,.45),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
-  50%{
-    box-shadow:
-      0 0 11px rgba(240,130,210,1),
-      0 0 30px rgba(210,90,180,.95),
-      0 0 62px rgba(180,80,155,.65),
-      0 8px 20px -10px rgba(0,0,0,.8);
-  }
+
+/* =========================================================
+   RADIANT
+   Static powerful glow + moving holographic colour.
+   No brightness pulsing.
+   ========================================================= */
+
+.pcard[data-tier="radiant"]{
+  --rarity-color:#fff8dc;
+  --rarity-glow:rgba(255,230,150,.95);
+
+  background:
+    conic-gradient(
+      from 0deg,
+      #ff3b6b,
+      #ff9f43,
+      #ffe56b,
+      #64f4b5,
+      #5ad8ff,
+      #9f75ff,
+      #ff5bd6,
+      #ff3b6b
+    );
+
+  background-size:250% 250%;
+
+  animation:hologram 4s linear infinite;
+
+  box-shadow:
+    0 0 8px rgba(255,255,255,.95),
+    0 0 20px rgba(255,220,130,.8),
+    0 0 42px rgba(255,190,80,.5),
+    0 8px 20px -10px rgba(0,0,0,.8);
 }
+
+
+/* Radiant's secondary holographic aura also stays static */
+.pcard[data-tier="radiant"]::before{
+  content:"";
+  position:absolute;
+  inset:-3px;
+  border-radius:20px;
+  z-index:-1;
+
+  background:
+    conic-gradient(
+      from 90deg,
+      transparent,
+      rgba(255,255,255,.95),
+      transparent 18%,
+      rgba(100,240,255,.8),
+      transparent 42%,
+      rgba(255,120,230,.8),
+      transparent 68%,
+      rgba(255,240,140,.95),
+      transparent
+    );
+
+  background-size:200% 200%;
+
+  /* Colour moves, intensity doesn't */
+  animation:hologram 2.8s linear infinite;
+
+  filter:blur(5px);
+}
+```
+
 
 /* ---------------------------------------------------------
    RADIANT — UNIQUE HOLOGRAPHIC CARD
