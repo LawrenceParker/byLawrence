@@ -39,88 +39,26 @@ function rowsToCards(rows){
 }
 
 const TIERS = {
-
-  radiant: {
-    label:"Radiant",
-    color:"#fff4c7",
-    glow:"#fff4c7",
-
-    grad:
-      "conic-gradient(from 0deg, #ff3b6b, #ffb347, #fff06a, #54f5b0, #5adfff, #a978ff, #ff64d8, #ff3b6b)",
-
-    cardA:"#302c20",
-    cardB:"#777052"
-  },
-
-  immortal: {
-    label:"Immortal",
-    color:"#d66abb",
-    glow:"#b4509b",
-
-    grad:
-      "linear-gradient(120deg, #2a1025, #743465, #d05ba9, #57224d, #2a1025)",
-
-    cardA:"#241020",
-    cardB:"#67305a"
-  },
-
-  ascendant: {
-    label:"Ascendant",
-    color:"#24c879",
-    glow:"#1ca85f",
-
-    grad:
-      "linear-gradient(120deg, #064b2b, #1ca85f, #61e6a0, #0b6d3d, #064b2b)",
-
-    cardA:"#073a23",
-    cardB:"#16834e"
-  },
-
-  diamond: {
-    label:"Diamond",
-    color:"#b77cff",
-    glow:"#a771ed",
-
-    grad:
-      "linear-gradient(120deg, #4b2874, #a771ed, #e0c5ff, #7346a8, #4b2874)",
-
-    cardA:"#352050",
-    cardB:"#8257c0"
-  },
-
-  platinum: {
-    label:"Platinum",
-    color:"#54c6d8",
-    glow:"#36a0b3",
-
-    grad:
-      "linear-gradient(120deg, #174751, #36a0b3, #8ce0e8, #24727f, #174751)",
-
-    cardA:"#12363d",
-    cardB:"#2a7f8e"
-  },
-
-  gold: {
-    label:"Gold",
-    color:"#e8c046",
-    glow:"#e8c046",
-
-    grad:
-      "linear-gradient(120deg, #66551d, #e8c046, #8d7528, #f4d56d, #66551d)",
-
-    cardA:"#403517",
-    cardB:"#a98932"
-  }
+  radiant:  { label:"Radiant",  color:"#f5f1d6", glow:"#f5f1d6",
+              grad:"linear-gradient(120deg, #8c8a7a, #f5f1d6, #8c8a7a, #f5f1d6)",
+              cardA:"#6b6a5f", cardB:"#d4cfb3" },
+  immortal: { label:"Immortal", color:"#743465", glow:"#743465",
+              grad:"linear-gradient(120deg, #3d1b34, #743465, #3d1b34, #743465)",
+              cardA:"#2a1224", cardB:"#5c2a50" },
+  ascendant:{ label:"Ascendant", color:"#1ca85f", glow:"#1ca85f",
+              grad:"linear-gradient(120deg, #0e5c35, #1ca85f, #0e5c35, #1ca85f)",
+              cardA:"#083a22", cardB:"#15804a" },
+  diamond:  { label:"Diamond",  color:"#a771ed", glow:"#a771ed",
+              grad:"linear-gradient(120deg, #5c3a86, #a771ed, #5c3a86, #a771ed)",
+              cardA:"#3e275c", cardB:"#8257c0" },
+  platinum: { label:"Platinum", color:"#36a0b3", glow:"#36a0b3",
+              grad:"linear-gradient(120deg, #1c5560, #36a0b3, #1c5560, #36a0b3)",
+              cardA:"#12363d", cardB:"#2a7f8e" },
+  gold:     { label:"Gold",     color:"#e8c046", glow:"#e8c046",
+              grad:"linear-gradient(120deg, #7a6724, #e8c046, #7a6724, #e8c046)",
+              cardA:"#4d3f17", cardB:"#b89a38" }
 };
-
-const TIER_ORDER = [
-  "gold",
-  "platinum",
-  "diamond",
-  "ascendant",
-  "immortal",
-  "radiant"
-];
+const TIER_ORDER = ["gold","platinum","diamond","ascendant","immortal","radiant"];
 
 /* =========================================================
    AVATAR / HEADSHOT HANDLING
@@ -177,79 +115,35 @@ function advanceAvatarSrc(img){
 /* =========================================================
    CARD MARKUP
    ========================================================= */
-
 function cardMarkup(c){
   const t = TIERS[c.tier];
 
   return `
-    <div
-      class="pcard"
-      data-tier="${c.tier}"
-      data-rating="${c.rtg}"
-      style="--rarity-color:${t.color}; --rarity-glow:${t.glow}; background:${t.grad};"
-    >
-
-      <div class="pcard-inner">
-
-        <div
-          class="pcard-photo"
-          style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})"
-        >
-
-          ${avatarBlock(c.player)}
-
-          <div class="pcard-rating">
-            ${c.rtg}
-          </div>
-
-          <div class="pcard-tourtag">
-            ${c.tournament}
-          </div>
-
-        </div>
-
-        <div class="pcard-plate">
-
-          <div class="pcard-name">
-            ${c.player}
-          </div>
-
-          <div class="pcard-team">
-            ${c.team}
-          </div>
-
-          <div class="pcard-meta">
-
-            <span
-              class="tier-pill"
-              style="color:${t.color}"
-            >
-              ● ${t.label}
-            </span>
-
-            <span class="role-pill">
-              ${c.role}
-            </span>
-
-          </div>
-
-          <div class="pcard-stats">
-            <span>
-              ATT <b>${c.att}</b>
-            </span>
-
-            <span>
-              DEF <b>${c.def}</b>
-            </span>
-          </div>
-
-        </div>
-
+    <div class="pcard" data-tier="${c.tier}" style="--tier-color:${t.color}">
+      <div class="pcard-photo">
+        ${avatarBlock(c.player)}
+        <div class="pcard-rating">${c.rtg}</div>
+        <div class="pcard-tourtag">${c.tournament}</div>
       </div>
 
+      <div class="pcard-plate">
+        <div class="pcard-name">${c.player}</div>
+        <div class="pcard-team">${c.team}</div>
+
+        <div class="pcard-meta">
+          <span class="tier-pill">● ${t.label}</span>
+          <span class="role-pill">${c.role}</span>
+        </div>
+
+        <div class="pcard-stats">
+          <span>ATT <b>${c.att}</b></span>
+          <span>DEF <b>${c.def}</b></span>
+        </div>
+      </div>
     </div>
   `;
 }
+
 
 /* =========================================================
    GALLERY - grouped by team (default, split further by tournament),
@@ -323,91 +217,7 @@ function render(){
   document.querySelectorAll('[data-mode]').forEach(btn=>{
     btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; render(); });
   });
-
-  initCardTilt();
-}
-
-/* =========================================================
-   3D TILT + RARITY FOIL
-   ========================================================= */
-
-function initCardTilt(){
-
-  if(typeof VanillaTilt === 'undefined') return;
-
-  const cards = document.querySelectorAll('.pcard');
-
-  if(cards.length === 0) return;
-
-  VanillaTilt.init(cards, {
-    max: 12,
-    speed: 350,
-    glare: true,
-    "max-glare": 0.28,
-    perspective: 950,
-    scale: 1.025
-  });
-
-  cards.forEach(card => {
-
-    const tier = card.dataset.tier;
-
-    const foilStrength = {
-      gold:0.08,
-      platinum:0.14,
-      diamond:0.22,
-      ascendant:0.28,
-      immortal:0.34,
-      radiant:0.48
-    }[tier] || 0.1;
-
-    card.addEventListener('tiltChange', event => {
-
-      const {
-        tiltX,
-        tiltY
-      } = event.detail;
-
-      const x = 50 + tiltX * 3;
-      const y = 50 + tiltY * 3;
-
-      card.style.setProperty(
-        '--foil-shift',
-        `${x}% ${y}%`
-      );
-
-      const intensity =
-        Math.sqrt(
-          tiltX * tiltX +
-          tiltY * tiltY
-        );
-
-      const opacity =
-        Math.min(intensity / 12, 1) *
-        foilStrength;
-
-      card.style.setProperty(
-        '--foil-opacity',
-        opacity.toFixed(3)
-      );
-
-    });
-
-    card.addEventListener('mouseleave', () => {
-
-      card.style.setProperty(
-        '--foil-shift',
-        '50% 50%'
-      );
-
-      card.style.setProperty(
-        '--foil-opacity',
-        tier === 'radiant' ? '.22' : '0'
-      );
-
-    });
-
-  });
+  
 }
 
 

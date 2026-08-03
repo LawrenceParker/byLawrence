@@ -101,805 +101,141 @@ body{
   color:var(--ink-dim); margin-bottom:14px;
 }
 
-/* =========================================================
-   CARD SYSTEM — VALORANT-STYLE RARITY PROGRESSION
-   ========================================================= */
+/* ============================
+   BORDER-ONLY PLAYER CARD
+   ============================ */
 
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(240px,1fr));
-  gap:30px;
+.pcard {
+  position: relative;
+  aspect-ratio: 3/4.3;
+  border-radius: 18px;
+  background: #0c0c0d;
+  border: 4px solid var(--tier-color);
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 6px 14px rgba(0,0,0,.55);
 }
 
-@keyframes borderFlow{
-  0%{background-position:0% 50%}
-  100%{background-position:300% 50%}
+.pcard::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 2px solid rgba(255,255,255,.12);
+  border-radius: 14px;
+  pointer-events: none;
 }
 
-@keyframes shimmer{
-  0%{transform:translateX(-120%) rotate(18deg)}
-  100%{transform:translateX(120%) rotate(18deg)}
+.pcard-photo {
+  position: relative;
+  height: 58%;
+  background: #111;
+  overflow: hidden;
 }
 
-@keyframes hologram{
-  0%{
-    background-position:0% 50%;
-    filter:hue-rotate(0deg);
-  }
-  25%{
-    background-position:100% 25%;
-    filter:hue-rotate(35deg);
-  }
-  50%{
-    background-position:200% 75%;
-    filter:hue-rotate(80deg);
-  }
-  75%{
-    background-position:300% 30%;
-    filter:hue-rotate(140deg);
-  }
-  100%{
-    background-position:400% 50%;
-    filter:hue-rotate(0deg);
-  }
+.pcard-photo img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
-@keyframes radiantPulse{
-  0%,100%{
-    box-shadow:
-      0 0 4px rgba(255,255,255,.9),
-      0 0 12px rgba(255,220,130,.65),
-      0 0 28px rgba(255,190,80,.35),
-      0 8px 20px -10px rgba(0,0,0,.7);
-  }
-  50%{
-    box-shadow:
-      0 0 8px rgba(255,255,255,1),
-      0 0 24px rgba(255,230,150,.9),
-      0 0 55px rgba(255,190,90,.65),
-      0 8px 20px -10px rgba(0,0,0,.7);
-  }
+.pcard-rating {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  background: rgba(0,0,0,.65);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-family: 'Bebas Neue';
+  font-size: 32px;
+  color: #fff;
 }
 
-@keyframes immortalFlicker{
-  0%,17%,19%,21%,48%,50%,52%,100%{
-    opacity:1;
-  }
-  18%,20%,51%{
-    opacity:.72;
-  }
+.pcard-tourtag {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  background: rgba(0,0,0,.65);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.85);
 }
 
-@keyframes ascendantPulse{
-  0%,100%{
-    opacity:.65;
-    transform:scaleX(.9);
-  }
-  50%{
-    opacity:1;
-    transform:scaleX(1);
-  }
+.pcard-plate {
+  flex: 1;
+  padding: 14px 16px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
-/* ---------------------------------------------------------
-   BASE CARD
-   --------------------------------------------------------- */
-
-.pcard{
-  position:relative;
-  aspect-ratio:3 / 4.3;
-  border-radius:18px;
-  padding:2px;
-  background-size:300% 300%;
-  animation:borderFlow 8s linear infinite;
-  box-shadow:
-    0 8px 20px -10px rgba(0,0,0,.8);
-
-  transform-style:preserve-3d;
-  will-change:transform;
-
-  --foil-opacity:0;
-  --foil-shift:50% 50%;
-  --rarity-color:#fff;
-  --rarity-glow:#fff;
+.pcard-name {
+  font-family: 'Bebas Neue';
+  font-size: 26px;
+  color: #fff;
 }
 
-/* subtle inner edge */
-.pcard::after{
-  content:"";
-  position:absolute;
-  inset:2px;
-  border-radius:16px;
-  pointer-events:none;
-  z-index:10;
-  border:1px solid rgba(255,255,255,.12);
+.pcard-team {
+  font-size: 13px;
+  color: rgba(255,255,255,.6);
+  font-weight: 700;
+  text-transform: uppercase;
+  margin-top: 2px;
 }
 
-/* ---------------------------------------------------------
-   CARD INNER
-   --------------------------------------------------------- */
-
-.pcard-inner{
-  position:relative;
-  width:100%;
-  height:100%;
-  border-radius:16px;
-  background:#09090a;
-  display:flex;
-  flex-direction:column;
-  overflow:hidden;
+.pcard-meta {
+  margin-top: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 12px;
 }
 
-/* ---------------------------------------------------------
-   RARITY COLOURS
-   --------------------------------------------------------- */
+.tier-pill {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--tier-color);
+}
 
-```css
-/* =========================================================
-   STATIC RARITY GLOW
-   Glow remains ON — no pulsing/breathing
-   The border gradient still slowly moves.
-   ========================================================= */
+.role-pill {
+  font-size: 13px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+}
 
-.pcard[data-tier="gold"]{
-  --rarity-color:#e8c046;
-  --rarity-glow:rgba(232,192,70,.65);
+.pcard-stats {
+  margin-top: 12px;
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  font-size: 15px;
+  font-weight: 700;
+  color: rgba(255,255,255,.55);
+}
 
-  background:
-    linear-gradient(
-      120deg,
-      #66551d,
-      #e8c046,
-      #8d7528,
-      #f4d56d,
-      #66551d
-    );
-  background-size:300% 300%;
-
-  animation:borderFlow 8s linear infinite;
-
-  box-shadow:
-    0 0 5px rgba(232,192,70,.65),
-    0 0 14px rgba(232,192,70,.3),
-    0 0 28px rgba(232,192,70,.12),
-    0 8px 20px -10px rgba(0,0,0,.8);
+.pcard-stats b {
+  color: #fff;
 }
 
 
-.pcard[data-tier="platinum"]{
-  --rarity-color:#54c6d8;
-  --rarity-glow:rgba(54,160,179,.75);
-
-  background:
-    linear-gradient(
-      120deg,
-      #174751,
-      #36a0b3,
-      #8ce0e8,
-      #24727f,
-      #174751
-    );
-  background-size:300% 300%;
-
-  animation:borderFlow 7s linear infinite;
-
-  box-shadow:
-    0 0 6px rgba(54,160,179,.75),
-    0 0 17px rgba(54,160,179,.4),
-    0 0 32px rgba(54,160,179,.18),
-    0 8px 20px -10px rgba(0,0,0,.8);
+.empty-state{
+  text-align:center; padding:70px 20px; color:var(--ink-dim); border:1px dashed var(--line);
 }
-
-
-.pcard[data-tier="diamond"]{
-  --rarity-color:#b77cff;
-  --rarity-glow:rgba(167,113,237,.85);
-
-  background:
-    linear-gradient(
-      120deg,
-      #4b2874,
-      #a771ed,
-      #e0c5ff,
-      #7346a8,
-      #4b2874
-    );
-  background-size:350% 350%;
-
-  animation:borderFlow 5.5s linear infinite;
-
-  box-shadow:
-    0 0 7px rgba(167,113,237,.85),
-    0 0 20px rgba(167,113,237,.55),
-    0 0 38px rgba(167,113,237,.25),
-    0 8px 20px -10px rgba(0,0,0,.8);
-}
-
-
-.pcard[data-tier="ascendant"]{
-  --rarity-color:#24c879;
-  --rarity-glow:rgba(28,168,95,.9);
-
-  background:
-    linear-gradient(
-      120deg,
-      #064b2b,
-      #1ca85f,
-      #61e6a0,
-      #0b6d3d,
-      #064b2b
-    );
-  background-size:400% 400%;
-
-  animation:borderFlow 4.5s linear infinite;
-
-  box-shadow:
-    0 0 7px rgba(28,168,95,.9),
-    0 0 21px rgba(28,168,95,.6),
-    0 0 42px rgba(28,168,95,.3),
-    0 8px 20px -10px rgba(0,0,0,.8);
-}
-
-
-.pcard[data-tier="immortal"]{
-  --rarity-color:#d66abb;
-  --rarity-glow:rgba(180,80,155,.95);
-
-  background:
-    linear-gradient(
-      120deg,
-      #2a1025,
-      #743465,
-      #d05ba9,
-      #57224d,
-      #2a1025
-    );
-  background-size:450% 450%;
-
-  animation:borderFlow 3.5s linear infinite;
-
-  box-shadow:
-    0 0 8px rgba(180,80,155,1),
-    0 0 23px rgba(180,80,155,.8),
-    0 0 46px rgba(180,80,155,.5),
-    0 8px 20px -10px rgba(0,0,0,.8);
-}
-
-
-/* =========================================================
-   RADIANT
-   Static powerful glow + moving holographic colour.
-   No brightness pulsing.
-   ========================================================= */
-
-.pcard[data-tier="radiant"]{
-  --rarity-color:#fff8dc;
-  --rarity-glow:rgba(255,230,150,.95);
-
-  background:
-    conic-gradient(
-      from 0deg,
-      #ff3b6b,
-      #ff9f43,
-      #ffe56b,
-      #64f4b5,
-      #5ad8ff,
-      #9f75ff,
-      #ff5bd6,
-      #ff3b6b
-    );
-
-  background-size:250% 250%;
-
-  animation:hologram 4s linear infinite;
-
-  box-shadow:
-    0 0 8px rgba(255,255,255,.95),
-    0 0 20px rgba(255,220,130,.8),
-    0 0 42px rgba(255,190,80,.5),
-    0 8px 20px -10px rgba(0,0,0,.8);
-}
-
-
-/* Radiant's secondary holographic aura also stays static */
-.pcard[data-tier="radiant"]::before{
-  content:"";
-  position:absolute;
-  inset:-3px;
-  border-radius:20px;
-  z-index:-1;
-
-  background:
-    conic-gradient(
-      from 90deg,
-      transparent,
-      rgba(255,255,255,.95),
-      transparent 18%,
-      rgba(100,240,255,.8),
-      transparent 42%,
-      rgba(255,120,230,.8),
-      transparent 68%,
-      rgba(255,240,140,.95),
-      transparent
-    );
-
-  background-size:200% 200%;
-
-  /* Colour moves, intensity doesn't */
-  animation:hologram 2.8s linear infinite;
-
-  filter:blur(5px);
-}
-```
-
-
-/* ---------------------------------------------------------
-   RADIANT — UNIQUE HOLOGRAPHIC CARD
-   --------------------------------------------------------- */
-
-.pcard[data-tier="radiant"]{
-  --rarity-color:#fff8dc;
-  --rarity-glow:rgba(255,230,150,.95);
-
-  background:
-    conic-gradient(
-      from 0deg,
-      #ff3b6b,
-      #ff9f43,
-      #ffe56b,
-      #64f4b5,
-      #5ad8ff,
-      #9f75ff,
-      #ff5bd6,
-      #ff3b6b
-    );
-
-  background-size:250% 250%;
-
-  animation:
-    hologram 4s linear infinite,
-    radiantPulse 2.8s ease-in-out infinite;
-}
-
-/* Radiant gets a second moving energy ring */
-.pcard[data-tier="radiant"]::before{
-  content:"";
-  position:absolute;
-  inset:-3px;
-  border-radius:20px;
-  z-index:-1;
-
-  background:
-    conic-gradient(
-      from 90deg,
-      transparent,
-      rgba(255,255,255,.95),
-      transparent 18%,
-      rgba(100,240,255,.8),
-      transparent 42%,
-      rgba(255,120,230,.8),
-      transparent 68%,
-      rgba(255,240,140,.95),
-      transparent
-    );
-
-  background-size:200% 200%;
-  animation:hologram 2.8s linear infinite;
-
-  filter:blur(5px);
-}
-
-/* ---------------------------------------------------------
-   HOLOGRAPHIC FOIL
-   --------------------------------------------------------- */
-
-.pcard-inner::before{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:4;
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      115deg,
-      transparent 10%,
-      rgba(255,0,80,.3) 25%,
-      rgba(255,230,0,.25) 35%,
-      rgba(0,255,180,.25) 48%,
-      rgba(0,180,255,.3) 60%,
-      rgba(180,80,255,.3) 72%,
-      transparent 90%
-    );
-
-  background-size:300% 300%;
-  background-position:var(--foil-shift);
-
-  opacity:var(--foil-opacity);
-
-  mix-blend-mode:screen;
-
-  transition:
-    background-position .15s ease,
-    opacity .2s ease;
-}
-
-/* Radiant foil is ALWAYS alive */
-.pcard[data-tier="radiant"] .pcard-inner::before{
-  opacity:.22;
-  animation:hologram 3.5s linear infinite;
-  background:
-    linear-gradient(
-      120deg,
-      rgba(255,0,100,.4),
-      rgba(255,220,0,.35),
-      rgba(0,255,190,.4),
-      rgba(0,190,255,.35),
-      rgba(170,70,255,.45),
-      rgba(255,0,100,.4)
-    );
-  background-size:500% 500%;
-}
-
-/* Fine holographic scan texture */
-.pcard[data-tier="radiant"] .pcard-inner::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  z-index:5;
-  pointer-events:none;
-
-  background:
-    repeating-linear-gradient(
-      115deg,
-      transparent 0,
-      transparent 5px,
-      rgba(255,255,255,.045) 6px,
-      transparent 7px
-    );
-
-  mix-blend-mode:overlay;
-  opacity:.7;
-}
-
-/* ---------------------------------------------------------
-   PHOTO
-   --------------------------------------------------------- */
-
-.pcard-photo{
-  position:relative;
-  flex:1;
-  min-height:0;
-  overflow:hidden;
-}
-
-.pcard-photo > img{
-  position:absolute;
-  inset:0;
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  transition:
-    transform .5s cubic-bezier(.2,.8,.2,1),
-    filter .4s ease;
-}
-
-/* Higher tiers get stronger image treatment */
-.pcard[data-tier="diamond"] .pcard-photo > img{
-  filter:saturate(1.08) contrast(1.04);
-}
-
-.pcard[data-tier="ascendant"] .pcard-photo > img{
-  filter:saturate(1.15) contrast(1.06);
-}
-
-.pcard[data-tier="immortal"] .pcard-photo > img{
-  filter:saturate(1.22) contrast(1.08);
-}
-
-.pcard[data-tier="radiant"] .pcard-photo > img{
-  filter:
-    saturate(1.25)
-    contrast(1.08)
-    brightness(1.04);
-}
-
-.pcard:hover .pcard-photo > img{
-  transform:scale(1.045);
-}
-
-/* ---------------------------------------------------------
-   PHOTO LIGHTING
-   --------------------------------------------------------- */
-
-.pcard-photo::after{
-  content:"";
-  position:absolute;
-  inset:0;
-  pointer-events:none;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(0,0,0,.05) 0%,
-      transparent 35%,
-      rgba(0,0,0,.08) 55%,
-      rgba(0,0,0,.72) 100%
-    );
-}
-
-.pcard[data-tier="radiant"] .pcard-photo::after{
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.05),
-      transparent 30%,
-      rgba(0,0,0,.05) 50%,
-      rgba(0,0,0,.76) 100%
-    );
-}
-
-/* ---------------------------------------------------------
-   RATING
-   --------------------------------------------------------- */
-
-.pcard-rating{
-  position:absolute;
-  top:12px;
-  left:12px;
-  z-index:7;
-
-  min-width:54px;
-  text-align:center;
-
-  background:rgba(0,0,0,.62);
-  border:1px solid rgba(255,255,255,.14);
-  border-radius:9px;
-
-  padding:6px 12px 5px;
-
-  font-family:'Bebas Neue';
-  font-size:33px;
-  color:#fff;
-  line-height:1;
-
-  backdrop-filter:blur(6px);
-}
-
-.pcard[data-tier="diamond"] .pcard-rating{
-  color:#e7d5ff;
-  text-shadow:0 0 10px rgba(190,130,255,.8);
-  border-color:rgba(190,130,255,.4);
-}
-
-.pcard[data-tier="ascendant"] .pcard-rating{
-  color:#c7ffdf;
-  text-shadow:0 0 10px rgba(40,220,130,.8);
-  border-color:rgba(40,220,130,.4);
-}
-
-.pcard[data-tier="immortal"] .pcard-rating{
-  color:#ffd7f4;
-  text-shadow:
-    0 0 8px rgba(240,100,210,.8),
-    0 0 18px rgba(180,50,150,.5);
-  border-color:rgba(230,100,200,.5);
-}
-
-.pcard[data-tier="radiant"] .pcard-rating{
-  color:#fff;
-  text-shadow:
-    0 0 5px #fff,
-    0 0 15px rgba(255,220,120,.95),
-    0 0 25px rgba(100,220,255,.65);
-
-  border-color:rgba(255,255,255,.55);
-}
-
-/* ---------------------------------------------------------
-   TOURNAMENT TAG
-   --------------------------------------------------------- */
-
-.pcard-tourtag{
-  position:absolute;
-  top:12px;
-  right:12px;
-  z-index:7;
-
-  max-width:62%;
-
-  background:rgba(0,0,0,.62);
-  border:1px solid rgba(255,255,255,.12);
-  border-radius:9px;
-
-  padding:6px 11px;
-
-  font-size:12px;
-  font-weight:700;
-  letter-spacing:.5px;
-  text-transform:uppercase;
-
-  color:rgba(255,255,255,.9);
-
-  text-align:right;
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-
-  backdrop-filter:blur(6px);
-}
-
-/* ---------------------------------------------------------
-   CARD PLATE
-   --------------------------------------------------------- */
-
-.pcard-plate{
-  padding:13px 15px 15px;
-  text-align:center;
-  position:relative;
-  z-index:6;
-
-  background:
-    linear-gradient(
-      180deg,
-      rgba(255,255,255,.055),
-      rgba(0,0,0,.35)
-    );
-
-  border-top:1px solid rgba(255,255,255,.1);
-}
-
-.pcard-name{
-  font-family:'Bebas Neue';
-  font-size:28px;
-  letter-spacing:.5px;
-  color:#fff;
-
-  overflow:hidden;
-  text-overflow:ellipsis;
-  white-space:nowrap;
-}
-
-.pcard-team{
-  font-size:14px;
-  color:rgba(255,255,255,.65);
-  font-weight:700;
-  letter-spacing:1px;
-  text-transform:uppercase;
-  margin-top:2px;
-}
-
-.pcard-meta{
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  gap:12px;
-  margin-top:9px;
-}
-
-.tier-pill{
-  font-size:13.5px;
-  font-weight:700;
-  letter-spacing:.5px;
-  text-transform:uppercase;
-}
-
-.role-pill{
-  font-size:13.5px;
-  font-weight:700;
-  letter-spacing:.5px;
-  text-transform:uppercase;
-  color:rgba(255,255,255,.6);
-}
-
-.pcard-stats{
-  display:flex;
-  justify-content:center;
-  gap:16px;
-  margin-top:11px;
-
-  font-size:15px;
-  font-weight:700;
-  letter-spacing:.5px;
-
-  color:rgba(255,255,255,.55);
-}
-
-.pcard-stats b{
-  color:#fff;
-  font-weight:700;
-}
-
-/* ---------------------------------------------------------
-   RADIANT NAME / PLATE
-   --------------------------------------------------------- */
-
-.pcard[data-tier="radiant"] .pcard-plate{
-  background:
-    linear-gradient(
-      110deg,
-      rgba(255,255,255,.09),
-      rgba(255,220,100,.06),
-      rgba(100,230,255,.07),
-      rgba(255,120,220,.06),
-      rgba(255,255,255,.09)
-    );
-
-  background-size:300% 100%;
-  animation:hologram 5s linear infinite;
-
-  border-top-color:rgba(255,255,255,.25);
-}
-
-.pcard[data-tier="radiant"] .pcard-name{
-  text-shadow:
-    0 0 8px rgba(255,255,255,.55),
-    0 0 18px rgba(255,220,130,.35);
-}
-
-/* ---------------------------------------------------------
-   FALLBACK AVATAR
-   --------------------------------------------------------- */
-
-.pcard-photo > .avatar-fallback{
-  display:none;
-  position:absolute;
-  inset:0;
-  align-items:center;
-  justify-content:center;
-}
-
-.pcard-photo > .avatar-fallback svg{
-  width:36%;
-  height:36%;
-  opacity:.6;
-  color:rgba(255,255,255,.85);
-}
-
-/* ---------------------------------------------------------
-   MOBILE
-   --------------------------------------------------------- */
-
-@media(max-width:600px){
-  .card-grid{
-    grid-template-columns:repeat(2,minmax(0,1fr));
-    gap:16px;
-  }
-
-  .pcard{
-    border-radius:14px;
-  }
-
-  .pcard-inner{
-    border-radius:12px;
-  }
-
-  .pcard-name{
-    font-size:23px;
-  }
-
-  .pcard-rating{
-    font-size:27px;
-    padding:5px 9px;
-  }
-
-  .pcard-tourtag{
-    font-size:10px;
-    padding:5px 7px;
-  }
-
-  .pcard-team{
-    font-size:11px;
-  }
-
-  .tier-pill,
-  .role-pill{
-    font-size:11px;
-  }
-
-  .pcard-stats{
-    font-size:12px;
-    gap:9px;
-  }
-}
+.empty-state .big{ font-family:'Bebas Neue'; font-size:26px; color:var(--ink); margin-bottom:8px; letter-spacing:1px;}
+
+.csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
+.csv-gate .page-sub{ margin:0 auto; }
+
+@media (max-width:600px){
+  .page-title{ font-size:32px; }
+  .topbar{ flex-direction:column; align-items:stretch; }
+  .controlbar{ flex-direction:column; align-items:stretch; }
 }
