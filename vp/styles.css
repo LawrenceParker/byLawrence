@@ -101,86 +101,52 @@ body{
   color:var(--ink-dim); margin-bottom:14px;
 }
 
-/* ---------- card component (classic trading card) ---------- */
+/* ---------- card component ---------- */
 .card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:26px; }
 
 .pcard{
-  position:relative; aspect-ratio:5/7; border-radius:14px;
-  padding:9px; /* this is the visible card border thickness */
-  --foil-opacity: 0;
-  --foil-shift: 50% 50%;
-  transform-style:preserve-3d;
-  will-change:transform;
+  position:relative; aspect-ratio:5/7; border-radius:14px; padding:7px; overflow:visible; isolation:isolate;
+  --foil-opacity:0; --foil-shift:50% 50%;
+  --border-main:#fff; --border-soft:#fff;
+  transform-style:preserve-3d; will-change:transform;
+  background:var(--border-main); box-shadow:0 0 0 1px rgba(255,255,255,.08);
 }
 
-/* glare clipping to match the card shape - VanillaTilt injects
-   .js-tilt-glare as a direct child of .pcard */
-.pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
-.pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
+/* Rotating animated border: a crisp travelling light + blurred glow. */
+@keyframes cardBorderSpin{ from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
+@keyframes cardBorderPulse{ 0%,100%{opacity:.38} 50%{opacity:.72} }
 
-/* ---- rarity border system - each tier is a genuinely different effect,
-   not just a recolor, escalating like Marvel Snap variant borders. Static
-   gradient base per tier, and starting at Diamond, an animated "border
-   beam" chases around the frame. This is the same trick React libraries
-   like Magic UI's <BorderBeam /> use under the hood - a rotating
-   conic-gradient, clipped with a CSS mask so it only ever renders inside
-   the border's own ring width, never bleeding onto the photo. No React
-   here (this is a plain HTML/CSS/JS site, so pulling in a whole framework
-   for one effect isn't worth it) - but the visual result is the same. */
-@keyframes borderBeamSpin{ to{ transform:rotate(360deg); } }
-
+.pcard::before,
 .pcard::after{
-  content:'';
-  position:absolute; inset:0; z-index:3; border-radius:inherit;
-  padding:9px; /* must match .pcard's own padding - defines the beam's width */
-  -webkit-mask:linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
-  -webkit-mask-composite:xor;
-  mask-composite:exclude;
-  pointer-events:none;
-  opacity:0;
+  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+}
+.pcard::before{
+  z-index:0;
+  background:conic-gradient(from 0deg, transparent 0deg 55deg, var(--border-soft) 67deg, #fff 75deg, var(--border-main) 83deg, transparent 96deg 360deg);
+  animation:cardBorderSpin 3.8s linear infinite;
+}
+.pcard::after{
+  z-index:-1;
+  background:conic-gradient(from 0deg, transparent 0deg 48deg, var(--border-main) 70deg, transparent 94deg 360deg);
+  filter:blur(9px); opacity:.55;
+  animation:cardBorderSpin 3.8s linear infinite, cardBorderPulse 2.4s ease-in-out infinite;
 }
 
-.pcard[data-tier="gold"]{
-  background:#c79a3c;
-}
-.pcard[data-tier="platinum"]{
-  background:linear-gradient(135deg, #1c5560 0%, #36a0b3 35%, #9fe4ee 50%, #36a0b3 65%, #1c5560 100%);
-}
-.pcard[data-tier="diamond"]{
-  background:linear-gradient(135deg, #5c3a86 0%, #a771ed 35%, #e2caff 50%, #a771ed 65%, #5c3a86 100%);
-}
-.pcard[data-tier="diamond"]::after{
-  opacity:1;
-  background:conic-gradient(from 0deg, transparent 0deg, rgba(226,202,255,.95) 18deg, transparent 42deg, transparent 360deg);
-  animation:borderBeamSpin 6s linear infinite;
-}
+.pcard[data-tier="gold"]{ --border-main:#e8c046; --border-soft:#fff0a3; background:#7a6724; }
+.pcard[data-tier="platinum"]{ --border-main:#36a0b3; --border-soft:#b7f5ff; background:#1c5560; }
+.pcard[data-tier="diamond"]{ --border-main:#a771ed; --border-soft:#f0ddff; background:#5c3a86; }
+.pcard[data-tier="ascendant"]{ --border-main:#1ca85f; --border-soft:#a8ffd0; background:#0e5c35; }
+.pcard[data-tier="immortal"]{ --border-main:#a4508c; --border-soft:#f0b5df; background:#3d1b34; }
+.pcard[data-tier="radiant"]{ --border-main:#f5d66f; --border-soft:#fff; background:#8c8a7a; }
 
-.pcard[data-tier="ascendant"]{
-  background:linear-gradient(135deg, #0e5c35 0%, #1ca85f 35%, #8ff5bb 50%, #1ca85f 65%, #0e5c35 100%);
-}
-.pcard[data-tier="ascendant"]::after{
-  opacity:1;
-  background:conic-gradient(from 0deg, transparent 0deg, rgba(143,245,187,.95) 18deg, transparent 42deg, transparent 360deg);
-  animation:borderBeamSpin 4.6s linear infinite;
-}
+.pcard[data-tier="diamond"]::before,.pcard[data-tier="diamond"]::after{animation-duration:3.2s}
+.pcard[data-tier="ascendant"]::before,.pcard[data-tier="ascendant"]::after{animation-duration:2.8s}
+.pcard[data-tier="immortal"]::before,.pcard[data-tier="immortal"]::after{animation-duration:2.35s}
+.pcard[data-tier="radiant"]::before,.pcard[data-tier="radiant"]::after{animation-duration:1.9s}
 
-.pcard[data-tier="immortal"]{
-  background:linear-gradient(135deg, #3d1b34 0%, #743465 35%, #d68bc2 50%, #743465 65%, #3d1b34 100%);
-}
-.pcard[data-tier="immortal"]::after{
-  opacity:1;
-  background:conic-gradient(from 0deg, transparent 0deg, rgba(214,139,194,.95) 18deg, transparent 42deg, transparent 360deg);
-  animation:borderBeamSpin 3.4s linear infinite;
-}
-
-.pcard[data-tier="radiant"]{
-  background:linear-gradient(135deg, #ff8a80 0%, #ffd97a 25%, #f7f6c9 50%, #8ff5d6 75%, #8ab8ff 100%);
-}
-.pcard[data-tier="radiant"]::after{
-  opacity:1;
-  background:conic-gradient(from 0deg, transparent 0deg, rgba(255,255,255,.95) 14deg, transparent 36deg, transparent 360deg);
-  animation:borderBeamSpin 2.2s linear infinite;
-}
+.pcard:hover::before,.pcard:hover::after{animation-play-state:paused}
+.pcard .js-tilt-glare{border-radius:inherit; overflow:hidden}
+.pcard .js-tilt-glare-inner{mix-blend-mode:soft-light}
 
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:9px;
@@ -242,6 +208,10 @@ body{
 
 .csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
 .csv-gate .page-sub{ margin:0 auto; }
+
+@media (prefers-reduced-motion: reduce){
+  .pcard::before,.pcard::after{animation:none !important;}
+}
 
 @media (max-width:600px){
   .page-title{ font-size:32px; }
