@@ -120,7 +120,7 @@ function cardMarkup(c){
   return `
     <div class="pcard" data-tier="${c.tier}">
       <div class="pcard-inner">
-        <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
+        <div class="pcard-photo">
           ${avatarBlock(c.player)}
           <div class="pcard-rating" style="--rating-ring:${t.color}">${c.rtg}</div>
           <div class="pcard-tourtag">${c.tournament}</div>
@@ -128,11 +128,11 @@ function cardMarkup(c){
         <div class="pcard-plate">
           <div class="pcard-name">${c.player}</div>
           <div class="pcard-team">${c.team}</div>
+          <div class="pcard-stats"><span>ATT<b>${c.att}</b></span><span>DEF<b>${c.def}</b></span></div>
           <div class="pcard-meta">
             <span class="tier-pill" style="color:${t.color}">● ${t.label}</span>
             <span class="role-pill">${c.role}</span>
           </div>
-          <div class="pcard-stats"><span>ATT <b>${c.att}</b></span><span>DEF <b>${c.def}</b></span></div>
         </div>
       </div>
     </div>`;
