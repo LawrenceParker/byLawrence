@@ -102,51 +102,170 @@ body{
 }
 
 /* ---------- card component ---------- */
-.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:26px; }
-
-.pcard{
-  position:relative; aspect-ratio:5/7; border-radius:14px; padding:7px; overflow:visible; isolation:isolate;
-  --foil-opacity:0; --foil-shift:50% 50%;
-  --border-main:#fff; --border-soft:#fff;
-  transform-style:preserve-3d; will-change:transform;
-  background:var(--border-main); box-shadow:0 0 0 1px rgba(255,255,255,.08);
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
+  gap:26px;
 }
 
-/* Rotating animated border: a crisp travelling light + blurred glow. */
-@keyframes cardBorderSpin{ from{transform:rotate(0deg)} to{transform:rotate(360deg)} }
-@keyframes cardBorderPulse{ 0%,100%{opacity:.38} 50%{opacity:.72} }
+.pcard{
+  position:relative;
+  aspect-ratio:5/7;
+  border-radius:14px;
+  padding:6px;
+  overflow:visible;
+  isolation:isolate;
+
+  --foil-opacity:0;
+  --foil-shift:50% 50%;
+
+  /* Border palette is supplied by each rarity below. */
+  --border-main:#ffffff;
+  --border-light:#ffffff;
+  --border-dim:rgba(255,255,255,.28);
+  --border-glow:rgba(255,255,255,.18);
+
+  transform-style:preserve-3d;
+  will-change:transform;
+
+  background:
+    linear-gradient(145deg, var(--border-light), var(--border-main) 42%, var(--border-dim));
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,.06),
+    0 8px 26px var(--border-glow);
+}
+
+/*
+  Refined animated border:
+  A calm travelling highlight moves around the frame instead of
+  looking like electricity. The second layer is deliberately soft,
+  giving the card a premium foil/glass feel.
+*/
+@keyframes borderSweep{
+  from{ transform:rotate(0deg); }
+  to{ transform:rotate(360deg); }
+}
+
+@keyframes borderGlow{
+  0%,100%{ opacity:.28; }
+  50%{ opacity:.48; }
+}
 
 .pcard::before,
 .pcard::after{
-  content:""; position:absolute; inset:-1px; border-radius:inherit; pointer-events:none;
+  content:"";
+  position:absolute;
+  inset:-1px;
+  border-radius:inherit;
+  pointer-events:none;
 }
+
+/* Soft ambient border glow. */
 .pcard::before{
-  z-index:0;
-  background:conic-gradient(from 0deg, transparent 0deg 55deg, var(--border-soft) 67deg, #fff 75deg, var(--border-main) 83deg, transparent 96deg 360deg);
-  animation:cardBorderSpin 3.8s linear infinite;
-}
-.pcard::after{
   z-index:-1;
-  background:conic-gradient(from 0deg, transparent 0deg 48deg, var(--border-main) 70deg, transparent 94deg 360deg);
-  filter:blur(9px); opacity:.55;
-  animation:cardBorderSpin 3.8s linear infinite, cardBorderPulse 2.4s ease-in-out infinite;
+  background:
+    linear-gradient(
+      145deg,
+      var(--border-light),
+      transparent 28%,
+      transparent 72%,
+      var(--border-main)
+    );
+  filter:blur(7px);
+  opacity:.34;
+  animation:borderGlow 3.8s ease-in-out infinite;
 }
 
-.pcard[data-tier="gold"]{ --border-main:#e8c046; --border-soft:#fff0a3; background:#7a6724; }
-.pcard[data-tier="platinum"]{ --border-main:#36a0b3; --border-soft:#b7f5ff; background:#1c5560; }
-.pcard[data-tier="diamond"]{ --border-main:#a771ed; --border-soft:#f0ddff; background:#5c3a86; }
-.pcard[data-tier="ascendant"]{ --border-main:#1ca85f; --border-soft:#a8ffd0; background:#0e5c35; }
-.pcard[data-tier="immortal"]{ --border-main:#a4508c; --border-soft:#f0b5df; background:#3d1b34; }
-.pcard[data-tier="radiant"]{ --border-main:#f5d66f; --border-soft:#fff; background:#8c8a7a; }
+/* A broad, slow highlight that travels around the frame. */
+.pcard::after{
+  z-index:0;
+  background:
+    conic-gradient(
+      from 0deg,
+      transparent 0deg 45deg,
+      rgba(255,255,255,.08) 58deg,
+      var(--border-dim) 72deg,
+      var(--border-light) 84deg,
+      rgba(255,255,255,.08) 98deg,
+      transparent 115deg 360deg
+    );
+  animation:borderSweep 5.5s linear infinite;
+}
 
-.pcard[data-tier="diamond"]::before,.pcard[data-tier="diamond"]::after{animation-duration:3.2s}
-.pcard[data-tier="ascendant"]::before,.pcard[data-tier="ascendant"]::after{animation-duration:2.8s}
-.pcard[data-tier="immortal"]::before,.pcard[data-tier="immortal"]::after{animation-duration:2.35s}
-.pcard[data-tier="radiant"]::before,.pcard[data-tier="radiant"]::after{animation-duration:1.9s}
+/* Tier palettes — still distinct, but much more restrained. */
+.pcard[data-tier="gold"]{
+  --border-main:#c99f42;
+  --border-light:#f1d47b;
+  --border-dim:rgba(201,159,66,.45);
+  --border-glow:rgba(201,159,66,.18);
+}
 
-.pcard:hover::before,.pcard:hover::after{animation-play-state:paused}
-.pcard .js-tilt-glare{border-radius:inherit; overflow:hidden}
-.pcard .js-tilt-glare-inner{mix-blend-mode:soft-light}
+.pcard[data-tier="platinum"]{
+  --border-main:#318d9e;
+  --border-light:#7bc8d3;
+  --border-dim:rgba(49,141,158,.42);
+  --border-glow:rgba(49,141,158,.18);
+}
+
+.pcard[data-tier="diamond"]{
+  --border-main:#9062cf;
+  --border-light:#caa5f2;
+  --border-dim:rgba(144,98,207,.44);
+  --border-glow:rgba(144,98,207,.2);
+}
+
+.pcard[data-tier="ascendant"]{
+  --border-main:#198a50;
+  --border-light:#65c993;
+  --border-dim:rgba(25,138,80,.42);
+  --border-glow:rgba(25,138,80,.18);
+}
+
+.pcard[data-tier="immortal"]{
+  --border-main:#743d69;
+  --border-light:#b579a8;
+  --border-dim:rgba(116,61,105,.44);
+  --border-glow:rgba(116,61,105,.2);
+}
+
+.pcard[data-tier="radiant"]{
+  --border-main:#c7bd91;
+  --border-light:#fff7d7;
+  --border-dim:rgba(199,189,145,.48);
+  --border-glow:rgba(245,241,214,.25);
+}
+
+/* Rare cards get a slightly quicker, but still elegant, sweep. */
+.pcard[data-tier="diamond"]::after{ animation-duration:4.8s; }
+.pcard[data-tier="ascendant"]::after{ animation-duration:4.5s; }
+.pcard[data-tier="immortal"]::after{ animation-duration:4.1s; }
+.pcard[data-tier="radiant"]::after{ animation-duration:3.7s; }
+
+.pcard[data-tier="diamond"]::before,
+.pcard[data-tier="ascendant"]::before,
+.pcard[data-tier="immortal"]::before,
+.pcard[data-tier="radiant"]::before{
+  animation-duration:3.2s;
+}
+
+/* Keep the animation understated during interaction. */
+.pcard:hover::before{
+  opacity:.42;
+}
+
+.pcard:hover::after{
+  animation-play-state:paused;
+}
+
+/* VanillaTilt injects .js-tilt-glare as a direct child of .pcard. */
+.pcard .js-tilt-glare{
+  border-radius:inherit;
+  overflow:hidden;
+}
+
+.pcard .js-tilt-glare-inner{
+  mix-blend-mode:soft-light;
+}
 
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:9px;
