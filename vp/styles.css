@@ -122,24 +122,49 @@ body{
 .pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
 .pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
 
-/* Glowing border, colored by rarity tier */
+/* Neon glow border, colored by rarity - each tier layers several stacked
+   shadows (tight bright core + soft diffuse bleed, the standard "neon tube"
+   trick) and each one behaves differently, not just a different color:
+   Gold is calm and static, then each tier up gets livelier - breathing,
+   pulsing, flickering like a real neon sign - until Radiant, which never
+   sits still. */
 .pcard[data-tier="gold"]{
-  box-shadow:0 0 16px -2px rgba(232,192,70,.45), 0 8px 20px -10px rgba(0,0,0,.6);
+  box-shadow:
+    0 0 4px rgba(232,192,70,.85),
+    0 0 12px rgba(232,192,70,.55),
+    0 0 26px rgba(232,192,70,.35),
+    0 8px 20px -10px rgba(0,0,0,.6);
 }
-.pcard[data-tier="platinum"]{
-  box-shadow:0 0 16px -2px rgba(54,160,179,.45), 0 8px 20px -10px rgba(0,0,0,.6);
+
+.pcard[data-tier="platinum"]{ animation:borderFlow 7s linear infinite, neonBreathe-platinum 3.4s ease-in-out infinite; }
+@keyframes neonBreathe-platinum{
+  0%,100%{ box-shadow:0 0 4px rgba(54,160,179,.75), 0 0 12px rgba(54,160,179,.5), 0 0 24px rgba(54,160,179,.3), 0 8px 20px -10px rgba(0,0,0,.6); }
+  50%{     box-shadow:0 0 6px rgba(54,160,179,1),   0 0 18px rgba(54,160,179,.8), 0 0 38px rgba(54,160,179,.55), 0 8px 20px -10px rgba(0,0,0,.6); }
 }
-.pcard[data-tier="diamond"]{
-  box-shadow:0 0 18px -2px rgba(167,113,237,.5), 0 8px 20px -10px rgba(0,0,0,.6);
+
+.pcard[data-tier="diamond"]{ animation:borderFlow 6s linear infinite, neonPulse-diamond 2.2s ease-in-out infinite; }
+@keyframes neonPulse-diamond{
+  0%,100%{ box-shadow:0 0 5px rgba(167,113,237,.85), 0 0 14px rgba(167,113,237,.6), 0 0 28px rgba(167,113,237,.4), 0 8px 20px -10px rgba(0,0,0,.6); }
+  50%{     box-shadow:0 0 8px rgba(199,150,255,1),   0 0 22px rgba(199,150,255,.9), 0 0 46px rgba(199,150,255,.65), 0 8px 20px -10px rgba(0,0,0,.6); }
 }
-.pcard[data-tier="ascendant"]{
-  box-shadow:0 0 18px -2px rgba(28,168,95,.5), 0 8px 20px -10px rgba(0,0,0,.6);
+
+.pcard[data-tier="ascendant"]{ animation:borderFlow 5s linear infinite, neonFlicker-ascendant 2.8s infinite; }
+@keyframes neonFlicker-ascendant{
+  0%,19%,21%,23%,54%,56%,100%{ box-shadow:0 0 5px rgba(28,168,95,.9), 0 0 14px rgba(28,168,95,.65), 0 0 30px rgba(28,168,95,.45), 0 8px 20px -10px rgba(0,0,0,.6); }
+  20%,22%,55%{                 box-shadow:0 0 2px rgba(28,168,95,.35), 0 0 6px rgba(28,168,95,.2), 0 0 14px rgba(28,168,95,.12), 0 8px 20px -10px rgba(0,0,0,.6); }
 }
-.pcard[data-tier="immortal"]{
-  box-shadow:0 0 20px -1px rgba(116,52,101,.55), 0 8px 20px -10px rgba(0,0,0,.6);
+
+.pcard[data-tier="immortal"]{ animation:borderFlow 4.2s linear infinite, neonFlicker-immortal 2.4s infinite; }
+@keyframes neonFlicker-immortal{
+  0%,17%,19%,21%,50%,52%,100%{ box-shadow:0 0 6px rgba(116,52,101,1), 0 0 18px rgba(180,80,155,.85), 0 0 38px rgba(180,80,155,.6), 0 8px 20px -10px rgba(0,0,0,.6); }
+  18%,20%,51%{                 box-shadow:0 0 3px rgba(116,52,101,.45), 0 0 8px rgba(180,80,155,.3), 0 0 18px rgba(180,80,155,.18), 0 8px 20px -10px rgba(0,0,0,.6); }
 }
-.pcard[data-tier="radiant"]{
-  box-shadow:0 0 22px 0px rgba(245,241,214,.6), 0 8px 20px -10px rgba(0,0,0,.6);
+
+.pcard[data-tier="radiant"]{ animation:borderFlow 2.6s linear infinite, neonShift-radiant 3s ease-in-out infinite; }
+@keyframes neonShift-radiant{
+  0%,100%{ box-shadow:0 0 6px rgba(245,241,214,1), 0 0 18px rgba(255,215,130,.85), 0 0 40px rgba(255,215,130,.6), 0 8px 20px -10px rgba(0,0,0,.6); }
+  33%{     box-shadow:0 0 8px rgba(255,255,255,1), 0 0 26px rgba(245,241,214,.9), 0 0 54px rgba(245,241,214,.7), 0 8px 20px -10px rgba(0,0,0,.6); }
+  66%{     box-shadow:0 0 6px rgba(255,230,160,1), 0 0 20px rgba(255,230,160,.85), 0 0 44px rgba(255,230,160,.6), 0 8px 20px -10px rgba(0,0,0,.6); }
 }
 
 .pcard-inner{
