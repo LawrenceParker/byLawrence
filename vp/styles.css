@@ -122,48 +122,25 @@ body{
 .pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
 .pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
 
-/* Flashiness scales up with rank - each tier gets a stronger glow and a
-   faster-moving border than the one below it, so Radiant reads as the
-   clear top of the ladder rather than just another color swap. */
+/* Glowing border, colored by rarity tier */
+.pcard[data-tier="gold"]{
+  box-shadow:0 0 16px -2px rgba(232,192,70,.45), 0 8px 20px -10px rgba(0,0,0,.6);
+}
 .pcard[data-tier="platinum"]{
-  box-shadow:0 8px 24px -8px rgba(54,160,179,.4), 0 8px 20px -10px rgba(0,0,0,.6);
-  animation-duration:6s;
+  box-shadow:0 0 16px -2px rgba(54,160,179,.45), 0 8px 20px -10px rgba(0,0,0,.6);
 }
 .pcard[data-tier="diamond"]{
-  box-shadow:0 10px 30px -8px rgba(167,113,237,.45), 0 8px 20px -10px rgba(0,0,0,.6);
-  animation-duration:5s;
+  box-shadow:0 0 18px -2px rgba(167,113,237,.5), 0 8px 20px -10px rgba(0,0,0,.6);
 }
 .pcard[data-tier="ascendant"]{
-  box-shadow:0 10px 34px -6px rgba(28,168,95,.5), 0 8px 20px -10px rgba(0,0,0,.6);
-  animation-duration:4.2s;
+  box-shadow:0 0 18px -2px rgba(28,168,95,.5), 0 8px 20px -10px rgba(0,0,0,.6);
 }
 .pcard[data-tier="immortal"]{
-  box-shadow:0 12px 38px -6px rgba(116,52,101,.6), 0 8px 20px -10px rgba(0,0,0,.6);
-  animation-duration:3.4s;
+  box-shadow:0 0 20px -1px rgba(116,52,101,.55), 0 8px 20px -10px rgba(0,0,0,.6);
 }
 .pcard[data-tier="radiant"]{
-  box-shadow:0 14px 46px -4px rgba(245,241,214,.65), 0 0 60px -14px rgba(245,241,214,.5);
-  animation:borderFlow 2.6s linear infinite, radiantPulse 2.2s ease-in-out infinite;
+  box-shadow:0 0 22px 0px rgba(245,241,214,.6), 0 8px 20px -10px rgba(0,0,0,.6);
 }
-@keyframes radiantPulse{
-  0%,100%{ box-shadow:0 14px 46px -4px rgba(245,241,214,.55), 0 0 44px -14px rgba(245,241,214,.4); }
-  50%{ box-shadow:0 14px 52px -2px rgba(245,241,214,.85), 0 0 70px -10px rgba(245,241,214,.7); }
-}
-
-/* shimmer sweep - reserved for the top three tiers so it reads as special,
-   not applied uniformly across every card */
-.pcard[data-tier="ascendant"] .pcard-inner::after,
-.pcard[data-tier="immortal"] .pcard-inner::after,
-.pcard[data-tier="radiant"] .pcard-inner::after{
-  content:'';
-  position:absolute; inset:0; pointer-events:none; z-index:3;
-  background:linear-gradient(115deg, transparent 30%, rgba(255,255,255,.3) 45%, transparent 60%);
-  background-size:250% 250%; mix-blend-mode:overlay;
-  animation:holoSweep 4.5s ease-in-out infinite;
-}
-.pcard[data-tier="immortal"] .pcard-inner::after{ animation-duration:3.4s; }
-.pcard[data-tier="radiant"] .pcard-inner::after{ animation-duration:2.4s; }
-@keyframes holoSweep{ 0%{ background-position:130% -30%; } 100%{ background-position:-30% 130%; } }
 
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:16px;
