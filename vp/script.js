@@ -117,33 +117,29 @@ function advanceAvatarSrc(img){
    ========================================================= */
 function cardMarkup(c){
   const t = TIERS[c.tier];
-
   return `
-    <div class="pcard" data-tier="${c.tier}" style="--tier-color:${t.color}">
-      <div class="pcard-photo">
-        ${avatarBlock(c.player)}
+    <div class="pcard" data-tier="${c.tier}" style="background:${t.grad}">
+      <div class="pcard-inner">
+        <div class="pcard-photo" style="background:linear-gradient(160deg, ${t.cardA}, ${t.cardB})">
+          ${avatarBlock(c.player)}
+        </div>
+        <img class="pcard-frame" src="assets/card-border.png" alt="" aria-hidden="true">
         <div class="pcard-rating">${c.rtg}</div>
         <div class="pcard-tourtag">${c.tournament}</div>
-      </div>
-
-      <div class="pcard-plate">
-        <div class="pcard-name">${c.player}</div>
-        <div class="pcard-team">${c.team}</div>
-
-        <div class="pcard-meta">
-          <span class="tier-pill">● ${t.label}</span>
-          <span class="role-pill">${c.role}</span>
+        <div class="pcard-nameplate">
+          <div class="pcard-name">${c.player}</div>
         </div>
-
-        <div class="pcard-stats">
-          <span>ATT <b>${c.att}</b></span>
-          <span>DEF <b>${c.def}</b></span>
+        <div class="pcard-hexinfo">
+          <div class="pcard-team">${c.team}</div>
+          <div class="pcard-meta">
+            <span class="tier-pill" style="color:${t.color}">● ${t.label}</span>
+            <span class="role-pill">${c.role}</span>
+          </div>
+          <div class="pcard-stats"><span>ATT <b>${c.att}</b></span><span>DEF <b>${c.def}</b></span></div>
         </div>
       </div>
-    </div>
-  `;
+    </div>`;
 }
-
 
 /* =========================================================
    GALLERY - grouped by team (default, split further by tournament),
@@ -217,9 +213,42 @@ function render(){
   document.querySelectorAll('[data-mode]').forEach(btn=>{
     btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; render(); });
   });
-  
+
+  initCardTilt();
 }
 
+/* =========================================================
+   3D TILT + HOLOGRAPHIC FOIL (VanillaTilt) - re-run after every render()
+   since the gallery innerHTML gets fully rebuilt on filter/mode changes.
+   Degrades gracefully (cards just stay flat/static) if the CDN is blocked.
+   ========================================================= */
+function initCardTilt(){
+  if(typeof VanillaTilt === 'undefined') return;
+  const cards = document.querySelectorAll('.pcard');
+  if(cards.length === 0) return;
+
+  VanillaTilt.init(cards, {
+    max: 10,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.35,
+    perspective: 900,
+    scale: 1.02
+  });
+
+  cards.forEach(card=>{
+    card.addEventListener('tiltChange', (e)=>{
+      const { tiltX, tiltY } = e.detail;
+      const x = 50 + tiltX * 2.2;
+      const y = 50 + tiltY * 2.2;
+      card.style.setProperty('--foil-shift', `${x}% ${y}%`);
+
+      const intensity = Math.sqrt(tiltX*tiltX + tiltY*tiltY);
+      const opacity = Math.min(intensity / 12, 1) * 0.35;
+      card.style.setProperty('--foil-opacity', opacity.toFixed(3));
+    });
+  });
+}
 
 /* =========================================================
    INIT — load player data from CSV, then start the app
