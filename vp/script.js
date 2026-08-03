@@ -210,6 +210,41 @@ function render(){
   document.querySelectorAll('[data-mode]').forEach(btn=>{
     btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; render(); });
   });
+
+  initCardTilt();
+}
+
+/* =========================================================
+   3D TILT + HOLOGRAPHIC FOIL (VanillaTilt) - re-run after every render()
+   since the gallery innerHTML gets fully rebuilt on filter/mode changes.
+   Degrades gracefully (cards just stay flat/static) if the CDN is blocked.
+   ========================================================= */
+function initCardTilt(){
+  if(typeof VanillaTilt === 'undefined') return;
+  const cards = document.querySelectorAll('.pcard');
+  if(cards.length === 0) return;
+
+  VanillaTilt.init(cards, {
+    max: 10,
+    speed: 400,
+    glare: true,
+    "max-glare": 0.35,
+    perspective: 900,
+    scale: 1.02
+  });
+
+  cards.forEach(card=>{
+    card.addEventListener('tiltChange', (e)=>{
+      const { tiltX, tiltY } = e.detail;
+      const x = 50 + tiltX * 2.2;
+      const y = 50 + tiltY * 2.2;
+      card.style.setProperty('--foil-shift', `${x}% ${y}%`);
+
+      const intensity = Math.sqrt(tiltX*tiltX + tiltY*tiltY);
+      const opacity = Math.min(intensity / 12, 1) * 0.35;
+      card.style.setProperty('--foil-opacity', opacity.toFixed(3));
+    });
+  });
 }
 
 /* =========================================================

@@ -111,7 +111,16 @@ body{
   padding:3px; background:var(--line);
   background-size:220% 220%; animation:borderFlow 7s linear infinite;
   box-shadow:0 8px 20px -10px rgba(0,0,0,.6);
+  --foil-opacity: 0;
+  --foil-shift: 50% 50%;
+  transform-style:preserve-3d;
+  will-change:transform;
 }
+
+/* rounded glare clipping to match the card shape - VanillaTilt injects
+   .js-tilt-glare as a direct child of .pcard */
+.pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
+.pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
 
 /* Flashiness scales up with rank - each tier gets a stronger glow and a
    faster-moving border than the one below it, so Radiant reads as the
@@ -159,6 +168,19 @@ body{
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:16px;
   background:#0c0c0d; display:flex; flex-direction:column; overflow:hidden;
+}
+.pcard-inner::before{
+  content:'';
+  position:absolute; inset:0; z-index:4; pointer-events:none;
+  background:conic-gradient(from 180deg, #f80e35, #eedf10, #21e985, #0dbde9, #c929f1, #f80e35);
+  background-size:250% 250%;
+  background-position:var(--foil-shift);
+  opacity:var(--foil-opacity);
+  mix-blend-mode:color-dodge;
+  mask-image:repeating-radial-gradient(transparent 0 3px, black 3px 5px);
+  mask-repeat:no-repeat;
+  mask-size:cover;
+  transition:background-position .3s ease;
 }
 
 .pcard-photo{ position:relative; flex:1; min-height:0; overflow:hidden; }
