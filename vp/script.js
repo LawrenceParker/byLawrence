@@ -146,9 +146,16 @@ function cardMarkup(c){
    GALLERY - grouped by team (default, split further by tournament),
    or a flat list sorted by rating
    ========================================================= */
-let filters = { tournament: 'all', team: 'all', mode: 'team' };
+let filters = { tournament: 'all', team: 'all', role: 'all', search: '', mode: 'team' };
+const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel'];
 
 function render(){
+  // preserve search box focus/cursor across the full re-render triggered by typing
+  const prevSearchEl = document.getElementById('searchInput');
+  const searchHadFocus = document.activeElement === prevSearchEl;
+  const searchSelStart = searchHadFocus ? prevSearchEl.selectionStart : null;
+  const searchSelEnd = searchHadFocus ? prevSearchEl.selectionEnd : null;
+
   // preserve first-seen order from the CSV for a stable, sensible tournament order
   const tournamentOrder = [...new Set(CARDS.map(c=>c.tournament))];
   const tourOptions = ['all', ...tournamentOrder].map(t=>
@@ -160,10 +167,30 @@ function render(){
     `<option value="${team}" ${filters.team===team?'selected':''}>${team==='all'?'All Teams':team}</option>`
   ).join('');
 
+  const rolesPresent = [...new Set(CARDS.map(c=>c.role))];
+  const roleOrder = [...ROLE_ORDER.filter(r=>rolesPresent.includes(r)), ...rolesPresent.filter(r=>!ROLE_ORDER.includes(r)).sort()];
+  const roleOptions = ['all', ...roleOrder].map(role=>
+    `<option value="${role}" ${filters.role===role?'selected':''}>${role==='all'?'All Roles':role}</option>`
+  ).join('');
+
+  const searchTerm = filters.search.trim().toLowerCase();
   const list = CARDS.filter(c =>
     (filters.tournament==='all' || c.tournament===filters.tournament) &&
-    (filters.team==='all' || c.team===filters.team)
+    (filters.team==='all' || c.team===filters.team) &&
+    (filters.role==='all' || c.role===filters.role) &&
+    (searchTerm==='' || c.player.toLowerCase().includes(searchTerm) || c.team.toLowerCase().includes(searchTerm))
   );
+
+  // rarity breakdown of the current filtered set
+  const rarityVizHtml = TIER_ORDER.map(tier=>{
+    const count = list.filter(c=>c.tier===tier).length;
+    return `<div class="rarity-pill"><span class="rarity-dot" style="background:${TIERS[tier].color}"></span>${TIERS[tier].label} <b>${count}</b></div>`;
+  }).join('');
+
+  // overall dataset stats (unfiltered - communicates the full size of the set)
+  const totalPlayers = CARDS.length;
+  const totalTeams = new Set(CARDS.map(c=>c.team)).size;
+  const totalTournaments = tournamentOrder.length;
 
   let contentHtml;
   if(filters.mode === 'rating'){
@@ -196,7 +223,7 @@ function render(){
   }
 
   if(list.length === 0){
-    contentHtml = `<div class="empty-state"><div class="big">No cards match this filter</div>Try a different event.</div>`;
+    contentHtml = `<div class="empty-state"><div class="big">No cards match this filter</div>Try a different search, event, team, or role.</div>`;
   }
 
   document.getElementById('pageContent').innerHTML = `
@@ -204,20 +231,40 @@ function render(){
       <div class="eyebrow">Player Cards</div>
       <div class="page-title">THE VAULT</div>
       <div class="page-sub">Every player card across each tournament — grouped by team, or ranked by rating.</div>
+      <div class="stats-strip">${totalPlayers} Players · ${totalTeams} Teams · ${totalTournaments} Tournament${totalTournaments>1?'s':''}</div>
+    </div>
+    <div class="search-row">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search by player or team…" value="${filters.search.replace(/"/g,'&quot;')}">
     </div>
     <div class="controlbar">
       <div class="filter-group">
         <select class="select-filter" id="tourFilter">${tourOptions}</select>
         <select class="select-filter" id="teamFilter">${teamOptions}</select>
+        <select class="select-filter" id="roleFilter">${roleOptions}</select>
       </div>
       <div class="mode-toggle">
         <button class="chip ${filters.mode==='team'?'active':''}" data-mode="team">By Team</button>
         <button class="chip ${filters.mode==='rating'?'active':''}" data-mode="rating">Top Rated</button>
       </div>
     </div>
+    <div class="rarity-viz">${rarityVizHtml}</div>
     ${contentHtml}
   `;
 
+  const searchEl = document.getElementById('searchInput');
+  searchEl.addEventListener('input', (e)=>{
+    filters.search = e.target.value;
+    render();
+  });
+  if(searchHadFocus){
+    searchEl.focus();
+    searchEl.setSelectionRange(searchSelStart, searchSelEnd);
+  }
+
+  document.getElementById('roleFilter').addEventListener('change', (e)=>{
+    filters.role = e.target.value;
+    render();
+  });
   document.getElementById('tourFilter').addEventListener('change', (e)=>{
     filters.tournament = e.target.value;
     render();
