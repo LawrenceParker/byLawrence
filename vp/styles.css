@@ -101,171 +101,76 @@ body{
   color:var(--ink-dim); margin-bottom:14px;
 }
 
-/* ---------- card component ---------- */
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fill,minmax(220px,1fr));
-  gap:26px;
-}
+/* ---------- card component (classic trading card) ---------- */
+.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:26px; }
 
 .pcard{
-  position:relative;
-  aspect-ratio:5/7;
-  border-radius:14px;
-  padding:6px;
-  overflow:visible;
-  isolation:isolate;
-
-  --foil-opacity:0;
-  --foil-shift:50% 50%;
-
-  /* Border palette is supplied by each rarity below. */
-  --border-main:#ffffff;
-  --border-light:#ffffff;
-  --border-dim:rgba(255,255,255,.28);
-  --border-glow:rgba(255,255,255,.18);
-
+  position:relative; aspect-ratio:5/7; border-radius:14px;
+  padding:9px; /* this is the visible card border thickness */
+  --foil-opacity: 0;
+  --foil-shift: 50% 50%;
   transform-style:preserve-3d;
   will-change:transform;
-
-  background:
-    linear-gradient(145deg, var(--border-light), var(--border-main) 42%, var(--border-dim));
-  box-shadow:
-    0 0 0 1px rgba(255,255,255,.06),
-    0 8px 26px var(--border-glow);
 }
 
-/*
-  Refined animated border:
-  A calm travelling highlight moves around the frame instead of
-  looking like electricity. The second layer is deliberately soft,
-  giving the card a premium foil/glass feel.
-*/
-@keyframes borderSweep{
-  from{ transform:rotate(0deg); }
-  to{ transform:rotate(360deg); }
-}
+/* glare clipping to match the card shape - VanillaTilt injects
+   .js-tilt-glare as a direct child of .pcard */
+.pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
+.pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
 
-@keyframes borderGlow{
-  0%,100%{ opacity:.28; }
-  50%{ opacity:.48; }
+/* ---- rarity border system - each tier is a genuinely different effect,
+   escalating like Marvel Snap variant borders: static gradient base per
+   tier, and starting at Diamond, a single light segment continuously
+   travels around the frame. Rather than an approximated/masked gradient,
+   this is drawn with an actual SVG rect stroke (stroke-dasharray +
+   animated stroke-dashoffset) matched to the card's own shape, so the
+   light is physically confined to the border path - it can't drift off
+   it. This is the calmer "trace" style rather than a jittery electric
+   effect. No React (this is a plain HTML/CSS/JS site), just SVG + CSS. */
+.pcard-trace{
+  position:absolute; inset:0; z-index:3; width:100%; height:100%;
+  pointer-events:none; overflow:visible;
 }
-
-.pcard::before,
-.pcard::after{
-  content:"";
-  position:absolute;
-  inset:-1px;
-  border-radius:inherit;
-  pointer-events:none;
+.pcard-trace rect{
+  fill:none; stroke:var(--trace-color, transparent);
+  stroke-width:16; stroke-linecap:round;
+  stroke-dasharray:14 86; stroke-dashoffset:0;
+  opacity:0;
 }
+.pcard-trace .trace-blur{ filter:blur(9px); stroke-width:24; opacity:0; }
 
-/* Soft ambient border glow. */
-.pcard::before{
-  z-index:-1;
-  background:
-    linear-gradient(
-      145deg,
-      var(--border-light),
-      transparent 28%,
-      transparent 72%,
-      var(--border-main)
-    );
-  filter:blur(7px);
-  opacity:.34;
-  animation:borderGlow 3.8s ease-in-out infinite;
-}
+@keyframes traceMove{ to{ stroke-dashoffset:-100; } }
 
-/* A broad, slow highlight that travels around the frame. */
-.pcard::after{
-  z-index:0;
-  background:
-    conic-gradient(
-      from 0deg,
-      transparent 0deg 45deg,
-      rgba(255,255,255,.08) 58deg,
-      var(--border-dim) 72deg,
-      var(--border-light) 84deg,
-      rgba(255,255,255,.08) 98deg,
-      transparent 115deg 360deg
-    );
-  animation:borderSweep 5.5s linear infinite;
-}
-
-/* Tier palettes — still distinct, but much more restrained. */
 .pcard[data-tier="gold"]{
-  --border-main:#c99f42;
-  --border-light:#f1d47b;
-  --border-dim:rgba(201,159,66,.45);
-  --border-glow:rgba(201,159,66,.18);
+  background:#c79a3c;
 }
-
 .pcard[data-tier="platinum"]{
-  --border-main:#318d9e;
-  --border-light:#7bc8d3;
-  --border-dim:rgba(49,141,158,.42);
-  --border-glow:rgba(49,141,158,.18);
+  background:linear-gradient(135deg, #1c5560 0%, #36a0b3 35%, #9fe4ee 50%, #36a0b3 65%, #1c5560 100%);
 }
 
 .pcard[data-tier="diamond"]{
-  --border-main:#9062cf;
-  --border-light:#caa5f2;
-  --border-dim:rgba(144,98,207,.44);
-  --border-glow:rgba(144,98,207,.2);
+  background:linear-gradient(135deg, #5c3a86 0%, #a771ed 35%, #e2caff 50%, #a771ed 65%, #5c3a86 100%);
 }
+.pcard[data-tier="diamond"] .pcard-trace rect{ opacity:.9; animation:traceMove 7s linear infinite; }
+.pcard[data-tier="diamond"] .pcard-trace .trace-blur{ opacity:.4; }
 
 .pcard[data-tier="ascendant"]{
-  --border-main:#198a50;
-  --border-light:#65c993;
-  --border-dim:rgba(25,138,80,.42);
-  --border-glow:rgba(25,138,80,.18);
+  background:linear-gradient(135deg, #0e5c35 0%, #1ca85f 35%, #8ff5bb 50%, #1ca85f 65%, #0e5c35 100%);
 }
+.pcard[data-tier="ascendant"] .pcard-trace rect{ opacity:.9; animation:traceMove 5.4s linear infinite; }
+.pcard[data-tier="ascendant"] .pcard-trace .trace-blur{ opacity:.45; }
 
 .pcard[data-tier="immortal"]{
-  --border-main:#743d69;
-  --border-light:#b579a8;
-  --border-dim:rgba(116,61,105,.44);
-  --border-glow:rgba(116,61,105,.2);
+  background:linear-gradient(135deg, #3d1b34 0%, #743465 35%, #d68bc2 50%, #743465 65%, #3d1b34 100%);
 }
+.pcard[data-tier="immortal"] .pcard-trace rect{ opacity:.95; animation:traceMove 4s linear infinite; }
+.pcard[data-tier="immortal"] .pcard-trace .trace-blur{ opacity:.5; }
 
 .pcard[data-tier="radiant"]{
-  --border-main:#c7bd91;
-  --border-light:#fff7d7;
-  --border-dim:rgba(199,189,145,.48);
-  --border-glow:rgba(245,241,214,.25);
+  background:linear-gradient(135deg, #ff8a80 0%, #ffd97a 25%, #f7f6c9 50%, #8ff5d6 75%, #8ab8ff 100%);
 }
-
-/* Rare cards get a slightly quicker, but still elegant, sweep. */
-.pcard[data-tier="diamond"]::after{ animation-duration:4.8s; }
-.pcard[data-tier="ascendant"]::after{ animation-duration:4.5s; }
-.pcard[data-tier="immortal"]::after{ animation-duration:4.1s; }
-.pcard[data-tier="radiant"]::after{ animation-duration:3.7s; }
-
-.pcard[data-tier="diamond"]::before,
-.pcard[data-tier="ascendant"]::before,
-.pcard[data-tier="immortal"]::before,
-.pcard[data-tier="radiant"]::before{
-  animation-duration:3.2s;
-}
-
-/* Keep the animation understated during interaction. */
-.pcard:hover::before{
-  opacity:.42;
-}
-
-.pcard:hover::after{
-  animation-play-state:paused;
-}
-
-/* VanillaTilt injects .js-tilt-glare as a direct child of .pcard. */
-.pcard .js-tilt-glare{
-  border-radius:inherit;
-  overflow:hidden;
-}
-
-.pcard .js-tilt-glare-inner{
-  mix-blend-mode:soft-light;
-}
+.pcard[data-tier="radiant"] .pcard-trace rect{ opacity:1; animation:traceMove 2.8s linear infinite; }
+.pcard[data-tier="radiant"] .pcard-trace .trace-blur{ opacity:.6; }
 
 .pcard-inner{
   position:relative; width:100%; height:100%; border-radius:9px;
@@ -327,10 +232,6 @@ body{
 
 .csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
 .csv-gate .page-sub{ margin:0 auto; }
-
-@media (prefers-reduced-motion: reduce){
-  .pcard::before,.pcard::after{animation:none !important;}
-}
 
 @media (max-width:600px){
   .page-title{ font-size:32px; }

@@ -135,6 +135,10 @@ function cardMarkup(c){
           </div>
         </div>
       </div>
+      <svg class="pcard-trace" viewBox="0 0 500 700" style="--trace-color:${t.color}" aria-hidden="true">
+        <rect class="trace-blur" pathLength="100" x="10" y="10" width="480" height="680" rx="26"></rect>
+        <rect class="trace-line" pathLength="100" x="10" y="10" width="480" height="680" rx="26"></rect>
+      </svg>
     </div>`;
 }
 
