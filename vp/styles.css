@@ -241,7 +241,7 @@ body{
   border-top:1px solid rgba(255,255,255,.08);
 }
 .pcard-name{ font-family:'Bebas Neue'; font-size:22px; letter-spacing:.5px; color:#fff; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-.pcard-team{ font-size:11px; color:rgba(255,255,255,.6); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:1px;}
+.pcard-team{ font-size:11px; color:rgba(255,255,255,.6); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
 .pcard-stats{ display:flex; justify-content:center; gap:22px; margin-top:9px; font-size:12px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.55); }
 .pcard-stats b{ color:#fff; font-weight:700; font-family:'Bebas Neue'; font-size:24px; margin-left:4px; }
 .pcard-meta{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:9px; padding-top:8px; border-top:1px solid rgba(255,255,255,.08); }

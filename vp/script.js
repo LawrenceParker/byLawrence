@@ -33,9 +33,48 @@ function rowToCard(r){
 }
 
 function rowsToCards(rows){
-  return rows
+  const cards = rows
     .filter(r => r.Player && r.Tournament && r.roleRTG !== undefined && r.roleRTG !== '')
     .map(rowToCard);
+  return collapseFlexPlayers(cards);
+}
+
+// A player who logged 3+ different roles in the same tournament is a flex
+// player - their role-specific ratings are individually diluted, so instead
+// of showing several thin/low-rated cards for one person, collapse them
+// into a single "Flex" card. roleRTG is already weighted by rounds played
+// per role, so a simple average across their roles is the fair aggregate
+// (same logic applied to ATT/DEF).
+function collapseFlexPlayers(cards){
+  const groups = new Map();
+  cards.forEach(c=>{
+    const key = `${c.tournament}|${c.team}|${c.player}`;
+    if(!groups.has(key)) groups.set(key, []);
+    groups.get(key).push(c);
+  });
+
+  const result = [];
+  groups.forEach(group=>{
+    const distinctRoles = [...new Set(group.map(c=>c.role))];
+    if(distinctRoles.length >= 3){
+      const avg = arr => Math.round(arr.reduce((a,b)=>a+b, 0) / arr.length);
+      const rtg = avg(group.map(c=>c.rtg));
+      const first = group[0];
+      result.push({
+        id: `${first.tournament}|${first.team}|${first.player}|flex`.toLowerCase().replace(/\s+/g,'_'),
+        player: first.player, team: first.team, tournament: first.tournament,
+        role: 'Flex',
+        flexRoles: distinctRoles,
+        att: avg(group.map(c=>c.att)),
+        def: avg(group.map(c=>c.def)),
+        rtg,
+        tier: tierFromRtg(rtg)
+      });
+    } else {
+      result.push(...group);
+    }
+  });
+  return result;
 }
 
 const TIERS = {
@@ -117,6 +156,9 @@ function advanceAvatarSrc(img){
    ========================================================= */
 function cardMarkup(c){
   const t = TIERS[c.tier];
+  const isFlex = c.role === 'Flex';
+  const roleLabel = isFlex ? 'FLEX' : c.role;
+  const teamLine = isFlex && c.flexRoles ? `${c.team} · ${c.flexRoles.join('/')}` : c.team;
   return `
     <div class="pcard" data-tier="${c.tier}">
       <div class="pcard-inner">
@@ -127,11 +169,11 @@ function cardMarkup(c){
         </div>
         <div class="pcard-plate">
           <div class="pcard-name">${c.player}</div>
-          <div class="pcard-team">${c.team}</div>
+          <div class="pcard-team" title="${teamLine}">${teamLine}</div>
           <div class="pcard-stats"><span>ATT<b>${c.att}</b></span><span>DEF<b>${c.def}</b></span></div>
           <div class="pcard-meta">
             <span class="tier-pill" style="color:${t.color}">● ${t.label}</span>
-            <span class="role-pill">${c.role}</span>
+            <span class="role-pill">${roleLabel}</span>
           </div>
         </div>
       </div>
@@ -147,7 +189,7 @@ function cardMarkup(c){
    or a flat list sorted by rating
    ========================================================= */
 let filters = { tournament: 'all', team: 'all', role: 'all', search: '', mode: 'team' };
-const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel'];
+const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel', 'Flex'];
 
 function render(){
   // preserve search box focus/cursor across the full re-render triggered by typing
