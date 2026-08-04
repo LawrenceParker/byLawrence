@@ -146,7 +146,7 @@ function cardMarkup(c){
    GALLERY - grouped by team (default, split further by tournament),
    or a flat list sorted by rating
    ========================================================= */
-let filters = { tournament: 'all', mode: 'team' };
+let filters = { tournament: 'all', team: 'all', mode: 'team' };
 
 function render(){
   // preserve first-seen order from the CSV for a stable, sensible tournament order
@@ -155,7 +155,15 @@ function render(){
     `<option value="${t}" ${filters.tournament===t?'selected':''}>${t==='all'?'All Events':t}</option>`
   ).join('');
 
-  const list = CARDS.filter(c => filters.tournament==='all' || c.tournament===filters.tournament);
+  const teamOrder = [...new Set(CARDS.map(c=>c.team))].sort();
+  const teamOptions = ['all', ...teamOrder].map(team=>
+    `<option value="${team}" ${filters.team===team?'selected':''}>${team==='all'?'All Teams':team}</option>`
+  ).join('');
+
+  const list = CARDS.filter(c =>
+    (filters.tournament==='all' || c.tournament===filters.tournament) &&
+    (filters.team==='all' || c.team===filters.team)
+  );
 
   let contentHtml;
   if(filters.mode === 'rating'){
@@ -198,7 +206,10 @@ function render(){
       <div class="page-sub">Every player card across each tournament — grouped by team, or ranked by rating.</div>
     </div>
     <div class="controlbar">
-      <select class="select-filter" id="tourFilter">${tourOptions}</select>
+      <div class="filter-group">
+        <select class="select-filter" id="tourFilter">${tourOptions}</select>
+        <select class="select-filter" id="teamFilter">${teamOptions}</select>
+      </div>
       <div class="mode-toggle">
         <button class="chip ${filters.mode==='team'?'active':''}" data-mode="team">By Team</button>
         <button class="chip ${filters.mode==='rating'?'active':''}" data-mode="rating">Top Rated</button>
@@ -209,6 +220,10 @@ function render(){
 
   document.getElementById('tourFilter').addEventListener('change', (e)=>{
     filters.tournament = e.target.value;
+    render();
+  });
+  document.getElementById('teamFilter').addEventListener('change', (e)=>{
+    filters.team = e.target.value;
     render();
   });
   document.querySelectorAll('[data-mode]').forEach(btn=>{
