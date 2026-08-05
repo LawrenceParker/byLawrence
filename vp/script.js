@@ -154,7 +154,8 @@ function advanceAvatarSrc(img){
 /* =========================================================
    CARD MARKUP
    ========================================================= */
-function cardMarkup(c){
+function cardMarkup(c, opts){
+  opts = opts || {};
   const t = TIERS[c.tier];
   const isFlex = c.role === 'Flex';
   const roleLabel = isFlex ? 'FLEX' : c.role;
@@ -166,6 +167,7 @@ function cardMarkup(c){
           ${avatarBlock(c.player)}
           <div class="pcard-rating" style="--rating-ring:${t.color}">${c.rtg}</div>
           <div class="pcard-tourtag">${c.tournament}</div>
+          ${opts.badge ? `<div class="pcard-cornerbadge">${opts.badge}</div>` : ''}
         </div>
         <div class="pcard-plate">
           <div class="pcard-name">${c.player}</div>
@@ -185,13 +187,170 @@ function cardMarkup(c){
 }
 
 /* =========================================================
+   COLLECTION - cards pulled from packs, persisted in localStorage.
+   Stored as counts (not just a set) so duplicates show a ×N badge.
+   ========================================================= */
+const COLLECTION_KEY = "vct_vault_collection_v1";
+let ownedCounts = {};
+
+function loadCollection(){
+  try{
+    const raw = localStorage.getItem(COLLECTION_KEY);
+    if(raw) ownedCounts = JSON.parse(raw) || {};
+  }catch(e){
+    ownedCounts = {};
+  }
+}
+function saveCollection(){
+  try{ localStorage.setItem(COLLECTION_KEY, JSON.stringify(ownedCounts)); }
+  catch(e){ /* private browsing / storage unavailable - collection just won't persist */ }
+}
+function addToCollection(cardId){
+  ownedCounts[cardId] = (ownedCounts[cardId] || 0) + 1;
+}
+
+/* =========================================================
+   PACKS - free, unlimited, pulls from the entire card pool (no per-
+   tournament packs, no weighting by rarity - every card is an equally
+   likely pull). 5 cards per pack, revealed Night Market style: all 5 land
+   face-down in a row and can be flipped individually, in any order.
+   ========================================================= */
+function pullPack(n){
+  const pulled = [];
+  for(let i=0; i<n; i++){
+    pulled.push(CARDS[Math.floor(Math.random() * CARDS.length)]);
+  }
+  return pulled;
+}
+
+let currentPackCards = null;
+
+function renderPacks(){
+  document.getElementById('pageContent').innerHTML = `
+    <div class="page-head">
+      <div class="eyebrow">Card Packs</div>
+      <div class="page-title">OPEN A PACK</div>
+      <div class="page-sub">Pull 5 random player cards from the full pool. Click each one to reveal it.</div>
+    </div>
+    <div id="packArea"></div>
+  `;
+  renderPackArea();
+}
+
+function renderPackArea(){
+  const area = document.getElementById('packArea');
+
+  if(!currentPackCards){
+    area.innerHTML = `
+      <div class="pack-intro">
+        <div class="pack-tile" id="packTile">
+          <div class="pack-tile-mark">VCT</div>
+          <div class="pack-tile-sub">5-CARD PACK</div>
+        </div>
+        <button class="btn" id="openPackBtn">OPEN PACK</button>
+      </div>
+    `;
+    document.getElementById('openPackBtn').addEventListener('click', ()=>{
+      currentPackCards = pullPack(5);
+      currentPackCards.forEach(c=> addToCollection(c.id));
+      saveCollection();
+      renderPackArea();
+    });
+    return;
+  }
+
+  const slotsHtml = currentPackCards.map((c,i)=>`
+    <div class="market-slot">
+      <div class="market-flip" data-idx="${i}">
+        <div class="market-face market-back">
+          <div class="market-back-mark">VCT</div>
+          <div class="market-back-sub">TAP TO REVEAL</div>
+        </div>
+        <div class="market-face market-front">${cardMarkup(c)}</div>
+      </div>
+    </div>
+  `).join('');
+
+  area.innerHTML = `
+    <div class="market-row">${slotsHtml}</div>
+    <div class="market-actions">
+      <button class="btn ghost" id="openAgainBtn">OPEN ANOTHER PACK</button>
+    </div>
+  `;
+
+  document.querySelectorAll('.market-flip').forEach(el=>{
+    el.addEventListener('click', ()=>{
+      if(el.classList.contains('flipped')) return;
+      el.classList.add('flipped');
+    });
+  });
+
+  document.getElementById('openAgainBtn').addEventListener('click', ()=>{
+    currentPackCards = null;
+    renderPackArea();
+  });
+
+  initCardTilt();
+}
+
+/* =========================================================
+   MY COLLECTION - only cards actually pulled from packs, grouped by
+   team like the main gallery, with a ×N badge for duplicates.
+   ========================================================= */
+function renderCollection(){
+  const ownedIds = Object.keys(ownedCounts).filter(id => ownedCounts[id] > 0);
+  const ownedCards = ownedIds.map(id => cardById(id)).filter(Boolean);
+
+  if(ownedCards.length === 0){
+    document.getElementById('pageContent').innerHTML = `
+      <div class="page-head">
+        <div class="eyebrow">Your Collection</div>
+        <div class="page-title">MY COLLECTION</div>
+        <div class="page-sub">Cards you pull from packs will show up here.</div>
+      </div>
+      <div class="empty-state"><div class="big">No cards yet</div>Open a pack to start your collection.</div>
+    `;
+    return;
+  }
+
+  const totalCopies = ownedIds.reduce((sum,id)=> sum + ownedCounts[id], 0);
+  const teams = [...new Set(ownedCards.map(c=>c.team))].sort();
+  const contentHtml = teams.map(team=>{
+    const teamCards = ownedCards.filter(c=>c.team===team).sort((a,b)=> b.rtg - a.rtg);
+    return `
+      <div class="team-block">
+        <div class="team-header">
+          <div class="team-name">${team}</div>
+          <div class="team-count">${teamCards.length} Card${teamCards.length>1?'s':''}</div>
+        </div>
+        <div class="card-grid">${teamCards.map(c=>
+          cardMarkup(c, { badge: ownedCounts[c.id] > 1 ? `×${ownedCounts[c.id]}` : null })
+        ).join('')}</div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('pageContent').innerHTML = `
+    <div class="page-head">
+      <div class="eyebrow">Your Collection</div>
+      <div class="page-title">MY COLLECTION</div>
+      <div class="page-sub">Every card you've pulled from packs, grouped by team.</div>
+      <div class="stats-strip">${ownedIds.length} Unique Cards · ${totalCopies} Total Pulls</div>
+    </div>
+    ${contentHtml}
+  `;
+
+  initCardTilt();
+}
+function cardById(id){ return CARDS.find(c=>c.id===id); }
+
+/* =========================================================
    GALLERY - grouped by team (default, split further by tournament),
    or a flat list sorted by rating
    ========================================================= */
 let filters = { tournament: 'all', team: 'all', role: 'all', search: '', mode: 'team' };
 const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel', 'Flex'];
 
-function render(){
+function renderAllCards(){
   // preserve search box focus/cursor across the full re-render triggered by typing
   const prevSearchEl = document.getElementById('searchInput');
   const searchHadFocus = document.activeElement === prevSearchEl;
@@ -296,7 +455,7 @@ function render(){
   const searchEl = document.getElementById('searchInput');
   searchEl.addEventListener('input', (e)=>{
     filters.search = e.target.value;
-    render();
+    renderAllCards();
   });
   if(searchHadFocus){
     searchEl.focus();
@@ -305,18 +464,18 @@ function render(){
 
   document.getElementById('roleFilter').addEventListener('change', (e)=>{
     filters.role = e.target.value;
-    render();
+    renderAllCards();
   });
   document.getElementById('tourFilter').addEventListener('change', (e)=>{
     filters.tournament = e.target.value;
-    render();
+    renderAllCards();
   });
   document.getElementById('teamFilter').addEventListener('change', (e)=>{
     filters.team = e.target.value;
-    render();
+    renderAllCards();
   });
   document.querySelectorAll('[data-mode]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; render(); });
+    btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; renderAllCards(); });
   });
 
   initCardTilt();
@@ -392,9 +551,34 @@ function showCsvError(detail){
   document.getElementById('retryBtn').addEventListener('click', initApp);
 }
 
+/* =========================================================
+   PAGE ROUTER - three pages, sharing the same #pageContent mount point
+   ========================================================= */
+let currentPage = 'allcards';
+
+function renderPage(){
+  if(currentPage === 'allcards') renderAllCards();
+  else if(currentPage === 'packs') renderPacks();
+  else if(currentPage === 'collection') renderCollection();
+}
+function setPage(page){
+  currentPage = page;
+  document.querySelectorAll('.nav-tab').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.page === page);
+  });
+  renderPage();
+}
+document.querySelectorAll('.nav-tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(!dataReady) return; // ignore nav clicks before the CSV has loaded
+    setPage(btn.dataset.page);
+  });
+});
+
 function startApp(){
   dataReady = true;
-  render();
+  loadCollection();
+  setPage('allcards');
 }
 
 // Safety net: if something unexpected throws before the app finishes booting,
