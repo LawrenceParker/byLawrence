@@ -294,9 +294,34 @@ function renderPackArea(){
 }
 
 /* =========================================================
-   MY COLLECTION - only cards actually pulled from packs, grouped by
-   team like the main gallery, with a ×N badge for duplicates.
+   MY COLLECTION - only cards actually pulled from packs (rendered below
+   via the shared renderCardBrowser, same filter system as All Cards)
    ========================================================= */
+function cardById(id){ return CARDS.find(c=>c.id===id); }
+
+/* =========================================================
+   GALLERY - grouped by team (default, split further by tournament),
+   or a flat list sorted by rating
+   ========================================================= */
+let filters = { tournament: 'all', team: 'all', role: 'all', search: '', mode: 'team' };
+const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel', 'Flex'];
+
+function renderAllCards(){
+  const totalPlayers = CARDS.length;
+  const totalTeams = new Set(CARDS.map(c=>c.team)).size;
+  const totalTournaments = new Set(CARDS.map(c=>c.tournament)).size;
+  const pageHead = `
+    <div class="page-head">
+      <div class="eyebrow">Player Cards</div>
+      <div class="page-title">THE VAULT</div>
+      <div class="page-sub">Every player card across each tournament — grouped by team, or ranked by rating.</div>
+      <div class="stats-strip">${totalPlayers} Players · ${totalTeams} Teams · ${totalTournaments} Tournament${totalTournaments>1?'s':''}</div>
+    </div>`;
+  renderCardBrowser(CARDS, filters, pageHead, renderAllCards);
+}
+
+let collectionFilters = { tournament:'all', team:'all', role:'all', search:'', mode:'team' };
+
 function renderCollection(){
   const ownedIds = Object.keys(ownedCounts).filter(id => ownedCounts[id] > 0);
   const ownedCards = ownedIds.map(id => cardById(id)).filter(Boolean);
@@ -314,43 +339,23 @@ function renderCollection(){
   }
 
   const totalCopies = ownedIds.reduce((sum,id)=> sum + ownedCounts[id], 0);
-  const teams = [...new Set(ownedCards.map(c=>c.team))].sort();
-  const contentHtml = teams.map(team=>{
-    const teamCards = ownedCards.filter(c=>c.team===team).sort((a,b)=> b.rtg - a.rtg);
-    return `
-      <div class="team-block">
-        <div class="team-header">
-          <div class="team-name">${team}</div>
-          <div class="team-count">${teamCards.length} Card${teamCards.length>1?'s':''}</div>
-        </div>
-        <div class="card-grid">${teamCards.map(c=>
-          cardMarkup(c, { badge: ownedCounts[c.id] > 1 ? `×${ownedCounts[c.id]}` : null })
-        ).join('')}</div>
-      </div>`;
-  }).join('');
-
-  document.getElementById('pageContent').innerHTML = `
+  const pageHead = `
     <div class="page-head">
       <div class="eyebrow">Your Collection</div>
       <div class="page-title">MY COLLECTION</div>
       <div class="page-sub">Every card you've pulled from packs, grouped by team.</div>
       <div class="stats-strip">${ownedIds.length} Unique Cards · ${totalCopies} Total Pulls</div>
-    </div>
-    ${contentHtml}
-  `;
-
-  initCardTilt();
+    </div>`;
+  renderCardBrowser(ownedCards, collectionFilters, pageHead, renderCollection,
+    c => ({ badge: ownedCounts[c.id] > 1 ? `×${ownedCounts[c.id]}` : null })
+  );
 }
-function cardById(id){ return CARDS.find(c=>c.id===id); }
 
-/* =========================================================
-   GALLERY - grouped by team (default, split further by tournament),
-   or a flat list sorted by rating
-   ========================================================= */
-let filters = { tournament: 'all', team: 'all', role: 'all', search: '', mode: 'team' };
-const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel', 'Flex'];
-
-function renderAllCards(){
+// Shared by All Cards and My Collection - search, tournament/team/role
+// filters, By Team / Top Rated modes, and the rarity breakdown. cardOptsFn
+// is optional and lets a page pass per-card cardMarkup() options (My
+// Collection uses it for the duplicate ×N badge).
+function renderCardBrowser(cardPool, filterState, pageHeadHtml, rerenderFn, cardOptsFn){
   // preserve search box focus/cursor across the full re-render triggered by typing
   const prevSearchEl = document.getElementById('searchInput');
   const searchHadFocus = document.activeElement === prevSearchEl;
@@ -358,29 +363,31 @@ function renderAllCards(){
   const searchSelEnd = searchHadFocus ? prevSearchEl.selectionEnd : null;
 
   // preserve first-seen order from the CSV for a stable, sensible tournament order
-  const tournamentOrder = [...new Set(CARDS.map(c=>c.tournament))];
+  const tournamentOrder = [...new Set(cardPool.map(c=>c.tournament))];
   const tourOptions = ['all', ...tournamentOrder].map(t=>
-    `<option value="${t}" ${filters.tournament===t?'selected':''}>${t==='all'?'All Events':t}</option>`
+    `<option value="${t}" ${filterState.tournament===t?'selected':''}>${t==='all'?'All Events':t}</option>`
   ).join('');
 
-  const teamOrder = [...new Set(CARDS.map(c=>c.team))].sort();
+  const teamOrder = [...new Set(cardPool.map(c=>c.team))].sort();
   const teamOptions = ['all', ...teamOrder].map(team=>
-    `<option value="${team}" ${filters.team===team?'selected':''}>${team==='all'?'All Teams':team}</option>`
+    `<option value="${team}" ${filterState.team===team?'selected':''}>${team==='all'?'All Teams':team}</option>`
   ).join('');
 
-  const rolesPresent = [...new Set(CARDS.map(c=>c.role))];
+  const rolesPresent = [...new Set(cardPool.map(c=>c.role))];
   const roleOrder = [...ROLE_ORDER.filter(r=>rolesPresent.includes(r)), ...rolesPresent.filter(r=>!ROLE_ORDER.includes(r)).sort()];
   const roleOptions = ['all', ...roleOrder].map(role=>
-    `<option value="${role}" ${filters.role===role?'selected':''}>${role==='all'?'All Roles':role}</option>`
+    `<option value="${role}" ${filterState.role===role?'selected':''}>${role==='all'?'All Roles':role}</option>`
   ).join('');
 
-  const searchTerm = filters.search.trim().toLowerCase();
-  const list = CARDS.filter(c =>
-    (filters.tournament==='all' || c.tournament===filters.tournament) &&
-    (filters.team==='all' || c.team===filters.team) &&
-    (filters.role==='all' || c.role===filters.role) &&
+  const searchTerm = filterState.search.trim().toLowerCase();
+  const list = cardPool.filter(c =>
+    (filterState.tournament==='all' || c.tournament===filterState.tournament) &&
+    (filterState.team==='all' || c.team===filterState.team) &&
+    (filterState.role==='all' || c.role===filterState.role) &&
     (searchTerm==='' || c.player.toLowerCase().includes(searchTerm) || c.team.toLowerCase().includes(searchTerm))
   );
+
+  const renderCard = c => cardOptsFn ? cardMarkup(c, cardOptsFn(c)) : cardMarkup(c);
 
   // rarity breakdown of the current filtered set
   const rarityVizHtml = TIER_ORDER.map(tier=>{
@@ -388,15 +395,10 @@ function renderAllCards(){
     return `<div class="rarity-pill"><span class="rarity-dot" style="background:${TIERS[tier].color}"></span>${TIERS[tier].label} <b>${count}</b></div>`;
   }).join('');
 
-  // overall dataset stats (unfiltered - communicates the full size of the set)
-  const totalPlayers = CARDS.length;
-  const totalTeams = new Set(CARDS.map(c=>c.team)).size;
-  const totalTournaments = tournamentOrder.length;
-
   let contentHtml;
-  if(filters.mode === 'rating'){
+  if(filterState.mode === 'rating'){
     const sorted = [...list].sort((a,b)=> b.rtg - a.rtg);
-    contentHtml = `<div class="card-grid">${sorted.map(cardMarkup).join('')}</div>`;
+    contentHtml = `<div class="card-grid">${sorted.map(renderCard).join('')}</div>`;
   } else {
     const teams = [...new Set(list.map(c=>c.team))].sort();
     contentHtml = teams.map(team=>{
@@ -408,7 +410,7 @@ function renderAllCards(){
         return `
           <div class="tour-group">
             <div class="tour-label">${tour}</div>
-            <div class="card-grid">${cards.map(cardMarkup).join('')}</div>
+            <div class="card-grid">${cards.map(renderCard).join('')}</div>
           </div>`;
       }).join('');
 
@@ -428,14 +430,9 @@ function renderAllCards(){
   }
 
   document.getElementById('pageContent').innerHTML = `
-    <div class="page-head">
-      <div class="eyebrow">Player Cards</div>
-      <div class="page-title">THE VAULT</div>
-      <div class="page-sub">Every player card across each tournament — grouped by team, or ranked by rating.</div>
-      <div class="stats-strip">${totalPlayers} Players · ${totalTeams} Teams · ${totalTournaments} Tournament${totalTournaments>1?'s':''}</div>
-    </div>
+    ${pageHeadHtml}
     <div class="search-row">
-      <input type="text" class="search-input" id="searchInput" placeholder="Search by player or team…" value="${filters.search.replace(/"/g,'&quot;')}">
+      <input type="text" class="search-input" id="searchInput" placeholder="Search by player or team…" value="${filterState.search.replace(/"/g,'&quot;')}">
     </div>
     <div class="controlbar">
       <div class="filter-group">
@@ -444,8 +441,8 @@ function renderAllCards(){
         <select class="select-filter" id="roleFilter">${roleOptions}</select>
       </div>
       <div class="mode-toggle">
-        <button class="chip ${filters.mode==='team'?'active':''}" data-mode="team">By Team</button>
-        <button class="chip ${filters.mode==='rating'?'active':''}" data-mode="rating">Top Rated</button>
+        <button class="chip ${filterState.mode==='team'?'active':''}" data-mode="team">By Team</button>
+        <button class="chip ${filterState.mode==='rating'?'active':''}" data-mode="rating">Top Rated</button>
       </div>
     </div>
     <div class="rarity-viz">${rarityVizHtml}</div>
@@ -454,8 +451,8 @@ function renderAllCards(){
 
   const searchEl = document.getElementById('searchInput');
   searchEl.addEventListener('input', (e)=>{
-    filters.search = e.target.value;
-    renderAllCards();
+    filterState.search = e.target.value;
+    rerenderFn();
   });
   if(searchHadFocus){
     searchEl.focus();
@@ -463,19 +460,19 @@ function renderAllCards(){
   }
 
   document.getElementById('roleFilter').addEventListener('change', (e)=>{
-    filters.role = e.target.value;
-    renderAllCards();
+    filterState.role = e.target.value;
+    rerenderFn();
   });
   document.getElementById('tourFilter').addEventListener('change', (e)=>{
-    filters.tournament = e.target.value;
-    renderAllCards();
+    filterState.tournament = e.target.value;
+    rerenderFn();
   });
   document.getElementById('teamFilter').addEventListener('change', (e)=>{
-    filters.team = e.target.value;
-    renderAllCards();
+    filterState.team = e.target.value;
+    rerenderFn();
   });
   document.querySelectorAll('[data-mode]').forEach(btn=>{
-    btn.addEventListener('click', ()=>{ filters.mode = btn.dataset.mode; renderAllCards(); });
+    btn.addEventListener('click', ()=>{ filterState.mode = btn.dataset.mode; rerenderFn(); });
   });
 
   initCardTilt();
