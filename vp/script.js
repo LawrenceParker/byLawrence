@@ -307,7 +307,7 @@ let filters = { tournament: 'all', team: 'all', role: 'all', search: '', mode: '
 const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel', 'Flex'];
 
 function renderAllCards(){
-  const totalPlayers = CARDS.length;
+  const totalCards = CARDS.length;
   const totalTeams = new Set(CARDS.map(c=>c.team)).size;
   const totalTournaments = new Set(CARDS.map(c=>c.tournament)).size;
   const pageHead = `
@@ -315,7 +315,7 @@ function renderAllCards(){
       <div class="eyebrow">Player Cards</div>
       <div class="page-title">THE VAULT</div>
       <div class="page-sub">Every player card across each tournament — grouped by team, or ranked by rating.</div>
-      <div class="stats-strip">${totalPlayers} Players · ${totalTeams} Teams · ${totalTournaments} Tournament${totalTournaments>1?'s':''}</div>
+      <div class="stats-strip">${totalCards} Cards · ${totalTeams} Teams · ${totalTournaments} Tournament${totalTournaments>1?'s':''}</div>
     </div>`;
   renderCardBrowser(CARDS, filters, pageHead, renderAllCards);
 }
