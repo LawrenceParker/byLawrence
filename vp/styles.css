@@ -1,41 +1,41 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap');
 
 :root{
-  --bg: #000000;
-  --bg-deep: #000000;
+  --bg: #000;
   --panel: #0c0c0d;
-  --panel-2: #131315;
   --line: rgba(255,255,255,.12);
-  --ink: #ffffff;
+  --ink: #fff;
   --ink-dim: #8c8c90;
   --red: #ff4655;
-  --red-dim: #7a2029;
-  --bronze: #9c6b3e;   --bronze-glow:#c98b52;
-  --silver: #aeb7c2;   --silver-glow:#e3e9ef;
-  --gold: #f0b429;     --gold-glow:#ffd76a;
-  --diamond: #c58aff;  --diamond-glow:#eddcff;
-  --radiant: #f2e9c9;  --radiant-glow:#fff6d9;
-}
 
-*{box-sizing:border-box; margin:0; padding:0;}
+  /* rarity colours */
+  --radiant: #f5f1d6;
+  --immortal: #743465;
+  --ascendant: #1ca85f;
+  --diamond: #a771ed;
+  --platinum: #36a0b3;
+  --gold: #e8c046;
+
+  /* role colours */
+  --duelist: #ff4655;
+  --initiator: #36a0b3;
+  --controller: #a771ed;
+  --sentinel: #1ca85f;
+}
 
 body{
-  background: radial-gradient(ellipse at 50% -15%, #151516 0%, transparent 55%), #000;
-  color: var(--ink);
+  background:#000;
+  color:var(--ink);
   font-family:'Rajdhani', sans-serif;
-  min-height:100vh;
-  overflow-x:hidden;
+  padding-bottom:80px;
 }
 
-::selection{ background:var(--red); color:#fff; }
-
-/* ---------- layout shell ---------- */
-.app{ max-width:1400px; margin:0 auto; padding:0 24px 80px; }
+.app{ max-width:1400px; margin:0 auto; padding:0 24px; }
 
 /* ---------- top bar ---------- */
 .topbar{
   display:flex; align-items:center; justify-content:space-between;
-  padding:20px 0; border-bottom:1px solid var(--line); gap:24px; flex-wrap:wrap;
+  padding:20px 0; border-bottom:1px solid var(--line);
 }
 .brand{ display:flex; align-items:center; gap:10px; }
 .brand-mark{
@@ -47,282 +47,79 @@ body{
 .brand-name{ font-family:'Bebas Neue'; letter-spacing:2px; font-size:22px; }
 .brand-name span{ color:var(--red); }
 
-/* ---------- in-game style nav (AllCards left, Packs centered, Collection right) ---------- */
-.game-nav{
-  display:grid; grid-template-columns:1fr auto 1fr; align-items:center;
-  border-bottom:1px solid var(--line);
-}
-.nav-tab{
-  background:none; border:none; color:var(--ink-dim); cursor:pointer;
-  font-family:'Bebas Neue'; font-size:15px; letter-spacing:3px;
-  padding:20px 6px; position:relative; transition:color .15s;
-}
-.nav-tab:nth-child(1){ justify-self:start; }
-.nav-tab:nth-child(2){ justify-self:center; padding-left:34px; padding-right:34px; }
-.nav-tab:nth-child(3){ justify-self:end; }
-.nav-tab:hover{ color:#fff; }
-.nav-tab.active{ color:#fff; }
-.nav-tab.active::after{
-  content:''; position:absolute; left:50%; bottom:0; transform:translateX(-50%);
-  width:60%; height:2px; background:var(--red); box-shadow:0 0 10px var(--red);
-}
-
 /* ---------- headers ---------- */
 .page-head{ margin:36px 0 22px; }
 .eyebrow{ font-size:12px; letter-spacing:4px; color:var(--red); text-transform:uppercase; font-weight:700; }
 .page-title{ font-family:'Bebas Neue'; font-size:42px; letter-spacing:2px; margin-top:4px; }
-.page-sub{ color:var(--ink-dim); font-size:15px; max-width:640px; margin-top:6px; font-weight:600;}
-.stats-strip{ font-size:13px; color:var(--ink); font-weight:700; letter-spacing:.5px; margin-top:12px; }
+.page-sub{ color:var(--ink-dim); font-size:15px; max-width:640px; margin-top:6px; font-weight:600; }
 
-.btn{
-  font-family:'Bebas Neue'; letter-spacing:2px; font-size:15px;
-  background:var(--red); color:#000; border:none; padding:10px 24px; cursor:pointer;
-  transition:filter .15s, transform .15s;
+/* ---------- filter bar ---------- */
+.filterbar{
+  display:flex; gap:16px; flex-wrap:wrap;
+  margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--line);
 }
-.btn:hover{ filter:brightness(1.15); transform:translateY(-1px); }
-.btn:disabled{ background:#2c2c2e; color:#6c6c70; cursor:not-allowed; }
-.btn.ghost{ background:transparent; border:1px solid var(--line); color:var(--ink); }
-.btn.ghost:hover{ border-color:var(--red); }
 
-/* ---------- search ---------- */
-.search-row{ margin-bottom:18px; }
-.search-input{
-  width:100%; max-width:420px; font-family:'Rajdhani', sans-serif; font-size:14px; font-weight:600;
-  padding:11px 16px; border:1px solid var(--line); background:var(--panel); color:var(--ink);
-}
-.search-input::placeholder{ color:var(--ink-dim); }
-.search-input:focus{ outline:none; border-color:var(--red); }
-
-/* ---------- rarity breakdown ---------- */
-.rarity-viz{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:28px; }
-.rarity-pill{
-  display:flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.5px;
-  text-transform:uppercase; color:var(--ink-dim); background:var(--panel); border:1px solid var(--line);
-  padding:6px 12px;
-}
-.rarity-pill b{ color:var(--ink); font-family:'Bebas Neue'; font-size:14px; font-weight:400; letter-spacing:0; margin-left:1px; }
-.rarity-dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
-
-/* ---------- control bar (tournament + view mode) ---------- */
-.controlbar{
-  display:flex; align-items:center; justify-content:space-between; gap:16px;
-  flex-wrap:wrap; margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--line);
-}
-.mode-toggle{ display:flex; gap:8px; }
-.filter-group{ display:flex; gap:10px; flex-wrap:wrap; }
-.chip{
-  font-size:12.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
-  padding:8px 18px; border:1px solid var(--line); color:var(--ink-dim); background:var(--panel);
-  cursor:pointer;
-}
-.chip.active{ background:var(--red); color:#000; border-color:var(--red); }
 .select-filter{
-  font-family:'Rajdhani', sans-serif; font-size:12.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
-  padding:8px 16px; border:1px solid var(--line); color:var(--ink); background:var(--panel);
-  cursor:pointer; appearance:none; -webkit-appearance:none;
-  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c8c90' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
-  background-repeat:no-repeat; background-position:right 12px center; background-size:14px;
-  padding-right:36px;
-}
-.select-filter:focus{ outline:none; border-color:var(--red); }
-
-/* ---------- team blocks ---------- */
-.team-block{ margin-bottom:44px; }
-.team-header{
-  display:flex; align-items:baseline; gap:12px; margin-bottom:20px;
-  padding-bottom:10px; border-bottom:2px solid var(--line);
-}
-.team-name{ font-family:'Bebas Neue'; font-size:28px; letter-spacing:1.5px; }
-.team-count{ font-size:12px; color:var(--ink-dim); font-weight:700; letter-spacing:1px; text-transform:uppercase; }
-
-.tour-group{ margin-bottom:24px; }
-.tour-group:last-child{ margin-bottom:0; }
-.tour-label{
-  font-size:12px; font-weight:700; letter-spacing:2px; text-transform:uppercase;
-  color:var(--ink-dim); margin-bottom:14px;
+  font-family:'Rajdhani'; font-size:13px; font-weight:700; text-transform:uppercase;
+  padding:8px 16px; border:1px solid var(--line); color:var(--ink);
+  background:var(--panel); cursor:pointer;
 }
 
-/* ---------- card component (classic trading card) ---------- */
-.card-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:26px; }
-
-.pcard{
-  position:relative; aspect-ratio:5/7; border-radius:14px;
-  padding:4.5px; /* this is the visible card border thickness */
-  --foil-opacity: 0;
-  --foil-shift: 50% 50%;
-  transform-style:preserve-3d;
-  will-change:transform;
+/* ---------- table ---------- */
+.table-wrap{
+  overflow-x:auto;
+  border:1px solid var(--line);
+  border-radius:10px;
 }
 
-/* glare clipping to match the card shape - VanillaTilt injects
-   .js-tilt-glare as a direct child of .pcard */
-.pcard .js-tilt-glare{ border-radius:inherit; overflow:hidden; }
-.pcard .js-tilt-glare-inner{ mix-blend-mode:soft-light; }
-
-/* ---- rarity border system - each tier is a genuinely different effect,
-   escalating like Marvel Snap variant borders: static gradient base per
-   tier, and starting at Diamond, a single light segment continuously
-   travels around the frame. Rather than an approximated/masked gradient,
-   this is drawn with an actual SVG rect stroke (stroke-dasharray +
-   animated stroke-dashoffset) matched to the card's own shape, so the
-   light is physically confined to the border path - it can't drift off
-   it. This is the calmer "trace" style rather than a jittery electric
-   effect. No React (this is a plain HTML/CSS/JS site), just SVG + CSS. */
-.pcard-trace{
-  position:absolute; inset:0; z-index:3; width:100%; height:100%;
-  pointer-events:none; overflow:visible;
-}
-.pcard-trace rect{
-  fill:none; stroke:var(--trace-color, transparent);
-  stroke-width:8; stroke-linecap:round;
-  stroke-dasharray:14 86; stroke-dashoffset:0;
-  opacity:0;
-}
-.pcard-trace .trace-blur{ filter:blur(6px); stroke-width:13; opacity:0; }
-
-@keyframes traceMove{ to{ stroke-dashoffset:-100; } }
-
-.pcard[data-tier="gold"]{
-  background:#c79a3c;
-}
-.pcard[data-tier="platinum"]{
-  background:linear-gradient(135deg, #1c5560 0%, #36a0b3 35%, #9fe4ee 50%, #36a0b3 65%, #1c5560 100%);
+table{
+  width:100%;
+  border-collapse:collapse;
+  font-size:14px;
 }
 
-.pcard[data-tier="diamond"]{
-  background:linear-gradient(135deg, #5c3a86 0%, #a771ed 35%, #e2caff 50%, #a771ed 65%, #5c3a86 100%);
-}
-.pcard[data-tier="diamond"] .pcard-trace rect{ opacity:.9; animation:traceMove 7s linear infinite; }
-.pcard[data-tier="diamond"] .pcard-trace .trace-blur{ opacity:.4; }
-
-.pcard[data-tier="ascendant"]{
-  background:linear-gradient(135deg, #0e5c35 0%, #1ca85f 35%, #8ff5bb 50%, #1ca85f 65%, #0e5c35 100%);
-}
-.pcard[data-tier="ascendant"] .pcard-trace rect{ opacity:.9; animation:traceMove 5.4s linear infinite; }
-.pcard[data-tier="ascendant"] .pcard-trace .trace-blur{ opacity:.45; }
-
-.pcard[data-tier="immortal"]{
-  background:linear-gradient(135deg, #3d1b34 0%, #743465 35%, #d68bc2 50%, #743465 65%, #3d1b34 100%);
-}
-.pcard[data-tier="immortal"] .pcard-trace rect{ opacity:.95; animation:traceMove 4s linear infinite; }
-.pcard[data-tier="immortal"] .pcard-trace .trace-blur{ opacity:.5; }
-
-.pcard[data-tier="radiant"]{
-  background:linear-gradient(135deg, #ff8a80 0%, #ffd97a 25%, #f7f6c9 50%, #8ff5d6 75%, #8ab8ff 100%);
-}
-.pcard[data-tier="radiant"] .pcard-trace rect{ opacity:1; animation:traceMove 2.8s linear infinite; }
-.pcard[data-tier="radiant"] .pcard-trace .trace-blur{ opacity:.6; }
-
-.pcard-inner{
-  position:relative; width:100%; height:100%; border-radius:9px;
-  background:#0c0c0d; display:flex; flex-direction:column; overflow:hidden; z-index:1;
+thead{
+  background:#131315;
 }
 
-.pcard-photo{ position:relative; flex:1; min-height:0; overflow:hidden; background:linear-gradient(160deg, #26262a, #17171a); }
-/* holographic foil sheen - Radiant only, and confined to the photo area
-   (behind the player image) rather than the whole card */
-.pcard[data-tier="radiant"] .pcard-photo::before{
-  content:'';
-  position:absolute; inset:0; z-index:4; pointer-events:none;
-  background:conic-gradient(from 180deg, #f80e35, #eedf10, #21e985, #0dbde9, #c929f1, #f80e35);
-  background-size:250% 250%;
-  background-position:var(--foil-shift);
-  opacity:var(--foil-opacity);
-  mix-blend-mode:color-dodge;
-  mask-image:repeating-radial-gradient(transparent 0 3px, black 3px 5px);
-  mask-repeat:no-repeat;
-  mask-size:cover;
-  transition:background-position .3s ease;
-}
-.pcard-photo > img{ position:absolute; inset:0; width:100%; height:100%; object-fit:cover; object-position:center top; }
-.pcard-photo > .avatar-fallback{
-  display:none; position:absolute; inset:0; align-items:center; justify-content:center;
-}
-.pcard-photo > .avatar-fallback svg{ width:36%; height:36%; opacity:.6; color:rgba(255,255,255,.85); }
-
-.pcard-rating{
-  position:absolute; top:10px; left:10px; z-index:6;
-  width:50px; height:50px; border-radius:50%;
-  background:#0c0c0d; border:3px solid var(--rating-ring,#fff);
-  display:flex; align-items:center; justify-content:center;
-  font-family:'Bebas Neue'; font-size:25px; color:#fff; line-height:1;
-  box-shadow:0 2px 6px rgba(0,0,0,.5);
-}
-.pcard-tourtag{
-  position:absolute; top:12px; right:10px; z-index:6; max-width:56%;
-  background:rgba(0,0,0,.6); border-radius:6px; padding:4px 9px;
-  font-size:10px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.85);
-  text-align:right; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;
-}
-.pcard-cornerbadge{
-  position:absolute; bottom:10px; right:10px; z-index:6;
-  background:rgba(0,0,0,.65); border-radius:6px; padding:4px 9px;
-  font-family:'Bebas Neue'; font-size:14px; color:var(--gold, #f0b429);
+thead th{
+  padding:12px;
+  text-transform:uppercase;
+  font-size:12px;
+  letter-spacing:1px;
+  color:var(--ink-dim);
+  border-bottom:1px solid var(--line);
 }
 
-.pcard-plate{
-  padding:10px 12px 12px; text-align:center; position:relative; z-index:2;
-  background:linear-gradient(180deg, rgba(255,255,255,.04), rgba(0,0,0,.3));
-  border-top:1px solid rgba(255,255,255,.08);
+tbody tr:nth-child(even){
+  background:#0f0f10;
 }
-.pcard-name{ font-family:'Bebas Neue'; font-size:22px; letter-spacing:.5px; color:#fff; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;}
-.pcard-team{ font-size:11px; color:rgba(255,255,255,.6); font-weight:700; letter-spacing:1px; text-transform:uppercase; margin-top:1px; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
-.pcard-stats{ display:flex; justify-content:center; gap:22px; margin-top:9px; font-size:12px; font-weight:700; letter-spacing:.5px; color:rgba(255,255,255,.55); }
-.pcard-stats b{ color:#fff; font-weight:700; font-family:'Bebas Neue'; font-size:24px; margin-left:4px; }
-.pcard-meta{ display:flex; align-items:center; justify-content:center; gap:9px; margin-top:9px; padding-top:8px; border-top:1px solid rgba(255,255,255,.08); }
-.tier-pill{ font-size:10.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; }
-.role-pill{ font-size:10.5px; font-weight:700; letter-spacing:.5px; text-transform:uppercase; color:rgba(255,255,255,.6); }
 
-.empty-state{
-  text-align:center; padding:70px 20px; color:var(--ink-dim); border:1px dashed var(--line);
+tbody td{
+  padding:12px;
+  border-bottom:1px solid rgba(255,255,255,.06);
 }
-.empty-state .big{ font-family:'Bebas Neue'; font-size:26px; color:var(--ink); margin-bottom:8px; letter-spacing:1px;}
 
+/* rarity pills */
+.rarity-pill{
+  padding:4px 10px;
+  border-radius:20px;
+  font-weight:700;
+  color:#000;
+  font-size:13px;
+  display:inline-block;
+}
+
+/* role pills */
+.role-pill{
+  padding:4px 10px;
+  border-radius:20px;
+  font-weight:700;
+  font-size:13px;
+  color:#000;
+  display:inline-block;
+}
+
+/* csv error */
 .csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
 .csv-gate .page-sub{ margin:0 auto; }
-
-/* ---------- packs: pre-open tile ---------- */
-.pack-intro{
-  display:flex; flex-direction:column; align-items:center; gap:24px;
-  padding:60px 20px; text-align:center;
-}
-.pack-tile{
-  width:220px; aspect-ratio:5/7; border-radius:14px;
-  background:linear-gradient(150deg, #1c1c1f 0%, #0a0a0b 100%);
-  border:1px solid var(--line);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:8px;
-  box-shadow:0 10px 30px -10px rgba(0,0,0,.7);
-}
-.pack-tile-mark{ font-family:'Bebas Neue'; font-size:30px; letter-spacing:4px; color:var(--red); }
-.pack-tile-sub{ font-size:11px; letter-spacing:2px; color:var(--ink-dim); text-transform:uppercase; font-weight:700; }
-
-/* ---------- packs: Night Market style 5-card reveal ---------- */
-.market-row{ display:flex; gap:20px; justify-content:center; flex-wrap:wrap; margin:10px 0 34px; }
-.market-slot{ width:220px; aspect-ratio:5/7; perspective:1600px; }
-.market-flip{
-  position:relative; width:100%; height:100%; cursor:pointer;
-  transform-style:preserve-3d; transition:transform .7s cubic-bezier(.2,.8,.2,1);
-}
-.market-flip.flipped{ transform:rotateY(180deg); cursor:default; }
-.market-face{ position:absolute; inset:0; backface-visibility:hidden; }
-.market-face.market-front{ transform:rotateY(180deg); }
-.market-face.market-front .pcard{ width:100%; height:100%; }
-
-.market-back{
-  width:100%; height:100%; border-radius:9px;
-  background:linear-gradient(150deg, #1c1c1f 0%, #0a0a0b 100%);
-  border:1px solid var(--line);
-  display:flex; flex-direction:column; align-items:center; justify-content:center; gap:6px;
-}
-.market-back-mark{ font-family:'Bebas Neue'; font-size:22px; letter-spacing:3px; color:var(--red); }
-.market-back-sub{ font-size:9px; letter-spacing:1.5px; color:var(--ink-dim); text-transform:uppercase; font-weight:700; }
-
-.market-actions{ display:flex; justify-content:center; }
-
-@media (max-width:600px){
-  .page-title{ font-size:32px; }
-  .topbar{ flex-direction:column; align-items:stretch; }
-  .controlbar{ flex-direction:column; align-items:stretch; }
-  .nav-tab{ font-size:12px; letter-spacing:2px; padding:16px 4px; }
-  .nav-tab:nth-child(2){ padding-left:14px; padding-right:14px; }
-}
