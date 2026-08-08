@@ -1,41 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Rajdhani:wght@500;600;700&display=swap');
 
 :root{
-  --bg: #000;
+  --bg: #000000;
+  --bg-deep: #000000;
   --panel: #0c0c0d;
+  --panel-2: #131315;
   --line: rgba(255,255,255,.12);
-  --ink: #fff;
+  --ink: #ffffff;
   --ink-dim: #8c8c90;
   --red: #ff4655;
-
-  /* rarity colours */
-  --radiant: #f5f1d6;
-  --immortal: #743465;
-  --ascendant: #1ca85f;
-  --diamond: #a771ed;
-  --platinum: #36a0b3;
-  --gold: #e8c046;
-
-  /* role colours */
-  --duelist: #ff4655;
-  --initiator: #36a0b3;
-  --controller: #a771ed;
-  --sentinel: #1ca85f;
+  --red-dim: #7a2029;
 }
+
+*{box-sizing:border-box; margin:0; padding:0;}
 
 body{
-  background:#000;
-  color:var(--ink);
+  background: radial-gradient(ellipse at 50% -15%, #151516 0%, transparent 55%), #000;
+  color: var(--ink);
   font-family:'Rajdhani', sans-serif;
-  padding-bottom:80px;
+  min-height:100vh;
+  overflow-x:hidden;
 }
 
-.app{ max-width:1400px; margin:0 auto; padding:0 24px; }
+::selection{ background:var(--red); color:#fff; }
+
+/* ---------- layout shell ---------- */
+.app{ max-width:1400px; margin:0 auto; padding:0 24px 80px; }
 
 /* ---------- top bar ---------- */
 .topbar{
   display:flex; align-items:center; justify-content:space-between;
-  padding:20px 0; border-bottom:1px solid var(--line);
+  padding:20px 0; border-bottom:1px solid var(--line); gap:24px; flex-wrap:wrap;
 }
 .brand{ display:flex; align-items:center; gap:10px; }
 .brand-mark{
@@ -51,75 +46,86 @@ body{
 .page-head{ margin:36px 0 22px; }
 .eyebrow{ font-size:12px; letter-spacing:4px; color:var(--red); text-transform:uppercase; font-weight:700; }
 .page-title{ font-family:'Bebas Neue'; font-size:42px; letter-spacing:2px; margin-top:4px; }
-.page-sub{ color:var(--ink-dim); font-size:15px; max-width:640px; margin-top:6px; font-weight:600; }
+.page-sub{ color:var(--ink-dim); font-size:15px; max-width:640px; margin-top:6px; font-weight:600;}
+.stats-strip{ font-size:13px; color:var(--ink); font-weight:700; letter-spacing:.5px; margin-top:12px; }
 
-/* ---------- filter bar ---------- */
-.filterbar{
-  display:flex; gap:16px; flex-wrap:wrap;
-  margin-bottom:24px; padding-bottom:20px; border-bottom:1px solid var(--line);
+.btn{
+  font-family:'Bebas Neue'; letter-spacing:2px; font-size:15px;
+  background:var(--red); color:#000; border:none; padding:10px 24px; cursor:pointer;
+  transition:filter .15s, transform .15s;
 }
+.btn:hover{ filter:brightness(1.15); transform:translateY(-1px); }
+.btn:disabled{ background:#2c2c2e; color:#6c6c70; cursor:not-allowed; }
 
-.select-filter{
-  font-family:'Rajdhani'; font-size:13px; font-weight:700; text-transform:uppercase;
-  padding:8px 16px; border:1px solid var(--line); color:var(--ink);
-  background:var(--panel); cursor:pointer;
+/* ---------- search ---------- */
+.search-row{ margin-bottom:18px; }
+.search-input{
+  width:100%; max-width:420px; font-family:'Rajdhani', sans-serif; font-size:14px; font-weight:600;
+  padding:11px 16px; border:1px solid var(--line); background:var(--panel); color:var(--ink);
 }
+.search-input::placeholder{ color:var(--ink-dim); }
+.search-input:focus{ outline:none; border-color:var(--red); }
 
-/* ---------- table ---------- */
-.table-wrap{
-  overflow-x:auto;
-  border:1px solid var(--line);
-  border-radius:10px;
-}
-
-table{
-  width:100%;
-  border-collapse:collapse;
-  font-size:14px;
-}
-
-thead{
-  background:#131315;
-}
-
-thead th{
-  padding:12px;
-  text-transform:uppercase;
-  font-size:12px;
-  letter-spacing:1px;
-  color:var(--ink-dim);
-  border-bottom:1px solid var(--line);
-}
-
-tbody tr:nth-child(even){
-  background:#0f0f10;
-}
-
-tbody td{
-  padding:12px;
-  border-bottom:1px solid rgba(255,255,255,.06);
-}
-
-/* rarity pills */
+/* ---------- rarity breakdown ---------- */
+.rarity-viz{ display:flex; flex-wrap:wrap; gap:10px; margin-bottom:24px; }
 .rarity-pill{
-  padding:4px 10px;
-  border-radius:20px;
-  font-weight:700;
-  color:#000;
-  font-size:13px;
-  display:inline-block;
+  display:flex; align-items:center; gap:7px; font-size:12px; font-weight:700; letter-spacing:.5px;
+  text-transform:uppercase; color:var(--ink-dim); background:var(--panel); border:1px solid var(--line);
+  padding:6px 12px;
+}
+.rarity-pill b{ color:var(--ink); font-family:'Bebas Neue'; font-size:14px; font-weight:400; letter-spacing:0; margin-left:1px; }
+.rarity-dot{ width:8px; height:8px; border-radius:50%; flex-shrink:0; }
+
+/* ---------- control bar (tournament / team / role filters) ---------- */
+.controlbar{
+  display:flex; align-items:center; gap:16px;
+  flex-wrap:wrap; margin-bottom:28px; padding-bottom:20px; border-bottom:1px solid var(--line);
+}
+.filter-group{ display:flex; gap:10px; flex-wrap:wrap; }
+.select-filter{
+  font-family:'Rajdhani', sans-serif; font-size:12.5px; font-weight:700; letter-spacing:1px; text-transform:uppercase;
+  padding:8px 16px; border:1px solid var(--line); color:var(--ink); background:var(--panel);
+  cursor:pointer; appearance:none; -webkit-appearance:none;
+  background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238c8c90' stroke-width='2'><path d='M6 9l6 6 6-6'/></svg>");
+  background-repeat:no-repeat; background-position:right 12px center; background-size:14px;
+  padding-right:36px;
+}
+.select-filter:focus{ outline:none; border-color:var(--red); }
+
+/* ---------- stats table ---------- */
+.table-wrap{ overflow-x:auto; border:1px solid var(--line); }
+.stats-table{ width:100%; border-collapse:collapse; font-size:14px; min-width:720px; }
+.stats-table thead th{
+  position:sticky; top:0; background:var(--panel-2); z-index:1;
+  text-align:left; padding:12px 14px; font-family:'Bebas Neue'; font-size:14px; letter-spacing:1.5px;
+  color:var(--ink-dim); text-transform:uppercase; cursor:pointer; user-select:none;
+  border-bottom:1px solid var(--line); white-space:nowrap; transition:color .15s;
+}
+.stats-table thead th:hover{ color:var(--ink); }
+.stats-table thead th.sorted{ color:var(--red); }
+.stats-table tbody tr{ border-bottom:1px solid var(--line); transition:background .1s; }
+.stats-table tbody tr:hover{ background:rgba(255,255,255,.03); }
+.stats-table tbody tr:last-child{ border-bottom:none; }
+.stats-table td{ padding:10px 14px; font-weight:600; white-space:nowrap; }
+.col-player{ font-family:'Bebas Neue'; font-size:17px; letter-spacing:.5px; color:#fff; }
+.col-team{ color:var(--ink-dim); font-weight:700; letter-spacing:.5px; text-transform:uppercase; font-size:12.5px; }
+.col-event{ color:var(--ink-dim); font-weight:700; font-size:12.5px; }
+
+.pill{
+  display:inline-block; padding:4px 11px; border-radius:11px;
+  font-family:'Bebas Neue'; font-size:13px; letter-spacing:.5px;
 }
 
-/* role pills */
-.role-pill{
-  padding:4px 10px;
-  border-radius:20px;
-  font-weight:700;
-  font-size:13px;
-  color:#000;
-  display:inline-block;
+.empty-state{
+  text-align:center; padding:70px 20px; color:var(--ink-dim); border:1px dashed var(--line);
 }
+.empty-state .big{ font-family:'Bebas Neue'; font-size:26px; color:var(--ink); margin-bottom:8px; letter-spacing:1px;}
 
-/* csv error */
 .csv-gate{ max-width:520px; margin:80px auto; text-align:center; }
 .csv-gate .page-sub{ margin:0 auto; }
+
+@media (max-width:600px){
+  .page-title{ font-size:32px; }
+  .topbar{ flex-direction:column; align-items:stretch; }
+  .controlbar{ flex-direction:column; align-items:stretch; }
+}
