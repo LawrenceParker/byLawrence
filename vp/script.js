@@ -33,10 +33,11 @@ function rowToCard(r){
 }
 
 function rowsToCards(rows){
-  const cards = rows
+  return rows
     .filter(r => r.Player && r.Tournament && r.roleRTG !== undefined && r.roleRTG !== '')
     .map(rowToCard);
-  return collapseFlexPlayers(cards);
+  // Flex-player collapsing is disabled for now (needs refinement) - see
+  // collapseFlexPlayers() below, kept around to pick back up later.
 }
 
 // A player who logged 3+ different roles in the same tournament is a flex
@@ -99,7 +100,7 @@ const ROLE_COLORS = {
   Sentinel:   { bg:"#2ecc71", fg:"#04240f" },
   Flex:       { bg:"#b8b8bd", fg:"#1a1a1c" }
 };
-const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel', 'Flex'];
+const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel'];
 
 /* =========================================================
    TABLE - filterable, sortable
@@ -128,14 +129,13 @@ function tableRowHtml(c, rank){
   const attTier = tierFromRtg(c.att);
   const defTier = tierFromRtg(c.def);
   const roleColor = ROLE_COLORS[c.role] || ROLE_COLORS.Flex;
-  const roleLabel = c.role === 'Flex' && c.flexRoles ? `Flex (${c.flexRoles.join('/')})` : c.role;
   return `
     <tr>
       <td class="col-rank">${rank}</td>
       <td class="col-player">${c.player}</td>
       <td class="col-team">${c.team}</td>
       <td class="col-event">${c.tournament}</td>
-      <td>${pill(roleLabel, roleColor.bg, roleColor.fg)}</td>
+      <td>${pill(c.role, roleColor.bg, roleColor.fg)}</td>
       <td>${pill(c.att, TIERS[attTier].bg, TIERS[attTier].fg)}</td>
       <td>${pill(c.def, TIERS[defTier].bg, TIERS[defTier].fg)}</td>
       <td>${pill(c.rtg, TIERS[c.tier].bg, TIERS[c.tier].fg)}</td>
@@ -147,7 +147,7 @@ function sortArrow(col){
   return sortState.dir === 'asc' ? ' ▲' : ' ▼';
 }
 
-function render(){
+function renderAllPlayers(){
   // preserve search box focus/cursor across the full re-render triggered by typing
   const prevSearchEl = document.getElementById('searchInput');
   const searchHadFocus = document.activeElement === prevSearchEl;
@@ -227,7 +227,7 @@ function render(){
   const searchEl = document.getElementById('searchInput');
   searchEl.addEventListener('input', (e)=>{
     filters.search = e.target.value;
-    render();
+    renderAllPlayers();
   });
   if(searchHadFocus){
     searchEl.focus();
@@ -236,15 +236,15 @@ function render(){
 
   document.getElementById('tourFilter').addEventListener('change', (e)=>{
     filters.tournament = e.target.value;
-    render();
+    renderAllPlayers();
   });
   document.getElementById('teamFilter').addEventListener('change', (e)=>{
     filters.team = e.target.value;
-    render();
+    renderAllPlayers();
   });
   document.getElementById('roleFilter').addEventListener('change', (e)=>{
     filters.role = e.target.value;
-    render();
+    renderAllPlayers();
   });
   document.querySelectorAll('.stats-table th[data-col]').forEach(th=>{
     th.addEventListener('click', ()=>{
@@ -255,10 +255,180 @@ function render(){
         sortState.col = col;
         sortState.dir = TEXT_COLS.has(col) ? 'asc' : 'desc';
       }
-      render();
+      renderAllPlayers();
     });
   });
 }
+
+/* =========================================================
+   LEADERBOARDS - per event: top 5 players for each role, plus a
+   computed "Team of the Event" built from that event's own typical
+   role structure (not a fixed 5-role template - it's derived from
+   the actual role counts logged for that event).
+   ========================================================= */
+
+// Works out how many players of each role a "typical" roster in this
+// event actually ran, using the largest-remainder method so the counts
+// are proportional to real observed role frequency and always sum to
+// exactly 5 (a full roster). E.g. if Duelist rows outnumber Sentinel
+// rows 2:1 across the event, the composite team leans the same way.
+function typicalRoleStructure(eventCards){
+  const teams = new Set(eventCards.map(c=>c.team));
+  const numTeams = teams.size || 1;
+
+  const roleCounts = {};
+  eventCards.forEach(c=>{ roleCounts[c.role] = (roleCounts[c.role] || 0) + 1; });
+  const roles = Object.keys(roleCounts);
+  if(roles.length === 0) return {};
+
+  const avgPerTeam = {};
+  roles.forEach(r=> avgPerTeam[r] = roleCounts[r] / numTeams);
+
+  const rounded = {};
+  roles.forEach(r=> rounded[r] = Math.floor(avgPerTeam[r]));
+  let total = roles.reduce((s,r)=> s + rounded[r], 0);
+
+  // distribute remaining slots (to reach 5) to whichever roles have the
+  // largest leftover fractional share - standard apportionment method
+  while(total < 5){
+    let best = roles[0];
+    roles.forEach(r=>{
+      if((avgPerTeam[r]-rounded[r]) > (avgPerTeam[best]-rounded[best])) best = r;
+    });
+    rounded[best]++;
+    total++;
+  }
+  // if rounding overshot (rare, only possible with very few roles present), trim back down
+  while(total > 5){
+    const candidates = roles.filter(r=>rounded[r] > 0);
+    if(candidates.length === 0) break;
+    let worst = candidates[0];
+    candidates.forEach(r=>{
+      if((avgPerTeam[r]-rounded[r]) < (avgPerTeam[worst]-rounded[worst])) worst = r;
+    });
+    rounded[worst]--;
+    total--;
+  }
+  return rounded;
+}
+
+function teamOfEvent(eventCards){
+  const structure = typicalRoleStructure(eventCards);
+  const roster = [];
+  ROLE_ORDER.filter(r=>structure[r]>0).forEach(role=>{
+    const top = eventCards.filter(c=>c.role===role).sort((a,b)=>b.rtg-a.rtg).slice(0, structure[role]);
+    roster.push(...top);
+  });
+  return { structure, roster };
+}
+
+function miniTableHtml(title, rows){
+  const body = rows.map((c,i)=>{
+    const attTier = tierFromRtg(c.att), defTier = tierFromRtg(c.def);
+    return `
+      <tr>
+        <td class="col-rank">${i+1}</td>
+        <td class="col-player">${c.player}</td>
+        <td class="col-team">${c.team}</td>
+        <td>${pill(c.att, TIERS[attTier].bg, TIERS[attTier].fg)}</td>
+        <td>${pill(c.def, TIERS[defTier].bg, TIERS[defTier].fg)}</td>
+        <td>${pill(c.rtg, TIERS[c.tier].bg, TIERS[c.tier].fg)}</td>
+      </tr>`;
+  }).join('');
+  return `
+    <div class="mini-table-block">
+      <div class="mini-table-title">${title}</div>
+      <table class="stats-table mini-table">
+        <thead><tr><th class="col-rank">#</th><th>Player</th><th>Team</th><th>ATT</th><th>DEF</th><th>OVR</th></tr></thead>
+        <tbody>${body || `<tr><td colspan="6" class="table-empty">No players</td></tr>`}</tbody>
+      </table>
+    </div>`;
+}
+
+function renderLeaderboards(){
+  const tournamentOrder = [...new Set(CARDS.map(c=>c.tournament))];
+
+  const sectionsHtml = tournamentOrder.map(tournament=>{
+    const eventCards = CARDS.filter(c=>c.tournament===tournament);
+    const rolesPresent = ROLE_ORDER.filter(r=>eventCards.some(c=>c.role===r));
+
+    const roleTablesHtml = rolesPresent.map(role=>{
+      const top5 = eventCards.filter(c=>c.role===role).sort((a,b)=>b.rtg-a.rtg).slice(0,5);
+      return miniTableHtml(role, top5);
+    }).join('');
+
+    const { structure, roster } = teamOfEvent(eventCards);
+    const structureLabel = Object.entries(structure)
+      .filter(([,n])=>n>0)
+      .map(([role,n])=>`${n} ${role}${n>1?'s':''}`)
+      .join(' · ');
+
+    const teamRows = roster.map(c=>{
+      const attTier = tierFromRtg(c.att), defTier = tierFromRtg(c.def);
+      const roleColor = ROLE_COLORS[c.role] || ROLE_COLORS.Flex;
+      return `
+        <tr>
+          <td>${pill(c.role, roleColor.bg, roleColor.fg)}</td>
+          <td class="col-player">${c.player}</td>
+          <td class="col-team">${c.team}</td>
+          <td>${pill(c.att, TIERS[attTier].bg, TIERS[attTier].fg)}</td>
+          <td>${pill(c.def, TIERS[defTier].bg, TIERS[defTier].fg)}</td>
+          <td>${pill(c.rtg, TIERS[c.tier].bg, TIERS[c.tier].fg)}</td>
+        </tr>`;
+    }).join('');
+
+    return `
+      <div class="event-section">
+        <div class="event-header">
+          <div class="event-title">${tournament}</div>
+          <div class="event-sub">${eventCards.length} rated performances</div>
+        </div>
+
+        <div class="mini-table-grid">${roleTablesHtml}</div>
+
+        <div class="toe-block">
+          <div class="toe-title">Team of the Event</div>
+          <div class="toe-sub">Composition based on this event's own role mix: ${structureLabel}</div>
+          <table class="stats-table toe-table">
+            <thead><tr><th>Role</th><th>Player</th><th>Team</th><th>ATT</th><th>DEF</th><th>OVR</th></tr></thead>
+            <tbody>${teamRows}</tbody>
+          </table>
+        </div>
+      </div>`;
+  }).join('');
+
+  document.getElementById('pageContent').innerHTML = `
+    <div class="page-head">
+      <div class="eyebrow">Leaderboards</div>
+      <div class="page-title">TOP PERFORMERS</div>
+      <div class="page-sub">Top 5 players per role for each event, plus a computed Team of the Event built from that event's own typical role mix.</div>
+    </div>
+    ${sectionsHtml || `<div class="empty-state"><div class="big">No data yet</div></div>`}
+  `;
+}
+
+/* =========================================================
+   PAGE ROUTER
+   ========================================================= */
+let currentPage = 'players';
+
+function renderPage(){
+  if(currentPage === 'players') renderAllPlayers();
+  else if(currentPage === 'leaderboards') renderLeaderboards();
+}
+function setPage(page){
+  currentPage = page;
+  document.querySelectorAll('.nav-tab').forEach(btn=>{
+    btn.classList.toggle('active', btn.dataset.page === page);
+  });
+  renderPage();
+}
+document.querySelectorAll('.nav-tab').forEach(btn=>{
+  btn.addEventListener('click', ()=>{
+    if(!dataReady) return;
+    setPage(btn.dataset.page);
+  });
+});
 
 /* =========================================================
    INIT — load player data from CSV, then start the app
@@ -299,7 +469,7 @@ function showCsvError(detail){
 
 function startApp(){
   dataReady = true;
-  render();
+  setPage('players');
 }
 
 // Safety net: if something unexpected throws before the app finishes booting,
