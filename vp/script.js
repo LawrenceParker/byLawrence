@@ -124,13 +124,14 @@ function pill(text, bg, fg){
   return `<span class="pill" style="background:${bg};color:${fg}">${text}</span>`;
 }
 
-function tableRowHtml(c){
+function tableRowHtml(c, rank){
   const attTier = tierFromRtg(c.att);
   const defTier = tierFromRtg(c.def);
   const roleColor = ROLE_COLORS[c.role] || ROLE_COLORS.Flex;
   const roleLabel = c.role === 'Flex' && c.flexRoles ? `Flex (${c.flexRoles.join('/')})` : c.role;
   return `
     <tr>
+      <td class="col-rank">${rank}</td>
       <td class="col-player">${c.player}</td>
       <td class="col-team">${c.team}</td>
       <td class="col-event">${c.tournament}</td>
@@ -189,13 +190,13 @@ function render(){
   const totalTournaments = tournamentOrder.length;
 
   const sorted = sortRows(list);
-  const rowsHtml = sorted.map(tableRowHtml).join('');
+  const rowsHtml = sorted.map((c,i)=>tableRowHtml(c, i+1)).join('');
 
   const cols = [
     ['player', 'Player'], ['team', 'Team'], ['tournament', 'Event'], ['role', 'Role'],
     ['att', 'ATT'], ['def', 'DEF'], ['rtg', 'OVR']
   ];
-  const headHtml = cols.map(([key,label])=>
+  const headHtml = `<th class="col-rank">#</th>` + cols.map(([key,label])=>
     `<th data-col="${key}" class="${sortState.col===key?'sorted':''}">${label}${sortArrow(key)}</th>`
   ).join('');
 
@@ -245,7 +246,7 @@ function render(){
     filters.role = e.target.value;
     render();
   });
-  document.querySelectorAll('.stats-table th').forEach(th=>{
+  document.querySelectorAll('.stats-table th[data-col]').forEach(th=>{
     th.addEventListener('click', ()=>{
       const col = th.dataset.col;
       if(sortState.col === col){
