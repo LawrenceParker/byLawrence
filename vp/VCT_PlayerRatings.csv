@@ -1,1524 +1,3500 @@
 Player,Team,Tournament,Role,attRTG,defRTG,roleRTG
-MaKo,KRX,Vct 2026 Pacific Stage 1,Controller,91,89,90
-Karon,GEN,Vct 2026 Pacific Stage 2,Controller,90,90,90
-invy,PRX,Vct 2026 Pacific Stage 1,Initiator,90,89,89
-something,PRX,Vct 2026 Pacific Stage 1,Duelist,87,92,89
-Munchkin,T1,Vct 2026 Pacific Kickoff,Controller,91,88,89
-Boo,TH,Vct 2026 Emea Stage 1,Controller,90,88,89
-v1c,C9,Vct 2026 Americas Stage 2,Controller,88,89,89
-f0rsakeN,PRX,Vct 2026 Pacific Stage 1,Controller,88,89,89
-Lysoar,XLG,Vct 2026 China Stage 1,Controller,91,87,89
-marteen,M8,Vct 2026 Emea Stage 2,Duelist,93,85,89
-trent,G2,Vct 2026 Americas Stage 1,Initiator,87,90,89
-valyn,G2,Vct 2026 Americas Stage 1,Controller,90,88,89
-Sayonara,VIT,Vct 2026 Emea Stage 2,Initiator,89,88,89
-XuNa,VL,Vct 2026 Pacific Stage 2,Initiator,87,91,89
-vo0kashu,DRG,Vct 2026 China Stage 1,Sentinel,89,87,88
-blowz,LEV,Valorant Masters London 2026,Initiator,89,87,88
-Loita,BBL,Vct 2026 Emea Stage 2,Controller,91,86,88
-sociablEE,FUT,Valorant Masters London 2026,Controller,87,89,88
-trent,G2,Vct 2026 Americas Stage 2,Initiator,86,90,88
-f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Controller,88,88,88
-f0rsakeN,PRX,Valorant Masters Santiago 2026,Controller,89,87,88
-WsLeo,XLG,Vct 2026 China Stage 1,Initiator,92,84,88
-Avez,KC,Vct 2026 Emea Stage 2,Initiator,88,88,88
-MaKo,KRX,Vct 2026 Pacific Kickoff,Controller,90,86,88
-Mazino,MIBR,Vct 2026 Americas Stage 2,Controller,87,89,88
-PROFEK,VIT,Vct 2026 Emea Stage 2,Controller,86,89,88
-happywei,XLG,Vct 2026 China Kickoff,Controller,87,89,88
-Verno,MIBR,Vct 2026 Americas Stage 2,Initiator,89,86,88
-blowz,LEV,Vct 2026 Americas Stage 1,Initiator,88,86,87
-Monyet,RRQ,Vct 2026 Pacific Stage 2,Controller,83,91,87
-bang,100T,Vct 2026 Americas Kickoff,Controller,87,87,87
-primmie,FS,Vct 2026 Pacific Stage 1,Duelist,90,85,87
-kiNgg,LEV,Vct 2026 Americas Stage 2,Controller,90,85,87
-dos9,KC,Vct 2026 Emea Stage 2,Controller,85,90,87
-RieNs,TH,Vct 2026 Emea Stage 1,Initiator,89,86,87
-LewN,KC,Vct 2026 Emea Stage 2,Duelist,86,88,87
-Nicc,DRG,Vct 2026 China Stage 2,Initiator,92,83,87
-PROFEK,VIT,Valorant Masters London 2026,Controller,89,84,87
-Lysoar,XLG,Valorant Masters London 2026,Controller,88,86,87
-xavi8k,GE,Vct 2026 Pacific Kickoff,Controller,85,89,87
-lovers rock,BBL,Vct 2026 Emea Stage 2,Duelist,86,87,87
-vo0kashu,DRG,Vct 2026 China Stage 2,Sentinel,87,86,87
-valyn,G2,Valorant Masters Santiago 2026,Controller,85,89,87
-sociablEE,FUT,Vct 2026 Emea Stage 1,Controller,85,88,86
-Akame,DFM,Vct 2026 Pacific Stage 2,Initiator,85,88,86
-trexx,TL,Vct 2026 Emea Stage 2,Initiator,86,86,86
-skuba,NRG,Valorant Masters Santiago 2026,Controller,88,85,86
-vora,100T,Vct 2026 Americas Kickoff,Initiator,88,84,86
-kiNgg,LEV,Valorant Masters London 2026,Controller,84,88,86
-Verse,DRG,Vct 2026 China Stage 2,Controller,89,84,86
-BABYBAY,G2,Vct 2026 Americas Stage 1,Sentinel,86,86,86
-Alfajer,FNC,Vct 2026 Emea Kickoff,Sentinel,86,87,86
-Asuna,100T,Vct 2026 Americas Stage 2,Duelist,86,86,86
-t3xture,GEN,Vct 2026 Pacific Stage 2,Sentinel,91,82,86
-invy,PRX,Valorant Masters Santiago 2026,Initiator,86,86,86
-sociablEE,FUT,Vct 2026 Emea Stage 2,Controller,87,85,86
-vo0kashu,DRG,Vct 2026 China Kickoff,Sentinel,86,86,86
-valyn,G2,Vct 2026 Americas Stage 2,Controller,85,87,86
-Munchkin,T1,Vct 2026 Pacific Stage 1,Controller,86,86,86
-bang,100T,Vct 2026 Americas Stage 1,Controller,87,84,86
-Sato,LEV,Valorant Masters London 2026,Duelist,85,87,86
-invy,PRX,Vct 2026 Pacific Kickoff,Initiator,84,87,86
-Killua,FS,Vct 2026 Pacific Stage 1,Initiator,86,86,86
-Jinggg,PRX,Vct 2026 Pacific Stage 1,Duelist,84,88,86
-Rb,NS,Vct 2026 Pacific Stage 2,Controller,86,85,86
-Smoggy,EDG,Vct 2026 China Kickoff,Controller,87,84,86
-BABYBAY,G2,Vct 2026 Americas Stage 2,Sentinel,85,85,85
-Flex1n,DRG,Vct 2026 China Stage 1,Controller,86,84,85
-Killua,FS,Vct 2026 Pacific Stage 2,Initiator,85,86,85
-Spring,WOL,Vct 2026 China Stage 2,Controller,87,84,85
-Nicc,DRG,Vct 2026 China Stage 1,Initiator,89,82,85
-SugarZ3ro,ZETA,Vct 2026 Pacific Stage 2,Controller,86,84,85
-Derke,VIT,Vct 2026 Emea Stage 2,Duelist,85,86,85
-Ruxic,NAVI,Vct 2026 Emea Stage 2,Controller,86,85,85
-Wo0t,TH,Vct 2026 Emea Stage 1,Duelist,83,87,85
-wayne,TL,Vct 2026 Emea Kickoff,Controller,83,87,85
-Rb,NS,Vct 2026 Pacific Kickoff,Controller,88,82,85
-xffero,RRQ,Vct 2026 Pacific Kickoff,Controller,90,80,85
-SSeeS,DFM,Vct 2026 Pacific Stage 2,Controller,85,85,85
-N4RRATE,KC,Vct 2026 Emea Stage 2,Sentinel,85,85,85
-Cryocells,100T,Vct 2026 Americas Kickoff,Sentinel,86,84,85
-benjyfishy,TH,Vct 2026 Emea Stage 1,Sentinel,86,84,85
-d4v41,PRX,Valorant Masters Santiago 2026,Sentinel,86,84,85
-Proxh,M8,Vct 2026 Emea Stage 2,Controller,85,85,85
-PROFEK,VIT,Vct 2026 Emea Stage 1,Controller,88,83,85
-rushia,BLG,Vct 2026 China Kickoff,Controller,86,84,85
-Verno,MIBR,Vct 2026 Americas Kickoff,Initiator,85,84,85
-audaz,EF,Vct 2026 Emea Stage 1,Controller,86,83,85
-JitBoyS,FS,Vct 2026 Pacific Stage 2,Duelist,81,89,85
-Jamppi,VIT,Vct 2026 Emea Stage 1,Initiator,86,84,85
-SSeeS,DFM,Vct 2026 Pacific Kickoff,Controller,85,85,85
-kiNgg,LEV,Vct 2026 Americas Stage 1,Controller,86,84,85
-marteen,M8,Vct 2026 Emea Kickoff,Duelist,85,85,85
-Crewen,BBL,Vct 2026 Emea Stage 2,Sentinel,83,86,85
-MiniBoo,TL,Vct 2026 Emea Kickoff,Duelist,84,85,85
-bang,100T,Vct 2026 Americas Stage 2,Controller,85,84,84
-Raxcal,GEN,Vct 2026 Pacific Stage 2,Sentinel,86,82,84
-KROSTALY,FUT,Vct 2026 Emea Stage 2,Initiator,84,85,84
-Cryocells,100T,Vct 2026 Americas Stage 2,Sentinel,85,84,84
-crashies,FNC,Vct 2026 Emea Kickoff,Initiator,84,85,84
-JonahP,SEN,Vct 2026 Americas Stage 2,Initiator,80,88,84
-neT,GX,Vct 2026 Emea Stage 2,Initiator,85,83,84
-Meiy,DFM,Vct 2026 Pacific Kickoff,Duelist,82,86,84
-Jinggg,PRX,Vct 2026 Pacific Kickoff,Duelist,84,84,84
-happywei,XLG,Vct 2026 China Stage 1,Controller,84,84,84
-eKo,ZETA,Vct 2026 Pacific Stage 2,Initiator,84,84,84
-Leviathan,FS,Vct 2026 Pacific Kickoff,Controller,84,83,84
-Foxy9,VL,Vct 2026 Pacific Stage 2,Sentinel,85,82,84
-HYUNMIN,KRX,Vct 2026 Pacific Kickoff,Duelist,84,84,84
-Erv,TYL,Vct 2026 China Kickoff,Controller,85,83,84
-UdoTan,GE,Vct 2026 Pacific Kickoff,Sentinel,82,86,84
-kamo,TL,Vct 2026 Emea Stage 2,Duelist,78,89,84
-MaKo,KRX,Vct 2026 Pacific Stage 2,Controller,83,85,84
-primmie,FS,Vct 2026 Pacific Kickoff,Duelist,89,78,84
-OXY,C9,Vct 2026 Americas Stage 2,Duelist,80,88,84
-invy,PRX,Vct 2026 Pacific Stage 2,Initiator,84,84,84
-trent,G2,Valorant Masters Santiago 2026,Initiator,82,86,84
-BeYN,KRX,Vct 2026 Pacific Stage 1,Initiator,82,86,84
-Ash,GEN,Vct 2026 Pacific Stage 2,Duelist,84,83,84
-valyn,G2,Vct 2026 Americas Kickoff,Controller,83,84,84
-v1c,C9,Vct 2026 Americas Kickoff,Controller,84,83,84
-tex,MIBR,Vct 2026 Americas Stage 2,Sentinel,82,85,83
-Sato,LEV,Vct 2026 Americas Stage 1,Duelist,81,86,83
-Meiy,DFM,Vct 2026 Pacific Stage 1,Duelist,81,86,83
-koshmaras,TH,Vct 2026 Emea Stage 1,Duelist,83,84,83
-Kushy,RRQ,Vct 2026 Pacific Stage 1,Initiator,83,83,83
-yetujey,FUT,Valorant Masters London 2026,Sentinel,81,86,83
-d4v41,PRX,Vct 2026 Pacific Kickoff,Controller,82,84,83
-BuZz,T1,Vct 2026 Pacific Stage 1,Duelist,84,82,83
-Crws,FS,Vct 2026 Pacific Stage 2,Controller,81,86,83
-Timotino,100T,Vct 2026 Americas Kickoff,Duelist,82,84,83
-HYUNMIN,KRX,Vct 2026 Pacific Stage 1,Duelist,85,81,83
-ara,GX,Vct 2026 Emea Stage 2,Duelist,84,82,83
-crazyguy,RRQ,Vct 2026 Pacific Stage 1,Controller,83,83,83
-Rb,NS,Vct 2026 Pacific Stage 1,Controller,85,81,83
-aspas,MIBR,Vct 2026 Americas Stage 2,Duelist,85,81,83
-Autumn,GE,Vct 2026 Pacific Kickoff,Duelist,80,86,83
-Ash,GEN,Vct 2026 Pacific Kickoff,Controller,84,82,83
-Jackk,C9,Vct 2026 Americas Stage 2,Initiator,83,82,83
-Coco,TEC,Vct 2026 China Stage 2,Controller,84,82,83
-spike,LEV,Vct 2026 Americas Stage 1,Duelist,83,83,83
-stax,T1,Vct 2026 Pacific Stage 1,Initiator,83,83,83
-d4v41,PRX,Vct 2026 Pacific Stage 1,Sentinel,81,84,83
-chloric,NAVI,Vct 2026 Emea Stage 2,Initiator,81,85,83
-Ivy,NS,Vct 2026 Pacific Stage 2,Sentinel,83,82,83
-Chronicle,VIT,Vct 2026 Emea Stage 2,Sentinel,84,81,83
-Jerrwin,SEN,Vct 2026 Americas Stage 2,Duelist,76,88,83
-NINJA,PCF,Vct 2026 Emea Stage 2,Sentinel,80,85,83
-nephh,BLG,Vct 2026 China Kickoff,Controller,86,80,83
-Munchkin,T1,Vct 2026 Pacific Stage 2,Initiator,80,86,83
-s0pp,FUT,Vct 2026 Emea Stage 1,Duelist,84,81,83
-Derke,VIT,Valorant Masters London 2026,Duelist,82,84,82
-johnqt,SEN,Vct 2026 Americas Stage 2,Controller,83,82,82
-Shyy,FUR,Vct 2026 Americas Stage 2,Sentinel,82,83,82
-yong,KRX,Vct 2026 Pacific Stage 1,Sentinel,81,85,82
-Rosé,BBL,Vct 2026 Emea Stage 2,Initiator,79,85,82
-iamgrq,AG,Vct 2026 China Stage 1,Controller,84,81,82
-PatMen,GE,Vct 2026 Pacific Kickoff,Controller,82,83,82
-DH,T1,Vct 2026 Pacific Stage 2,Controller,82,83,82
-vora,100T,Vct 2026 Americas Stage 2,Initiator,81,83,82
-Boaster,FNC,Vct 2026 Emea Kickoff,Controller,81,84,82
-Xeppaa,C9,Vct 2026 Americas Kickoff,Initiator,82,83,82
-Francis,NS,Vct 2026 Pacific Stage 2,Initiator,80,85,82
-qpert,PCF,Vct 2026 Emea Stage 2,Controller,79,85,82
-slowly,TYL,Vct 2026 China Stage 1,Controller,85,80,82
-vora,100T,Vct 2026 Americas Stage 1,Initiator,81,83,82
-yosemite,WOL,Vct 2026 China Stage 2,Sentinel,83,82,82
-ZmjjKK,EDG,Vct 2026 China Stage 1,Duelist,87,77,82
-brawk,NRG,Vct 2026 Americas Stage 2,Initiator,84,80,82
-kaajak,FNC,Vct 2026 Emea Kickoff,Duelist,79,86,82
-KovaQ,FPX,Vct 2026 China Stage 2,Controller,84,80,82
-nobody,EDG,Vct 2026 China Stage 1,Initiator,85,80,82
-BuZz,T1,Vct 2026 Pacific Kickoff,Duelist,82,82,82
+AAAAY,FPX,Vct 2026 China Kickoff,Controller,75,67,71
+AAAAY,FPX,Vct 2026 China Kickoff,Sentinel,73,72,73
+AAAAY,FPX,Vct 2026 China Stage 1,Controller,78,79,78
+AAAAY,FPX,Vct 2026 China Stage 1,Sentinel,77,79,78
+AAAAY,FPX,Vct 2026 China Stage 2,Controller,74,69,72
+AAAAY,FPX,Vct 2026 China Stage 2,Sentinel,71,74,72
+Abo,TE,Vct 2026 China Stage 1,Controller,77,63,70
+Abo,TE,Vct 2026 China Stage 1,Sentinel,80,72,76
+Abo,TEC,Vct 2026 China Kickoff,Controller,72,68,70
+Abo,TEC,Vct 2026 China Kickoff,Duelist,76,70,73
+Abo,TEC,Vct 2026 China Kickoff,Sentinel,80,80,80
+Absol,ZETA,Vct 2026 Pacific Kickoff,Duelist,71,73,72
+Absol,ZETA,Vct 2026 Pacific Stage 1,Duelist,81,76,79
+Absol,ZETA,Vct 2026 Pacific Stage 2,Duelist,75,77,76
+Akame,DFM,Vct 2026 Pacific Kickoff,Initiator,65,76,71
+Akame,DFM,Vct 2026 Pacific Stage 1,Controller,72,79,75
+Akame,DFM,Vct 2026 Pacific Stage 1,Duelist,75,69,72
+Akame,DFM,Vct 2026 Pacific Stage 1,Initiator,79,77,78
+Akame,DFM,Vct 2026 Pacific Stage 1,Sentinel,77,77,77
+Akame,DFM,Vct 2026 Pacific Stage 2,Initiator,83,85,84
+Akeman,DRG,Vct 2026 China Kickoff,Duelist,73,68,70
+Akeman,KBG,Vct 2026 China Stage 2,Duelist,75,78,77
+al0rante,PCF,Vct 2026 Emea Kickoff,Controller,80,76,78
+al0rante,PCF,Vct 2026 Emea Kickoff,Sentinel,68,68,68
+al0rante,PCF,Vct 2026 Emea Stage 1,Controller,75,72,73
+al0rante,PCF,Vct 2026 Emea Stage 1,Sentinel,66,71,69
+al0rante,PCF,Vct 2026 Emea Stage 2,Controller,70,80,75
+al0rante,PCF,Vct 2026 Emea Stage 2,Sentinel,69,72,70
+Alfajer,FNC,Vct 2026 Emea Kickoff,Controller,74,75,75
+Alfajer,FNC,Vct 2026 Emea Kickoff,Duelist,91,85,88
+Alfajer,FNC,Vct 2026 Emea Kickoff,Sentinel,83,80,81
+Alfajer,FNC,Vct 2026 Emea Stage 1,Controller,77,83,80
+Alfajer,FNC,Vct 2026 Emea Stage 1,Duelist,83,77,80
+Alfajer,FNC,Vct 2026 Emea Stage 1,Sentinel,72,81,77
+Alfajer,FNC,Vct 2026 Emea Stage 2,Duelist,78,78,78
+Alfajer,FNC,Vct 2026 Emea Stage 2,Sentinel,74,81,77
+aluba,WOL,Vct 2026 China Stage 2,Initiator,76,67,72
+alym,FUR,Valorant Masters Santiago 2026,Duelist,70,66,68
+alym,FUR,Vct 2026 Americas Kickoff,Duelist,84,69,76
+alym,FUR,Vct 2026 Americas Stage 1,Controller,81,83,82
+alym,FUR,Vct 2026 Americas Stage 1,Duelist,73,80,77
+ara,GX,Vct 2026 Emea Kickoff,Duelist,67,73,70
+ara,GX,Vct 2026 Emea Stage 1,Duelist,71,84,78
+ara,GX,Vct 2026 Emea Stage 2,Duelist,86,79,82
+artzin,FUR,Valorant Masters Santiago 2026,Controller,78,67,72
+artzin,FUR,Valorant Masters Santiago 2026,Sentinel,79,75,77
+artzin,FUR,Vct 2026 Americas Kickoff,Controller,73,83,78
+artzin,FUR,Vct 2026 Americas Kickoff,Initiator,77,82,79
+artzin,FUR,Vct 2026 Americas Kickoff,Sentinel,75,81,78
+artzin,FUR,Vct 2026 Americas Stage 1,Controller,70,73,72
+artzin,FUR,Vct 2026 Americas Stage 1,Initiator,83,83,83
+artzin,FUR,Vct 2026 Americas Stage 1,Sentinel,74,86,80
+artzin,FUR,Vct 2026 Americas Stage 2,Controller,70,83,77
+artzin,FUR,Vct 2026 Americas Stage 2,Duelist,74,71,72
+artzin,FUR,Vct 2026 Americas Stage 2,Initiator,80,77,78
+Ash,GEN,Vct 2026 Pacific Kickoff,Controller,76,73,75
+Ash,GEN,Vct 2026 Pacific Stage 1,Controller,75,77,76
+Ash,GEN,Vct 2026 Pacific Stage 1,Duelist,70,89,80
+Ash,GEN,Vct 2026 Pacific Stage 2,Duelist,83,80,82
+aspas,MIBR,Vct 2026 Americas Kickoff,Duelist,73,70,72
+aspas,MIBR,Vct 2026 Americas Stage 1,Duelist,78,77,78
+aspas,MIBR,Vct 2026 Americas Stage 2,Duelist,90,79,84
+Asuna,100T,Vct 2026 Americas Kickoff,Controller,76,72,74
+Asuna,100T,Vct 2026 Americas Kickoff,Initiator,77,83,80
+Asuna,100T,Vct 2026 Americas Kickoff,Sentinel,75,79,77
+Asuna,100T,Vct 2026 Americas Stage 1,Controller,81,82,82
+Asuna,100T,Vct 2026 Americas Stage 1,Duelist,81,74,78
+Asuna,100T,Vct 2026 Americas Stage 1,Initiator,85,73,79
+Asuna,100T,Vct 2026 Americas Stage 1,Sentinel,77,76,77
+Asuna,100T,Vct 2026 Americas Stage 2,Duelist,85,86,85
+Au1,AG,Valorant Masters Santiago 2026,Controller,82,66,74
+Au1,AG,Valorant Masters Santiago 2026,Sentinel,69,69,69
+Au1,AG,Vct 2026 China Kickoff,Controller,65,79,72
+Au1,AG,Vct 2026 China Kickoff,Sentinel,77,72,74
+audaz,EF,Vct 2026 Emea Stage 1,Controller,82,75,79
+audaz,EF,Vct 2026 Emea Stage 2,Controller,69,66,67
+audaz,ULF,Vct 2026 Emea Kickoff,Controller,70,82,76
+Autumn,GE,Valorant Masters London 2026,Controller,69,65,67
+Autumn,GE,Valorant Masters London 2026,Duelist,75,74,75
+Autumn,GE,Valorant Masters London 2026,Sentinel,83,68,75
+Autumn,GE,Vct 2026 Pacific Kickoff,Duelist,74,84,79
+Autumn,GE,Vct 2026 Pacific Kickoff,Sentinel,78,82,80
+Autumn,GE,Vct 2026 Pacific Stage 1,Controller,80,74,77
+Autumn,GE,Vct 2026 Pacific Stage 1,Duelist,80,84,82
+Autumn,GE,Vct 2026 Pacific Stage 1,Sentinel,73,79,76
+Autumn,GE,Vct 2026 Pacific Stage 2,Duelist,78,75,76
+Autumn,GE,Vct 2026 Pacific Stage 2,Sentinel,69,85,77
+Avez,KC,Vct 2026 Emea Kickoff,Duelist,69,81,75
+Avez,KC,Vct 2026 Emea Kickoff,Initiator,85,75,80
+Avez,KC,Vct 2026 Emea Stage 1,Controller,74,84,79
+Avez,KC,Vct 2026 Emea Stage 1,Duelist,69,69,69
+Avez,KC,Vct 2026 Emea Stage 1,Initiator,78,69,73
+Avez,KC,Vct 2026 Emea Stage 2,Initiator,87,79,83
+azury,SGE,Vct 2026 Emea Stage 2,Controller,70,72,71
+BABYBAY,G2,Valorant Masters London 2026,Sentinel,85,80,82
+BABYBAY,G2,Valorant Masters Santiago 2026,Duelist,65,65,65
+BABYBAY,G2,Valorant Masters Santiago 2026,Sentinel,68,66,67
+BABYBAY,G2,Vct 2026 Americas Kickoff,Controller,76,67,71
+BABYBAY,G2,Vct 2026 Americas Kickoff,Duelist,82,86,84
+BABYBAY,G2,Vct 2026 Americas Kickoff,Sentinel,85,87,86
+BABYBAY,G2,Vct 2026 Americas Stage 1,Sentinel,83,82,83
+BABYBAY,G2,Vct 2026 Americas Stage 2,Duelist,73,72,73
+BABYBAY,G2,Vct 2026 Americas Stage 2,Sentinel,82,79,80
+baha,FUT,Vct 2026 Emea Kickoff,Controller,61,72,67
+baha,FUT,Vct 2026 Emea Kickoff,Sentinel,65,68,66
+Bai,AG,Vct 2026 China Stage 1,Controller,77,75,76
+Bai,AG,Vct 2026 China Stage 1,Duelist,70,68,69
+Bai,AG,Vct 2026 China Stage 2,Controller,68,73,70
+Bai,AG,Vct 2026 China Stage 2,Duelist,74,72,73
+Bai,AG,Vct 2026 China Stage 2,Sentinel,70,82,76
+bang,100T,Vct 2026 Americas Kickoff,Controller,78,76,77
+bang,100T,Vct 2026 Americas Stage 1,Controller,84,76,80
+bang,100T,Vct 2026 Americas Stage 2,Controller,74,72,73
+bao,EG,Vct 2026 Americas Kickoff,Controller,74,67,70
+bao,EG,Vct 2026 Americas Kickoff,Sentinel,71,88,80
+bao,EG,Vct 2026 Americas Stage 1,Controller,80,79,80
+bao,EG,Vct 2026 Americas Stage 1,Initiator,76,80,78
+bao,EG,Vct 2026 Americas Stage 1,Sentinel,68,74,71
+bao,EG,Vct 2026 Americas Stage 2,Controller,79,72,75
+bao,EG,Vct 2026 Americas Stage 2,Sentinel,84,77,81
+basic,FUR,Vct 2026 Americas Stage 2,Controller,81,72,76
+basic,FUR,Vct 2026 Americas Stage 2,Initiator,86,86,86
+basic,FUR,Vct 2026 Americas Stage 2,Sentinel,85,83,84
+Bati,LOUD,Vct 2026 Americas Stage 1,Controller,69,69,69
+Bati,LOUD,Vct 2026 Americas Stage 1,Initiator,74,77,76
+batujnax,FF,Vct 2026 Emea Stage 2,Initiator,83,84,83
+Ben1Ley,FPX,Vct 2026 China Stage 1,Duelist,68,67,67
+benG,KRÜ,Vct 2026 Americas Kickoff,Controller,66,70,68
+benjyfishy,TH,Valorant Masters London 2026,Controller,69,70,70
+benjyfishy,TH,Valorant Masters London 2026,Sentinel,78,73,75
+benjyfishy,TH,Vct 2026 Emea Kickoff,Controller,74,80,77
+benjyfishy,TH,Vct 2026 Emea Kickoff,Sentinel,79,72,76
+benjyfishy,TH,Vct 2026 Emea Stage 1,Controller,77,76,76
+benjyfishy,TH,Vct 2026 Emea Stage 1,Sentinel,80,77,79
+benjyfishy,TH,Vct 2026 Emea Stage 2,Sentinel,83,72,78
+BerLIN,FPX,Vct 2026 China Kickoff,Initiator,80,75,77
+BerLIN,FPX,Vct 2026 China Stage 1,Controller,70,77,74
+BerLIN,JDG,Vct 2026 China Stage 2,Initiator,75,63,69
+BerserX,TS,Vct 2026 Pacific Kickoff,Controller,82,74,78
+BerserX,TS,Vct 2026 Pacific Kickoff,Sentinel,65,71,68
+BerserX,TS,Vct 2026 Pacific Stage 1,Controller,75,78,76
+BerserX,TS,Vct 2026 Pacific Stage 1,Sentinel,73,77,75
+BeYN,KRX,Vct 2026 Pacific Kickoff,Initiator,74,75,75
+BeYN,KRX,Vct 2026 Pacific Stage 1,Initiator,73,82,77
+BeYN,KRX,Vct 2026 Pacific Stage 2,Initiator,76,72,74
+Biank,BLG,Vct 2026 China Kickoff,Initiator,72,66,69
+bipo,M8,Valorant Masters Santiago 2026,Duelist,64,64,64
+bipo,M8,Vct 2026 Emea Kickoff,Duelist,70,73,72
+bipo,M8,Vct 2026 Emea Stage 1,Duelist,70,62,66
+bipo,M8,Vct 2026 Emea Stage 2,Controller,73,77,75
+bipo,M8,Vct 2026 Emea Stage 2,Sentinel,66,69,67
+blowz,LEV,Valorant Masters London 2026,Initiator,81,81,81
+blowz,LEV,Vct 2026 Americas Kickoff,Initiator,69,71,70
+blowz,LEV,Vct 2026 Americas Stage 1,Initiator,82,78,80
+blowz,LEV,Vct 2026 Americas Stage 2,Initiator,79,75,77
+Boaster,FNC,Vct 2026 Emea Kickoff,Controller,66,69,68
+Boaster,FNC,Vct 2026 Emea Stage 1,Controller,78,73,76
+Boaster,FNC,Vct 2026 Emea Stage 2,Controller,66,67,66
+Boo,TH,Valorant Masters London 2026,Controller,69,64,67
+Boo,TH,Valorant Masters London 2026,Sentinel,75,74,75
+Boo,TH,Vct 2026 Emea Kickoff,Controller,81,72,76
+Boo,TH,Vct 2026 Emea Kickoff,Sentinel,77,73,75
+Boo,TH,Vct 2026 Emea Stage 1,Controller,80,77,78
+Boo,TH,Vct 2026 Emea Stage 1,Sentinel,77,76,76
+Boo,TH,Vct 2026 Emea Stage 2,Controller,71,89,80
+Boo,TH,Vct 2026 Emea Stage 2,Initiator,71,78,74
+brawk,NRG,Valorant Masters London 2026,Controller,76,78,77
+brawk,NRG,Valorant Masters London 2026,Initiator,70,84,77
+brawk,NRG,Valorant Masters London 2026,Sentinel,70,88,79
+brawk,NRG,Valorant Masters Santiago 2026,Controller,77,67,72
+brawk,NRG,Valorant Masters Santiago 2026,Initiator,77,68,72
+brawk,NRG,Valorant Masters Santiago 2026,Sentinel,72,77,74
+brawk,NRG,Vct 2026 Americas Kickoff,Initiator,71,83,77
+brawk,NRG,Vct 2026 Americas Stage 1,Controller,77,78,78
+brawk,NRG,Vct 2026 Americas Stage 1,Initiator,89,91,90
+brawk,NRG,Vct 2026 Americas Stage 1,Sentinel,80,84,82
+brawk,NRG,Vct 2026 Americas Stage 2,Initiator,89,82,86
+bud,BLG,Vct 2026 China Kickoff,Controller,71,77,74
+bud,BLG,Vct 2026 China Kickoff,Initiator,68,68,68
+bud,BLG,Vct 2026 China Kickoff,Sentinel,62,72,67
+BuZz,T1,Valorant Masters Santiago 2026,Duelist,86,77,81
+BuZz,T1,Vct 2026 Pacific Kickoff,Duelist,77,75,76
+BuZz,T1,Vct 2026 Pacific Stage 1,Duelist,92,82,87
+BuZz,T1,Vct 2026 Pacific Stage 2,Controller,84,83,83
+BuZz,T1,Vct 2026 Pacific Stage 2,Duelist,77,81,79
+C0M,EG,Vct 2026 Americas Kickoff,Initiator,65,77,71
+C0M,EG,Vct 2026 Americas Stage 1,Initiator,62,72,67
+C0M,FUR,Vct 2026 Americas Stage 2,Initiator,66,73,70
+C1ndeR,VL,Vct 2026 Pacific Kickoff,Controller,67,72,70
+C1ndeR,VL,Vct 2026 Pacific Stage 1,Controller,74,69,71
+C1ndeR,VL,Vct 2026 Pacific Stage 1,Initiator,76,73,75
+C1ndeR,VL,Vct 2026 Pacific Stage 2,Controller,71,72,71
+Caedye,DFM,Vct 2026 Pacific Kickoff,Controller,71,69,70
+Caedye,DFM,Vct 2026 Pacific Kickoff,Duelist,72,72,72
+Caedye,DFM,Vct 2026 Pacific Kickoff,Sentinel,78,82,80
+Caedye,DFM,Vct 2026 Pacific Stage 1,Controller,71,78,74
+Caedye,DFM,Vct 2026 Pacific Stage 1,Duelist,82,72,77
+Caedye,DFM,Vct 2026 Pacific Stage 1,Initiator,78,74,76
+Caedye,DFM,Vct 2026 Pacific Stage 1,Sentinel,80,79,80
+Caedye,DFM,Vct 2026 Pacific Stage 2,Controller,67,70,68
+Caedye,DFM,Vct 2026 Pacific Stage 2,Sentinel,77,76,77
+cauanzin,LOUD,Vct 2026 Americas Kickoff,Initiator,70,77,73
+cauanzin,LOUD,Vct 2026 Americas Stage 1,Initiator,74,73,73
+cb,EDG,Valorant Masters Santiago 2026,Duelist,71,66,68
+cb,EDG,Vct 2026 China Kickoff,Duelist,67,69,68
+cb,NOVA,Vct 2026 China Stage 2,Duelist,68,77,72
+cb,NOVA,Vct 2026 China Stage 2,Initiator,77,79,78
+cb,NOVA,Vct 2026 China Stage 2,Sentinel,84,70,77
+CHICHOO,EDG,Valorant Masters London 2026,Controller,75,66,71
+CHICHOO,EDG,Valorant Masters London 2026,Sentinel,76,78,77
+CHICHOO,EDG,Valorant Masters Santiago 2026,Controller,72,67,70
+CHICHOO,EDG,Valorant Masters Santiago 2026,Sentinel,75,70,73
+CHICHOO,EDG,Vct 2026 China Kickoff,Controller,80,72,76
+CHICHOO,EDG,Vct 2026 China Kickoff,Sentinel,84,75,79
+CHICHOO,EDG,Vct 2026 China Stage 1,Controller,83,84,83
+CHICHOO,EDG,Vct 2026 China Stage 1,Sentinel,81,77,79
+CHICHOO,EDG,Vct 2026 China Stage 2,Controller,80,73,76
+CHICHOO,EDG,Vct 2026 China Stage 2,Sentinel,85,81,83
+chloric,NAVI,Vct 2026 Emea Stage 1,Controller,76,79,77
+chloric,NAVI,Vct 2026 Emea Stage 1,Initiator,70,71,71
+chloric,NAVI,Vct 2026 Emea Stage 2,Controller,69,77,73
+chloric,NAVI,Vct 2026 Emea Stage 2,Initiator,69,80,75
+Chronicle,VIT,Valorant Masters London 2026,Controller,73,87,80
+Chronicle,VIT,Valorant Masters London 2026,Sentinel,77,84,81
+Chronicle,VIT,Vct 2026 Emea Kickoff,Controller,73,79,76
+Chronicle,VIT,Vct 2026 Emea Kickoff,Sentinel,88,75,81
+Chronicle,VIT,Vct 2026 Emea Stage 1,Controller,81,71,76
+Chronicle,VIT,Vct 2026 Emea Stage 1,Sentinel,81,79,80
+Chronicle,VIT,Vct 2026 Emea Stage 2,Controller,80,90,85
+Chronicle,VIT,Vct 2026 Emea Stage 2,Sentinel,85,80,83
+Cloud,FNC,Vct 2026 Emea Stage 2,Controller,70,63,66
+Cloud,FNC,Vct 2026 Emea Stage 2,Duelist,76,79,78
+Cloud,FNC,Vct 2026 Emea Stage 2,Initiator,75,87,81
+Cloud,FNC,Vct 2026 Emea Stage 2,Sentinel,79,87,83
+Cloud,GX,Vct 2026 Emea Kickoff,Initiator,81,78,79
+Cloud,GX,Vct 2026 Emea Stage 1,Initiator,70,87,79
+cNed,PCF,Vct 2026 Emea Kickoff,Duelist,64,69,67
+cNed,PCF,Vct 2026 Emea Stage 1,Duelist,66,65,66
+cNed,PCF,Vct 2026 Emea Stage 1,Sentinel,75,75,75
+Coco,TEC,Vct 2026 China Kickoff,Controller,81,80,80
+Coco,TEC,Vct 2026 China Kickoff,Initiator,69,70,70
+Coco,TEC,Vct 2026 China Stage 1,Controller,86,84,85
+Coco,TEC,Vct 2026 China Stage 1,Sentinel,69,69,69
+Coco,TEC,Vct 2026 China Stage 2,Controller,73,82,78
+Coco,TEC,Vct 2026 China Stage 2,Sentinel,71,75,73
+coconut,FPX,Vct 2026 China Stage 2,Initiator,71,77,74
+coconut,JDG,Vct 2026 China Kickoff,Initiator,70,65,68
+coconut,JDG,Vct 2026 China Stage 1,Initiator,84,72,78
+ComeBack,NAVI,Vct 2026 Emea Stage 1,Duelist,79,70,74
+ComeBack,NAVI,Vct 2026 Emea Stage 1,Sentinel,73,75,74
+ComeBack,TH,Vct 2026 Emea Kickoff,Duelist,81,78,79
+cortezia,SEN,Vct 2026 Americas Kickoff,Controller,64,78,71
+cortezia,SEN,Vct 2026 Americas Kickoff,Sentinel,66,83,75
+cortezia,SEN,Vct 2026 Americas Stage 1,Controller,72,86,79
+cortezia,SEN,Vct 2026 Americas Stage 1,Sentinel,70,85,78
+cortezia,SEN,Vct 2026 Americas Stage 2,Controller,73,76,75
+cortezia,SEN,Vct 2026 Americas Stage 2,Sentinel,72,86,79
+crashies,FNC,Vct 2026 Emea Kickoff,Initiator,75,74,74
+crashies,FNC,Vct 2026 Emea Stage 1,Initiator,79,73,76
+crashies,FNC,Vct 2026 Emea Stage 2,Controller,71,81,76
+crashies,FNC,Vct 2026 Emea Stage 2,Initiator,70,67,69
+crashies,FNC,Vct 2026 Emea Stage 2,Sentinel,67,72,70
+crazyguy,RRQ,Vct 2026 Pacific Kickoff,Controller,72,63,67
+crazyguy,RRQ,Vct 2026 Pacific Kickoff,Initiator,69,70,70
+crazyguy,RRQ,Vct 2026 Pacific Stage 1,Controller,76,79,78
+crazyguy,RRQ,Vct 2026 Pacific Stage 1,Initiator,82,76,79
+crazyguy,RRQ,Vct 2026 Pacific Stage 1,Sentinel,72,75,73
+crazyguy,RRQ,Vct 2026 Pacific Stage 2,Initiator,71,83,77
+crazyguy,RRQ,Vct 2026 Pacific Stage 2,Sentinel,72,71,71
+Crewen,BBL,Valorant Masters Santiago 2026,Controller,68,82,75
+Crewen,BBL,Valorant Masters Santiago 2026,Sentinel,68,76,72
+Crewen,BBL,Vct 2026 Emea Kickoff,Controller,72,71,71
+Crewen,BBL,Vct 2026 Emea Kickoff,Sentinel,64,77,70
+Crewen,BBL,Vct 2026 Emea Stage 1,Controller,80,74,77
+Crewen,BBL,Vct 2026 Emea Stage 1,Sentinel,63,74,69
+Crewen,BBL,Vct 2026 Emea Stage 2,Controller,82,71,76
+Crewen,BBL,Vct 2026 Emea Stage 2,Sentinel,75,82,78
+crownfisher,JDG,Vct 2026 China Stage 2,Controller,80,76,78
+crownfisher,JDG,Vct 2026 China Stage 2,Duelist,63,63,63
+Crws,FS,Valorant Masters London 2026,Controller,70,67,68
+Crws,FS,Valorant Masters London 2026,Sentinel,77,79,78
+Crws,FS,Vct 2026 Pacific Stage 1,Controller,78,70,74
+Crws,FS,Vct 2026 Pacific Stage 1,Sentinel,77,74,76
+Crws,FS,Vct 2026 Pacific Stage 2,Controller,65,79,72
+Crws,FS,Vct 2026 Pacific Stage 2,Sentinel,76,67,71
+Cryocells,100T,Vct 2026 Americas Kickoff,Controller,81,70,76
+Cryocells,100T,Vct 2026 Americas Kickoff,Sentinel,85,77,81
+Cryocells,100T,Vct 2026 Americas Stage 1,Controller,86,85,85
+Cryocells,100T,Vct 2026 Americas Stage 1,Sentinel,75,76,76
+Cryocells,100T,Vct 2026 Americas Stage 2,Controller,69,82,76
+Cryocells,100T,Vct 2026 Americas Stage 2,Sentinel,80,74,77
+CyvOph,FNC,Vct 2026 Emea Stage 1,Controller,75,75,75
+CyvOph,FNC,Vct 2026 Emea Stage 1,Duelist,78,74,76
+CyvOph,FNC,Vct 2026 Emea Stage 1,Initiator,76,80,78
+CyvOph,NAVI,Vct 2026 Emea Stage 2,Controller,71,81,76
+CyvOph,NAVI,Vct 2026 Emea Stage 2,Duelist,70,66,68
+CyvOph,NAVI,Vct 2026 Emea Stage 2,Initiator,74,76,75
+CyvOph,NAVI,Vct 2026 Emea Stage 2,Sentinel,71,74,73
+d3mur,ULF,Vct 2026 Emea Kickoff,Duelist,69,65,67
+d4v41,PRX,Valorant Masters London 2026,Controller,82,68,75
+d4v41,PRX,Valorant Masters London 2026,Sentinel,89,72,81
+d4v41,PRX,Valorant Masters Santiago 2026,Controller,79,70,75
+d4v41,PRX,Valorant Masters Santiago 2026,Initiator,76,71,74
+d4v41,PRX,Valorant Masters Santiago 2026,Sentinel,81,76,79
+d4v41,PRX,Vct 2026 Pacific Kickoff,Controller,72,75,74
+d4v41,PRX,Vct 2026 Pacific Kickoff,Initiator,72,75,74
+d4v41,PRX,Vct 2026 Pacific Kickoff,Sentinel,87,73,80
+d4v41,PRX,Vct 2026 Pacific Stage 1,Controller,71,82,77
+d4v41,PRX,Vct 2026 Pacific Stage 1,Sentinel,76,81,79
+d4v41,PRX,Vct 2026 Pacific Stage 2,Controller,74,85,79
+d4v41,PRX,Vct 2026 Pacific Stage 2,Initiator,79,72,76
+d4v41,PRX,Vct 2026 Pacific Stage 2,Sentinel,69,78,74
+Dambi,NS,Valorant Masters Santiago 2026,Duelist,92,69,81
+Dambi,NS,Vct 2026 Pacific Kickoff,Duelist,86,81,83
+Dambi,NS,Vct 2026 Pacific Stage 1,Duelist,70,83,77
+Dambi,NS,Vct 2026 Pacific Stage 2,Duelist,76,68,72
+Dantedeu5,KRÜ,Vct 2026 Americas Stage 1,Duelist,65,80,73
+Dantedeu5,KRÜ,Vct 2026 Americas Stage 2,Duelist,63,73,68
+Darker,LOUD,Vct 2026 Americas Kickoff,Controller,75,84,80
+Darker,LOUD,Vct 2026 Americas Kickoff,Initiator,70,75,72
+Darker,LOUD,Vct 2026 Americas Stage 1,Controller,84,85,85
+Darker,LOUD,Vct 2026 Americas Stage 1,Duelist,80,72,76
+Darker,LOUD,Vct 2026 Americas Stage 1,Initiator,69,79,74
+Darker,LOUD,Vct 2026 Americas Stage 1,Sentinel,79,74,77
+Darker,LOUD,Vct 2026 Americas Stage 2,Controller,80,86,83
+Darker,LOUD,Vct 2026 Americas Stage 2,Sentinel,81,72,77
+DaviH,LOUD,Vct 2026 Americas Stage 2,Initiator,77,78,78
+DeadInk,FF,Vct 2026 Emea Stage 2,Duelist,73,81,77
+DeadInk,FF,Vct 2026 Emea Stage 2,Sentinel,72,81,76
+deLb,TE,Vct 2026 China Kickoff,Controller,82,78,80
+deLb,TE,Vct 2026 China Kickoff,Duelist,85,73,79
+deLb,TE,Vct 2026 China Kickoff,Sentinel,73,71,72
+deLb,TE,Vct 2026 China Stage 1,Controller,80,81,81
+deLb,TE,Vct 2026 China Stage 1,Sentinel,84,73,78
+deLb,TE,Vct 2026 China Stage 2,Controller,66,72,69
+deLb,TE,Vct 2026 China Stage 2,Sentinel,85,77,81
+Demon1,C9,Vct 2026 Americas Kickoff,Duelist,72,80,76
+Demon1,C9,Vct 2026 Americas Kickoff,Sentinel,80,86,83
+Demon1,ENVY,Vct 2026 Americas Kickoff,Controller,71,80,75
+Demon1,ENVY,Vct 2026 Americas Stage 1,Controller,79,84,81
+Demon1,ENVY,Vct 2026 Americas Stage 1,Duelist,78,77,78
+Demon1,ENVY,Vct 2026 Americas Stage 1,Sentinel,78,64,71
+Demon1,ENVY,Vct 2026 Americas Stage 2,Controller,67,83,75
+Demon1,ENVY,Vct 2026 Americas Stage 2,Duelist,73,79,76
+Demon1,ENVY,Vct 2026 Americas Stage 2,Sentinel,65,81,73
+Derke,VIT,Valorant Masters London 2026,Duelist,87,88,88
+Derke,VIT,Vct 2026 Emea Kickoff,Duelist,84,87,86
+Derke,VIT,Vct 2026 Emea Stage 1,Duelist,81,79,80
+Derke,VIT,Vct 2026 Emea Stage 2,Duelist,85,82,83
+Deryeon,WOL,Vct 2026 China Stage 2,Controller,80,75,78
+Deryeon,WOL,Vct 2026 China Stage 2,Duelist,68,78,73
+Deryeon,WOL,Vct 2026 China Stage 2,Initiator,74,73,74
+Desmo,FNC,Vct 2026 Emea Stage 1,Controller,75,77,76
+Desmo,FNC,Vct 2026 Emea Stage 1,Duelist,74,76,75
+Desmo,FNC,Vct 2026 Emea Stage 1,Initiator,77,79,78
+dgzin,EG,Vct 2026 Americas Kickoff,Duelist,85,91,88
+dgzin,EG,Vct 2026 Americas Stage 1,Duelist,80,84,82
+dgzin,EG,Vct 2026 Americas Stage 1,Sentinel,76,74,75
+dgzin,EG,Vct 2026 Americas Stage 2,Duelist,83,86,84
+dgzin,EG,Vct 2026 Americas Stage 2,Sentinel,78,82,80
+DH,T1,Vct 2026 Pacific Stage 2,Controller,75,79,77
+DH,T1,Vct 2026 Pacific Stage 2,Sentinel,81,69,75
+Dingwei,AT,Vct 2026 China Stage 2,Initiator,71,70,71
+doma,JL,Vct 2026 Emea Stage 2,Controller,75,70,73
+doma,JL,Vct 2026 Emea Stage 2,Sentinel,71,72,72
+dos9,KC,Vct 2026 Emea Kickoff,Controller,84,82,83
+dos9,KC,Vct 2026 Emea Stage 1,Controller,75,72,74
+dos9,KC,Vct 2026 Emea Stage 1,Duelist,72,75,73
+dos9,KC,Vct 2026 Emea Stage 2,Controller,76,87,82
+Dynamite,TEC,Vct 2026 China Kickoff,Duelist,64,76,70
+Dynamite,TEC,Vct 2026 China Stage 1,Duelist,77,70,73
+Dynamite,TEC,Vct 2026 China Stage 2,Duelist,63,75,69
+Dynamite,TEC,Vct 2026 China Stage 2,Sentinel,76,70,73
+echo,EF,Vct 2026 Emea Stage 1,Controller,71,81,76
+echo,EF,Vct 2026 Emea Stage 1,Sentinel,80,78,79
+echo,EF,Vct 2026 Emea Stage 2,Controller,81,65,73
+echo,EF,Vct 2026 Emea Stage 2,Sentinel,77,69,73
+eeiu,FUR,Valorant Masters Santiago 2026,Initiator,81,78,80
+eeiu,FUR,Vct 2026 Americas Kickoff,Initiator,82,70,76
+eeiu,FUR,Vct 2026 Americas Stage 1,Initiator,70,75,73
+eeiu,FUR,Vct 2026 Americas Stage 2,Initiator,86,82,84
+Efina,GEN,Vct 2026 Pacific Stage 2,Initiator,72,66,69
+Eggsterr,ENVY,Vct 2026 Americas Kickoff,Duelist,64,69,66
+Eggsterr,ENVY,Vct 2026 Americas Stage 1,Controller,78,68,73
+Eggsterr,ENVY,Vct 2026 Americas Stage 1,Duelist,71,79,75
+Eggsterr,ENVY,Vct 2026 Americas Stage 1,Sentinel,69,70,69
+eKo,ZETA,Vct 2026 Pacific Kickoff,Duelist,84,68,76
+eKo,ZETA,Vct 2026 Pacific Stage 1,Duelist,67,74,71
+eKo,ZETA,Vct 2026 Pacific Stage 1,Initiator,80,76,78
+eKo,ZETA,Vct 2026 Pacific Stage 2,Duelist,87,71,79
+eKo,ZETA,Vct 2026 Pacific Stage 2,Initiator,86,86,86
+erde,LOUD,Vct 2026 Americas Stage 1,Controller,91,71,81
+erde,LOUD,Vct 2026 Americas Stage 1,Initiator,76,69,73
+erde,LOUD,Vct 2026 Americas Stage 2,Controller,72,68,70
+erde,LOUD,Vct 2026 Americas Stage 2,Sentinel,80,73,76
+Eren,AT,Vct 2026 China Stage 2,Controller,78,74,76
+Eren,AT,Vct 2026 China Stage 2,Sentinel,80,80,80
+Erv,TYL,Vct 2026 China Kickoff,Controller,79,79,79
+Erv,TYL,Vct 2026 China Stage 1,Controller,77,81,79
+Erv,TYL,Vct 2026 China Stage 1,Duelist,73,76,74
+Erv,TYL,Vct 2026 China Stage 1,Initiator,89,85,87
+Erv,TYL,Vct 2026 China Stage 2,Controller,73,79,76
+Erv,TYL,Vct 2026 China Stage 2,Duelist,77,78,77
+Erv,TYL,Vct 2026 China Stage 2,Initiator,77,76,77
+Ethan,NRG,Valorant Masters London 2026,Controller,75,73,74
+Ethan,NRG,Valorant Masters London 2026,Initiator,67,92,79
+Ethan,NRG,Valorant Masters Santiago 2026,Controller,70,71,70
+Ethan,NRG,Valorant Masters Santiago 2026,Initiator,73,71,72
+Ethan,NRG,Vct 2026 Americas Kickoff,Controller,71,82,76
+Ethan,NRG,Vct 2026 Americas Kickoff,Initiator,76,80,78
+Ethan,NRG,Vct 2026 Americas Stage 1,Controller,72,85,79
 Ethan,NRG,Vct 2026 Americas Stage 1,Initiator,81,83,82
-xffero,RRQ,Vct 2026 Pacific Stage 2,Sentinel,77,86,82
-something,PRX,Valorant Masters Santiago 2026,Duelist,80,84,82
-jawgemo,G2,Vct 2026 Americas Stage 1,Duelist,79,85,82
-iZu,T1,Vct 2026 Pacific Kickoff,Duelist,83,81,82
-Veqaj,FNC,Vct 2026 Emea Kickoff,Initiator,81,83,82
-jawgemo,G2,Valorant Masters Santiago 2026,Duelist,80,85,82
-spike,LEV,Valorant Masters London 2026,Duelist,80,84,82
-brawk,NRG,Vct 2026 Americas Stage 1,Initiator,80,84,82
-oonzmlp,VL,Vct 2026 Pacific Stage 2,Sentinel,76,87,82
-Efina,GEN,Vct 2026 Pacific Stage 2,Initiator,83,81,82
-xavi8k,GE,Vct 2026 Pacific Stage 2,Controller,78,85,82
-Derke,VIT,Vct 2026 Emea Stage 1,Duelist,81,82,82
-waddle,PCF,Vct 2026 Emea Stage 2,Initiator,80,84,82
-Dambi,NS,Vct 2026 Pacific Kickoff,Duelist,82,81,82
-brawk,NRG,Vct 2026 Americas Kickoff,Initiator,80,84,82
-artzin,FUR,Vct 2026 Americas Stage 2,Controller,80,84,82
-mada,NRG,Valorant Masters Santiago 2026,Duelist,84,79,82
-SSeeS,DFM,Vct 2026 Pacific Stage 1,Controller,83,80,82
-tkzin,LOUD,Vct 2026 Americas Stage 2,Duelist,81,83,82
-zekken,MIBR,Vct 2026 Americas Stage 2,Duelist,80,83,82
-Jesse,GX,Vct 2026 Emea Stage 2,Controller,81,83,82
-Timotino,100T,Vct 2026 Americas Stage 1,Duelist,82,81,82
-BeYN,KRX,Vct 2026 Pacific Kickoff,Initiator,82,82,82
-WsLeo,XLG,Vct 2026 China Kickoff,Initiator,83,80,82
-Sylvan,TS,Vct 2026 Pacific Stage 2,Controller,84,79,82
-lucas,TEC,Vct 2026 China Stage 2,Initiator,84,79,82
-GLYPH,M8,Vct 2026 Emea Stage 1,Controller,81,82,81
-Leviathan,FS,Vct 2026 Pacific Stage 1,Controller,81,82,81
-crazyguy,RRQ,Vct 2026 Pacific Kickoff,Controller,84,79,81
-RieNs,TH,Vct 2026 Emea Stage 2,Initiator,80,82,81
-KROSTALY,FUT,Vct 2026 Emea Stage 1,Initiator,81,81,81
-DaviH,LOUD,Vct 2026 Americas Stage 2,Initiator,82,80,81
-crashies,FNC,Vct 2026 Emea Stage 2,Initiator,82,80,81
-KROSTALY,FUT,Valorant Masters London 2026,Initiator,80,82,81
-blowz,LEV,Vct 2026 Americas Stage 2,Initiator,82,80,81
-Xross,NS,Vct 2026 Pacific Stage 1,Initiator,81,82,81
-lukxo,LOUD,Vct 2026 Americas Stage 2,Sentinel,81,81,81
-Alfajer,FNC,Vct 2026 Emea Stage 2,Sentinel,77,86,81
-mada,NRG,Vct 2026 Americas Kickoff,Duelist,79,84,81
-Sylvan,TS,Vct 2026 Pacific Stage 1,Controller,81,81,81
-dgzin,EG,Vct 2026 Americas Kickoff,Duelist,78,84,81
-Kushy,RRQ,Vct 2026 Pacific Kickoff,Initiator,81,82,81
-GLYPH,M8,Vct 2026 Emea Kickoff,Controller,81,81,81
-Coco,TEC,Vct 2026 China Stage 1,Controller,82,80,81
-jawgemo,G2,Vct 2026 Americas Stage 2,Duelist,80,82,81
-Lysoar,XLG,Vct 2026 China Kickoff,Controller,83,79,81
-Dambi,NS,Vct 2026 Pacific Stage 2,Duelist,82,80,81
-Timotino,100T,Vct 2026 Americas Stage 2,Duelist,78,84,81
-Kicks,TL,Vct 2026 Emea Stage 2,Controller,79,83,81
-spike,LEV,Valorant Masters London 2026,Controller,83,77,81
-Rossy,ENVY,Vct 2026 Americas Kickoff,Controller,79,83,81
-Jamppi,VIT,Vct 2026 Emea Stage 2,Duelist,84,78,81
-Ethan,NRG,Vct 2026 Americas Stage 2,Initiator,82,80,81
-SugarZ3ro,ZETA,Vct 2026 Pacific Kickoff,Controller,81,81,81
-UdoTan,GE,Vct 2026 Pacific Stage 2,Duelist,77,85,81
-Shr1mp,AG,Vct 2026 China Stage 1,Initiator,83,79,81
-WsLeo,XLG,Vct 2026 China Stage 2,Initiator,81,81,81
-f0rsakeN,PRX,Vct 2026 Pacific Stage 2,Controller,80,81,81
-s0pp,FUT,Vct 2026 Emea Stage 2,Duelist,77,85,81
-spike,LEV,Vct 2026 Americas Stage 2,Duelist,74,86,81
-leaf,G2,Vct 2026 Americas Stage 2,Controller,77,83,81
-trent,G2,Vct 2026 Americas Kickoff,Initiator,78,83,81
-Sato,LEV,Vct 2026 Americas Stage 2,Duelist,80,81,81
-saadhak,KRÜ,Vct 2026 Americas Stage 1,Controller,79,82,81
-skuba,NRG,Vct 2026 Americas Kickoff,Controller,79,82,81
-BeYN,KRX,Vct 2026 Pacific Stage 2,Initiator,82,79,81
-Klaus,VL,Vct 2026 Pacific Stage 2,Controller,83,78,81
-something,PRX,Vct 2026 Pacific Kickoff,Duelist,79,82,81
-C0M,FUR,Vct 2026 Americas Stage 2,Initiator,79,82,80
-nAts,TL,Vct 2026 Emea Kickoff,Controller,81,80,80
-mwzera,KRÜ,Vct 2026 Americas Stage 2,Initiator,81,80,80
-Flex1n,DRG,Vct 2026 China Kickoff,Controller,79,82,80
-Boaster,FNC,Vct 2026 Emea Stage 1,Controller,82,79,80
-CHICHOO,EDG,Valorant Masters London 2026,Controller,82,79,80
-SyouTa,ZETA,Vct 2026 Pacific Stage 2,Sentinel,83,78,80
-Neon,LEV,Vct 2026 Americas Stage 1,Controller,81,80,80
-Jemkin,RRQ,Vct 2026 Pacific Kickoff,Sentinel,81,79,80
-cortezia,SEN,Vct 2026 Americas Stage 2,Sentinel,77,84,80
-Meteor,T1,Vct 2026 Pacific Stage 2,Sentinel,80,81,80
-heat,KRÜ,Vct 2026 Americas Stage 2,Duelist,80,81,80
-aluba,WOL,Vct 2026 China Stage 2,Initiator,84,77,80
-JitBoyS,FS,Vct 2026 Pacific Stage 1,Duelist,81,79,80
-keiko,NRG,Valorant Masters Santiago 2026,Controller,81,80,80
-marteen,M8,Valorant Masters Santiago 2026,Duelist,83,77,80
-Kr1stal,GE,Vct 2026 Pacific Kickoff,Initiator,80,81,80
-Deryeon,WOL,Vct 2026 China Stage 2,Controller,82,78,80
-whzy,BLG,Vct 2026 China Kickoff,Duelist,84,77,80
-xffero,RRQ,Vct 2026 Pacific Stage 1,Controller,79,81,80
-iZu,T1,Vct 2026 Pacific Stage 1,Sentinel,79,81,80
-Life,DRG,Vct 2026 China Stage 2,Duelist,84,76,80
-nobody,EDG,Vct 2026 China Kickoff,Initiator,80,80,80
-Xross,NS,Vct 2026 Pacific Stage 2,Duelist,77,83,80
-Meiy,DFM,Vct 2026 Pacific Stage 2,Duelist,79,81,80
-nekky,EF,Vct 2026 Emea Stage 1,Initiator,81,79,80
-leaf,G2,Valorant Masters Santiago 2026,Controller,80,80,80
-xeus,FUT,Valorant Masters London 2026,Duelist,82,78,80
-STYRON,TS,Vct 2026 Pacific Stage 2,Initiator,79,81,80
-starxo,M8,Vct 2026 Emea Stage 2,Initiator,79,81,80
-jkuro,JDG,Vct 2026 China Kickoff,Controller,82,78,80
-crazyguy,RRQ,Vct 2026 Pacific Stage 2,Initiator,78,81,80
-aspas,MIBR,Vct 2026 Americas Kickoff,Duelist,80,80,80
-Reduxx,SEN,Vct 2026 Americas Stage 2,Controller,78,81,80
-Absol,ZETA,Vct 2026 Pacific Stage 2,Duelist,79,81,80
-basic,FUR,Vct 2026 Americas Stage 2,Initiator,77,83,80
-invy,PRX,Valorant Masters London 2026,Initiator,79,81,80
-Mazino,MIBR,Vct 2026 Americas Stage 1,Controller,81,79,80
-Ivy,NS,Vct 2026 Pacific Kickoff,Controller,80,79,80
-supamen,EG,Vct 2026 Americas Stage 2,Controller,81,78,80
-wayne,TL,Vct 2026 Emea Stage 1,Controller,79,81,80
-SpiritZ1,DRG,Vct 2026 China Stage 1,Duelist,84,75,80
-stax,T1,Vct 2026 Pacific Kickoff,Initiator,80,80,80
-coconut,FPX,Vct 2026 China Stage 2,Initiator,79,80,80
-yetujey,FUT,Vct 2026 Emea Stage 2,Sentinel,78,81,80
-Jemkin,RRQ,Vct 2026 Pacific Stage 1,Duelist,77,82,80
-bao,EG,Vct 2026 Americas Stage 2,Sentinel,81,78,80
-Boaster,FNC,Vct 2026 Emea Stage 2,Controller,80,80,80
-kaajak,FNC,Vct 2026 Emea Stage 1,Duelist,80,79,80
-westside,GX,Vct 2026 Emea Stage 2,Sentinel,72,89,80
-Meteor,T1,Vct 2026 Pacific Kickoff,Controller,80,79,79
-nerve,FUR,Vct 2026 Americas Stage 1,Controller,79,80,79
-Akame,DFM,Vct 2026 Pacific Kickoff,Initiator,77,81,79
-starxo,M8,Vct 2026 Emea Kickoff,Initiator,79,80,79
-UdoTan,GE,Vct 2026 Pacific Stage 1,Duelist,77,82,79
-HYUNMIN,KRX,Vct 2026 Pacific Stage 2,Duelist,79,80,79
-Ruxic,NAVI,Vct 2026 Emea Stage 1,Controller,79,79,79
-mwzera,KRÜ,Vct 2026 Americas Stage 1,Initiator,78,80,79
+Ethan,NRG,Vct 2026 Americas Stage 2,Duelist,69,70,69
+Ethan,NRG,Vct 2026 Americas Stage 2,Initiator,89,88,88
+ExiT,NAVI,Vct 2026 Emea Stage 2,Duelist,72,77,75
+Ezeir,NOVA,Vct 2026 China Kickoff,Controller,78,71,74
+Ezeir,NOVA,Vct 2026 China Kickoff,Initiator,67,69,68
+Ezeir,NOVA,Vct 2026 China Kickoff,Sentinel,77,77,77
+Ezeir,NOVA,Vct 2026 China Stage 1,Controller,69,87,78
+Ezeir,NOVA,Vct 2026 China Stage 2,Controller,81,79,80
+f0rsakeN,PRX,Valorant Masters London 2026,Controller,75,83,79
+f0rsakeN,PRX,Valorant Masters London 2026,Duelist,82,70,76
+f0rsakeN,PRX,Valorant Masters London 2026,Initiator,85,88,87
+f0rsakeN,PRX,Valorant Masters Santiago 2026,Controller,83,77,80
+f0rsakeN,PRX,Valorant Masters Santiago 2026,Duelist,66,85,76
+f0rsakeN,PRX,Valorant Masters Santiago 2026,Sentinel,68,68,68
+f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Controller,81,81,81
+f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Duelist,82,79,80
+f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Initiator,73,72,72
+f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Sentinel,82,83,83
+f0rsakeN,PRX,Vct 2026 Pacific Stage 1,Controller,84,86,85
+f0rsakeN,PRX,Vct 2026 Pacific Stage 1,Duelist,80,84,82
+f0rsakeN,PRX,Vct 2026 Pacific Stage 2,Controller,83,83,83
+f0rsakeN,PRX,Vct 2026 Pacific Stage 2,Duelist,74,75,74
+f0rsakeN,PRX,Vct 2026 Pacific Stage 2,Initiator,74,79,77
+f4ngeer,AG,Valorant Masters Santiago 2026,Duelist,71,74,73
+f4ngeer,AG,Valorant Masters Santiago 2026,Sentinel,86,67,77
+f4ngeer,AG,Vct 2026 China Kickoff,Duelist,85,75,80
+f4ngeer,AG,Vct 2026 China Stage 1,Duelist,87,69,78
+f4ngeer,AG,Vct 2026 China Stage 1,Sentinel,82,73,77
+f4ngeer,AG,Vct 2026 China Stage 2,Duelist,85,84,84
+f4ngeer,AG,Vct 2026 China Stage 2,Sentinel,67,82,75
+Favian,EF,Vct 2026 Emea Stage 1,Duelist,75,81,78
+Favian,EF,Vct 2026 Emea Stage 1,Initiator,88,68,78
+Favian,EF,Vct 2026 Emea Stage 2,Duelist,92,72,82
+Favian,EF,Vct 2026 Emea Stage 2,Sentinel,74,81,77
+Favian,ULF,Vct 2026 Emea Kickoff,Controller,78,73,76
+Favian,ULF,Vct 2026 Emea Kickoff,Duelist,83,71,77
+Favian,ULF,Vct 2026 Emea Kickoff,Initiator,81,73,77
+Favian,ULF,Vct 2026 Emea Kickoff,Sentinel,67,73,70
+FengF,TE,Vct 2026 China Kickoff,Controller,77,77,77
+FengF,TE,Vct 2026 China Kickoff,Duelist,78,75,76
+FengF,TE,Vct 2026 China Kickoff,Initiator,83,68,76
+FengF,TE,Vct 2026 China Kickoff,Sentinel,70,70,70
+FengF,TE,Vct 2026 China Stage 2,Duelist,85,66,75
+FengF,TE,Vct 2026 China Stage 2,Initiator,80,77,79
+FengF,TE,Vct 2026 China Stage 2,Sentinel,68,73,70
+Filu,NAVI,Vct 2026 Emea Kickoff,Duelist,61,80,70
+Filu,NAVI,Vct 2026 Emea Stage 1,Controller,75,80,77
+Filu,NAVI,Vct 2026 Emea Stage 1,Duelist,67,78,73
+Filu,NAVI,Vct 2026 Emea Stage 1,Sentinel,67,82,75
+FireBallOps,C9,Vct 2026 Americas Stage 2,Controller,68,72,70
+FireBallOps,C9,Vct 2026 Americas Stage 2,Duelist,80,77,79
 FireBallOps,C9,Vct 2026 Americas Stage 2,Sentinel,76,82,79
-benjyfishy,TH,Vct 2026 Emea Stage 2,Sentinel,82,77,79
-CHICHOO,EDG,Vct 2026 China Stage 1,Controller,79,80,79
-lovers rock,BBL,Vct 2026 Emea Kickoff,Duelist,77,81,79
-Minny,M8,Vct 2026 Emea Stage 2,Duelist,77,81,79
-Ezeir,NOVA,Vct 2026 China Stage 2,Controller,80,79,79
-lucas,TEC,Vct 2026 China Stage 1,Initiator,81,77,79
-supamen,EG,Vct 2026 Americas Kickoff,Controller,78,80,79
-CHICHOO,EDG,Vct 2026 China Kickoff,Controller,81,77,79
-Zexy,VL,Vct 2026 Pacific Stage 2,Duelist,74,84,79
-Caedye,DFM,Vct 2026 Pacific Stage 1,Sentinel,79,79,79
-bipo,M8,Vct 2026 Emea Stage 2,Sentinel,78,80,79
-bud,BLG,Vct 2026 China Kickoff,Initiator,80,78,79
-happywei,XLG,Valorant Masters London 2026,Sentinel,80,78,79
-Nicc,DRG,Vct 2026 China Kickoff,Initiator,79,79,79
-Crws,FS,Vct 2026 Pacific Stage 1,Controller,81,78,79
-ExiT,NAVI,Vct 2026 Emea Stage 2,Duelist,77,81,79
-Xross,NS,Vct 2026 Pacific Kickoff,Initiator,79,79,79
-xeus,FUT,Vct 2026 Emea Stage 1,Duelist,79,79,79
-SpiritZ1,DRG,Vct 2026 China Stage 2,Duelist,87,71,79
-Neon,LEV,Valorant Masters London 2026,Controller,79,79,79
-purp0,TL,Vct 2026 Emea Stage 2,Duelist,77,81,79
-d4v41,PRX,Vct 2026 Pacific Stage 2,Controller,75,83,79
-Chronicle,VIT,Vct 2026 Emea Stage 1,Sentinel,80,79,79
-Rb,NS,Valorant Masters Santiago 2026,Controller,79,79,79
-t3xture,GEN,Vct 2026 Pacific Kickoff,Duelist,77,81,79
-keznit,ENVY,Vct 2026 Americas Kickoff,Duelist,79,79,79
-purp0,TL,Vct 2026 Emea Kickoff,Initiator,82,76,79
-Chronicle,VIT,Vct 2026 Emea Stage 2,Controller,78,81,79
-Minny,M8,Vct 2026 Emea Kickoff,Controller,79,79,79
-P0PPIN,ENVY,Vct 2026 Americas Kickoff,Initiator,77,81,79
-coconut,JDG,Vct 2026 China Stage 1,Initiator,82,76,79
-Monyet,RRQ,Vct 2026 Pacific Kickoff,Duelist,79,79,79
-GLYPH,M8,Valorant Masters Santiago 2026,Controller,77,82,79
-dos9,KC,Vct 2026 Emea Kickoff,Controller,79,79,79
-Neon,LEV,Valorant Masters London 2026,Duelist,80,77,79
-iZu,T1,Vct 2026 Pacific Stage 2,Initiator,80,78,79
-happywei,XLG,Vct 2026 China Stage 2,Controller,77,80,79
-SiuFatBB,TYL,Vct 2026 China Stage 2,Initiator,82,75,79
-sword9,TYL,Vct 2026 China Kickoff,Initiator,80,78,79
-SUYGETSU,KC,Vct 2026 Emea Stage 2,Controller,79,78,79
-s0pp,FUT,Valorant Masters London 2026,Duelist,77,81,79
-CHICHOO,EDG,Vct 2026 China Stage 1,Sentinel,79,79,79
-Dambi,NS,Vct 2026 Pacific Stage 1,Duelist,76,82,79
-Jinggg,PRX,Valorant Masters Santiago 2026,Controller,80,78,79
-Lakia,GEN,Vct 2026 Pacific Kickoff,Initiator,77,80,79
-Boo,TH,Vct 2026 Emea Stage 2,Controller,75,81,79
-skuba,NRG,Vct 2026 Americas Stage 2,Controller,85,72,79
-xeus,FUT,Vct 2026 Emea Stage 2,Duelist,80,77,78
-Izzy,EF,Vct 2026 Emea Stage 1,Duelist,79,77,78
-Scales,TYL,Vct 2026 China Kickoff,Controller,80,77,78
-PatMen,GE,Vct 2026 Pacific Stage 2,Controller,78,79,78
-saadhak,KRÜ,Vct 2026 Americas Stage 2,Controller,79,78,78
-BerLIN,JDG,Vct 2026 China Stage 2,Initiator,83,74,78
-kamo,TL,Vct 2026 Emea Stage 1,Duelist,78,79,78
-Ethan,NRG,Valorant Masters Santiago 2026,Initiator,79,78,78
-Neon,LEV,Vct 2026 Americas Stage 2,Sentinel,80,77,78
-eeiu,FUR,Vct 2026 Americas Kickoff,Initiator,80,77,78
-ZynX,GEN,Vct 2026 Pacific Kickoff,Duelist,74,83,78
-ZmjjKK,EDG,Vct 2026 China Kickoff,Duelist,83,73,78
-Boo,TH,Vct 2026 Emea Kickoff,Controller,81,76,78
-Darker,LOUD,Vct 2026 Americas Stage 2,Controller,78,79,78
-koalanoob,FUR,Vct 2026 Americas Stage 2,Duelist,73,85,78
-Karon,GEN,Vct 2026 Pacific Kickoff,Sentinel,76,80,78
-Zeus,TS,Vct 2026 Pacific Stage 2,Duelist,81,76,78
-Loita,BBL,Vct 2026 Emea Kickoff,Controller,75,81,78
-Caedye,DFM,Vct 2026 Pacific Stage 2,Sentinel,77,79,78
-al0rante,PCF,Vct 2026 Emea Stage 2,Controller,76,80,78
-Jinggg,PRX,Vct 2026 Pacific Stage 2,Controller,79,77,78
-Ethan,NRG,Vct 2026 Americas Kickoff,Initiator,78,79,78
-crashies,FNC,Vct 2026 Emea Stage 1,Initiator,79,77,78
-brawk,NRG,Valorant Masters Santiago 2026,Initiator,80,76,78
-WsLeo,XLG,Valorant Masters London 2026,Initiator,79,78,78
-Favian,EF,Vct 2026 Emea Stage 1,Duelist,77,79,78
-swagzor,NOVA,Vct 2026 China Stage 2,Duelist,78,78,78
-seph1roth,FS,Vct 2026 Pacific Stage 2,Sentinel,74,83,78
-Rarga,XLG,Vct 2026 China Stage 1,Duelist,82,74,78
-deLb,TE,Vct 2026 China Stage 1,Controller,78,78,78
-primmie,FS,Vct 2026 Pacific Stage 2,Duelist,80,74,78
-Francis,NS,Vct 2026 Pacific Kickoff,Duelist,75,81,78
-Rarga,XLG,Vct 2026 China Kickoff,Duelist,82,73,78
-artzin,FUR,Vct 2026 Americas Kickoff,Controller,77,79,78
-hiro,NAVI,Vct 2026 Emea Stage 2,Sentinel,74,82,78
-Neon,LEV,Valorant Masters London 2026,Sentinel,75,80,78
-bipo,M8,Vct 2026 Emea Kickoff,Duelist,77,78,78
-Coco,TEC,Vct 2026 China Kickoff,Controller,78,77,78
-primmie,FS,Vct 2026 Pacific Stage 2,Sentinel,78,78,78
-Killua,FS,Vct 2026 Pacific Kickoff,Initiator,77,78,78
-Cryocells,100T,Vct 2026 Americas Stage 1,Sentinel,78,78,78
-artzin,FUR,Vct 2026 Americas Stage 1,Sentinel,75,81,78
-LuoK1ng,TE,Vct 2026 China Stage 2,Controller,81,74,78
-Autumn,GE,Vct 2026 Pacific Stage 2,Sentinel,72,83,78
-kaajak,FNC,Vct 2026 Emea Stage 2,Duelist,79,76,78
-f4ngeer,AG,Vct 2026 China Stage 1,Duelist,84,71,78
-splash,TYL,Vct 2026 China Stage 1,Duelist,82,74,78
-Lar0k,BBL,Vct 2026 Emea Stage 2,Duelist,78,78,78
-Paincakes,EG,Vct 2026 Americas Stage 2,Initiator,76,80,78
-keiko,NRG,Vct 2026 Americas Stage 1,Duelist,76,79,78
-Veqaj,FNC,Vct 2026 Emea Kickoff,Controller,78,77,78
-Derke,VIT,Vct 2026 Emea Kickoff,Duelist,77,78,78
-aspas,MIBR,Vct 2026 Americas Stage 1,Duelist,78,77,77
-Lakia,GEN,Vct 2026 Pacific Stage 1,Initiator,77,78,77
-Verno,MIBR,Vct 2026 Americas Stage 1,Initiator,79,76,77
-crownfisher,JDG,Vct 2026 China Stage 2,Controller,79,76,77
-MiniBoo,TL,Vct 2026 Emea Stage 1,Duelist,76,79,77
-Alfajer,FNC,Vct 2026 Emea Kickoff,Duelist,78,77,77
-Chronicle,VIT,Valorant Masters London 2026,Sentinel,77,78,77
-Jamppi,VIT,Valorant Masters London 2026,Initiator,77,78,77
-nobody,EDG,Valorant Masters London 2026,Initiator,76,79,77
-SugarZ3ro,ZETA,Vct 2026 Pacific Stage 1,Controller,77,78,77
-purp0,TL,Vct 2026 Emea Stage 1,Initiator,79,76,77
-PatMen,GE,Vct 2026 Pacific Stage 1,Controller,78,77,77
-Smoggy,EDG,Vct 2026 China Stage 1,Controller,77,78,77
-stew,JDG,Vct 2026 China Stage 1,Controller,78,77,77
-something,PRX,Vct 2026 Pacific Stage 2,Duelist,76,78,77
-CyvOph,NAVI,Vct 2026 Emea Stage 2,Sentinel,77,78,77
-PROFEK,VIT,Vct 2026 Emea Kickoff,Controller,75,80,77
-eeiu,FUR,Vct 2026 Americas Stage 1,Initiator,76,79,77
-starxo,M8,Vct 2026 Emea Stage 1,Initiator,76,78,77
-splash,TYL,Vct 2026 China Kickoff,Duelist,82,72,77
-leaf,G2,Vct 2026 Americas Stage 1,Controller,78,76,77
-grubinho,GX,Vct 2026 Emea Stage 1,Controller,76,78,77
-splash,TYL,Vct 2026 China Stage 2,Duelist,79,75,77
-skuba,NRG,Vct 2026 Americas Stage 1,Controller,78,76,77
-deLb,TE,Vct 2026 China Stage 2,Sentinel,80,74,77
-GLYPH,ENVY,Vct 2026 Americas Stage 2,Initiator,74,80,77
-marteen,M8,Vct 2026 Emea Stage 1,Duelist,78,76,77
-tex,MIBR,Vct 2026 Americas Kickoff,Controller,77,77,77
-d4v41,PRX,Valorant Masters Santiago 2026,Controller,79,75,77
-BuZz,T1,Vct 2026 Pacific Stage 2,Duelist,76,77,77
-ZmjjKK,EDG,Valorant Masters London 2026,Duelist,75,79,77
-Crewen,BBL,Vct 2026 Emea Kickoff,Sentinel,74,79,77
-sword9,TYL,Vct 2026 China Stage 1,Initiator,80,74,77
-Monyet,RRQ,Vct 2026 Pacific Stage 1,Duelist,78,76,77
-free1ng,KRX,Vct 2026 Pacific Kickoff,Controller,78,75,77
-Xross,NS,Valorant Masters Santiago 2026,Initiator,74,79,77
-kiNgg,LEV,Vct 2026 Americas Kickoff,Controller,75,78,77
-cauanzin,LOUD,Vct 2026 Americas Stage 1,Initiator,77,77,77
-Loita,BBL,Valorant Masters Santiago 2026,Controller,76,77,77
-Jinggg,PRX,Valorant Masters Santiago 2026,Duelist,76,78,77
-nephh,BLG,Vct 2026 China Stage 1,Controller,78,75,77
-keiko,NRG,Vct 2026 Americas Kickoff,Controller,78,76,77
-xffero,RRQ,Vct 2026 Pacific Stage 1,Sentinel,79,74,77
-Mazino,MIBR,Vct 2026 Americas Kickoff,Controller,77,77,77
-Munchkin,T1,Valorant Masters Santiago 2026,Controller,78,76,77
-Knight,BLG,Vct 2026 China Kickoff,Initiator,80,74,77
-zekken,MIBR,Vct 2026 Americas Kickoff,Controller,77,76,77
-starxo,M8,Valorant Masters Santiago 2026,Initiator,77,76,77
-echo,EF,Vct 2026 Emea Stage 1,Sentinel,77,76,77
-LuoK1ng,TE,Vct 2026 China Kickoff,Controller,79,74,77
-C1ndeR,VL,Vct 2026 Pacific Stage 1,Controller,78,75,77
-Demon1,ENVY,Vct 2026 Americas Stage 2,Sentinel,73,80,76
-Viva,TE,Vct 2026 China Kickoff,Initiator,79,74,76
-Life,DRG,Vct 2026 China Stage 1,Duelist,82,71,76
-Rossy,ENVY,Vct 2026 Americas Stage 2,Controller,74,79,76
-bao,EG,Vct 2026 Americas Kickoff,Sentinel,74,79,76
-zekken,MIBR,Vct 2026 Americas Stage 1,Duelist,76,77,76
-Less,KRÜ,Vct 2026 Americas Stage 2,Controller,77,76,76
-BuZz,T1,Vct 2026 Pacific Stage 2,Controller,76,76,76
-Neon,LEV,Vct 2026 Americas Stage 1,Sentinel,78,75,76
-Asuna,100T,Vct 2026 Americas Kickoff,Initiator,77,75,76
-mada,NRG,Vct 2026 Americas Stage 1,Duelist,74,79,76
-Zexy,VL,Vct 2026 Pacific Kickoff,Duelist,78,75,76
-Wo0t,TH,Vct 2026 Emea Stage 2,Duelist,71,80,76
-erde,LOUD,Vct 2026 Americas Stage 2,Sentinel,78,73,76
-lucas,TEC,Vct 2026 China Kickoff,Initiator,79,73,76
-CHICHOO,EDG,Vct 2026 China Kickoff,Sentinel,76,76,76
-Asuna,100T,Vct 2026 Americas Stage 1,Duelist,77,75,76
-C0M,EG,Vct 2026 Americas Kickoff,Initiator,74,78,76
-K1ra,AG,Vct 2026 China Stage 1,Sentinel,79,73,76
-Asuna,100T,Vct 2026 Americas Kickoff,Sentinel,77,75,76
-keiko,NRG,Valorant Masters Santiago 2026,Sentinel,74,79,76
-nightz,ENVY,Vct 2026 Americas Stage 2,Controller,73,80,76
-CHICHOO,EDG,Vct 2026 China Stage 2,Sentinel,78,74,76
-Loita,BBL,Vct 2026 Emea Stage 1,Controller,75,77,76
-basic,FUR,Vct 2026 Americas Stage 2,Sentinel,75,78,76
-Flickless,GX,Vct 2026 Emea Stage 2,Controller,76,76,76
-alym,FUR,Vct 2026 Americas Stage 1,Duelist,75,77,76
-BABYBAY,G2,Vct 2026 Americas Kickoff,Sentinel,74,79,76
-Haodong,TEC,Vct 2026 China Kickoff,Controller,77,74,76
-Xdll,ZETA,Vct 2026 Pacific Stage 2,Initiator,77,75,76
-Absol,ZETA,Vct 2026 Pacific Stage 1,Duelist,76,76,76
-Lar0k,BBL,Vct 2026 Emea Kickoff,Duelist,75,76,76
-yatsuka,DFM,Vct 2026 Pacific Stage 2,Duelist,74,78,76
-JessieVash,TS,Vct 2026 Pacific Stage 1,Initiator,73,78,76
-Inspire,ENVY,Vct 2026 Americas Kickoff,Controller,74,78,76
-Minny,M8,Valorant Masters Santiago 2026,Sentinel,76,75,76
-nerve,FUR,Vct 2026 Americas Kickoff,Controller,74,77,76
-Kr1stal,GE,Vct 2026 Pacific Stage 2,Initiator,76,76,76
-Shr1mp,AG,Vct 2026 China Kickoff,Initiator,76,75,76
-seven,PCF,Vct 2026 Emea Stage 2,Duelist,75,77,76
-cortezia,SEN,Vct 2026 Americas Stage 2,Controller,75,76,76
-nekky,EF,Vct 2026 Emea Stage 2,Initiator,79,74,76
-Yuicaw,JDG,Vct 2026 China Stage 2,Sentinel,77,75,76
-ComeBack,TH,Vct 2026 Emea Kickoff,Duelist,76,76,76
-Less,KRÜ,Vct 2026 Americas Stage 1,Controller,75,76,76
-qiutiaN,NOVA,Vct 2026 China Stage 2,Initiator,78,74,76
-kiNgg,LEV,Valorant Masters London 2026,Sentinel,76,75,76
-nAts,TL,Vct 2026 Emea Stage 2,Sentinel,73,78,76
-Shr1mp,AG,Vct 2026 China Stage 2,Initiator,76,76,76
-free1ng,KRX,Vct 2026 Pacific Stage 2,Duelist,72,80,76
-alym,FUR,Vct 2026 Americas Kickoff,Duelist,78,74,76
-RieNs,TH,Vct 2026 Emea Kickoff,Initiator,76,75,76
-kamo,TL,Vct 2026 Emea Kickoff,Duelist,76,75,76
-Kr1stal,GE,Valorant Masters London 2026,Sentinel,77,73,76
-Smoggy,EDG,Valorant Masters London 2026,Duelist,75,76,76
-Cloud,GX,Vct 2026 Emea Kickoff,Initiator,75,76,75
-whzy,BLG,Vct 2026 China Stage 2,Duelist,80,71,75
-hiro,NAVI,Vct 2026 Emea Stage 2,Controller,73,79,75
-cb,EDG,Vct 2026 China Kickoff,Duelist,78,73,75
-Chronicle,VIT,Vct 2026 Emea Kickoff,Sentinel,78,73,75
-free1ng,KRX,Vct 2026 Pacific Stage 1,Duelist,75,76,75
-Eggsterr,ENVY,Vct 2026 Americas Kickoff,Duelist,74,77,75
-yetujey,FUT,Vct 2026 Emea Stage 1,Sentinel,75,76,75
-zekken,MIBR,Vct 2026 Americas Kickoff,Duelist,73,77,75
-blowz,LEV,Vct 2026 Americas Kickoff,Initiator,75,76,75
-eeiu,FUR,Vct 2026 Americas Stage 2,Initiator,77,72,75
-C1ndeR,VL,Vct 2026 Pacific Stage 2,Controller,75,76,75
-Kai,TE,Vct 2026 China Stage 1,Duelist,76,74,75
-Francis,NS,Vct 2026 Pacific Stage 1,Duelist,77,73,75
-audaz,EF,Vct 2026 Emea Stage 2,Controller,76,75,75
-johnqt,SEN,Vct 2026 Americas Kickoff,Controller,77,74,75
-Yuicaw,JDG,Vct 2026 China Kickoff,Sentinel,76,75,75
-Viva,TE,Vct 2026 China Stage 1,Initiator,76,74,75
-Autumn,GE,Vct 2026 Pacific Stage 1,Sentinel,75,76,75
-Dambi,NS,Valorant Masters Santiago 2026,Duelist,80,71,75
-yatsuka,DFM,Vct 2026 Pacific Stage 1,Initiator,77,73,75
-koshmaras,TH,Vct 2026 Emea Stage 2,Duelist,72,78,75
-benjyfishy,TH,Vct 2026 Emea Kickoff,Sentinel,77,73,75
-ara,GX,Vct 2026 Emea Stage 1,Duelist,73,78,75
-Xlele,FPX,Vct 2026 China Stage 2,Duelist,79,71,75
-Smoggy,EDG,Vct 2026 China Stage 1,Duelist,79,71,75
-basic,FUR,Vct 2026 Americas Stage 2,Controller,77,73,75
-grubinho,GX,Vct 2026 Emea Kickoff,Controller,76,74,75
-nAts,TL,Vct 2026 Emea Kickoff,Sentinel,75,75,75
-happywei,XLG,Valorant Masters London 2026,Controller,75,75,75
-OXY,C9,Vct 2026 Americas Stage 1,Duelist,74,76,75
-Chronicle,VIT,Valorant Masters London 2026,Controller,73,80,75
-westside,GX,Vct 2026 Emea Kickoff,Sentinel,75,75,75
-C1ndeR,VL,Vct 2026 Pacific Kickoff,Controller,74,76,75
-coconut,JDG,Vct 2026 China Kickoff,Initiator,76,74,75
-Kr1stal,GE,Vct 2026 Pacific Stage 1,Sentinel,76,74,75
-Foxy9,VL,Vct 2026 Pacific Stage 2,Controller,72,77,75
-skuba,NRG,Vct 2026 Americas Stage 2,Sentinel,74,75,75
-lukxo,LOUD,Vct 2026 Americas Stage 2,Controller,72,77,75
-Cloud,GX,Vct 2026 Emea Stage 1,Initiator,72,78,75
-Dynamite,TEC,Vct 2026 China Stage 1,Duelist,79,71,75
-jawgemo,G2,Vct 2026 Americas Kickoff,Duelist,74,76,75
-XuNa,VL,Vct 2026 Pacific Kickoff,Initiator,72,77,75
-nobody,EDG,Vct 2026 China Stage 2,Initiator,76,74,75
-Minny,M8,Vct 2026 Emea Stage 1,Sentinel,72,77,75
-eKo,ZETA,Vct 2026 Pacific Kickoff,Duelist,77,73,75
-v1c,C9,Vct 2026 Americas Stage 1,Controller,75,74,75
-PatMen,GE,Valorant Masters London 2026,Controller,77,72,75
-N4RRATE,KC,Vct 2026 Emea Stage 1,Initiator,75,74,75
-Lysoar,XLG,Vct 2026 China Stage 2,Controller,73,76,75
-Darker,LOUD,Vct 2026 Americas Stage 2,Sentinel,77,73,75
-BerserX,TS,Vct 2026 Pacific Stage 1,Sentinel,74,75,75
-JonahP,SEN,Vct 2026 Americas Stage 1,Initiator,73,76,75
-Spitfires,TEC,Vct 2026 China Stage 1,Duelist,79,70,75
-jowa,WOL,Vct 2026 China Kickoff,Controller,78,72,75
-Jemkin,RRQ,Vct 2026 Pacific Kickoff,Duelist,76,73,75
-qpert,PCF,Vct 2026 Emea Stage 1,Controller,76,74,75
-SiuFatBB,WOL,Vct 2026 China Kickoff,Initiator,75,74,75
-Francis,NS,Vct 2026 Pacific Stage 2,Controller,75,74,75
-XuNa,VL,Vct 2026 Pacific Stage 1,Initiator,74,75,75
-K1ra,AG,Vct 2026 China Stage 2,Controller,74,75,75
-westside,GX,Vct 2026 Emea Stage 2,Duelist,72,79,75
-Francis,NS,Valorant Masters Santiago 2026,Duelist,73,76,75
-Smoggy,EDG,Vct 2026 China Stage 2,Controller,77,72,75
-yetujey,FUT,Vct 2026 Emea Stage 1,Controller,74,75,74
-Jemkin,RRQ,Vct 2026 Pacific Stage 1,Sentinel,75,74,74
-Zellsis,C9,Vct 2026 Americas Stage 2,Controller,75,74,74
-zhe,JDG,Vct 2026 China Stage 1,Duelist,77,72,74
-LewN,KC,Vct 2026 Emea Stage 1,Duelist,72,77,74
-NoMan,XLG,Vct 2026 China Stage 1,Sentinel,76,72,74
-Haodong,TEC,Vct 2026 China Stage 2,Sentinel,75,73,74
-Jieni7,EDG,Vct 2026 China Stage 2,Initiator,76,73,74
-Haodong,TEC,Vct 2026 China Stage 1,Controller,74,74,74
-PatMen,GE,Vct 2026 Pacific Stage 2,Initiator,72,76,74
-jkuro,JDG,Vct 2026 China Stage 1,Controller,75,74,74
-Scales,TYL,Vct 2026 China Stage 1,Sentinel,75,74,74
-d4v41,PRX,Vct 2026 Pacific Stage 1,Controller,72,76,74
-yatsuka,DFM,Vct 2026 Pacific Kickoff,Duelist,76,72,74
-Mazino,MIBR,Vct 2026 Americas Kickoff,Initiator,76,72,74
-Demon1,C9,Vct 2026 Americas Kickoff,Sentinel,71,77,74
-happywei,XLG,Vct 2026 China Stage 1,Sentinel,74,75,74
-penny,C9,Vct 2026 Americas Kickoff,Duelist,74,74,74
-koalanoob,FUR,Vct 2026 Americas Kickoff,Duelist,71,78,74
-Scales,TYL,Vct 2026 China Stage 1,Controller,74,74,74
-Kyu,SEN,Vct 2026 Americas Kickoff,Initiator,72,76,74
-lukxo,LOUD,Vct 2026 Americas Stage 1,Controller,74,74,74
-keiko,NRG,Vct 2026 Americas Stage 2,Controller,74,74,74
-Zellsis,C9,Vct 2026 Americas Kickoff,Initiator,72,76,74
-Ivy,NS,Vct 2026 Pacific Stage 1,Sentinel,76,72,74
-Knight,BLG,Vct 2026 China Stage 1,Initiator,75,72,74
-Rosé,BBL,Vct 2026 Emea Kickoff,Initiator,73,75,74
-LewN,KC,Vct 2026 Emea Kickoff,Duelist,74,74,74
-Dantedeu5,KRÜ,Vct 2026 Americas Stage 2,Duelist,69,79,74
-GuanG,NOVA,Vct 2026 China Stage 2,Controller,79,70,74
-nAts,TL,Vct 2026 Emea Stage 1,Sentinel,73,75,74
-Sato,LEV,Vct 2026 Americas Kickoff,Duelist,70,78,74
-UdoTan,GE,Valorant Masters London 2026,Duelist,73,75,74
-zerona,EG,Vct 2026 Americas Stage 2,Duelist,75,72,74
-dgzin,EG,Vct 2026 Americas Stage 2,Duelist,75,72,74
-JitBoyS,FS,Vct 2026 Pacific Kickoff,Sentinel,74,74,74
-GuanG,NOVA,Vct 2026 China Stage 2,Sentinel,75,73,74
-pANcada,LOUD,Vct 2026 Americas Kickoff,Controller,74,74,74
-Setrod,FPX,Vct 2026 China Stage 2,Sentinel,72,75,74
-vo0kashu,DRG,Valorant Masters London 2026,Sentinel,73,74,74
-yosemite,WOL,Vct 2026 China Stage 1,Sentinel,74,74,74
-Meteor,T1,Vct 2026 Pacific Stage 1,Controller,74,73,74
-mada,NRG,Vct 2026 Americas Stage 2,Duelist,69,78,74
-t3xture,GEN,Vct 2026 Pacific Stage 1,Duelist,71,76,74
-audaz,ULF,Vct 2026 Emea Kickoff,Controller,72,75,74
-Crewen,BBL,Valorant Masters Santiago 2026,Sentinel,72,75,74
-something,PRX,Valorant Masters London 2026,Duelist,70,76,74
-echo,EF,Vct 2026 Emea Stage 2,Controller,76,72,74
-rushia,BLG,Vct 2026 China Stage 1,Sentinel,75,72,74
-Scales,TYL,Vct 2026 China Stage 2,Controller,76,70,74
-BABYBAY,G2,Valorant Masters Santiago 2026,Duelist,73,74,74
-SpiritZ1,DRG,Vct 2026 China Kickoff,Duelist,76,71,74
-sheydos,KC,Vct 2026 Emea Kickoff,Initiator,72,76,74
-glacier,WOL,Vct 2026 China Stage 2,Duelist,77,71,74
-iamgrq,AG,Vct 2026 China Kickoff,Controller,76,72,74
-keiko,NRG,Vct 2026 Americas Kickoff,Sentinel,73,76,74
-d4v41,PRX,Valorant Masters London 2026,Sentinel,76,72,74
-primmie,FS,Valorant Masters London 2026,Duelist,70,78,74
-lukxo,LOUD,Vct 2026 Americas Kickoff,Sentinel,73,74,74
-Ivy,NS,Valorant Masters Santiago 2026,Controller,74,73,74
-dos9,KC,Vct 2026 Emea Stage 1,Controller,74,73,74
-f0rsakeN,PRX,Valorant Masters London 2026,Controller,72,74,73
-Marved,SEN,Vct 2026 Americas Stage 2,Controller,71,75,73
-Scales,TYL,Vct 2026 China Stage 2,Sentinel,76,72,73
-Darker,LOUD,Vct 2026 Americas Stage 1,Controller,73,74,73
-Absol,ZETA,Vct 2026 Pacific Kickoff,Duelist,73,74,73
-FengF,TE,Vct 2026 China Stage 2,Initiator,76,71,73
-PatMen,GE,Vct 2026 Pacific Stage 1,Initiator,73,74,73
-NoMan,XLG,Vct 2026 China Kickoff,Duelist,75,72,73
-BerserX,TS,Vct 2026 Pacific Kickoff,Controller,75,72,73
-kamo,TL,Vct 2026 Emea Kickoff,Initiator,70,77,73
-keiko,NRG,Valorant Masters London 2026,Controller,75,72,73
-thyy,FS,Vct 2026 Pacific Kickoff,Duelist,67,80,73
-johnqt,SEN,Vct 2026 Americas Stage 1,Controller,71,75,73
-Jieni7,EDG,Valorant Masters London 2026,Controller,74,73,73
-Meteor,T1,Vct 2026 Pacific Stage 2,Duelist,73,73,73
-zhe,JDG,Vct 2026 China Stage 2,Duelist,77,69,73
-f4ngeer,AG,Vct 2026 China Stage 2,Duelist,75,71,73
-Meteor,T1,Vct 2026 Pacific Stage 1,Sentinel,72,74,73
-Ruxic,NAVI,Vct 2026 Emea Kickoff,Controller,73,73,73
-Xdll,ZETA,Vct 2026 Pacific Stage 2,Sentinel,73,73,73
-dgzin,EG,Vct 2026 Americas Stage 1,Duelist,72,74,73
-oonzmlp,VL,Vct 2026 Pacific Stage 1,Sentinel,74,72,73
-Rarga,XLG,Vct 2026 China Stage 2,Duelist,75,71,73
-vo0kashu,DRG,Vct 2026 China Stage 2,Controller,72,74,73
-Zexy,VL,Vct 2026 Pacific Stage 1,Duelist,76,70,73
-Favian,EF,Vct 2026 Emea Stage 2,Duelist,78,70,73
-Jamppi,VIT,Vct 2026 Emea Kickoff,Duelist,71,75,73
-leaf,G2,Vct 2026 Americas Kickoff,Controller,74,73,73
-Cloud,FNC,Vct 2026 Emea Stage 2,Sentinel,72,74,73
-Cloud,FNC,Vct 2026 Emea Stage 2,Initiator,72,74,73
-UNFAKE,VIT,Vct 2026 Emea Kickoff,Initiator,72,74,73
-Reduxx,SEN,Vct 2026 Americas Stage 2,Duelist,73,73,73
-Dantedeu5,KRÜ,Vct 2026 Americas Stage 1,Duelist,70,76,73
-SUYGETSU,KC,Vct 2026 Emea Stage 1,Sentinel,74,72,73
-Xross,NS,Vct 2026 Pacific Stage 2,Initiator,73,73,73
-supamen,EG,Vct 2026 Americas Stage 1,Controller,72,74,73
-Filu,NAVI,Vct 2026 Emea Kickoff,Duelist,70,76,73
-eeiu,FUR,Valorant Masters Santiago 2026,Initiator,73,73,73
-benG,KRÜ,Vct 2026 Americas Kickoff,Controller,72,74,73
-Rossy,ENVY,Vct 2026 Americas Stage 1,Controller,74,72,73
-Haodong,TEC,Vct 2026 China Stage 2,Controller,73,73,73
-SyouTa,ZETA,Vct 2026 Pacific Stage 2,Controller,73,73,73
-Kr1stal,GE,Vct 2026 Pacific Stage 1,Initiator,72,74,73
-OXY,C9,Vct 2026 Americas Kickoff,Sentinel,70,75,73
-nephh,BLG,Vct 2026 China Stage 2,Initiator,71,74,73
-Erv,TYL,Vct 2026 China Stage 2,Controller,73,73,73
-Neon,LEV,Vct 2026 Americas Kickoff,Duelist,70,76,73
-BABYBAY,G2,Valorant Masters London 2026,Sentinel,73,73,73
-stew,JDG,Vct 2026 China Kickoff,Duelist,76,70,73
-yosemite,WOL,Vct 2026 China Kickoff,Sentinel,71,74,73
-AAAAY,FPX,Vct 2026 China Stage 2,Sentinel,72,73,73
-ZmjjKK,EDG,Vct 2026 China Stage 2,Duelist,76,70,73
-P0PPIN,ENVY,Vct 2026 Americas Stage 1,Initiator,73,72,73
-kellyS,TS,Vct 2026 Pacific Stage 2,Duelist,73,73,73
-iZu,T1,Vct 2026 Pacific Stage 2,Duelist,72,73,73
-Autumn,GE,Vct 2026 Pacific Stage 2,Duelist,73,72,73
-Sayonara,VIT,Vct 2026 Emea Stage 1,Duelist,73,72,73
-yetujey,FUT,Vct 2026 Emea Stage 2,Controller,73,72,73
-Crws,FS,Vct 2026 Pacific Stage 1,Sentinel,74,72,73
-SyouTa,ZETA,Vct 2026 Pacific Kickoff,Controller,72,73,73
-mada,NRG,Vct 2026 Americas Stage 2,Controller,75,70,73
-Sylvan,TS,Vct 2026 Pacific Kickoff,Controller,75,70,73
-Bai,AG,Vct 2026 China Stage 2,Sentinel,71,75,73
-Minny,M8,Vct 2026 Emea Kickoff,Sentinel,71,74,73
-natz,TS,Vct 2026 Pacific Stage 2,Sentinel,72,73,73
-Xdll,ZETA,Vct 2026 Pacific Kickoff,Initiator,73,72,73
-erde,LOUD,Vct 2026 Americas Stage 2,Controller,74,72,73
-Reduxx,SEN,Vct 2026 Americas Kickoff,Duelist,72,74,73
-echo,EF,Vct 2026 Emea Stage 1,Controller,70,75,73
-Ivy,NS,Vct 2026 Pacific Stage 2,Controller,71,74,73
-slowly,TYL,Vct 2026 China Stage 2,Controller,73,72,73
-cortezia,SEN,Vct 2026 Americas Kickoff,Controller,71,75,73
-Asuna,100T,Vct 2026 Americas Kickoff,Controller,73,72,73
-chloric,NAVI,Vct 2026 Emea Stage 1,Initiator,72,73,73
-Rarga,XLG,Valorant Masters London 2026,Duelist,72,73,73
-Abo,TE,Vct 2026 China Stage 1,Sentinel,73,71,72
-Chronicle,VIT,Vct 2026 Emea Stage 1,Controller,74,71,72
-leaf,G2,Vct 2026 Americas Stage 2,Sentinel,73,71,72
-Rb,NS,Vct 2026 Pacific Stage 2,Duelist,73,72,72
-hiro,NAVI,Vct 2026 Emea Kickoff,Initiator,73,72,72
-Karon,GEN,Vct 2026 Pacific Stage 1,Sentinel,73,72,72
-erde,LOUD,Vct 2026 Americas Stage 1,Controller,75,69,72
-Zellsis,C9,Vct 2026 Americas Stage 2,Sentinel,71,73,72
-Ezeir,NOVA,Vct 2026 China Stage 1,Controller,71,74,72
-f4ngeer,AG,Vct 2026 China Kickoff,Duelist,76,69,72
-Ethan,NRG,Valorant Masters London 2026,Initiator,68,77,72
-Lar0k,BBL,Valorant Masters Santiago 2026,Duelist,72,73,72
-slowly,TYL,Vct 2026 China Kickoff,Duelist,75,70,72
-Caedye,DFM,Vct 2026 Pacific Kickoff,Sentinel,72,73,72
-nephh,BLG,Vct 2026 China Stage 2,Controller,73,71,72
-Rarga,XLG,Vct 2026 China Stage 1,Sentinel,71,74,72
-Virtyy,LOUD,Vct 2026 Americas Stage 1,Duelist,72,73,72
-JessieVash,TS,Vct 2026 Pacific Kickoff,Initiator,70,75,72
-skuba,NRG,Valorant Masters London 2026,Controller,74,70,72
-Kai,TE,Vct 2026 China Kickoff,Duelist,78,67,72
-cauanzin,LOUD,Vct 2026 Americas Kickoff,Initiator,71,74,72
-AAAAY,FPX,Vct 2026 China Stage 2,Controller,74,70,72
-nephh,BLG,Vct 2026 China Kickoff,Initiator,74,70,72
-jkuro,JDG,Vct 2026 China Stage 1,Sentinel,74,71,72
-Yuicaw,JDG,Vct 2026 China Kickoff,Controller,71,73,72
-Abo,TEC,Vct 2026 China Kickoff,Sentinel,72,72,72
-Jieni7,EDG,Vct 2026 China Stage 1,Controller,73,71,72
-nekky,ULF,Vct 2026 Emea Kickoff,Initiator,74,70,72
-al0rante,PCF,Vct 2026 Emea Kickoff,Controller,73,71,72
-mta,KRÜ,Vct 2026 Americas Kickoff,Duelist,65,81,72
-Erv,TYL,Vct 2026 China Stage 1,Duelist,74,70,72
-Shyy,FUR,Vct 2026 Americas Stage 2,Controller,72,72,72
-Xan,RRQ,Vct 2026 Pacific Stage 2,Duelist,76,69,72
-lovers rock,BBL,Vct 2026 Emea Stage 1,Duelist,74,70,72
-Jinggg,PRX,Valorant Masters London 2026,Duelist,70,73,72
-iamgrq,AG,Vct 2026 China Stage 2,Controller,72,72,72
-bipo,M8,Vct 2026 Emea Stage 1,Duelist,72,71,72
-spike,LEV,Vct 2026 Americas Kickoff,Controller,70,74,72
-Akeman,DRG,Vct 2026 China Kickoff,Duelist,75,68,72
-Spring,WOL,Vct 2026 China Stage 1,Controller,72,72,72
-Neon,LEV,Vct 2026 Americas Stage 2,Controller,72,72,72
-Yuicaw,JDG,Vct 2026 China Stage 2,Controller,74,70,72
-johnqt,SEN,Vct 2026 Americas Stage 2,Sentinel,73,71,72
-Biank,BLG,Vct 2026 China Kickoff,Initiator,73,71,72
-BABYBAY,G2,Vct 2026 Americas Kickoff,Duelist,70,73,72
-nightz,ENVY,Vct 2026 Americas Stage 2,Duelist,70,73,72
-Kai,TE,Vct 2026 China Stage 2,Duelist,75,69,72
-Erv,TYL,Vct 2026 China Stage 1,Initiator,73,70,72
-Flicker,KRX,Vct 2026 Pacific Stage 2,Duelist,69,74,72
-kellyS,TS,Vct 2026 Pacific Stage 1,Controller,71,72,72
-Zellsis,C9,Vct 2026 Americas Kickoff,Controller,73,71,72
-valyn,G2,Valorant Masters London 2026,Controller,74,69,72
-BerLIN,FPX,Vct 2026 China Stage 1,Controller,72,72,72
-leaf,G2,Vct 2026 Americas Stage 1,Duelist,70,73,72
-whzy,BLG,Vct 2026 China Stage 1,Duelist,75,68,72
-xavi8k,GE,Vct 2026 Pacific Stage 1,Controller,71,72,72
-Rosé,BBL,Vct 2026 Emea Stage 1,Initiator,72,72,72
-Governor,KRÜ,Vct 2026 Americas Kickoff,Initiator,70,74,72
-xavi8k,GE,Vct 2026 Pacific Stage 1,Initiator,73,70,72
-Ruxic,NAVI,Vct 2026 Emea Kickoff,Sentinel,70,73,72
-deLb,TE,Vct 2026 China Kickoff,Controller,74,69,72
-d4v41,PRX,Valorant Masters London 2026,Controller,74,70,72
-Xeppaa,C9,Vct 2026 Americas Stage 1,Initiator,73,70,72
-Alfajer,FNC,Vct 2026 Emea Stage 1,Sentinel,70,73,72
-Au1,AG,Vct 2026 China Kickoff,Sentinel,74,69,72
-something,PRX,Vct 2026 Pacific Stage 2,Sentinel,70,73,72
-infiltrator,KRÜ,Vct 2026 Americas Kickoff,Duelist,71,72,72
-Dynamite,TEC,Vct 2026 China Stage 2,Duelist,72,71,72
-wayne,TL,Valorant Masters Santiago 2026,Controller,74,70,72
-slowly,TYL,Vct 2026 China Stage 2,Sentinel,70,73,71
-ara,GX,Vct 2026 Emea Kickoff,Duelist,69,73,71
-NoMan,XLG,Valorant Masters London 2026,Duelist,73,70,71
-BerLIN,FPX,Vct 2026 China Kickoff,Initiator,72,70,71
-BuZz,T1,Valorant Masters Santiago 2026,Duelist,72,71,71
-Shao,NAVI,Vct 2026 Emea Kickoff,Controller,71,72,71
-Autumn,GE,Vct 2026 Pacific Stage 1,Controller,72,71,71
-keznit,ENVY,Vct 2026 Americas Stage 2,Duelist,68,75,71
-Jemkin,RRQ,Vct 2026 Pacific Stage 2,Duelist,69,73,71
-Lar0k,BBL,Vct 2026 Emea Stage 2,Sentinel,73,70,71
-stax,T1,Valorant Masters Santiago 2026,Initiator,72,71,71
-SUYGETSU,KC,Vct 2026 Emea Kickoff,Controller,72,70,71
-Dynamite,TEC,Vct 2026 China Kickoff,Duelist,71,72,71
-Rarga,XLG,Valorant Masters London 2026,Sentinel,70,72,71
-NINJA,PCF,Vct 2026 Emea Stage 1,Initiator,73,69,71
-xeus,FUT,Vct 2026 Emea Kickoff,Duelist,69,73,71
-brawk,NRG,Vct 2026 Americas Stage 1,Sentinel,70,72,71
-silentzz,KRÜ,Vct 2026 Americas Stage 1,Sentinel,72,70,71
-kellyS,TS,Vct 2026 Pacific Kickoff,Duelist,73,68,71
-cortezia,SEN,Vct 2026 Americas Stage 1,Controller,69,73,71
-nAts,TL,Valorant Masters Santiago 2026,Controller,71,71,71
-d4v41,PRX,Vct 2026 Pacific Stage 2,Sentinel,70,72,71
-sociablEE,NAVI,Vct 2026 Emea Kickoff,Initiator,69,73,71
-free1ng,KRX,Vct 2026 Pacific Stage 2,Sentinel,70,72,71
-Avez,KC,Vct 2026 Emea Kickoff,Initiator,72,70,71
-Ivy,NS,Vct 2026 Pacific Stage 1,Controller,72,70,71
-Zellsis,C9,Vct 2026 Americas Stage 1,Controller,73,69,71
-Karon,GEN,Vct 2026 Pacific Kickoff,Controller,72,70,71
-sScary,FPX,Vct 2026 China Kickoff,Controller,74,68,71
-Abo,TE,Vct 2026 China Stage 1,Controller,74,68,71
-NINJA,PCF,Vct 2026 Emea Kickoff,Initiator,72,70,71
-oonzmlp,VL,Vct 2026 Pacific Kickoff,Controller,70,72,71
-K1ra,AG,Vct 2026 China Kickoff,Controller,74,69,71
-Caedye,DFM,Vct 2026 Pacific Kickoff,Controller,71,71,71
-tex,MIBR,Vct 2026 Americas Stage 1,Sentinel,71,71,71
-Favian,EF,Vct 2026 Emea Stage 2,Sentinel,69,73,71
-trent,G2,Valorant Masters London 2026,Initiator,72,70,71
-Haodong,TEC,Vct 2026 China Stage 1,Sentinel,70,72,71
-benjyfishy,TH,Vct 2026 Emea Stage 1,Controller,71,71,71
-Flickless,GX,Vct 2026 Emea Kickoff,Initiator,72,70,71
-Sayonara,VIT,Valorant Masters London 2026,Controller,70,71,71
-dgzin,EG,Vct 2026 Americas Stage 2,Sentinel,70,75,71
-SUYGETSU,KC,Vct 2026 Emea Kickoff,Sentinel,72,70,71
-Ivy,NS,Valorant Masters Santiago 2026,Sentinel,73,69,71
-Jerrwin,SEN,Vct 2026 Americas Stage 1,Duelist,68,73,71
-Chronicle,VIT,Vct 2026 Emea Kickoff,Controller,69,73,71
-Sayonara,VIT,Vct 2026 Emea Stage 1,Controller,72,69,71
-qpert,PCF,Vct 2026 Emea Kickoff,Controller,69,72,71
-keiko,NRG,Vct 2026 Americas Stage 1,Controller,70,71,71
-Klaus,VL,Vct 2026 Pacific Kickoff,Sentinel,71,71,71
-keiko,NRG,Vct 2026 Americas Stage 2,Duelist,73,69,71
-KiTae,GEN,Vct 2026 Pacific Stage 1,Controller,69,72,71
-seven,PCF,Vct 2026 Emea Kickoff,Initiator,70,72,71
-Reduxx,SEN,Vct 2026 Americas Stage 1,Controller,71,70,71
-JitBoyS,FS,Vct 2026 Pacific Kickoff,Controller,70,72,71
-keznit,ENVY,Vct 2026 Americas Stage 1,Duelist,69,72,71
-Akame,DFM,Vct 2026 Pacific Stage 1,Duelist,71,70,71
-SiuFatBB,WOL,Vct 2026 China Stage 1,Initiator,72,69,71
-Cryocells,100T,Vct 2026 Americas Kickoff,Controller,73,68,71
-Veqaj,FNC,Vct 2026 Emea Stage 1,Controller,72,69,71
-Setrod,FPX,Vct 2026 China Stage 2,Duelist,72,69,70
-nAts,TL,Vct 2026 Emea Stage 2,Controller,72,69,70
-Xlele,TE,Vct 2026 China Stage 1,Duelist,72,69,70
-skuba,NRG,Valorant Masters London 2026,Sentinel,70,71,70
-mada,NRG,Valorant Masters London 2026,Duelist,71,70,70
-GuanG,NOVA,Vct 2026 China Stage 1,Sentinel,70,71,70
-xffero,RRQ,Vct 2026 Pacific Kickoff,Sentinel,71,70,70
-something,PRX,Valorant Masters London 2026,Controller,76,67,70
-Flex1n,DRG,Valorant Masters London 2026,Controller,69,71,70
-lovers rock,BBL,Valorant Masters Santiago 2026,Duelist,69,71,70
-koalanoob,FUR,Vct 2026 Americas Stage 1,Duelist,69,72,70
-d4v41,PRX,Vct 2026 Pacific Kickoff,Sentinel,73,68,70
-seph1roth,FS,Vct 2026 Pacific Stage 2,Controller,71,69,70
-Erv,TYL,Vct 2026 China Stage 2,Initiator,70,70,70
-NoMan,XLG,Vct 2026 China Stage 1,Initiator,71,70,70
-nerve,FUR,Valorant Masters Santiago 2026,Controller,71,69,70
-iZu,T1,Vct 2026 Pacific Stage 1,Initiator,72,69,70
-Rosé,BBL,Valorant Masters Santiago 2026,Initiator,70,70,70
-Jinggg,PRX,Valorant Masters London 2026,Controller,71,70,70
-Wo0t,TH,Vct 2026 Emea Kickoff,Duelist,71,69,70
-Au1,AG,Vct 2026 China Kickoff,Controller,69,71,70
-qiutiaN,WOL,Vct 2026 China Kickoff,Sentinel,73,68,70
-bipo,M8,Valorant Masters Santiago 2026,Duelist,70,70,70
-jkuro,JDG,Vct 2026 China Stage 2,Controller,73,66,70
-brawk,NRG,Valorant Masters Santiago 2026,Sentinel,70,70,70
-FengF,TE,Vct 2026 China Kickoff,Initiator,73,67,70
-Au1,AG,Valorant Masters Santiago 2026,Controller,72,68,70
-SyouTa,ZETA,Vct 2026 Pacific Stage 1,Controller,69,71,70
-Sayonara,VIT,Vct 2026 Emea Stage 1,Initiator,69,71,70
-KovaQ,FPX,Vct 2026 China Stage 1,Initiator,71,69,70
-Knight,BLG,Vct 2026 China Stage 2,Initiator,74,66,70
-Ash,GEN,Vct 2026 Pacific Stage 1,Duelist,66,74,70
-kellyS,TS,Vct 2026 Pacific Stage 1,Initiator,70,70,70
-yilai,BLG,Vct 2026 China Stage 1,Duelist,73,66,70
-benjyfishy,TH,Valorant Masters London 2026,Sentinel,71,69,70
-SUYGETSU,KC,Vct 2026 Emea Stage 2,Sentinel,71,69,70
-vo0kashu,DRG,Vct 2026 China Stage 1,Controller,71,69,70
-Jamppi,VIT,Vct 2026 Emea Stage 2,Initiator,69,72,70
-Francis,NS,Vct 2026 Pacific Stage 1,Initiator,69,71,70
-al0rante,PCF,Vct 2026 Emea Stage 1,Controller,70,70,70
-KROSTALY,FUT,Vct 2026 Emea Kickoff,Initiator,70,69,70
-qiutiaN,NOVA,Vct 2026 China Stage 1,Initiator,70,69,70
-crazyguy,RRQ,Vct 2026 Pacific Stage 1,Initiator,70,70,70
-xavi8k,GE,Valorant Masters London 2026,Sentinel,71,68,70
-koalanoob,FUR,Vct 2026 Americas Stage 1,Controller,70,70,70
-Less,KRÜ,Vct 2026 Americas Stage 1,Sentinel,69,70,70
-K1ra,AG,Vct 2026 China Stage 2,Duelist,71,67,70
-NoMan,XLG,Vct 2026 China Stage 1,Duelist,72,68,70
-koalanoob,FUR,Vct 2026 Americas Kickoff,Controller,72,68,70
-Jieni7,EDG,Valorant Masters London 2026,Sentinel,72,67,70
-Xdll,ZETA,Vct 2026 Pacific Stage 1,Initiator,71,68,70
-westside,GX,Vct 2026 Emea Stage 1,Duelist,69,70,70
-Alfajer,FNC,Vct 2026 Emea Stage 1,Duelist,71,68,70
-Monyet,RRQ,Vct 2026 Pacific Stage 1,Controller,70,69,70
-purp0,TL,Valorant Masters Santiago 2026,Initiator,69,71,70
-skuba,NRG,Valorant Masters Santiago 2026,Sentinel,69,70,70
-FKEY,TE,Vct 2026 China Stage 2,Initiator,72,67,70
-leaf,G2,Valorant Masters London 2026,Controller,70,69,69
-Caedye,DFM,Vct 2026 Pacific Stage 2,Controller,67,72,69
-K1ra,AG,Vct 2026 China Stage 1,Controller,71,68,69
-N4RRATE,SEN,Vct 2026 Americas Kickoff,Duelist,69,70,69
-Meteor,T1,Vct 2026 Pacific Kickoff,Sentinel,68,71,69
-mada,NRG,Vct 2026 Americas Stage 1,Controller,68,70,69
-Shr1mp,AG,Valorant Masters Santiago 2026,Initiator,72,68,69
-cNed,PCF,Vct 2026 Emea Stage 1,Duelist,70,69,69
-oonzmlp,VL,Vct 2026 Pacific Stage 2,Duelist,69,70,69
-Okeanos,EG,Vct 2026 Americas Kickoff,Duelist,69,70,69
-Lar0k,BBL,Vct 2026 Emea Stage 1,Duelist,67,71,69
-nAts,TL,Vct 2026 Emea Stage 1,Controller,68,71,69
-Reduxx,SEN,Vct 2026 Americas Stage 1,Duelist,71,67,69
-Cloud,FNC,Vct 2026 Emea Stage 2,Controller,72,67,69
-Jinggg,PRX,Vct 2026 Pacific Stage 2,Duelist,71,68,69
-xavi8k,GE,Valorant Masters London 2026,Controller,70,69,69
-Lysoar,XLG,Vct 2026 China Stage 2,Sentinel,69,70,69
-Akame,DFM,Vct 2026 Pacific Stage 1,Initiator,70,69,69
-d3mur,ULF,Vct 2026 Emea Kickoff,Duelist,70,69,69
-Hermes,KRX,Vct 2026 Pacific Kickoff,Duelist,67,72,69
-Zeus,TS,Vct 2026 Pacific Stage 1,Duelist,70,69,69
-Flickless,GX,Vct 2026 Emea Kickoff,Controller,69,70,69
-artzin,FUR,Valorant Masters Santiago 2026,Controller,71,67,69
-benjyfishy,TH,Vct 2026 Emea Kickoff,Controller,68,70,69
-AAAAY,FPX,Vct 2026 China Stage 1,Controller,70,69,69
-xavi8k,GE,Vct 2026 Pacific Stage 1,Sentinel,71,67,69
-rushia,BLG,Vct 2026 China Stage 2,Sentinel,69,70,69
-f0rsakeN,PRX,Vct 2026 Pacific Stage 1,Duelist,68,70,69
-Ethan,NRG,Valorant Masters Santiago 2026,Controller,69,69,69
-Cryocells,100T,Vct 2026 Americas Stage 1,Controller,69,69,69
-Less,KRÜ,Vct 2026 Americas Stage 2,Sentinel,68,70,69
-Jieni7,EDG,Vct 2026 China Stage 1,Initiator,66,71,69
-zhe,JDG,Vct 2026 China Kickoff,Duelist,73,66,69
-Leviathan,FS,Vct 2026 Pacific Stage 1,Sentinel,71,67,69
-xavi8k,GE,Vct 2026 Pacific Stage 2,Sentinel,70,68,69
-Flickless,GX,Vct 2026 Emea Stage 1,Sentinel,69,69,69
-N4RRATE,KC,Vct 2026 Emea Stage 2,Duelist,67,71,69
-Rossy,ENVY,Vct 2026 Americas Stage 2,Sentinel,69,69,69
-leaf,G2,Vct 2026 Americas Kickoff,Initiator,68,70,69
-iZu,T1,Valorant Masters Santiago 2026,Duelist,67,71,69
-Flickless,GX,Vct 2026 Emea Stage 1,Controller,69,69,69
-Virtyy,LOUD,Vct 2026 Americas Kickoff,Duelist,66,73,69
-Crewen,BBL,Vct 2026 Emea Stage 1,Sentinel,67,70,69
-OBONE,NOVA,Vct 2026 China Kickoff,Controller,71,67,69
-hiro,NAVI,Vct 2026 Emea Kickoff,Sentinel,68,70,69
-Favian,EF,Vct 2026 Emea Stage 1,Initiator,72,66,69
-brawk,NRG,Valorant Masters London 2026,Sentinel,65,72,69
-eKo,ZETA,Vct 2026 Pacific Stage 2,Duelist,72,66,69
-Knight,BLG,Vct 2026 China Stage 2,Sentinel,68,71,69
-Ash,GEN,Vct 2026 Pacific Stage 1,Controller,69,68,69
-glacier,WOL,Vct 2026 China Stage 1,Duelist,72,66,69
-deLb,TE,Vct 2026 China Stage 2,Controller,69,68,69
-Kr1stal,GE,Valorant Masters London 2026,Initiator,69,68,69
-cortezia,SEN,Vct 2026 Americas Stage 1,Sentinel,67,70,69
-rushia,BLG,Vct 2026 China Stage 1,Controller,71,67,69
-free1ng,KRX,Vct 2026 Pacific Kickoff,Initiator,71,66,69
-C0M,EG,Vct 2026 Americas Stage 1,Initiator,67,70,69
-BABYBAY,G2,Valorant Masters Santiago 2026,Sentinel,70,68,69
-jowa,WOL,Vct 2026 China Stage 1,Controller,69,68,69
-Crws,FS,Valorant Masters London 2026,Controller,69,69,69
-TenTen,TS,Vct 2026 Pacific Kickoff,Duelist,69,69,69
-cb,NOVA,Vct 2026 China Stage 2,Duelist,68,69,69
-zhe,JDG,Vct 2026 China Stage 2,Sentinel,70,68,69
-free1ng,KRX,Vct 2026 Pacific Stage 1,Initiator,71,66,69
-swagzor,NOVA,Vct 2026 China Stage 1,Duelist,70,67,69
-skuba,NRG,Vct 2026 Americas Stage 1,Sentinel,67,70,69
-Wo0t,TH,Vct 2026 Emea Stage 2,Sentinel,69,67,69
-artzin,FUR,Vct 2026 Americas Stage 2,Initiator,70,67,69
-jkuro,JDG,Vct 2026 China Stage 2,Duelist,70,67,69
-Yuicaw,JDG,Vct 2026 China Stage 1,Duelist,71,67,69
-Hermes,KRX,Vct 2026 Pacific Kickoff,Initiator,71,66,69
-ZmjjKK,EDG,Valorant Masters Santiago 2026,Sentinel,67,70,69
-Filu,NAVI,Vct 2026 Emea Stage 1,Sentinel,66,71,69
-AAAAY,FPX,Vct 2026 China Stage 1,Sentinel,69,68,69
-NagZ,KRÜ,Vct 2026 Americas Kickoff,Sentinel,69,67,68
-Autumn,GE,Valorant Masters London 2026,Duelist,69,68,68
-Darker,LOUD,Vct 2026 Americas Kickoff,Controller,67,70,68
-f0rsakeN,PRX,Vct 2026 Pacific Stage 2,Duelist,69,68,68
-DH,T1,Vct 2026 Pacific Stage 2,Sentinel,70,66,68
-MrFaliN,FUT,Vct 2026 Emea Kickoff,Controller,69,67,68
-Rarga,XLG,Vct 2026 China Stage 2,Sentinel,66,70,68
-yosemite,WOL,Vct 2026 China Kickoff,Controller,68,68,68
-OXY,C9,Vct 2026 Americas Kickoff,Duelist,66,70,68
-Crewen,BBL,Vct 2026 Emea Stage 1,Controller,69,67,68
-hiro,NAVI,Vct 2026 Emea Stage 1,Controller,66,70,68
-Xlele,TE,Vct 2026 China Stage 1,Controller,69,67,68
-eKo,ZETA,Vct 2026 Pacific Stage 1,Duelist,67,70,68
-bao,EG,Vct 2026 Americas Kickoff,Controller,70,66,68
-kamo,TL,Valorant Masters Santiago 2026,Duelist,67,69,68
-PatMen,GE,Vct 2026 Pacific Kickoff,Initiator,69,67,68
-f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Duelist,69,67,68
-keiko,NRG,Valorant Masters London 2026,Sentinel,67,70,68
-bao,EG,Vct 2026 Americas Stage 1,Sentinel,68,69,68
-Raxcal,GEN,Vct 2026 Pacific Stage 2,Duelist,73,65,68
-Autumn,GE,Vct 2026 Pacific Stage 1,Duelist,67,69,68
-hiro,NAVI,Vct 2026 Emea Stage 1,Sentinel,69,67,68
-lukxo,LOUD,Vct 2026 Americas Stage 1,Sentinel,68,68,68
-f4ngeer,AG,Vct 2026 China Stage 1,Sentinel,69,67,68
-baha,FUT,Vct 2026 Emea Kickoff,Controller,65,71,68
-brawk,NRG,Valorant Masters London 2026,Initiator,67,69,68
-NagZ,KRÜ,Vct 2026 Americas Kickoff,Controller,68,68,68
-yetujey,FUT,Valorant Masters London 2026,Controller,66,71,68
-s0pp,FUT,Valorant Masters London 2026,Sentinel,65,71,68
-Setrod,FPX,Vct 2026 China Stage 1,Duelist,70,66,68
-slowly,TYL,Vct 2026 China Stage 2,Duelist,75,61,68
-Hermes,KRX,Vct 2026 Pacific Kickoff,Controller,66,69,68
-AAAAY,FPX,Vct 2026 China Kickoff,Sentinel,67,69,68
-eKo,ZETA,Vct 2026 Pacific Stage 1,Initiator,69,67,68
-bao,EG,Vct 2026 Americas Stage 2,Controller,70,65,68
-K1ra,AG,Vct 2026 China Kickoff,Duelist,72,64,68
-yatsuka,DFM,Vct 2026 Pacific Kickoff,Sentinel,67,69,68
-MiniBoo,TL,Valorant Masters Santiago 2026,Duelist,69,67,68
-Jinggg,PRX,Vct 2026 Pacific Stage 1,Controller,66,69,68
-iamgrq,AG,Vct 2026 China Stage 2,Duelist,67,69,68
-cb,NOVA,Vct 2026 China Stage 2,Sentinel,71,66,68
-oonzmlp,VL,Vct 2026 Pacific Stage 1,Controller,68,68,68
-Autumn,GE,Valorant Masters London 2026,Sentinel,71,65,68
-Karon,GEN,Vct 2026 Pacific Stage 1,Duelist,65,70,68
-johnqt,SEN,Vct 2026 Americas Kickoff,Initiator,67,68,68
-qiutiaN,WOL,Vct 2026 China Kickoff,Controller,69,67,68
-sturNN,ULF,Vct 2026 Emea Kickoff,Controller,68,68,68
-rushia,BLG,Vct 2026 China Stage 2,Duelist,70,66,68
-leaf,G2,Valorant Masters Santiago 2026,Duelist,70,65,68
-Sayonara,VIT,Valorant Masters London 2026,Initiator,68,67,68
-Boo,TH,Valorant Masters London 2026,Controller,69,66,68
-Favian,ULF,Vct 2026 Emea Kickoff,Initiator,69,66,68
-Nicc,DRG,Valorant Masters London 2026,Initiator,67,68,68
-Ethan,NRG,Vct 2026 Americas Kickoff,Controller,66,69,68
-f4ngeer,AG,Valorant Masters Santiago 2026,Duelist,67,68,68
-Izzy,EF,Vct 2026 Emea Stage 2,Duelist,71,66,68
-NoMan,XLG,Valorant Masters London 2026,Sentinel,69,66,68
-hiro,NAVI,Vct 2026 Emea Kickoff,Controller,66,69,68
-alym,FUR,Valorant Masters Santiago 2026,Duelist,67,68,68
-deLb,TE,Vct 2026 China Kickoff,Duelist,72,64,68
-CyvOph,FNC,Vct 2026 Emea Stage 1,Duelist,69,66,68
-happywei,XLG,Valorant Masters Santiago 2026,Controller,66,69,68
-Spear,EF,Vct 2026 Emea Stage 2,Duelist,68,67,68
-tex,MIBR,Vct 2026 Americas Kickoff,Sentinel,66,69,68
-Ivy,NS,Vct 2026 Pacific Kickoff,Sentinel,67,70,68
-Darker,LOUD,Vct 2026 Americas Kickoff,Initiator,67,68,68
-skye,TS,Vct 2026 Pacific Stage 2,Sentinel,72,62,68
-keiko,NRG,Vct 2026 Americas Stage 2,Sentinel,71,65,68
-Avez,KC,Vct 2026 Emea Stage 1,Initiator,69,66,67
-something,PRX,Vct 2026 Pacific Stage 2,Controller,68,66,67
-ra1ny,TEC,Vct 2026 China Stage 2,Duelist,70,65,67
-yatsuka,DFM,Vct 2026 Pacific Stage 2,Sentinel,67,67,67
-Inspire,ENVY,Vct 2026 Americas Kickoff,Sentinel,64,71,67
-koshmaras,TH,Valorant Masters London 2026,Duelist,67,68,67
-koalanoob,FUR,Valorant Masters Santiago 2026,Controller,66,69,67
-Jackk,C9,Vct 2026 Americas Stage 1,Initiator,68,67,67
-Ben1Ley,FPX,Vct 2026 China Stage 1,Duelist,70,65,67
-spike,LEV,Vct 2026 Americas Kickoff,Initiator,66,70,67
+Fizzy,SGE,Vct 2026 Emea Stage 2,Controller,71,73,72
+Fizzy,SGE,Vct 2026 Emea Stage 2,Sentinel,81,75,78
+FKEY,TE,Vct 2026 China Stage 2,Duelist,77,69,73
+FKEY,TE,Vct 2026 China Stage 2,Initiator,69,69,69
+FKEY,TE,Vct 2026 China Stage 2,Sentinel,77,77,77
+Flex1n,DRG,Valorant Masters London 2026,Controller,68,75,72
+Flex1n,DRG,Vct 2026 China Kickoff,Controller,67,80,74
+Flex1n,DRG,Vct 2026 China Stage 1,Controller,78,79,79
+Flicker,KRX,Vct 2026 Pacific Stage 2,Duelist,62,65,63
+Flickless,GX,Vct 2026 Emea Kickoff,Controller,78,82,80
+Flickless,GX,Vct 2026 Emea Kickoff,Initiator,82,74,78
+Flickless,GX,Vct 2026 Emea Stage 1,Controller,77,79,78
+Flickless,GX,Vct 2026 Emea Stage 1,Initiator,77,78,78
+Flickless,GX,Vct 2026 Emea Stage 1,Sentinel,74,84,79
+Flickless,GX,Vct 2026 Emea Stage 2,Controller,73,75,74
+Flickless,GX,Vct 2026 Emea Stage 2,Duelist,69,82,75
+Flickless,GX,Vct 2026 Emea Stage 2,Initiator,82,72,77
+Flickless,GX,Vct 2026 Emea Stage 2,Sentinel,68,75,72
+Folykiki,AT,Vct 2026 China Stage 2,Duelist,81,68,74
+Foxy9,GEN,Vct 2026 Pacific Stage 1,Controller,74,72,73
+Foxy9,VL,Vct 2026 Pacific Stage 2,Controller,77,85,81
+Foxy9,VL,Vct 2026 Pacific Stage 2,Sentinel,87,82,84
+Francis,NS,Valorant Masters Santiago 2026,Duelist,75,87,81
+Francis,NS,Vct 2026 Pacific Kickoff,Duelist,71,82,77
+Francis,NS,Vct 2026 Pacific Stage 1,Duelist,83,71,77
+Francis,NS,Vct 2026 Pacific Stage 1,Initiator,81,85,83
+Francis,NS,Vct 2026 Pacific Stage 2,Controller,81,77,79
+Francis,NS,Vct 2026 Pacific Stage 2,Initiator,74,82,78
+free1ng,KRX,Vct 2026 Pacific Kickoff,Controller,78,69,73
+free1ng,KRX,Vct 2026 Pacific Kickoff,Initiator,77,64,71
+free1ng,KRX,Vct 2026 Pacific Kickoff,Sentinel,83,83,83
+free1ng,KRX,Vct 2026 Pacific Stage 1,Duelist,67,69,68
+free1ng,KRX,Vct 2026 Pacific Stage 1,Initiator,87,76,81
+free1ng,KRX,Vct 2026 Pacific Stage 2,Controller,76,79,77
+free1ng,KRX,Vct 2026 Pacific Stage 2,Duelist,76,85,81
+free1ng,KRX,Vct 2026 Pacific Stage 2,Sentinel,67,76,72
 FT,BLG,Vct 2026 China Stage 2,Controller,67,67,67
-Klaus,VL,Vct 2026 Pacific Stage 1,Duelist,69,65,67
-Youze,AG,Vct 2026 China Stage 1,Duelist,71,63,67
-Ethan,NRG,Vct 2026 Americas Stage 1,Controller,66,69,67
-Bati,LOUD,Vct 2026 Americas Stage 1,Initiator,69,66,67
-Lysoar,XLG,Valorant Masters Santiago 2026,Controller,69,65,67
-Sayonara,VIT,Valorant Masters London 2026,Duelist,66,69,67
-keiko,NRG,Valorant Masters Santiago 2026,Duelist,68,66,67
-Meteor,T1,Vct 2026 Pacific Kickoff,Duelist,70,65,67
-seven,PCF,Vct 2026 Emea Stage 1,Duelist,67,67,67
-heybay,NOVA,Vct 2026 China Kickoff,Initiator,69,65,67
-sibeastw0w,KBG,Vct 2026 China Stage 2,Initiator,67,67,67
-Spring,WOL,Vct 2026 China Kickoff,Duelist,69,66,67
-Lysoar,XLG,Vct 2026 China Kickoff,Sentinel,65,69,67
-Wo0t,TH,Vct 2026 Emea Kickoff,Initiator,69,66,67
-cNed,PCF,Vct 2026 Emea Kickoff,Duelist,67,68,67
-Yuicaw,JDG,Vct 2026 China Stage 1,Sentinel,66,68,67
-JitBoyS,FS,Valorant Masters London 2026,Sentinel,68,67,67
-CHICHOO,EDG,Vct 2026 China Stage 2,Controller,69,66,67
-Jinggg,PRX,Vct 2026 Pacific Stage 1,Sentinel,69,65,67
-t3xture,GEN,Vct 2026 Pacific Stage 1,Sentinel,68,66,67
-Kr1stal,GE,Vct 2026 Pacific Stage 2,Sentinel,69,65,67
-iamgrq,AG,Valorant Masters Santiago 2026,Controller,70,65,67
-Demon1,ENVY,Vct 2026 Americas Stage 1,Duelist,67,67,67
-ComeBack,NAVI,Vct 2026 Emea Stage 1,Sentinel,66,68,67
-Alfajer,FNC,Vct 2026 Emea Stage 2,Duelist,65,68,67
-SpiritZ1,DRG,Valorant Masters London 2026,Duelist,68,66,67
-jawgemo,G2,Valorant Masters London 2026,Duelist,69,65,67
-brawk,NRG,Vct 2026 Americas Stage 1,Controller,69,65,67
-yatsuka,DFM,Vct 2026 Pacific Stage 1,Controller,69,63,67
-CyvOph,NAVI,Vct 2026 Emea Stage 2,Initiator,67,66,67
-iZu,T1,Vct 2026 Pacific Kickoff,Controller,66,68,67
-f0rsakeN,PRX,Valorant Masters London 2026,Initiator,67,67,67
-purp0,TL,Vct 2026 Emea Kickoff,Duelist,66,67,67
-Kicks,TL,Vct 2026 Emea Kickoff,Controller,66,68,67
-Flickless,GX,Vct 2026 Emea Stage 2,Duelist,65,69,67
-artzin,FUR,Valorant Masters Santiago 2026,Sentinel,68,66,67
-Minny,M8,Vct 2026 Emea Stage 1,Controller,67,66,67
-Alfajer,FNC,Vct 2026 Emea Stage 1,Controller,65,69,67
-f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Sentinel,70,64,67
-something,PRX,Vct 2026 Pacific Stage 2,Initiator,69,64,67
-Spitfires,TEC,Vct 2026 China Stage 2,Duelist,67,66,67
-SyouTa,ZETA,Vct 2026 Pacific Stage 1,Sentinel,69,64,67
-free1ng,KRX,Vct 2026 Pacific Kickoff,Sentinel,67,66,67
-Jamppi,VIT,Vct 2026 Emea Stage 2,Sentinel,66,67,67
-RieNs,TH,Valorant Masters London 2026,Initiator,67,66,67
-xavi8k,GE,Vct 2026 Pacific Stage 2,Initiator,64,68,67
-deLb,TE,Vct 2026 China Stage 1,Sentinel,69,64,67
-Layla,AT,Vct 2026 China Stage 2,Sentinel,69,63,67
-Crws,FS,Vct 2026 Pacific Stage 2,Sentinel,70,63,67
-Munchkin,T1,Vct 2026 Pacific Stage 2,Controller,63,70,66
-Kushy,RRQ,Vct 2026 Pacific Stage 2,Duelist,67,66,66
-GREEN,NOVA,Vct 2026 China Stage 1,Controller,67,66,66
-Eggsterr,ENVY,Vct 2026 Americas Stage 1,Controller,68,65,66
-bud,BLG,Vct 2026 China Kickoff,Sentinel,64,68,66
-Jieni7,EDG,Vct 2026 China Stage 1,Sentinel,66,66,66
-Minny,M8,Valorant Masters Santiago 2026,Controller,67,64,66
-Klaus,VL,Vct 2026 Pacific Kickoff,Duelist,65,67,66
-Avez,KC,Vct 2026 Emea Stage 1,Controller,65,68,66
-Jieni7,EDG,Vct 2026 China Stage 1,Duelist,68,65,66
-BerserX,TS,Vct 2026 Pacific Stage 1,Controller,66,66,66
-NoMan,XLG,Vct 2026 China Stage 2,Duelist,69,63,66
-al0rante,PCF,Vct 2026 Emea Stage 2,Sentinel,66,66,66
-skuba,NRG,Vct 2026 Americas Kickoff,Sentinel,64,68,66
-Spear,EF,Vct 2026 Emea Stage 2,Sentinel,69,63,66
-Smoggy,EDG,Valorant Masters Santiago 2026,Controller,66,66,66
-FireBallOps,C9,Vct 2026 Americas Stage 2,Duelist,66,67,66
-FireBallOps,C9,Vct 2026 Americas Stage 2,Controller,65,68,66
-Leviathan,FS,Valorant Masters London 2026,Controller,70,63,66
-Tonk,KBG,Vct 2026 China Stage 2,Sentinel,67,65,66
-Meteor,T1,Vct 2026 Pacific Stage 1,Duelist,67,65,66
-f4ngeer,AG,Vct 2026 China Stage 2,Sentinel,63,68,66
-Krst1Ng,KBG,Vct 2026 China Stage 2,Controller,66,67,66
-Okeanos,EG,Vct 2026 Americas Kickoff,Initiator,66,66,66
-K1ra,AG,Valorant Masters Santiago 2026,Controller,69,64,66
-CyvOph,NAVI,Vct 2026 Emea Stage 2,Duelist,67,65,66
-f0rsakeN,PRX,Valorant Masters Santiago 2026,Duelist,64,69,66
-Rossy,ENVY,Vct 2026 Americas Stage 2,Initiator,67,65,66
-Meteor,T1,Valorant Masters Santiago 2026,Controller,64,68,66
-ComeBack,NAVI,Vct 2026 Emea Stage 1,Duelist,67,65,66
-kellyS,TS,Vct 2026 Pacific Stage 2,Initiator,69,63,66
-Caedye,DFM,Vct 2026 Pacific Kickoff,Duelist,66,66,66
-Neon,LEV,Vct 2026 Americas Stage 1,Duelist,65,67,66
-Lar0k,BBL,Vct 2026 Emea Stage 1,Initiator,68,64,66
-Flickless,GX,Vct 2026 Emea Stage 1,Initiator,66,66,66
-Smoggy,EDG,Valorant Masters London 2026,Controller,63,69,66
-Paincakes,EG,Vct 2026 Americas Stage 1,Initiator,67,64,66
-Hermes,KRX,Vct 2026 Pacific Kickoff,Sentinel,65,67,66
-kiNgg,LEV,Vct 2026 Americas Stage 1,Initiator,67,64,66
-iZu,T1,Valorant Masters Santiago 2026,Sentinel,70,62,66
-Rimuru,TS,Vct 2026 Pacific Stage 1,Duelist,63,68,66
-Filu,NAVI,Vct 2026 Emea Stage 1,Duelist,64,67,66
-Asuna,100T,Vct 2026 Americas Stage 1,Sentinel,66,65,66
-monk,AT,Vct 2026 China Stage 2,Controller,67,64,66
-whzy,BLG,Vct 2026 China Stage 2,Sentinel,70,61,66
-t3xture,GEN,Vct 2026 Pacific Stage 2,Duelist,67,63,66
-penny,C9,Vct 2026 Americas Stage 1,Duelist,64,67,66
-Jinggg,PRX,Vct 2026 Pacific Kickoff,Controller,65,66,65
-lukxo,LOUD,Vct 2026 Americas Kickoff,Controller,65,66,65
-PxS,LEV,Vct 2026 Americas Kickoff,Sentinel,66,65,65
-oonzmlp,VL,Vct 2026 Pacific Kickoff,Duelist,62,69,65
-yetujey,FUT,Vct 2026 Emea Kickoff,Controller,65,66,65
-MrFaliN,FUT,Vct 2026 Emea Kickoff,Initiator,67,64,65
-nerve,FUR,Vct 2026 Americas Kickoff,Initiator,67,65,65
-sociablEE,NAVI,Vct 2026 Emea Kickoff,Controller,66,65,65
-Filu,NAVI,Vct 2026 Emea Stage 1,Controller,65,66,65
-brawk,NRG,Valorant Masters Santiago 2026,Controller,67,64,65
-GREEN,NOVA,Vct 2026 China Kickoff,Sentinel,65,65,65
-Killua,FS,Valorant Masters London 2026,Initiator,66,65,65
-Bai,AG,Vct 2026 China Stage 2,Duelist,67,64,65
-Avez,KC,Vct 2026 Emea Kickoff,Duelist,64,67,65
-Ethan,NRG,Valorant Masters London 2026,Controller,66,65,65
-tex,MIBR,Vct 2026 Americas Stage 1,Controller,67,64,65
-Boo,TH,Vct 2026 Emea Stage 1,Sentinel,66,64,65
-K1ra,AG,Vct 2026 China Stage 1,Duelist,67,63,65
-ZmjjKK,EDG,Vct 2026 China Kickoff,Sentinel,65,65,65
-FT,BLG,Vct 2026 China Stage 2,Duelist,68,62,65
-Abo,TEC,Vct 2026 China Kickoff,Duelist,67,63,65
-Jinggg,PRX,Valorant Masters London 2026,Sentinel,64,66,65
-Flickless,GX,Vct 2026 Emea Stage 2,Sentinel,64,67,65
-CHICHOO,EDG,Valorant Masters London 2026,Sentinel,65,65,65
-WsLeo,XLG,Valorant Masters Santiago 2026,Initiator,68,63,65
-Spitfires,TEC,Vct 2026 China Stage 2,Sentinel,67,63,65
-mta,KRÜ,Vct 2026 Americas Kickoff,Initiator,68,60,65
-bao,EG,Vct 2026 Americas Stage 1,Controller,66,64,65
-koalanoob,FUR,Vct 2026 Americas Kickoff,Sentinel,65,66,65
-Favian,ULF,Vct 2026 Emea Kickoff,Duelist,67,61,65
-Demon1,ENVY,Vct 2026 Americas Kickoff,Controller,63,68,65
-seven,PCF,Vct 2026 Emea Kickoff,Sentinel,62,69,65
-FengF,TE,Vct 2026 China Kickoff,Duelist,66,64,65
-Zellsis,C9,Vct 2026 Americas Stage 2,Initiator,66,64,65
-Rarga,XLG,Valorant Masters Santiago 2026,Duelist,65,65,65
-jowa,WOL,Vct 2026 China Stage 1,Initiator,66,64,65
-FKEY,TE,Vct 2026 China Stage 2,Sentinel,65,65,65
-oonzmlp,VL,Vct 2026 Pacific Stage 2,Controller,66,63,65
-PxS,LEV,Vct 2026 Americas Kickoff,Controller,65,65,65
-ZynX,GEN,Vct 2026 Pacific Stage 1,Duelist,64,66,65
-cb,NOVA,Vct 2026 China Stage 2,Initiator,65,65,65
-slowly,TYL,Vct 2026 China Stage 1,Sentinel,68,61,65
-Karon,GEN,Vct 2026 Pacific Stage 1,Controller,64,66,65
-Darker,LOUD,Vct 2026 Americas Stage 1,Sentinel,66,63,65
-rushia,BLG,Vct 2026 China Kickoff,Sentinel,63,67,65
-RieNs,TH,Vct 2026 Emea Stage 2,Controller,67,64,65
-iamgrq,AG,Vct 2026 China Kickoff,Duelist,68,62,65
-kellyS,TS,Vct 2026 Pacific Stage 1,Sentinel,65,64,65
-iZu,T1,Valorant Masters Santiago 2026,Controller,66,64,65
-al0rante,PCF,Vct 2026 Emea Stage 1,Sentinel,65,65,65
-Notexxd,C9,Vct 2026 Americas Stage 1,Controller,64,65,65
-K1ra,AG,Valorant Masters Santiago 2026,Duelist,65,64,65
-westside,GX,Vct 2026 Emea Stage 1,Sentinel,65,64,65
-Okeanos,EG,Vct 2026 Americas Stage 1,Controller,65,64,65
-Wo0t,TH,Vct 2026 Emea Stage 1,Sentinel,66,63,65
-Asuna,100T,Vct 2026 Americas Stage 1,Controller,65,65,65
-GuanG,NOVA,Vct 2026 China Kickoff,Duelist,65,64,65
-Jieni7,EDG,Valorant Masters London 2026,Initiator,65,64,65
-Eggsterr,ENVY,Vct 2026 Americas Stage 1,Duelist,63,67,65
-Scales,TYL,Vct 2026 China Kickoff,Sentinel,66,63,65
-brawk,NRG,Valorant Masters London 2026,Controller,65,65,65
-artzin,FUR,Vct 2026 Americas Stage 1,Initiator,65,64,65
-Sato,LEV,Vct 2026 Americas Stage 1,Controller,65,64,65
-Asuna,100T,Vct 2026 Americas Stage 1,Initiator,69,60,65
-penny,C9,Vct 2026 Americas Stage 1,Controller,62,67,65
-CHICHOO,EDG,Valorant Masters Santiago 2026,Controller,65,64,65
-koalanoob,FUR,Valorant Masters Santiago 2026,Duelist,66,62,64
-PatMen,GE,Vct 2026 Pacific Kickoff,Duelist,64,64,64
-artzin,FUR,Vct 2026 Americas Kickoff,Initiator,63,66,64
-Life,FPX,Vct 2026 China Kickoff,Duelist,67,61,64
-stew,JDG,Vct 2026 China Stage 1,Sentinel,64,65,64
-Xeppaa,C9,Vct 2026 Americas Stage 1,Duelist,64,64,64
-Demon1,ENVY,Vct 2026 Americas Stage 1,Sentinel,67,62,64
-invy,PRX,Vct 2026 Pacific Stage 2,Controller,65,63,64
-keiko,NRG,Valorant Masters London 2026,Duelist,65,64,64
-Deryeon,WOL,Vct 2026 China Stage 2,Duelist,62,67,64
-Akeman,KBG,Vct 2026 China Stage 2,Duelist,64,64,64
-Jamppi,VIT,Vct 2026 Emea Kickoff,Initiator,66,63,64
-UdoTan,GE,Valorant Masters London 2026,Sentinel,67,62,64
-iZu,T1,Vct 2026 Pacific Kickoff,Initiator,66,63,64
-Zellsis,C9,Vct 2026 Americas Kickoff,Sentinel,63,65,64
-Zellsis,C9,Vct 2026 Americas Stage 1,Sentinel,65,64,64
-artzin,FUR,Vct 2026 Americas Kickoff,Sentinel,63,66,64
-alym,FUR,Vct 2026 Americas Stage 1,Controller,64,64,64
-seven,PCF,Vct 2026 Emea Stage 1,Initiator,65,63,64
-Ezeir,NOVA,Vct 2026 China Kickoff,Sentinel,64,64,64
-slowly,TYL,Vct 2026 China Kickoff,Sentinel,65,63,64
-SUYGETSU,KC,Vct 2026 Emea Stage 1,Controller,65,64,64
-penny,C9,Vct 2026 Americas Kickoff,Controller,67,62,64
-bud,BLG,Vct 2026 China Kickoff,Controller,64,64,64
-westside,GX,Vct 2026 Emea Kickoff,Controller,63,65,64
-keiko,NRG,Vct 2026 Americas Stage 1,Sentinel,64,64,64
-hiro,NAVI,Vct 2026 Emea Stage 1,Initiator,62,66,64
-JitBoyS,FS,Vct 2026 Pacific Stage 1,Sentinel,64,64,64
-stew,JDG,Vct 2026 China Stage 1,Duelist,64,64,64
-Okeanos,EG,Vct 2026 Americas Kickoff,Controller,64,64,64
-Septem7,AG,Vct 2026 China Stage 1,Controller,64,64,64
-Jemkin,RRQ,Vct 2026 Pacific Stage 2,Sentinel,65,63,64
-Minny,M8,Vct 2026 Emea Stage 1,Initiator,65,62,64
-f4ngeer,AG,Valorant Masters Santiago 2026,Sentinel,68,59,64
-Shao,NAVI,Vct 2026 Emea Kickoff,Initiator,64,64,64
-Kolosha,NAVI,Vct 2026 Emea Stage 1,Duelist,63,65,64
-something,PRX,Vct 2026 Pacific Kickoff,Sentinel,65,63,64
-Neon,LEV,Vct 2026 Americas Stage 2,Duelist,63,65,64
-AAAAY,FPX,Vct 2026 China Kickoff,Controller,65,62,64
-penny,C9,Vct 2026 Americas Kickoff,Sentinel,67,62,64
-ZmjjKK,EDG,Vct 2026 China Stage 1,Sentinel,62,65,64
-Bati,LOUD,Vct 2026 Americas Stage 1,Controller,63,64,64
-f0rsakeN,PRX,Valorant Masters London 2026,Duelist,66,62,64
-Boo,TH,Vct 2026 Emea Stage 2,Initiator,64,64,64
-crazyguy,RRQ,Vct 2026 Pacific Kickoff,Initiator,63,64,64
-Crewen,BBL,Vct 2026 Emea Stage 2,Controller,66,61,64
-silentzz,KRÜ,Vct 2026 Americas Stage 1,Duelist,64,63,64
-xeus,FUT,Valorant Masters London 2026,Sentinel,65,61,64
-Erv,TYL,Vct 2026 China Stage 1,Controller,64,64,64
-crownfisher,JDG,Vct 2026 China Stage 2,Duelist,64,63,64
-yong,KRX,Vct 2026 Pacific Stage 1,Controller,64,64,64
-Autumn,GE,Valorant Masters London 2026,Controller,65,62,64
-yetujey,FUT,Vct 2026 Emea Kickoff,Duelist,67,60,64
-BABYBAY,G2,Vct 2026 Americas Kickoff,Controller,67,61,64
-Caedye,DFM,Vct 2026 Pacific Stage 1,Controller,63,65,64
-Haodong,TEC,Vct 2026 China Kickoff,Initiator,62,66,64
-oonzmlp,VL,Vct 2026 Pacific Stage 1,Initiator,65,62,64
-kiNgg,LEV,Valorant Masters London 2026,Initiator,64,64,64
-marteen,M8,Vct 2026 Emea Stage 1,Sentinel,64,63,64
-SyouTa,ZETA,Vct 2026 Pacific Stage 1,Duelist,65,63,64
-Demon1,ENVY,Vct 2026 Americas Stage 2,Controller,59,67,64
-Setrod,FPX,Vct 2026 China Kickoff,Duelist,63,64,64
-K1ra,AG,Vct 2026 China Stage 2,Sentinel,61,67,64
-CyvOph,FNC,Vct 2026 Emea Stage 1,Initiator,63,65,64
-Smoggy,EDG,Vct 2026 China Stage 2,Duelist,67,60,64
-bipo,M8,Vct 2026 Emea Stage 2,Controller,63,64,64
-cb,EDG,Valorant Masters Santiago 2026,Duelist,65,63,64
-leaf,G2,Valorant Masters London 2026,Duelist,61,67,64
-Coco,TEC,Vct 2026 China Stage 1,Sentinel,64,63,64
-CyvOph,NAVI,Vct 2026 Emea Stage 2,Controller,63,65,64
-Eren,AT,Vct 2026 China Stage 2,Sentinel,64,63,64
-yilai,BLG,Vct 2026 China Stage 1,Sentinel,64,63,64
-Klaus,VL,Vct 2026 Pacific Stage 1,Initiator,63,64,63
-JitBoyS,FS,Vct 2026 Pacific Stage 2,Controller,67,60,63
-qiutiaN,NOVA,Vct 2026 China Stage 2,Sentinel,64,63,63
-Crewen,BBL,Valorant Masters Santiago 2026,Controller,61,66,63
-NoMan,XLG,Vct 2026 China Stage 2,Sentinel,63,64,63
-Okeanos,EG,Vct 2026 Americas Stage 1,Duelist,66,62,63
-iamgrq,AG,Vct 2026 China Stage 1,Duelist,64,62,63
-dos9,KC,Vct 2026 Emea Stage 1,Duelist,63,64,63
-Xdll,ZETA,Vct 2026 Pacific Stage 1,Sentinel,65,62,63
-Wo0t,TH,Valorant Masters London 2026,Duelist,63,64,63
-N4RRATE,SEN,Vct 2026 Americas Kickoff,Sentinel,63,64,63
-Demon1,ENVY,Vct 2026 Americas Stage 1,Controller,62,65,63
-xavi8k,GE,Valorant Masters London 2026,Initiator,65,61,63
-Jieni7,EDG,Vct 2026 China Stage 2,Controller,66,61,63
-artzin,FUR,Vct 2026 Americas Stage 2,Duelist,65,62,63
-echo,EF,Vct 2026 Emea Stage 2,Sentinel,65,62,63
-keiko,NRG,Vct 2026 Americas Kickoff,Duelist,63,64,63
-Ying,KBG,Vct 2026 China Stage 2,Controller,67,60,63
-Coco,TEC,Vct 2026 China Stage 2,Sentinel,63,63,63
-slowly,TYL,Vct 2026 China Kickoff,Initiator,64,62,63
-PatMen,GE,Vct 2026 Pacific Kickoff,Sentinel,61,65,63
-Erv,TYL,Vct 2026 China Stage 2,Duelist,65,62,63
-Dingwei,AT,Vct 2026 China Stage 2,Initiator,65,61,63
-yetujey,FUT,Vct 2026 Emea Kickoff,Sentinel,62,64,63
-zerona,EG,Vct 2026 Americas Stage 1,Controller,63,64,63
-invy,PRX,Valorant Masters Santiago 2026,Controller,67,59,63
-SSeeS,DFM,Vct 2026 Pacific Stage 1,Initiator,65,61,63
-Foxy9,GEN,Vct 2026 Pacific Stage 1,Controller,64,62,63
-Meteor,T1,Valorant Masters Santiago 2026,Sentinel,66,61,63
-Sayonara,VIT,Vct 2026 Emea Stage 2,Controller,63,63,63
-Sato,LEV,Vct 2026 Americas Stage 2,Controller,65,61,63
-xeus,FUT,Vct 2026 Emea Stage 2,Sentinel,62,63,63
-iamgrq,AG,Valorant Masters Santiago 2026,Duelist,64,62,63
-FengF,TE,Vct 2026 China Stage 2,Sentinel,61,67,63
-Klaus,VL,Vct 2026 Pacific Stage 1,Sentinel,64,62,63
-Setrod,FPX,Vct 2026 China Kickoff,Controller,66,58,63
-Knight,BLG,Vct 2026 China Stage 2,Controller,65,61,63
-f0rsakeN,PRX,Vct 2026 Pacific Stage 2,Initiator,62,64,63
-Cloud,FNC,Vct 2026 Emea Stage 2,Duelist,62,73,63
-Kr1stal,GE,Vct 2026 Pacific Kickoff,Controller,61,64,63
-trexx,TL,Vct 2026 Emea Stage 2,Controller,64,60,63
-Setrod,FPX,Vct 2026 China Kickoff,Initiator,63,62,63
-UdoTan,GE,Vct 2026 Pacific Stage 1,Sentinel,62,63,63
-GLYPH,ENVY,Vct 2026 Americas Stage 2,Controller,66,60,63
-wayne,TL,Vct 2026 Emea Kickoff,Sentinel,64,62,63
-Rossy,ENVY,Vct 2026 Americas Kickoff,Sentinel,61,64,63
-d4v41,PRX,Vct 2026 Pacific Stage 2,Initiator,65,60,63
-yosemite,WOL,Vct 2026 China Stage 1,Controller,64,62,63
-PatMen,GE,Valorant Masters London 2026,Initiator,64,61,63
-Folykiki,AT,Vct 2026 China Stage 2,Duelist,66,59,63
-qiutiaN,WOL,Vct 2026 China Kickoff,Duelist,62,63,63
-Ethan,NRG,Vct 2026 Americas Stage 2,Duelist,63,62,63
-Abo,TEC,Vct 2026 China Kickoff,Controller,65,60,62
-zhe,JDG,Vct 2026 China Stage 1,Controller,61,63,62
-Au1,AG,Valorant Masters Santiago 2026,Sentinel,62,63,62
-zhe,JDG,Vct 2026 China Stage 1,Sentinel,61,64,62
-happywei,XLG,Vct 2026 China Stage 2,Sentinel,60,64,62
-Ezeir,NOVA,Vct 2026 China Kickoff,Initiator,63,62,62
-Spring,WOL,Vct 2026 China Stage 1,Duelist,64,60,62
-BABYBAY,G2,Vct 2026 Americas Stage 2,Duelist,63,62,62
-nobody,EDG,Valorant Masters Santiago 2026,Initiator,62,63,62
-leaf,G2,Valorant Masters Santiago 2026,Sentinel,62,63,62
-FengF,TE,Vct 2026 China Kickoff,Controller,63,62,62
-sociablEE,FUT,Valorant Masters London 2026,Initiator,63,62,62
-seven,PCF,Vct 2026 Emea Kickoff,Duelist,62,62,62
-free1ng,KRX,Vct 2026 Pacific Stage 2,Controller,62,63,62
-SyouTa,ZETA,Vct 2026 Pacific Kickoff,Sentinel,65,60,62
-Darker,LOUD,Vct 2026 Americas Stage 1,Duelist,64,59,62
-Sato,LEV,Valorant Masters London 2026,Controller,62,62,62
-seven,PCF,Vct 2026 Emea Stage 1,Sentinel,65,60,62
-silentzz,KRÜ,Vct 2026 Americas Stage 1,Initiator,62,62,62
-Hermes,KRX,Vct 2026 Pacific Stage 1,Sentinel,65,60,62
-Life,DRG,Valorant Masters London 2026,Duelist,64,61,62
-Victor,SEN,Vct 2026 Americas Stage 1,Duelist,60,65,62
-zerona,EG,Vct 2026 Americas Stage 2,Controller,62,63,62
-leaf,G2,Vct 2026 Americas Stage 1,Sentinel,62,62,62
-GREEN,NOVA,Vct 2026 China Kickoff,Duelist,61,64,62
-Caedye,DFM,Vct 2026 Pacific Stage 1,Duelist,65,59,62
-Kicks,TL,Vct 2026 Emea Stage 2,Initiator,63,61,62
-Jesse,GX,Vct 2026 Emea Stage 2,Duelist,61,64,62
-Autumn,GE,Vct 2026 Pacific Kickoff,Sentinel,61,62,62
-Darker,LOUD,Vct 2026 Americas Stage 1,Initiator,61,62,62
-Sharks,XLG,Vct 2026 China Stage 2,Duelist,60,64,62
-Kushy,RRQ,Vct 2026 Pacific Stage 2,Initiator,63,61,62
-Crws,FS,Valorant Masters London 2026,Sentinel,63,61,62
-LohaN,TL,Vct 2026 Emea Stage 2,Controller,61,63,62
-spike,LEV,Vct 2026 Americas Stage 1,Controller,63,60,62
-koshmaras,TH,Vct 2026 Emea Stage 2,Controller,64,61,62
-keznit,ENVY,Vct 2026 Americas Stage 1,Sentinel,61,66,62
-UdoTan,GE,Vct 2026 Pacific Kickoff,Duelist,62,62,62
-jowa,WOL,Vct 2026 China Kickoff,Duelist,61,63,62
-Ying,KBG,Vct 2026 China Stage 2,Initiator,64,60,62
-Minny,M8,Valorant Masters Santiago 2026,Initiator,63,60,62
-cortezia,SEN,Vct 2026 Americas Kickoff,Sentinel,59,65,62
-Dynamite,TEC,Vct 2026 China Stage 2,Sentinel,64,60,62
-johnqt,SEN,Vct 2026 Americas Stage 1,Sentinel,61,63,62
-sociablEE,FUT,Vct 2026 Emea Stage 2,Duelist,63,61,62
-BerserX,TS,Vct 2026 Pacific Kickoff,Sentinel,61,63,62
-Flickless,GX,Vct 2026 Emea Stage 2,Initiator,62,61,62
-Leviathan,FS,Valorant Masters London 2026,Sentinel,62,61,62
-ZynX,GEN,Vct 2026 Pacific Stage 1,Sentinel,60,64,62
-something,PRX,Valorant Masters Santiago 2026,Initiator,62,61,62
-leaf,G2,Vct 2026 Americas Kickoff,Duelist,60,67,62
-Lysoar,XLG,Vct 2026 China Stage 1,Sentinel,60,63,62
-FengF,TE,Vct 2026 China Stage 2,Duelist,66,58,62
-d4v41,PRX,Valorant Masters Santiago 2026,Initiator,64,60,62
-zerona,EG,Vct 2026 Americas Stage 1,Duelist,62,61,62
-xeus,FUT,Vct 2026 Emea Stage 1,Sentinel,61,62,62
-Eren,AT,Vct 2026 China Stage 2,Controller,63,59,62
-whzy,BLG,Vct 2026 China Stage 1,Sentinel,62,61,62
-kamo,TL,Vct 2026 Emea Stage 1,Initiator,63,60,62
-SSeeS,DFM,Vct 2026 Pacific Stage 2,Sentinel,61,62,62
-Bai,AG,Vct 2026 China Stage 1,Controller,62,61,62
-jawgemo,G2,Vct 2026 Americas Stage 2,Initiator,63,61,62
-GREEN,NOVA,Vct 2026 China Stage 1,Initiator,61,62,62
-Neon,LEV,Vct 2026 Americas Kickoff,Sentinel,62,61,61
-Monyet,RRQ,Vct 2026 Pacific Kickoff,Controller,59,64,61
-Deryeon,WOL,Vct 2026 China Stage 2,Initiator,62,60,61
-Desmo,FNC,Vct 2026 Emea Stage 1,Initiator,61,62,61
-spike,LEV,Vct 2026 Americas Kickoff,Duelist,62,61,61
-Bai,AG,Vct 2026 China Stage 1,Duelist,63,59,61
-NoMan,XLG,Valorant Masters Santiago 2026,Duelist,62,61,61
-Life,DRG,Valorant Masters London 2026,Sentinel,63,60,61
-NoMan,XLG,Valorant Masters Santiago 2026,Sentinel,63,60,61
-d4v41,PRX,Vct 2026 Pacific Kickoff,Initiator,60,62,61
-Rossy,ENVY,Vct 2026 Americas Stage 1,Initiator,60,62,61
-iZu,T1,Vct 2026 Pacific Stage 1,Duelist,63,59,61
-Wo0t,TH,Vct 2026 Emea Kickoff,Sentinel,62,61,61
-sturNN,ULF,Vct 2026 Emea Kickoff,Sentinel,64,59,61
-jowa,WOL,Vct 2026 China Kickoff,Initiator,62,60,61
-Yuicaw,JDG,Vct 2026 China Stage 1,Controller,63,60,61
-sturNN,ULF,Vct 2026 Emea Kickoff,Initiator,62,60,61
-Xdll,ZETA,Vct 2026 Pacific Stage 1,Controller,63,59,61
-K1ra,AG,Vct 2026 China Kickoff,Initiator,61,61,61
-kellyS,TS,Vct 2026 Pacific Stage 2,Controller,62,60,61
-natz,TS,Vct 2026 Pacific Stage 2,Duelist,58,66,61
-oonzmlp,VL,Vct 2026 Pacific Stage 1,Duelist,58,64,61
-westside,GX,Vct 2026 Emea Stage 1,Controller,61,61,61
-Demon1,C9,Vct 2026 Americas Kickoff,Duelist,57,64,61
-Meteor,T1,Valorant Masters Santiago 2026,Duelist,62,60,61
-NoMan,XLG,Valorant Masters London 2026,Initiator,61,61,61
-FKEY,TE,Vct 2026 China Stage 2,Duelist,64,57,61
-yatsuka,DFM,Vct 2026 Pacific Stage 2,Initiator,57,63,61
-Xlele,TE,Vct 2026 China Stage 1,Initiator,61,60,61
-cNed,PCF,Vct 2026 Emea Stage 1,Sentinel,61,61,61
-UNFAKE,VIT,Vct 2026 Emea Kickoff,Sentinel,59,62,61
-CHICHOO,EDG,Valorant Masters Santiago 2026,Sentinel,61,61,61
-yilai,BLG,Vct 2026 China Stage 1,Controller,62,60,61
-Ezeir,NOVA,Vct 2026 China Kickoff,Controller,64,58,61
-Lar0k,BBL,Vct 2026 Emea Stage 1,Sentinel,60,62,61
-nekky,EF,Vct 2026 Emea Stage 1,Sentinel,61,60,61
-XuNa,VL,Vct 2026 Pacific Stage 1,Controller,65,58,61
-something,PRX,Vct 2026 Pacific Stage 1,Controller,61,61,61
-Veqaj,FNC,Vct 2026 Emea Stage 1,Initiator,61,61,61
-f0rsakeN,PRX,Vct 2026 Pacific Kickoff,Initiator,62,59,61
-Crewen,BBL,Vct 2026 Emea Kickoff,Controller,61,60,61
-Jieni7,EDG,Vct 2026 China Stage 2,Duelist,63,58,61
-kellyS,TS,Vct 2026 Pacific Kickoff,Controller,60,61,61
-Spring,WOL,Vct 2026 China Kickoff,Controller,61,60,61
-JitBoyS,FS,Valorant Masters London 2026,Duelist,61,61,61
-chloric,NAVI,Vct 2026 Emea Stage 1,Controller,60,61,61
-crazyguy,RRQ,Vct 2026 Pacific Stage 2,Sentinel,63,57,61
-Desmo,FNC,Vct 2026 Emea Stage 1,Controller,61,60,61
-sociablEE,NAVI,Vct 2026 Emea Kickoff,Duelist,63,58,61
-Akame,DFM,Vct 2026 Pacific Stage 1,Controller,59,62,61
-bao,EG,Vct 2026 Americas Stage 1,Initiator,61,61,61
-GuanG,NOVA,Vct 2026 China Stage 1,Duelist,60,61,61
-Klaus,VL,Vct 2026 Pacific Stage 1,Controller,62,59,61
-Boo,TH,Vct 2026 Emea Kickoff,Sentinel,63,60,60
-JitBoyS,FS,Vct 2026 Pacific Stage 2,Sentinel,63,58,60
-Alfajer,FNC,Vct 2026 Emea Kickoff,Controller,60,61,60
-MONSTEERR,SGE,Vct 2026 Emea Stage 2,Sentinel,60,61,60
-xavi8k,GE,Vct 2026 Pacific Kickoff,Sentinel,61,60,60
-NoMan,XLG,Vct 2026 China Kickoff,Sentinel,63,57,60
-Akame,DFM,Vct 2026 Pacific Stage 1,Sentinel,62,59,60
-zhe,JDG,Vct 2026 China Stage 1,Initiator,62,57,60
-purp0,TL,Vct 2026 Emea Stage 2,Sentinel,60,59,60
-Boo,TH,Valorant Masters London 2026,Sentinel,61,60,60
-Avez,KC,Vct 2026 Emea Stage 1,Duelist,60,61,60
-Reduxx,SEN,Vct 2026 Americas Kickoff,Controller,60,61,60
-Demon1,ENVY,Vct 2026 Americas Stage 2,Duelist,57,63,60
-nephh,BLG,Vct 2026 China Stage 1,Initiator,63,58,60
-Ruxic,NAVI,Vct 2026 Emea Stage 2,Duelist,61,59,60
-Jamelinho213,SGE,Vct 2026 Emea Stage 2,Duelist,62,59,60
-f0rsakeN,PRX,Valorant Masters Santiago 2026,Sentinel,61,60,60
-vo0kashu,DRG,Valorant Masters London 2026,Controller,60,60,60
-crazyguy,RRQ,Vct 2026 Pacific Stage 1,Sentinel,60,60,60
-nerve,FUR,Valorant Masters Santiago 2026,Initiator,61,59,60
-koshmaras,TH,Vct 2026 Emea Stage 1,Sentinel,60,60,60
-Wo0t,TH,Valorant Masters London 2026,Sentinel,61,59,60
-Jieni7,EDG,Vct 2026 China Stage 2,Sentinel,60,60,60
-Bai,AG,Vct 2026 China Stage 2,Controller,60,60,60
-mada,NRG,Vct 2026 Americas Stage 1,Sentinel,61,59,60
-qiutiaN,NOVA,Vct 2026 China Stage 1,Controller,59,61,60
-Zellsis,C9,Vct 2026 Americas Stage 1,Initiator,60,59,60
-FengF,TE,Vct 2026 China Kickoff,Sentinel,60,60,60
-keznit,ENVY,Vct 2026 Americas Stage 1,Controller,59,60,60
-artzin,FUR,Vct 2026 Americas Stage 1,Controller,59,60,60
-seph1roth,FS,Vct 2026 Pacific Stage 2,Duelist,57,63,60
-baha,FUT,Vct 2026 Emea Kickoff,Sentinel,59,60,60
-penny,C9,Vct 2026 Americas Stage 1,Sentinel,62,57,60
-al0rante,PCF,Vct 2026 Emea Kickoff,Sentinel,60,59,60
-Rossy,ENVY,Vct 2026 Americas Stage 1,Sentinel,61,57,60
-rushia,BLG,Vct 2026 China Stage 2,Controller,60,58,60
-N4RRATE,KC,Vct 2026 Emea Stage 1,Sentinel,60,59,60
-PatMen,GE,Valorant Masters London 2026,Duelist,59,60,60
-erde,LOUD,Vct 2026 Americas Stage 1,Initiator,61,58,59
-Favian,ULF,Vct 2026 Emea Kickoff,Sentinel,58,60,59
-hiro,NAVI,Vct 2026 Emea Stage 2,Initiator,59,60,59
-Xeppaa,C9,Vct 2026 Americas Stage 1,Sentinel,60,58,59
-westside,GX,Vct 2026 Emea Stage 1,Initiator,58,61,59
-chloric,NAVI,Vct 2026 Emea Stage 2,Controller,56,61,59
-GREEN,NOVA,Vct 2026 China Stage 1,Duelist,56,63,59
-Klaus,VL,Vct 2026 Pacific Stage 2,Duelist,59,59,59
-infiltrator,KRÜ,Vct 2026 Americas Kickoff,Sentinel,58,61,59
-Septem7,AG,Vct 2026 China Stage 1,Initiator,60,58,59
-leaf,G2,Vct 2026 Americas Kickoff,Sentinel,58,60,59
-Favian,ULF,Vct 2026 Emea Kickoff,Controller,61,58,59
-swagzor,NOVA,Vct 2026 China Stage 1,Sentinel,59,59,59
-Cryocells,100T,Vct 2026 Americas Stage 2,Controller,55,59,59
-Coco,TEC,Vct 2026 China Kickoff,Initiator,58,60,59
-Kushy,RRQ,Vct 2026 Pacific Stage 2,Sentinel,57,60,59
-jowa,WOL,Vct 2026 China Stage 1,Duelist,60,58,59
-Fizzy,SGE,Vct 2026 Emea Stage 2,Controller,59,59,59
-ZmjjKK,EDG,Valorant Masters Santiago 2026,Duelist,56,61,59
-Veqaj,FNC,Vct 2026 Emea Kickoff,Duelist,58,60,59
-dgzin,EG,Vct 2026 Americas Stage 1,Sentinel,59,58,59
-benjyfishy,TH,Valorant Masters London 2026,Controller,57,59,58
-GREEN,NOVA,Vct 2026 China Kickoff,Initiator,62,57,58
-heybay,NOVA,Vct 2026 China Kickoff,Sentinel,59,58,58
-C1ndeR,VL,Vct 2026 Pacific Stage 1,Initiator,59,58,58
-Verno,MIBR,Vct 2026 Americas Stage 1,Sentinel,60,58,58
-azury,SGE,Vct 2026 Emea Stage 2,Controller,59,58,58
-Caedye,DFM,Vct 2026 Pacific Stage 1,Initiator,59,58,58
-zekken,MIBR,Vct 2026 Americas Stage 1,Initiator,59,58,58
-deLb,TE,Vct 2026 China Kickoff,Sentinel,59,58,58
-Desmo,FNC,Vct 2026 Emea Stage 1,Duelist,56,59,58
-NINJA,PCF,Vct 2026 Emea Stage 2,Duelist,58,58,58
-musashi,SGE,Vct 2026 Emea Stage 2,Initiator,57,58,58
-Okeanos,EG,Vct 2026 Americas Stage 1,Initiator,59,57,58
-Wo0t,TH,Vct 2026 Emea Stage 2,Initiator,58,57,58
-Eggsterr,ENVY,Vct 2026 Americas Stage 1,Sentinel,57,58,57
-ZynX,GEN,Vct 2026 Pacific Stage 1,Initiator,56,57,57
-CyvOph,FNC,Vct 2026 Emea Stage 1,Controller,57,56,57
+FT,BLG,Vct 2026 China Stage 2,Duelist,67,63,65
+glacier,WOL,Vct 2026 China Stage 1,Duelist,80,71,76
+glacier,WOL,Vct 2026 China Stage 2,Duelist,71,72,71
+GLYPH,ENVY,Vct 2026 Americas Stage 2,Controller,78,70,74
+GLYPH,ENVY,Vct 2026 Americas Stage 2,Initiator,65,78,72
+GLYPH,M8,Valorant Masters Santiago 2026,Controller,69,79,74
+GLYPH,M8,Vct 2026 Emea Kickoff,Controller,72,72,72
+GLYPH,M8,Vct 2026 Emea Stage 1,Controller,80,82,81
+Governor,KRÜ,Vct 2026 Americas Kickoff,Initiator,66,72,69
+GREEN,NOVA,Vct 2026 China Kickoff,Duelist,70,78,74
+GREEN,NOVA,Vct 2026 China Kickoff,Initiator,76,70,73
+GREEN,NOVA,Vct 2026 China Kickoff,Sentinel,77,74,75
+GREEN,NOVA,Vct 2026 China Stage 1,Controller,69,68,69
+GREEN,NOVA,Vct 2026 China Stage 1,Duelist,72,76,74
+GREEN,NOVA,Vct 2026 China Stage 1,Initiator,74,77,76
+grubinho,GX,Vct 2026 Emea Kickoff,Controller,75,70,73
+grubinho,GX,Vct 2026 Emea Stage 1,Controller,72,80,76
+GuanG,NOVA,Vct 2026 China Kickoff,Duelist,67,70,69
+GuanG,NOVA,Vct 2026 China Stage 1,Duelist,69,75,72
+GuanG,NOVA,Vct 2026 China Stage 1,Sentinel,69,70,69
+GuanG,NOVA,Vct 2026 China Stage 2,Controller,86,72,79
+GuanG,NOVA,Vct 2026 China Stage 2,Sentinel,83,78,80
+Haodong,TEC,Vct 2026 China Kickoff,Controller,74,73,73
+Haodong,TEC,Vct 2026 China Kickoff,Initiator,72,78,75
+Haodong,TEC,Vct 2026 China Stage 1,Controller,69,74,72
+Haodong,TEC,Vct 2026 China Stage 1,Sentinel,72,77,74
+Haodong,TEC,Vct 2026 China Stage 2,Controller,78,83,81
+Haodong,TEC,Vct 2026 China Stage 2,Sentinel,69,67,68
+happywei,XLG,Valorant Masters London 2026,Controller,83,85,84
+happywei,XLG,Valorant Masters London 2026,Sentinel,79,76,77
+happywei,XLG,Valorant Masters Santiago 2026,Controller,68,78,73
+happywei,XLG,Vct 2026 China Kickoff,Controller,84,86,85
+happywei,XLG,Vct 2026 China Stage 1,Controller,82,83,83
+happywei,XLG,Vct 2026 China Stage 1,Sentinel,84,84,84
+happywei,XLG,Vct 2026 China Stage 2,Controller,77,87,82
+happywei,XLG,Vct 2026 China Stage 2,Sentinel,71,80,76
+heat,KRÜ,Vct 2026 Americas Stage 2,Duelist,76,77,77
+Hermes,KRX,Vct 2026 Pacific Kickoff,Controller,68,77,73
+Hermes,KRX,Vct 2026 Pacific Kickoff,Duelist,66,72,69
+Hermes,KRX,Vct 2026 Pacific Kickoff,Initiator,76,75,76
+Hermes,KRX,Vct 2026 Pacific Kickoff,Sentinel,71,84,77
+Hermes,KRX,Vct 2026 Pacific Stage 1,Sentinel,77,68,73
+heybay,NOVA,Vct 2026 China Kickoff,Initiator,72,69,71
+heybay,NOVA,Vct 2026 China Kickoff,Sentinel,70,70,70
+hezacoil,FF,Vct 2026 Emea Stage 2,Controller,74,80,77
+hiro,NAVI,Vct 2026 Emea Kickoff,Controller,79,82,80
+hiro,NAVI,Vct 2026 Emea Kickoff,Initiator,79,81,80
+hiro,NAVI,Vct 2026 Emea Kickoff,Sentinel,77,79,78
+hiro,NAVI,Vct 2026 Emea Stage 1,Controller,71,82,76
+hiro,NAVI,Vct 2026 Emea Stage 1,Initiator,70,83,76
+hiro,NAVI,Vct 2026 Emea Stage 1,Sentinel,76,74,75
+hiro,NAVI,Vct 2026 Emea Stage 2,Controller,75,84,80
+hiro,NAVI,Vct 2026 Emea Stage 2,Initiator,73,74,73
+hiro,NAVI,Vct 2026 Emea Stage 2,Sentinel,71,85,78
+HYUNMIN,KRX,Vct 2026 Pacific Kickoff,Duelist,87,77,82
+HYUNMIN,KRX,Vct 2026 Pacific Stage 1,Duelist,82,74,78
+HYUNMIN,KRX,Vct 2026 Pacific Stage 2,Duelist,76,77,76
+iamgrq,AG,Valorant Masters Santiago 2026,Controller,84,69,77
+iamgrq,AG,Valorant Masters Santiago 2026,Duelist,71,64,67
+iamgrq,AG,Vct 2026 China Kickoff,Controller,85,82,83
+iamgrq,AG,Vct 2026 China Kickoff,Duelist,73,66,70
+iamgrq,AG,Vct 2026 China Stage 1,Controller,83,83,83
+iamgrq,AG,Vct 2026 China Stage 1,Duelist,71,76,74
+iamgrq,AG,Vct 2026 China Stage 2,Controller,86,74,80
+iamgrq,AG,Vct 2026 China Stage 2,Duelist,66,82,74
+iamgrq,AG,Vct 2026 China Stage 2,Initiator,78,72,75
+iluri,EP,Vct 2026 Emea Stage 2,Initiator,68,70,69
+infiltrator,KRÜ,Vct 2026 Americas Kickoff,Duelist,75,77,76
+infiltrator,KRÜ,Vct 2026 Americas Kickoff,Sentinel,71,77,74
+Inspire,ENVY,Vct 2026 Americas Kickoff,Controller,71,79,75
+Inspire,ENVY,Vct 2026 Americas Kickoff,Sentinel,67,84,76
+invy,PRX,Valorant Masters London 2026,Initiator,81,89,85
+invy,PRX,Valorant Masters Santiago 2026,Controller,82,68,75
+invy,PRX,Valorant Masters Santiago 2026,Initiator,78,78,78
+invy,PRX,Vct 2026 Pacific Kickoff,Initiator,75,81,78
+invy,PRX,Vct 2026 Pacific Stage 1,Initiator,89,85,87
+invy,PRX,Vct 2026 Pacific Stage 2,Controller,78,76,77
+invy,PRX,Vct 2026 Pacific Stage 2,Initiator,82,83,83
+Ivy,NS,Valorant Masters Santiago 2026,Controller,77,72,74
+Ivy,NS,Valorant Masters Santiago 2026,Sentinel,86,80,83
+Ivy,NS,Vct 2026 Pacific Kickoff,Controller,80,76,78
+Ivy,NS,Vct 2026 Pacific Kickoff,Sentinel,68,77,72
+Ivy,NS,Vct 2026 Pacific Stage 1,Controller,81,67,74
+Ivy,NS,Vct 2026 Pacific Stage 1,Sentinel,75,65,70
+Ivy,NS,Vct 2026 Pacific Stage 2,Controller,73,76,75
+Ivy,NS,Vct 2026 Pacific Stage 2,Sentinel,79,75,77
+iZu,T1,Valorant Masters Santiago 2026,Controller,77,82,80
+iZu,T1,Valorant Masters Santiago 2026,Duelist,74,79,77
+iZu,T1,Valorant Masters Santiago 2026,Sentinel,83,72,77
+iZu,T1,Vct 2026 Pacific Kickoff,Controller,71,77,74
+iZu,T1,Vct 2026 Pacific Kickoff,Duelist,89,80,84
+iZu,T1,Vct 2026 Pacific Kickoff,Initiator,76,77,76
+iZu,T1,Vct 2026 Pacific Stage 1,Duelist,81,75,78
+iZu,T1,Vct 2026 Pacific Stage 1,Initiator,82,75,78
+iZu,T1,Vct 2026 Pacific Stage 1,Sentinel,77,81,79
+iZu,T1,Vct 2026 Pacific Stage 2,Duelist,74,75,75
+iZu,T1,Vct 2026 Pacific Stage 2,Initiator,84,82,83
+Izzy,EF,Vct 2026 Emea Stage 1,Duelist,77,69,73
+Izzy,EF,Vct 2026 Emea Stage 2,Duelist,88,73,80
+Jackk,C9,Vct 2026 Americas Stage 1,Initiator,72,77,75
+Jackk,C9,Vct 2026 Americas Stage 2,Initiator,70,76,73
+Jamelinho213,SGE,Vct 2026 Emea Stage 2,Duelist,82,80,81
+Jamppi,VIT,Valorant Masters London 2026,Initiator,74,74,74
+Jamppi,VIT,Vct 2026 Emea Kickoff,Duelist,75,82,79
+Jamppi,VIT,Vct 2026 Emea Kickoff,Initiator,70,68,69
+Jamppi,VIT,Vct 2026 Emea Stage 1,Initiator,90,82,86
+Jamppi,VIT,Vct 2026 Emea Stage 2,Duelist,88,73,81
+Jamppi,VIT,Vct 2026 Emea Stage 2,Initiator,81,82,81
+Jamppi,VIT,Vct 2026 Emea Stage 2,Sentinel,78,78,78
+jawgemo,G2,Valorant Masters London 2026,Duelist,77,66,72
+jawgemo,G2,Valorant Masters Santiago 2026,Duelist,80,84,82
+jawgemo,G2,Vct 2026 Americas Kickoff,Duelist,72,78,75
+jawgemo,G2,Vct 2026 Americas Stage 1,Duelist,71,81,76
+jawgemo,G2,Vct 2026 Americas Stage 2,Duelist,75,82,79
+jawgemo,G2,Vct 2026 Americas Stage 2,Initiator,81,80,80
+Jemkin,RRQ,Vct 2026 Pacific Kickoff,Duelist,82,73,78
+Jemkin,RRQ,Vct 2026 Pacific Kickoff,Sentinel,89,80,84
+Jemkin,RRQ,Vct 2026 Pacific Stage 1,Duelist,76,88,82
+Jemkin,RRQ,Vct 2026 Pacific Stage 1,Sentinel,83,80,81
+Jemkin,RRQ,Vct 2026 Pacific Stage 2,Duelist,69,73,71
+Jemkin,RRQ,Vct 2026 Pacific Stage 2,Sentinel,80,77,78
+Jerrwin,SEN,Vct 2026 Americas Stage 1,Duelist,69,81,75
+Jerrwin,SEN,Vct 2026 Americas Stage 2,Duelist,68,88,78
+Jesse,GX,Vct 2026 Emea Stage 2,Controller,73,76,74
+Jesse,GX,Vct 2026 Emea Stage 2,Duelist,68,70,69
+JessieVash,TS,Vct 2026 Pacific Kickoff,Initiator,68,82,75
+JessieVash,TS,Vct 2026 Pacific Stage 1,Initiator,69,80,75
+Jieni7,EDG,Valorant Masters London 2026,Controller,72,73,73
+Jieni7,EDG,Valorant Masters London 2026,Initiator,74,74,74
+Jieni7,EDG,Valorant Masters London 2026,Sentinel,77,64,71
+Jieni7,EDG,Vct 2026 China Stage 1,Controller,78,77,77
+Jieni7,EDG,Vct 2026 China Stage 1,Duelist,65,68,67
+Jieni7,EDG,Vct 2026 China Stage 1,Initiator,77,85,81
+Jieni7,EDG,Vct 2026 China Stage 1,Sentinel,77,76,77
+Jieni7,EDG,Vct 2026 China Stage 2,Controller,78,66,72
+Jieni7,EDG,Vct 2026 China Stage 2,Duelist,76,69,73
+Jieni7,EDG,Vct 2026 China Stage 2,Initiator,71,80,75
+Jieni7,EDG,Vct 2026 China Stage 2,Sentinel,71,73,72
+Jinggg,PRX,Valorant Masters London 2026,Controller,83,80,82
+Jinggg,PRX,Valorant Masters London 2026,Duelist,79,86,83
+Jinggg,PRX,Valorant Masters London 2026,Sentinel,76,85,80
+Jinggg,PRX,Valorant Masters Santiago 2026,Controller,89,84,86
+Jinggg,PRX,Valorant Masters Santiago 2026,Duelist,71,73,72
+Jinggg,PRX,Vct 2026 Pacific Kickoff,Controller,73,75,74
+Jinggg,PRX,Vct 2026 Pacific Kickoff,Duelist,80,77,78
+Jinggg,PRX,Vct 2026 Pacific Stage 1,Controller,71,83,77
+Jinggg,PRX,Vct 2026 Pacific Stage 1,Duelist,88,90,89
+Jinggg,PRX,Vct 2026 Pacific Stage 1,Sentinel,78,74,76
+Jinggg,PRX,Vct 2026 Pacific Stage 2,Controller,81,75,78
+Jinggg,PRX,Vct 2026 Pacific Stage 2,Duelist,81,70,76
+JitBoyS,FS,Valorant Masters London 2026,Duelist,69,66,68
+JitBoyS,FS,Valorant Masters London 2026,Sentinel,82,84,83
+JitBoyS,FS,Vct 2026 Pacific Kickoff,Controller,73,77,75
+JitBoyS,FS,Vct 2026 Pacific Kickoff,Sentinel,75,75,75
+JitBoyS,FS,Vct 2026 Pacific Stage 1,Duelist,80,75,78
+JitBoyS,FS,Vct 2026 Pacific Stage 1,Sentinel,74,72,73
+JitBoyS,FS,Vct 2026 Pacific Stage 2,Controller,82,71,76
+JitBoyS,FS,Vct 2026 Pacific Stage 2,Duelist,89,91,90
+JitBoyS,FS,Vct 2026 Pacific Stage 2,Sentinel,71,70,70
+jkuro,JDG,Vct 2026 China Kickoff,Controller,83,77,80
+jkuro,JDG,Vct 2026 China Stage 1,Controller,77,83,80
+jkuro,JDG,Vct 2026 China Stage 1,Sentinel,73,67,70
+jkuro,JDG,Vct 2026 China Stage 2,Controller,80,65,72
+jkuro,JDG,Vct 2026 China Stage 2,Duelist,61,66,64
+johnqt,SEN,Vct 2026 Americas Kickoff,Controller,84,74,79
+johnqt,SEN,Vct 2026 Americas Kickoff,Initiator,81,80,80
+johnqt,SEN,Vct 2026 Americas Stage 1,Controller,65,76,70
+johnqt,SEN,Vct 2026 Americas Stage 1,Sentinel,69,78,73
+johnqt,SEN,Vct 2026 Americas Stage 2,Controller,85,80,82
+johnqt,SEN,Vct 2026 Americas Stage 2,Sentinel,81,78,80
+JonahP,SEN,Vct 2026 Americas Stage 1,Initiator,69,78,73
+JonahP,SEN,Vct 2026 Americas Stage 2,Initiator,65,82,73
+jowa,WOL,Vct 2026 China Kickoff,Controller,86,71,78
+jowa,WOL,Vct 2026 China Kickoff,Duelist,74,77,75
+jowa,WOL,Vct 2026 China Kickoff,Initiator,75,73,74
+jowa,WOL,Vct 2026 China Stage 1,Controller,77,77,77
+jowa,WOL,Vct 2026 China Stage 1,Duelist,73,71,72
+jowa,WOL,Vct 2026 China Stage 1,Initiator,76,77,77
+K1ra,AG,Valorant Masters Santiago 2026,Controller,73,64,68
+K1ra,AG,Valorant Masters Santiago 2026,Duelist,79,72,76
+K1ra,AG,Vct 2026 China Kickoff,Controller,84,75,79
+K1ra,AG,Vct 2026 China Kickoff,Duelist,82,72,77
+K1ra,AG,Vct 2026 China Kickoff,Initiator,76,76,76
+K1ra,AG,Vct 2026 China Stage 1,Controller,81,71,76
+K1ra,AG,Vct 2026 China Stage 1,Duelist,79,71,75
+K1ra,AG,Vct 2026 China Stage 1,Sentinel,82,70,76
+K1ra,AG,Vct 2026 China Stage 2,Controller,83,86,84
+K1ra,AG,Vct 2026 China Stage 2,Duelist,74,79,77
+K1ra,AG,Vct 2026 China Stage 2,Sentinel,70,83,77
+kaajak,FNC,Vct 2026 Emea Kickoff,Duelist,70,81,76
+kaajak,FNC,Vct 2026 Emea Stage 1,Duelist,84,82,83
+kaajak,FNC,Vct 2026 Emea Stage 2,Duelist,74,68,71
+Kachoww,FF,Vct 2026 Emea Stage 2,Duelist,85,79,82
+Kai,TE,Vct 2026 China Kickoff,Duelist,88,65,77
+Kai,TE,Vct 2026 China Stage 1,Duelist,74,79,76
+Kai,TE,Vct 2026 China Stage 2,Duelist,77,67,72
+kamo,TL,Valorant Masters Santiago 2026,Duelist,64,75,69
+kamo,TL,Vct 2026 Emea Kickoff,Duelist,82,76,79
+kamo,TL,Vct 2026 Emea Kickoff,Initiator,63,84,73
+kamo,TL,Vct 2026 Emea Stage 1,Duelist,80,80,80
+kamo,TL,Vct 2026 Emea Stage 1,Initiator,77,78,78
+kamo,TL,Vct 2026 Emea Stage 2,Duelist,76,91,84
+kamyk,JL,Vct 2026 Emea Stage 2,Controller,73,82,78
+Karon,GEN,Vct 2026 Pacific Kickoff,Controller,81,71,76
+Karon,GEN,Vct 2026 Pacific Kickoff,Sentinel,80,83,82
+Karon,GEN,Vct 2026 Pacific Stage 1,Controller,67,70,68
+Karon,GEN,Vct 2026 Pacific Stage 1,Duelist,76,82,79
+Karon,GEN,Vct 2026 Pacific Stage 1,Sentinel,79,80,79
+Karon,GEN,Vct 2026 Pacific Stage 2,Controller,79,86,83
+keiko,NRG,Valorant Masters London 2026,Controller,89,85,87
+keiko,NRG,Valorant Masters London 2026,Duelist,70,67,68
+keiko,NRG,Valorant Masters London 2026,Sentinel,77,88,82
+keiko,NRG,Valorant Masters Santiago 2026,Controller,83,78,81
+keiko,NRG,Valorant Masters Santiago 2026,Duelist,82,67,74
+keiko,NRG,Valorant Masters Santiago 2026,Sentinel,78,85,81
+keiko,NRG,Vct 2026 Americas Kickoff,Controller,78,70,74
+keiko,NRG,Vct 2026 Americas Kickoff,Duelist,73,76,75
+keiko,NRG,Vct 2026 Americas Kickoff,Sentinel,86,92,89
+keiko,NRG,Vct 2026 Americas Stage 1,Controller,74,79,77
+keiko,NRG,Vct 2026 Americas Stage 1,Duelist,87,89,88
+keiko,NRG,Vct 2026 Americas Stage 1,Sentinel,67,72,70
+keiko,NRG,Vct 2026 Americas Stage 2,Controller,79,82,81
+keiko,NRG,Vct 2026 Americas Stage 2,Duelist,84,84,84
+keiko,NRG,Vct 2026 Americas Stage 2,Sentinel,79,71,75
+kellyS,TS,Vct 2026 Pacific Kickoff,Controller,74,78,76
+kellyS,TS,Vct 2026 Pacific Kickoff,Duelist,81,70,75
+kellyS,TS,Vct 2026 Pacific Stage 1,Controller,80,84,82
+kellyS,TS,Vct 2026 Pacific Stage 1,Initiator,84,83,83
+kellyS,TS,Vct 2026 Pacific Stage 1,Sentinel,81,79,80
+kellyS,TS,Vct 2026 Pacific Stage 2,Controller,75,69,72
+kellyS,TS,Vct 2026 Pacific Stage 2,Duelist,78,76,77
+kellyS,TS,Vct 2026 Pacific Stage 2,Initiator,79,73,76
+keznit,ENVY,Vct 2026 Americas Kickoff,Duelist,79,75,77
+keznit,ENVY,Vct 2026 Americas Stage 1,Controller,79,82,80
+keznit,ENVY,Vct 2026 Americas Stage 1,Duelist,74,79,77
+keznit,ENVY,Vct 2026 Americas Stage 1,Sentinel,76,80,78
+keznit,ENVY,Vct 2026 Americas Stage 2,Duelist,62,77,70
+Kicks,TL,Vct 2026 Emea Kickoff,Controller,72,77,74
+Kicks,TL,Vct 2026 Emea Stage 2,Controller,72,79,75
+Kicks,TL,Vct 2026 Emea Stage 2,Initiator,75,73,74
+Killua,FS,Valorant Masters London 2026,Initiator,66,66,66
+Killua,FS,Vct 2026 Pacific Kickoff,Initiator,77,78,77
+Killua,FS,Vct 2026 Pacific Stage 1,Initiator,86,85,85
+Killua,FS,Vct 2026 Pacific Stage 2,Initiator,74,84,79
+kiNgg,LEV,Valorant Masters London 2026,Controller,75,82,78
+kiNgg,LEV,Valorant Masters London 2026,Initiator,73,73,73
+kiNgg,LEV,Valorant Masters London 2026,Sentinel,71,78,74
+kiNgg,LEV,Vct 2026 Americas Kickoff,Controller,69,74,72
+kiNgg,LEV,Vct 2026 Americas Stage 1,Controller,81,73,77
+kiNgg,LEV,Vct 2026 Americas Stage 1,Initiator,80,75,78
+kiNgg,LEV,Vct 2026 Americas Stage 2,Controller,86,81,84
+KiTae,GEN,Vct 2026 Pacific Stage 1,Controller,69,76,73
+Klaus,VL,Vct 2026 Pacific Kickoff,Duelist,69,74,71
+Klaus,VL,Vct 2026 Pacific Kickoff,Sentinel,76,74,75
+Klaus,VL,Vct 2026 Pacific Stage 1,Controller,76,73,75
+Klaus,VL,Vct 2026 Pacific Stage 1,Duelist,73,64,69
+Klaus,VL,Vct 2026 Pacific Stage 1,Initiator,80,83,82
+Klaus,VL,Vct 2026 Pacific Stage 1,Sentinel,72,67,70
+Klaus,VL,Vct 2026 Pacific Stage 2,Controller,89,79,84
+Klaus,VL,Vct 2026 Pacific Stage 2,Duelist,72,74,73
+Knight,BLG,Vct 2026 China Kickoff,Initiator,82,65,73
+Knight,BLG,Vct 2026 China Stage 1,Initiator,76,74,75
+Knight,BLG,Vct 2026 China Stage 2,Controller,81,76,79
+Knight,BLG,Vct 2026 China Stage 2,Initiator,81,66,74
+Knight,BLG,Vct 2026 China Stage 2,Sentinel,77,80,79
+koalanoob,FUR,Valorant Masters Santiago 2026,Controller,68,80,74
+koalanoob,FUR,Valorant Masters Santiago 2026,Duelist,75,65,70
+koalanoob,FUR,Vct 2026 Americas Kickoff,Controller,85,79,82
+koalanoob,FUR,Vct 2026 Americas Kickoff,Duelist,75,88,82
+koalanoob,FUR,Vct 2026 Americas Kickoff,Sentinel,81,83,82
+koalanoob,FUR,Vct 2026 Americas Stage 1,Controller,78,78,78
+koalanoob,FUR,Vct 2026 Americas Stage 1,Duelist,68,72,70
+koalanoob,FUR,Vct 2026 Americas Stage 2,Duelist,63,83,73
+Kolosha,NAVI,Vct 2026 Emea Stage 1,Duelist,67,69,68
+koshmaras,TH,Valorant Masters London 2026,Duelist,76,74,75
+koshmaras,TH,Vct 2026 Emea Stage 1,Duelist,82,85,83
+koshmaras,TH,Vct 2026 Emea Stage 1,Sentinel,65,67,66
+koshmaras,TH,Vct 2026 Emea Stage 2,Controller,73,66,69
+koshmaras,TH,Vct 2026 Emea Stage 2,Duelist,73,85,79
+KovaQ,FPX,Vct 2026 China Stage 1,Initiator,76,73,74
+KovaQ,FPX,Vct 2026 China Stage 2,Controller,81,78,79
+kozzy,EP,Vct 2026 Emea Stage 2,Duelist,72,79,75
+Kr1stal,GE,Valorant Masters London 2026,Initiator,73,71,72
+Kr1stal,GE,Valorant Masters London 2026,Sentinel,86,80,83
+Kr1stal,GE,Vct 2026 Pacific Kickoff,Controller,75,77,76
+Kr1stal,GE,Vct 2026 Pacific Kickoff,Initiator,72,73,73
+Kr1stal,GE,Vct 2026 Pacific Stage 1,Initiator,70,81,76
+Kr1stal,GE,Vct 2026 Pacific Stage 1,Sentinel,74,71,72
+Kr1stal,GE,Vct 2026 Pacific Stage 2,Initiator,69,68,69
+Kr1stal,GE,Vct 2026 Pacific Stage 2,Sentinel,71,66,68
+KROSTALY,FUT,Valorant Masters London 2026,Initiator,72,81,77
+KROSTALY,FUT,Vct 2026 Emea Kickoff,Initiator,70,72,71
+KROSTALY,FUT,Vct 2026 Emea Stage 1,Initiator,74,75,75
+KROSTALY,FUT,Vct 2026 Emea Stage 2,Initiator,73,78,76
+Krst1Ng,KBG,Vct 2026 China Stage 2,Controller,74,82,78
+Kushy,RRQ,Vct 2026 Pacific Kickoff,Initiator,72,76,74
+Kushy,RRQ,Vct 2026 Pacific Stage 1,Initiator,77,75,76
+Kushy,RRQ,Vct 2026 Pacific Stage 2,Duelist,67,68,68
+Kushy,RRQ,Vct 2026 Pacific Stage 2,Initiator,75,76,76
+Kushy,RRQ,Vct 2026 Pacific Stage 2,Sentinel,69,74,72
+Kyu,SEN,Vct 2026 Americas Kickoff,Initiator,64,80,72
+Lakia,GEN,Vct 2026 Pacific Kickoff,Initiator,69,80,74
+Lakia,GEN,Vct 2026 Pacific Stage 1,Initiator,80,81,81
+Lar0k,BBL,Valorant Masters Santiago 2026,Duelist,80,76,78
+Lar0k,BBL,Vct 2026 Emea Kickoff,Duelist,80,84,82
+Lar0k,BBL,Vct 2026 Emea Stage 1,Duelist,68,74,71
+Lar0k,BBL,Vct 2026 Emea Stage 1,Initiator,83,74,78
+Lar0k,BBL,Vct 2026 Emea Stage 1,Sentinel,70,78,74
+Lar0k,BBL,Vct 2026 Emea Stage 2,Duelist,78,80,79
+Lar0k,BBL,Vct 2026 Emea Stage 2,Sentinel,83,75,79
+Layla,AT,Vct 2026 China Stage 2,Sentinel,85,69,77
+leaf,G2,Valorant Masters London 2026,Controller,77,79,78
+leaf,G2,Valorant Masters London 2026,Duelist,69,83,76
+leaf,G2,Valorant Masters Santiago 2026,Controller,75,78,76
+leaf,G2,Valorant Masters Santiago 2026,Duelist,88,68,78
+leaf,G2,Valorant Masters Santiago 2026,Sentinel,71,76,74
+leaf,G2,Vct 2026 Americas Kickoff,Controller,75,72,74
+leaf,G2,Vct 2026 Americas Kickoff,Duelist,74,78,76
+leaf,G2,Vct 2026 Americas Kickoff,Initiator,80,85,83
+leaf,G2,Vct 2026 Americas Kickoff,Sentinel,71,83,77
+leaf,G2,Vct 2026 Americas Stage 1,Controller,80,67,74
+leaf,G2,Vct 2026 Americas Stage 1,Duelist,70,82,76
+leaf,G2,Vct 2026 Americas Stage 1,Sentinel,80,79,79
+leaf,G2,Vct 2026 Americas Stage 2,Controller,70,81,76
+leaf,G2,Vct 2026 Americas Stage 2,Sentinel,77,72,75
+Less,KRÜ,Vct 2026 Americas Stage 1,Controller,81,80,80
+Less,KRÜ,Vct 2026 Americas Stage 1,Sentinel,87,87,87
+Less,KRÜ,Vct 2026 Americas Stage 2,Controller,77,73,75
+Less,KRÜ,Vct 2026 Americas Stage 2,Sentinel,66,74,70
+Leviathan,FS,Valorant Masters London 2026,Controller,78,64,71
+Leviathan,FS,Valorant Masters London 2026,Sentinel,68,68,68
+Leviathan,FS,Vct 2026 Pacific Kickoff,Controller,80,80,80
+Leviathan,FS,Vct 2026 Pacific Stage 1,Controller,78,82,80
+Leviathan,FS,Vct 2026 Pacific Stage 1,Sentinel,71,62,66
+LewN,KC,Vct 2026 Emea Kickoff,Duelist,81,79,80
+LewN,KC,Vct 2026 Emea Stage 1,Duelist,72,83,77
+LewN,KC,Vct 2026 Emea Stage 2,Duelist,87,87,87
+Life,DRG,Valorant Masters London 2026,Duelist,74,66,70
+Life,DRG,Valorant Masters London 2026,Sentinel,74,72,73
+Life,DRG,Vct 2026 China Stage 1,Duelist,77,68,72
+Life,DRG,Vct 2026 China Stage 2,Duelist,82,76,79
+Life,FPX,Vct 2026 China Kickoff,Duelist,73,66,70
+Lime,EP,Vct 2026 Emea Stage 2,Duelist,77,68,72
+LohaN,TL,Vct 2026 Emea Stage 2,Controller,67,70,68
+Loita,BBL,Valorant Masters Santiago 2026,Controller,78,77,78
+Loita,BBL,Vct 2026 Emea Kickoff,Controller,72,85,78
+Loita,BBL,Vct 2026 Emea Stage 1,Controller,70,77,73
+Loita,BBL,Vct 2026 Emea Stage 2,Controller,90,75,83
+lovers rock,BBL,Valorant Masters Santiago 2026,Duelist,64,73,68
+lovers rock,BBL,Vct 2026 Emea Kickoff,Duelist,86,91,88
+lovers rock,BBL,Vct 2026 Emea Stage 1,Duelist,75,65,70
+lovers rock,BBL,Vct 2026 Emea Stage 2,Duelist,91,86,88
+lucas,TEC,Vct 2026 China Kickoff,Initiator,79,72,76
+lucas,TEC,Vct 2026 China Stage 1,Initiator,80,75,77
+lucas,TEC,Vct 2026 China Stage 2,Initiator,79,78,78
+lukxo,LOUD,Vct 2026 Americas Kickoff,Controller,77,77,77
+lukxo,LOUD,Vct 2026 Americas Kickoff,Sentinel,82,79,80
+lukxo,LOUD,Vct 2026 Americas Stage 1,Controller,82,83,82
+lukxo,LOUD,Vct 2026 Americas Stage 1,Sentinel,76,76,76
+lukxo,LOUD,Vct 2026 Americas Stage 2,Controller,73,82,77
+lukxo,LOUD,Vct 2026 Americas Stage 2,Sentinel,86,86,86
+LuoK1ng,TE,Vct 2026 China Kickoff,Controller,77,71,74
+LuoK1ng,TE,Vct 2026 China Stage 2,Controller,77,74,75
+Lysoar,XLG,Valorant Masters London 2026,Controller,78,74,76
+Lysoar,XLG,Valorant Masters Santiago 2026,Controller,80,68,74
+Lysoar,XLG,Vct 2026 China Kickoff,Controller,79,79,79
+Lysoar,XLG,Vct 2026 China Kickoff,Sentinel,67,77,72
+Lysoar,XLG,Vct 2026 China Stage 1,Controller,85,81,83
+Lysoar,XLG,Vct 2026 China Stage 1,Sentinel,71,79,75
+Lysoar,XLG,Vct 2026 China Stage 2,Controller,73,84,78
+Lysoar,XLG,Vct 2026 China Stage 2,Sentinel,77,83,80
+mada,NRG,Valorant Masters London 2026,Duelist,79,65,72
+mada,NRG,Valorant Masters Santiago 2026,Duelist,86,71,78
+mada,NRG,Vct 2026 Americas Kickoff,Duelist,79,86,82
+mada,NRG,Vct 2026 Americas Stage 1,Controller,78,89,83
+mada,NRG,Vct 2026 Americas Stage 1,Duelist,73,83,78
+mada,NRG,Vct 2026 Americas Stage 1,Sentinel,76,73,75
+mada,NRG,Vct 2026 Americas Stage 2,Controller,87,81,84
+mada,NRG,Vct 2026 Americas Stage 2,Duelist,66,82,74
+MAGNUM,EP,Vct 2026 Emea Stage 2,Controller,75,75,75
+MAGNUM,EP,Vct 2026 Emea Stage 2,Sentinel,71,71,71
+MaKo,KRX,Vct 2026 Pacific Kickoff,Controller,85,74,79
+MaKo,KRX,Vct 2026 Pacific Stage 1,Controller,86,82,84
+MaKo,KRX,Vct 2026 Pacific Stage 2,Controller,74,77,76
+marteen,M8,Valorant Masters Santiago 2026,Duelist,89,84,86
+marteen,M8,Vct 2026 Emea Kickoff,Duelist,93,88,90
+marteen,M8,Vct 2026 Emea Stage 1,Duelist,84,81,82
+marteen,M8,Vct 2026 Emea Stage 1,Sentinel,74,73,73
+marteen,M8,Vct 2026 Emea Stage 2,Duelist,87,86,86
+Marved,SEN,Vct 2026 Americas Stage 2,Controller,74,79,77
+Mazino,MIBR,Vct 2026 Americas Kickoff,Controller,74,73,73
+Mazino,MIBR,Vct 2026 Americas Kickoff,Initiator,89,78,83
+Mazino,MIBR,Vct 2026 Americas Stage 1,Controller,79,77,78
+Mazino,MIBR,Vct 2026 Americas Stage 2,Controller,81,83,82
+Meiy,DFM,Vct 2026 Pacific Kickoff,Duelist,82,85,83
+Meiy,DFM,Vct 2026 Pacific Stage 1,Duelist,85,91,88
+Meiy,DFM,Vct 2026 Pacific Stage 2,Duelist,81,85,83
+Meteor,T1,Valorant Masters Santiago 2026,Controller,66,69,67
+Meteor,T1,Valorant Masters Santiago 2026,Duelist,73,71,72
+Meteor,T1,Valorant Masters Santiago 2026,Sentinel,82,67,75
+Meteor,T1,Vct 2026 Pacific Kickoff,Controller,84,81,82
+Meteor,T1,Vct 2026 Pacific Kickoff,Duelist,83,74,79
+Meteor,T1,Vct 2026 Pacific Kickoff,Sentinel,65,83,74
+Meteor,T1,Vct 2026 Pacific Stage 1,Controller,77,72,74
+Meteor,T1,Vct 2026 Pacific Stage 1,Duelist,80,79,79
+Meteor,T1,Vct 2026 Pacific Stage 1,Sentinel,76,82,79
+Meteor,T1,Vct 2026 Pacific Stage 2,Duelist,82,82,82
+Meteor,T1,Vct 2026 Pacific Stage 2,Sentinel,82,84,83
+MiniBoo,TL,Valorant Masters Santiago 2026,Duelist,76,71,74
+MiniBoo,TL,Vct 2026 Emea Kickoff,Duelist,85,86,85
+MiniBoo,TL,Vct 2026 Emea Stage 1,Duelist,74,80,77
+Minny,M8,Valorant Masters Santiago 2026,Controller,74,67,70
+Minny,M8,Valorant Masters Santiago 2026,Initiator,72,74,73
+Minny,M8,Valorant Masters Santiago 2026,Sentinel,81,79,80
+Minny,M8,Vct 2026 Emea Kickoff,Controller,80,80,80
+Minny,M8,Vct 2026 Emea Kickoff,Sentinel,76,84,80
+Minny,M8,Vct 2026 Emea Stage 1,Controller,66,65,65
+Minny,M8,Vct 2026 Emea Stage 1,Initiator,83,78,81
+Minny,M8,Vct 2026 Emea Stage 1,Sentinel,77,89,83
+Minny,M8,Vct 2026 Emea Stage 2,Duelist,75,77,76
+monk,AT,Vct 2026 China Stage 2,Controller,77,76,77
+MONSTEERR,SGE,Vct 2026 Emea Stage 2,Duelist,81,81,81
+MONSTEERR,SGE,Vct 2026 Emea Stage 2,Sentinel,73,75,74
+Monyet,RRQ,Vct 2026 Pacific Kickoff,Controller,69,74,72
+Monyet,RRQ,Vct 2026 Pacific Kickoff,Duelist,75,71,73
+Monyet,RRQ,Vct 2026 Pacific Stage 1,Controller,78,79,79
+Monyet,RRQ,Vct 2026 Pacific Stage 1,Duelist,81,68,74
+Monyet,RRQ,Vct 2026 Pacific Stage 2,Controller,76,89,82
+MrFaliN,FUT,Vct 2026 Emea Kickoff,Controller,76,73,74
+MrFaliN,FUT,Vct 2026 Emea Kickoff,Initiator,75,68,72
+mta,KRÜ,Vct 2026 Americas Kickoff,Duelist,64,85,75
+mta,KRÜ,Vct 2026 Americas Kickoff,Initiator,79,71,75
+Munchkin,T1,Valorant Masters Santiago 2026,Controller,80,82,81
+Munchkin,T1,Vct 2026 Pacific Kickoff,Controller,84,78,81
+Munchkin,T1,Vct 2026 Pacific Stage 1,Controller,78,75,77
+Munchkin,T1,Vct 2026 Pacific Stage 2,Controller,72,80,76
+Munchkin,T1,Vct 2026 Pacific Stage 2,Initiator,69,83,76
+musashi,SGE,Vct 2026 Emea Stage 2,Initiator,68,81,75
+mwzera,KRÜ,Vct 2026 Americas Stage 1,Initiator,77,85,81
+mwzera,KRÜ,Vct 2026 Americas Stage 2,Initiator,75,72,74
+N4RRATE,KC,Vct 2026 Emea Stage 1,Initiator,82,80,81
+N4RRATE,KC,Vct 2026 Emea Stage 1,Sentinel,72,74,73
+N4RRATE,KC,Vct 2026 Emea Stage 2,Duelist,71,84,78
+N4RRATE,KC,Vct 2026 Emea Stage 2,Sentinel,82,80,81
+N4RRATE,SEN,Vct 2026 Americas Kickoff,Duelist,66,68,67
+N4RRATE,SEN,Vct 2026 Americas Kickoff,Sentinel,80,81,81
+NagZ,KRÜ,Vct 2026 Americas Kickoff,Controller,70,70,70
+NagZ,KRÜ,Vct 2026 Americas Kickoff,Sentinel,71,69,70
+nAts,TL,Valorant Masters Santiago 2026,Controller,73,69,71
+nAts,TL,Vct 2026 Emea Kickoff,Controller,83,79,81
+nAts,TL,Vct 2026 Emea Kickoff,Sentinel,73,70,71
+nAts,TL,Vct 2026 Emea Stage 1,Controller,75,85,80
+nAts,TL,Vct 2026 Emea Stage 1,Sentinel,71,77,74
+nAts,TL,Vct 2026 Emea Stage 2,Controller,80,79,79
+nAts,TL,Vct 2026 Emea Stage 2,Sentinel,70,81,76
+natz,TS,Vct 2026 Pacific Stage 2,Controller,84,73,79
+natz,TS,Vct 2026 Pacific Stage 2,Duelist,71,78,75
+natz,TS,Vct 2026 Pacific Stage 2,Sentinel,69,72,70
+nekky,EF,Vct 2026 Emea Stage 1,Initiator,79,74,77
+nekky,EF,Vct 2026 Emea Stage 1,Sentinel,72,76,74
+nekky,EF,Vct 2026 Emea Stage 2,Initiator,78,63,71
+nekky,ULF,Vct 2026 Emea Kickoff,Initiator,80,67,73
+Neon,LEV,Valorant Masters London 2026,Controller,83,83,83
+Neon,LEV,Valorant Masters London 2026,Duelist,91,88,90
+Neon,LEV,Valorant Masters London 2026,Sentinel,76,84,80
+Neon,LEV,Vct 2026 Americas Kickoff,Duelist,79,84,81
+Neon,LEV,Vct 2026 Americas Kickoff,Sentinel,73,70,72
+Neon,LEV,Vct 2026 Americas Stage 1,Controller,89,87,88
+Neon,LEV,Vct 2026 Americas Stage 1,Duelist,80,80,80
+Neon,LEV,Vct 2026 Americas Stage 1,Sentinel,86,80,83
+Neon,LEV,Vct 2026 Americas Stage 2,Controller,85,81,83
+Neon,LEV,Vct 2026 Americas Stage 2,Duelist,75,78,77
+Neon,LEV,Vct 2026 Americas Stage 2,Sentinel,83,74,78
+nephh,BLG,Vct 2026 China Kickoff,Controller,82,73,77
+nephh,BLG,Vct 2026 China Kickoff,Initiator,85,78,82
+nephh,BLG,Vct 2026 China Stage 1,Controller,83,81,82
+nephh,BLG,Vct 2026 China Stage 1,Initiator,80,77,78
+nephh,BLG,Vct 2026 China Stage 2,Controller,73,80,77
+nephh,BLG,Vct 2026 China Stage 2,Initiator,71,85,78
+nerve,FUR,Valorant Masters Santiago 2026,Controller,73,68,70
+nerve,FUR,Valorant Masters Santiago 2026,Initiator,75,71,73
+nerve,FUR,Vct 2026 Americas Kickoff,Controller,67,78,72
+nerve,FUR,Vct 2026 Americas Kickoff,Initiator,79,75,77
+nerve,FUR,Vct 2026 Americas Stage 1,Controller,72,74,73
+neT,GX,Vct 2026 Emea Stage 2,Initiator,80,77,79
+Nicc,DRG,Valorant Masters London 2026,Initiator,69,79,74
+Nicc,DRG,Vct 2026 China Kickoff,Initiator,67,77,72
+Nicc,DRG,Vct 2026 China Stage 1,Initiator,83,78,80
+Nicc,DRG,Vct 2026 China Stage 2,Initiator,84,73,78
+nightz,ENVY,Vct 2026 Americas Stage 2,Controller,68,86,77
+nightz,ENVY,Vct 2026 Americas Stage 2,Duelist,74,73,74
+NINJA,PCF,Vct 2026 Emea Kickoff,Initiator,76,70,73
+NINJA,PCF,Vct 2026 Emea Stage 1,Initiator,81,63,72
+NINJA,PCF,Vct 2026 Emea Stage 2,Duelist,69,68,68
+NINJA,PCF,Vct 2026 Emea Stage 2,Sentinel,72,80,76
+nobody,EDG,Valorant Masters London 2026,Initiator,69,83,76
+nobody,EDG,Valorant Masters Santiago 2026,Initiator,64,67,65
+nobody,EDG,Vct 2026 China Kickoff,Initiator,66,68,67
+nobody,EDG,Vct 2026 China Stage 1,Initiator,78,74,76
+nobody,EDG,Vct 2026 China Stage 2,Initiator,68,77,72
+NoMan,XLG,Valorant Masters London 2026,Duelist,76,61,69
+NoMan,XLG,Valorant Masters London 2026,Initiator,74,77,76
+NoMan,XLG,Valorant Masters London 2026,Sentinel,69,66,68
+NoMan,XLG,Valorant Masters Santiago 2026,Duelist,70,72,71
+NoMan,XLG,Valorant Masters Santiago 2026,Sentinel,70,67,69
+NoMan,XLG,Vct 2026 China Kickoff,Duelist,69,75,72
+NoMan,XLG,Vct 2026 China Kickoff,Sentinel,68,66,67
+NoMan,XLG,Vct 2026 China Stage 1,Duelist,63,66,65
+NoMan,XLG,Vct 2026 China Stage 1,Initiator,78,79,78
+NoMan,XLG,Vct 2026 China Stage 1,Sentinel,84,74,79
+NoMan,XLG,Vct 2026 China Stage 2,Duelist,68,61,64
+NoMan,XLG,Vct 2026 China Stage 2,Sentinel,76,77,77
+Notexxd,C9,Vct 2026 Americas Stage 1,Controller,80,82,81
+OBONE,NOVA,Vct 2026 China Kickoff,Controller,77,70,74
+Okeanos,EG,Vct 2026 Americas Kickoff,Controller,75,76,75
+Okeanos,EG,Vct 2026 Americas Kickoff,Duelist,71,68,70
+Okeanos,EG,Vct 2026 Americas Kickoff,Initiator,73,75,74
+Okeanos,EG,Vct 2026 Americas Stage 1,Controller,70,68,69
+Okeanos,EG,Vct 2026 Americas Stage 1,Duelist,78,69,74
+Okeanos,EG,Vct 2026 Americas Stage 1,Initiator,79,74,76
+oonzmlp,VL,Vct 2026 Pacific Kickoff,Controller,67,72,70
+oonzmlp,VL,Vct 2026 Pacific Kickoff,Duelist,69,78,73
+oonzmlp,VL,Vct 2026 Pacific Stage 1,Controller,79,79,79
+oonzmlp,VL,Vct 2026 Pacific Stage 1,Duelist,75,80,78
+oonzmlp,VL,Vct 2026 Pacific Stage 1,Initiator,84,79,81
+oonzmlp,VL,Vct 2026 Pacific Stage 1,Sentinel,83,79,81
+oonzmlp,VL,Vct 2026 Pacific Stage 2,Controller,81,76,79
+oonzmlp,VL,Vct 2026 Pacific Stage 2,Duelist,69,72,70
+oonzmlp,VL,Vct 2026 Pacific Stage 2,Sentinel,71,87,79
+OXY,C9,Vct 2026 Americas Kickoff,Duelist,75,85,80
+OXY,C9,Vct 2026 Americas Kickoff,Sentinel,73,84,79
+OXY,C9,Vct 2026 Americas Stage 1,Duelist,80,87,83
+OXY,C9,Vct 2026 Americas Stage 2,Duelist,82,91,86
+P0PPIN,ENVY,Vct 2026 Americas Kickoff,Initiator,69,79,74
+P0PPIN,ENVY,Vct 2026 Americas Stage 1,Initiator,72,72,72
+Pa1ze,JL,Vct 2026 Emea Stage 2,Duelist,75,85,80
+Paincakes,EG,Vct 2026 Americas Stage 1,Initiator,82,71,76
+Paincakes,EG,Vct 2026 Americas Stage 2,Initiator,68,82,75
+pANcada,LOUD,Vct 2026 Americas Kickoff,Controller,74,72,73
+paTiTek,EP,Vct 2026 Emea Stage 2,Controller,82,76,79
+PatMen,GE,Valorant Masters London 2026,Controller,83,66,74
+PatMen,GE,Valorant Masters London 2026,Duelist,69,70,70
+PatMen,GE,Valorant Masters London 2026,Initiator,76,66,71
+PatMen,GE,Vct 2026 Pacific Kickoff,Controller,84,86,85
+PatMen,GE,Vct 2026 Pacific Kickoff,Duelist,76,76,76
+PatMen,GE,Vct 2026 Pacific Kickoff,Initiator,75,79,77
+PatMen,GE,Vct 2026 Pacific Kickoff,Sentinel,71,82,77
+PatMen,GE,Vct 2026 Pacific Stage 1,Controller,79,74,77
+PatMen,GE,Vct 2026 Pacific Stage 1,Initiator,84,85,85
+PatMen,GE,Vct 2026 Pacific Stage 2,Controller,83,83,83
+PatMen,GE,Vct 2026 Pacific Stage 2,Initiator,79,83,81
+penny,C9,Vct 2026 Americas Kickoff,Controller,83,75,79
+penny,C9,Vct 2026 Americas Kickoff,Duelist,70,68,69
+penny,C9,Vct 2026 Americas Kickoff,Sentinel,86,73,80
+penny,C9,Vct 2026 Americas Stage 1,Controller,67,84,76
+penny,C9,Vct 2026 Americas Stage 1,Duelist,81,81,81
+penny,C9,Vct 2026 Americas Stage 1,Sentinel,76,67,72
+primmie,FS,Valorant Masters London 2026,Duelist,78,89,84
+primmie,FS,Vct 2026 Pacific Kickoff,Duelist,90,76,83
+primmie,FS,Vct 2026 Pacific Stage 1,Duelist,93,89,91
+primmie,FS,Vct 2026 Pacific Stage 2,Duelist,89,78,83
+primmie,FS,Vct 2026 Pacific Stage 2,Sentinel,80,77,79
+PROFEK,VIT,Valorant Masters London 2026,Controller,85,73,79
+PROFEK,VIT,Vct 2026 Emea Kickoff,Controller,66,83,74
+PROFEK,VIT,Vct 2026 Emea Stage 1,Controller,83,73,78
+PROFEK,VIT,Vct 2026 Emea Stage 2,Controller,74,80,77
+Proxh,M8,Vct 2026 Emea Stage 2,Controller,79,76,77
+purp0,TL,Valorant Masters Santiago 2026,Initiator,68,78,73
+purp0,TL,Vct 2026 Emea Kickoff,Duelist,69,71,70
+purp0,TL,Vct 2026 Emea Kickoff,Initiator,82,66,74
+purp0,TL,Vct 2026 Emea Stage 1,Initiator,80,74,77
+purp0,TL,Vct 2026 Emea Stage 2,Duelist,81,85,83
+purp0,TL,Vct 2026 Emea Stage 2,Sentinel,71,73,72
+PxS,LEV,Vct 2026 Americas Kickoff,Controller,72,71,71
+PxS,LEV,Vct 2026 Americas Kickoff,Sentinel,77,72,75
+qiutiaN,NOVA,Vct 2026 China Stage 1,Controller,75,79,77
+qiutiaN,NOVA,Vct 2026 China Stage 1,Initiator,75,78,77
+qiutiaN,NOVA,Vct 2026 China Stage 2,Initiator,83,74,78
+qiutiaN,NOVA,Vct 2026 China Stage 2,Sentinel,74,75,74
+qiutiaN,WOL,Vct 2026 China Kickoff,Controller,82,83,82
+qiutiaN,WOL,Vct 2026 China Kickoff,Duelist,66,71,69
+qiutiaN,WOL,Vct 2026 China Kickoff,Sentinel,90,70,80
+qpert,PCF,Vct 2026 Emea Kickoff,Controller,65,72,69
+qpert,PCF,Vct 2026 Emea Stage 1,Controller,78,69,73
+qpert,PCF,Vct 2026 Emea Stage 2,Controller,67,78,72
+ra1ny,TEC,Vct 2026 China Stage 2,Duelist,81,83,82
+Rarga,XLG,Valorant Masters London 2026,Duelist,69,71,70
+Rarga,XLG,Valorant Masters London 2026,Sentinel,75,82,78
+Rarga,XLG,Valorant Masters Santiago 2026,Duelist,77,71,74
+Rarga,XLG,Vct 2026 China Kickoff,Duelist,89,72,80
+Rarga,XLG,Vct 2026 China Stage 1,Duelist,80,75,77
+Rarga,XLG,Vct 2026 China Stage 1,Sentinel,83,84,83
+Rarga,XLG,Vct 2026 China Stage 2,Duelist,85,79,82
+Rarga,XLG,Vct 2026 China Stage 2,Sentinel,75,83,79
+Raxcal,GEN,Vct 2026 Pacific Stage 2,Duelist,89,70,80
+Raxcal,GEN,Vct 2026 Pacific Stage 2,Sentinel,85,72,79
+Rb,NS,Valorant Masters Santiago 2026,Controller,74,78,76
+Rb,NS,Vct 2026 Pacific Kickoff,Controller,84,72,78
+Rb,NS,Vct 2026 Pacific Stage 1,Controller,76,68,72
+Rb,NS,Vct 2026 Pacific Stage 2,Controller,82,81,81
+Rb,NS,Vct 2026 Pacific Stage 2,Duelist,82,76,79
+reazy,FF,Vct 2026 Emea Stage 2,Controller,78,76,77
+Reduxx,SEN,Vct 2026 Americas Kickoff,Controller,72,74,73
+Reduxx,SEN,Vct 2026 Americas Kickoff,Duelist,74,79,77
+Reduxx,SEN,Vct 2026 Americas Stage 1,Controller,83,80,81
+Reduxx,SEN,Vct 2026 Americas Stage 1,Duelist,84,68,76
+Reduxx,SEN,Vct 2026 Americas Stage 2,Controller,82,84,83
+Reduxx,SEN,Vct 2026 Americas Stage 2,Duelist,75,72,74
+RieNs,TH,Valorant Masters London 2026,Initiator,72,65,68
+RieNs,TH,Vct 2026 Emea Kickoff,Initiator,73,78,76
+RieNs,TH,Vct 2026 Emea Stage 1,Initiator,87,79,83
+RieNs,TH,Vct 2026 Emea Stage 2,Controller,80,75,77
+RieNs,TH,Vct 2026 Emea Stage 2,Initiator,84,91,88
+Rimuru,TS,Vct 2026 Pacific Stage 1,Duelist,71,76,73
+Rossy,ENVY,Vct 2026 Americas Kickoff,Controller,71,80,76
+Rossy,ENVY,Vct 2026 Americas Kickoff,Sentinel,69,78,73
+Rossy,ENVY,Vct 2026 Americas Stage 1,Controller,84,81,83
+Rossy,ENVY,Vct 2026 Americas Stage 1,Initiator,70,73,72
+Rossy,ENVY,Vct 2026 Americas Stage 1,Sentinel,77,70,74
+Rossy,ENVY,Vct 2026 Americas Stage 2,Controller,70,86,78
+Rossy,ENVY,Vct 2026 Americas Stage 2,Initiator,80,79,80
+Rossy,ENVY,Vct 2026 Americas Stage 2,Sentinel,75,69,72
+Rosé,BBL,Valorant Masters Santiago 2026,Initiator,67,68,68
+Rosé,BBL,Vct 2026 Emea Kickoff,Initiator,69,73,71
+Rosé,BBL,Vct 2026 Emea Stage 1,Initiator,65,69,67
+Rosé,BBL,Vct 2026 Emea Stage 2,Initiator,69,78,73
+runneR,JL,Vct 2026 Emea Stage 2,Duelist,82,80,81
+runneR,JL,Vct 2026 Emea Stage 2,Initiator,80,83,81
+rushia,BLG,Vct 2026 China Kickoff,Controller,81,76,78
+rushia,BLG,Vct 2026 China Kickoff,Sentinel,66,72,69
+rushia,BLG,Vct 2026 China Stage 1,Controller,85,76,81
+rushia,BLG,Vct 2026 China Stage 1,Sentinel,81,74,78
+rushia,BLG,Vct 2026 China Stage 2,Controller,74,72,73
+rushia,BLG,Vct 2026 China Stage 2,Duelist,72,73,73
+rushia,BLG,Vct 2026 China Stage 2,Sentinel,71,77,74
+Ruxic,NAVI,Vct 2026 Emea Kickoff,Controller,76,71,74
+Ruxic,NAVI,Vct 2026 Emea Kickoff,Sentinel,77,83,80
+Ruxic,NAVI,Vct 2026 Emea Stage 1,Controller,86,85,85
+Ruxic,NAVI,Vct 2026 Emea Stage 2,Controller,85,81,83
+Ruxic,NAVI,Vct 2026 Emea Stage 2,Duelist,74,71,72
+s0pp,FUT,Valorant Masters London 2026,Duelist,79,86,83
+s0pp,FUT,Valorant Masters London 2026,Sentinel,76,88,82
+s0pp,FUT,Vct 2026 Emea Stage 1,Duelist,89,81,85
+s0pp,FUT,Vct 2026 Emea Stage 2,Duelist,71,82,77
+saadhak,KRÜ,Vct 2026 Americas Stage 1,Controller,79,87,83
+saadhak,KRÜ,Vct 2026 Americas Stage 2,Controller,67,61,64
+Sato,LEV,Valorant Masters London 2026,Controller,72,75,73
+Sato,LEV,Valorant Masters London 2026,Duelist,81,81,81
+Sato,LEV,Vct 2026 Americas Kickoff,Duelist,61,84,72
+Sato,LEV,Vct 2026 Americas Stage 1,Controller,73,75,74
+Sato,LEV,Vct 2026 Americas Stage 1,Duelist,78,89,83
+Sato,LEV,Vct 2026 Americas Stage 2,Controller,76,72,74
+Sato,LEV,Vct 2026 Americas Stage 2,Duelist,84,86,85
+Sayonara,VIT,Valorant Masters London 2026,Controller,81,85,83
+Sayonara,VIT,Valorant Masters London 2026,Duelist,65,75,70
+Sayonara,VIT,Valorant Masters London 2026,Initiator,74,71,73
+Sayonara,VIT,Vct 2026 Emea Stage 1,Controller,83,70,77
+Sayonara,VIT,Vct 2026 Emea Stage 1,Duelist,77,76,77
+Sayonara,VIT,Vct 2026 Emea Stage 1,Initiator,79,85,82
+Sayonara,VIT,Vct 2026 Emea Stage 2,Controller,73,76,74
+Sayonara,VIT,Vct 2026 Emea Stage 2,Initiator,85,83,84
+Scales,TYL,Vct 2026 China Kickoff,Controller,80,73,76
+Scales,TYL,Vct 2026 China Kickoff,Sentinel,69,65,67
+Scales,TYL,Vct 2026 China Stage 1,Controller,79,80,79
+Scales,TYL,Vct 2026 China Stage 1,Sentinel,78,73,76
+Scales,TYL,Vct 2026 China Stage 2,Controller,84,66,75
+Scales,TYL,Vct 2026 China Stage 2,Sentinel,88,81,85
+seph1roth,FS,Vct 2026 Pacific Stage 2,Controller,76,73,74
+seph1roth,FS,Vct 2026 Pacific Stage 2,Duelist,71,78,74
+seph1roth,FS,Vct 2026 Pacific Stage 2,Sentinel,66,82,74
+Septem7,AG,Vct 2026 China Stage 1,Controller,71,78,74
+Septem7,AG,Vct 2026 China Stage 1,Initiator,78,77,78
+Setrod,FPX,Vct 2026 China Kickoff,Controller,80,71,76
+Setrod,FPX,Vct 2026 China Kickoff,Duelist,71,76,74
+Setrod,FPX,Vct 2026 China Kickoff,Initiator,74,74,74
+Setrod,FPX,Vct 2026 China Stage 1,Duelist,73,67,70
+Setrod,FPX,Vct 2026 China Stage 2,Duelist,80,76,78
+Setrod,FPX,Vct 2026 China Stage 2,Sentinel,76,81,79
+seven,PCF,Vct 2026 Emea Kickoff,Duelist,79,79,79
+seven,PCF,Vct 2026 Emea Kickoff,Initiator,81,86,83
+seven,PCF,Vct 2026 Emea Kickoff,Sentinel,66,82,74
+seven,PCF,Vct 2026 Emea Stage 1,Duelist,73,75,74
+seven,PCF,Vct 2026 Emea Stage 1,Initiator,84,81,82
+seven,PCF,Vct 2026 Emea Stage 1,Sentinel,78,65,71
+seven,PCF,Vct 2026 Emea Stage 2,Duelist,67,74,70
+Shao,NAVI,Vct 2026 Emea Kickoff,Controller,66,68,67
+Shao,NAVI,Vct 2026 Emea Kickoff,Initiator,69,75,72
+Sharks,XLG,Vct 2026 China Stage 2,Duelist,66,77,72
+sheydos,KC,Vct 2026 Emea Kickoff,Initiator,65,77,71
+Shr1mp,AG,Valorant Masters Santiago 2026,Initiator,77,67,72
+Shr1mp,AG,Vct 2026 China Kickoff,Initiator,77,76,76
+Shr1mp,AG,Vct 2026 China Stage 1,Initiator,77,77,77
+Shr1mp,AG,Vct 2026 China Stage 2,Initiator,75,78,76
+Shyy,FUR,Vct 2026 Americas Stage 2,Controller,74,69,72
+Shyy,FUR,Vct 2026 Americas Stage 2,Sentinel,75,77,76
+sibeastw0w,KBG,Vct 2026 China Stage 2,Initiator,80,75,78
+silentzz,KRÜ,Vct 2026 Americas Stage 1,Duelist,70,71,71
+silentzz,KRÜ,Vct 2026 Americas Stage 1,Initiator,72,73,72
+silentzz,KRÜ,Vct 2026 Americas Stage 1,Sentinel,77,73,75
+SiuFatBB,TYL,Vct 2026 China Stage 2,Initiator,81,69,75
+SiuFatBB,WOL,Vct 2026 China Kickoff,Initiator,69,70,70
+SiuFatBB,WOL,Vct 2026 China Stage 1,Initiator,68,68,68
+skuba,NRG,Valorant Masters London 2026,Controller,79,65,72
+skuba,NRG,Valorant Masters London 2026,Sentinel,77,84,80
+skuba,NRG,Valorant Masters Santiago 2026,Controller,80,77,79
+skuba,NRG,Valorant Masters Santiago 2026,Sentinel,75,84,79
+skuba,NRG,Vct 2026 Americas Kickoff,Controller,74,78,76
+skuba,NRG,Vct 2026 Americas Kickoff,Sentinel,74,81,78
+skuba,NRG,Vct 2026 Americas Stage 1,Controller,75,68,72
+skuba,NRG,Vct 2026 Americas Stage 1,Sentinel,69,79,74
+skuba,NRG,Vct 2026 Americas Stage 2,Controller,88,71,80
+skuba,NRG,Vct 2026 Americas Stage 2,Sentinel,79,83,81
+skye,TS,Vct 2026 Pacific Stage 2,Sentinel,83,67,75
+slowly,TYL,Vct 2026 China Kickoff,Duelist,75,77,76
+slowly,TYL,Vct 2026 China Kickoff,Initiator,78,74,76
+slowly,TYL,Vct 2026 China Kickoff,Sentinel,71,65,68
+slowly,TYL,Vct 2026 China Stage 1,Controller,87,80,84
+slowly,TYL,Vct 2026 China Stage 1,Sentinel,84,68,76
+slowly,TYL,Vct 2026 China Stage 2,Controller,82,84,83
+slowly,TYL,Vct 2026 China Stage 2,Duelist,85,70,78
+slowly,TYL,Vct 2026 China Stage 2,Sentinel,87,80,84
+Smoggy,EDG,Valorant Masters London 2026,Controller,65,78,72
+Smoggy,EDG,Valorant Masters London 2026,Duelist,80,74,77
+Smoggy,EDG,Valorant Masters Santiago 2026,Controller,67,71,69
+Smoggy,EDG,Vct 2026 China Kickoff,Controller,77,74,76
+Smoggy,EDG,Vct 2026 China Stage 1,Controller,84,88,86
+Smoggy,EDG,Vct 2026 China Stage 1,Duelist,85,78,82
+Smoggy,EDG,Vct 2026 China Stage 2,Controller,81,72,77
+Smoggy,EDG,Vct 2026 China Stage 2,Duelist,82,74,78
+sociablEE,FUT,Valorant Masters London 2026,Controller,80,84,82
+sociablEE,FUT,Valorant Masters London 2026,Initiator,71,67,69
+sociablEE,FUT,Vct 2026 Emea Stage 1,Controller,76,84,80
+sociablEE,FUT,Vct 2026 Emea Stage 2,Controller,83,81,82
+sociablEE,FUT,Vct 2026 Emea Stage 2,Duelist,77,75,76
+sociablEE,NAVI,Vct 2026 Emea Kickoff,Controller,76,72,74
+sociablEE,NAVI,Vct 2026 Emea Kickoff,Duelist,77,71,74
+sociablEE,NAVI,Vct 2026 Emea Kickoff,Initiator,70,82,76
+something,PRX,Valorant Masters London 2026,Controller,87,76,82
+something,PRX,Valorant Masters London 2026,Duelist,71,88,80
+something,PRX,Valorant Masters Santiago 2026,Duelist,69,75,72
+something,PRX,Valorant Masters Santiago 2026,Initiator,76,75,75
+something,PRX,Vct 2026 Pacific Kickoff,Duelist,66,71,68
+something,PRX,Vct 2026 Pacific Kickoff,Sentinel,75,69,72
+something,PRX,Vct 2026 Pacific Stage 1,Controller,73,74,74
+something,PRX,Vct 2026 Pacific Stage 1,Duelist,84,90,87
+something,PRX,Vct 2026 Pacific Stage 2,Controller,80,80,80
+something,PRX,Vct 2026 Pacific Stage 2,Duelist,78,85,82
+something,PRX,Vct 2026 Pacific Stage 2,Initiator,83,76,80
+something,PRX,Vct 2026 Pacific Stage 2,Sentinel,83,86,84
+Spear,EF,Vct 2026 Emea Stage 2,Duelist,75,76,75
+Spear,EF,Vct 2026 Emea Stage 2,Sentinel,82,74,78
+spike,LEV,Valorant Masters London 2026,Controller,91,83,87
+spike,LEV,Valorant Masters London 2026,Duelist,83,90,86
+spike,LEV,Vct 2026 Americas Kickoff,Controller,70,83,77
+spike,LEV,Vct 2026 Americas Kickoff,Duelist,69,69,69
+spike,LEV,Vct 2026 Americas Kickoff,Initiator,77,80,78
+spike,LEV,Vct 2026 Americas Stage 1,Controller,81,81,81
+spike,LEV,Vct 2026 Americas Stage 1,Duelist,86,83,84
+spike,LEV,Vct 2026 Americas Stage 2,Duelist,68,89,79
+SpiritZ1,DRG,Valorant Masters London 2026,Duelist,71,67,69
+SpiritZ1,DRG,Vct 2026 China Kickoff,Duelist,72,73,72
+SpiritZ1,DRG,Vct 2026 China Stage 1,Duelist,82,77,79
+SpiritZ1,DRG,Vct 2026 China Stage 2,Duelist,84,66,75
+Spitfires,TEC,Vct 2026 China Stage 1,Duelist,74,69,71
+Spitfires,TEC,Vct 2026 China Stage 2,Duelist,64,71,67
+Spitfires,TEC,Vct 2026 China Stage 2,Sentinel,77,69,73
+splash,TYL,Vct 2026 China Kickoff,Duelist,89,77,83
+splash,TYL,Vct 2026 China Stage 1,Duelist,87,79,83
+splash,TYL,Vct 2026 China Stage 2,Duelist,79,80,79
+Spring,WOL,Vct 2026 China Kickoff,Controller,71,72,72
+Spring,WOL,Vct 2026 China Kickoff,Duelist,64,67,65
+Spring,WOL,Vct 2026 China Stage 1,Controller,77,81,79
+Spring,WOL,Vct 2026 China Stage 1,Duelist,77,73,75
+Spring,WOL,Vct 2026 China Stage 2,Controller,83,82,82
+sScary,FPX,Vct 2026 China Kickoff,Controller,77,71,74
+SSeeS,DFM,Vct 2026 Pacific Kickoff,Controller,72,72,72
+SSeeS,DFM,Vct 2026 Pacific Stage 1,Controller,78,72,75
+SSeeS,DFM,Vct 2026 Pacific Stage 1,Initiator,79,74,76
+SSeeS,DFM,Vct 2026 Pacific Stage 2,Controller,79,73,76
+SSeeS,DFM,Vct 2026 Pacific Stage 2,Sentinel,70,72,71
+starxo,M8,Valorant Masters Santiago 2026,Initiator,77,76,76
+starxo,M8,Vct 2026 Emea Kickoff,Initiator,69,77,73
+starxo,M8,Vct 2026 Emea Stage 1,Initiator,72,83,77
+starxo,M8,Vct 2026 Emea Stage 2,Initiator,67,72,70
+stax,T1,Valorant Masters Santiago 2026,Initiator,73,74,73
+stax,T1,Vct 2026 Pacific Kickoff,Initiator,74,68,71
+stax,T1,Vct 2026 Pacific Stage 1,Initiator,79,81,80
+stew,JDG,Vct 2026 China Kickoff,Duelist,80,72,76
+stew,JDG,Vct 2026 China Stage 1,Controller,86,85,85
+stew,JDG,Vct 2026 China Stage 1,Duelist,69,78,74
+stew,JDG,Vct 2026 China Stage 1,Sentinel,68,69,69
+sturNN,ULF,Vct 2026 Emea Kickoff,Controller,69,69,69
+sturNN,ULF,Vct 2026 Emea Kickoff,Initiator,75,77,76
+sturNN,ULF,Vct 2026 Emea Kickoff,Sentinel,70,64,67
+STYRON,TS,Vct 2026 Pacific Stage 2,Initiator,75,79,77
+SugarZ3ro,ZETA,Vct 2026 Pacific Kickoff,Controller,82,79,81
+SugarZ3ro,ZETA,Vct 2026 Pacific Stage 1,Controller,72,73,73
+SugarZ3ro,ZETA,Vct 2026 Pacific Stage 2,Controller,78,71,74
+supamen,EG,Vct 2026 Americas Kickoff,Controller,75,80,78
+supamen,EG,Vct 2026 Americas Stage 1,Controller,68,73,71
+supamen,EG,Vct 2026 Americas Stage 2,Controller,76,74,75
+SUYGETSU,KC,Vct 2026 Emea Kickoff,Controller,77,72,75
+SUYGETSU,KC,Vct 2026 Emea Kickoff,Sentinel,81,74,77
+SUYGETSU,KC,Vct 2026 Emea Stage 1,Controller,74,73,74
+SUYGETSU,KC,Vct 2026 Emea Stage 1,Sentinel,75,72,73
+SUYGETSU,KC,Vct 2026 Emea Stage 2,Controller,73,72,72
+SUYGETSU,KC,Vct 2026 Emea Stage 2,Sentinel,76,74,75
+swagzor,NOVA,Vct 2026 China Stage 1,Duelist,81,76,78
+swagzor,NOVA,Vct 2026 China Stage 1,Sentinel,72,74,73
+swagzor,NOVA,Vct 2026 China Stage 2,Duelist,86,85,85
+sword9,TYL,Vct 2026 China Kickoff,Initiator,67,70,68
+sword9,TYL,Vct 2026 China Stage 1,Initiator,71,66,68
+Sylvan,TS,Vct 2026 Pacific Kickoff,Controller,72,66,69
+Sylvan,TS,Vct 2026 Pacific Stage 1,Controller,82,85,83
+Sylvan,TS,Vct 2026 Pacific Stage 2,Controller,79,70,75
+Sylvan,TS,Vct 2026 Pacific Stage 2,Sentinel,78,78,78
+SyouTa,ZETA,Vct 2026 Pacific Kickoff,Controller,66,69,67
+SyouTa,ZETA,Vct 2026 Pacific Kickoff,Sentinel,73,66,70
+SyouTa,ZETA,Vct 2026 Pacific Stage 1,Controller,72,81,77
+SyouTa,ZETA,Vct 2026 Pacific Stage 1,Duelist,82,73,77
+SyouTa,ZETA,Vct 2026 Pacific Stage 1,Sentinel,77,67,72
+SyouTa,ZETA,Vct 2026 Pacific Stage 2,Controller,79,80,79
+SyouTa,ZETA,Vct 2026 Pacific Stage 2,Sentinel,83,73,78
+t3xture,GEN,Vct 2026 Pacific Kickoff,Duelist,75,81,78
+t3xture,GEN,Vct 2026 Pacific Stage 1,Duelist,76,90,83
+t3xture,GEN,Vct 2026 Pacific Stage 1,Sentinel,82,80,81
+t3xture,GEN,Vct 2026 Pacific Stage 2,Duelist,85,76,80
+t3xture,GEN,Vct 2026 Pacific Stage 2,Sentinel,88,74,81
+TenTen,TS,Vct 2026 Pacific Kickoff,Duelist,69,69,69
+tex,MIBR,Vct 2026 Americas Kickoff,Controller,69,70,70
+tex,MIBR,Vct 2026 Americas Kickoff,Sentinel,65,76,70
+tex,MIBR,Vct 2026 Americas Stage 1,Controller,79,68,74
+tex,MIBR,Vct 2026 Americas Stage 1,Sentinel,69,72,71
+tex,MIBR,Vct 2026 Americas Stage 2,Sentinel,75,79,77
+thyy,FS,Vct 2026 Pacific Kickoff,Duelist,63,79,71
+Timotino,100T,Vct 2026 Americas Kickoff,Duelist,82,80,81
+Timotino,100T,Vct 2026 Americas Stage 1,Duelist,86,81,83
+Timotino,100T,Vct 2026 Americas Stage 2,Duelist,78,89,83
+tkzin,LOUD,Vct 2026 Americas Stage 2,Duelist,86,82,84
+Tonk,KBG,Vct 2026 China Stage 2,Sentinel,78,73,76
+trent,G2,Valorant Masters London 2026,Initiator,86,80,83
+trent,G2,Valorant Masters Santiago 2026,Initiator,73,86,80
+trent,G2,Vct 2026 Americas Kickoff,Initiator,76,86,81
+trent,G2,Vct 2026 Americas Stage 1,Initiator,81,86,83
+trent,G2,Vct 2026 Americas Stage 2,Initiator,80,81,80
+trexx,TL,Vct 2026 Emea Stage 2,Controller,77,73,75
+trexx,TL,Vct 2026 Emea Stage 2,Initiator,87,85,86
+UdoTan,GE,Valorant Masters London 2026,Duelist,78,79,78
+UdoTan,GE,Valorant Masters London 2026,Sentinel,82,77,79
+UdoTan,GE,Vct 2026 Pacific Kickoff,Duelist,71,72,71
+UdoTan,GE,Vct 2026 Pacific Kickoff,Sentinel,76,81,79
+UdoTan,GE,Vct 2026 Pacific Stage 1,Duelist,74,80,77
+UdoTan,GE,Vct 2026 Pacific Stage 1,Sentinel,75,79,77
+UdoTan,GE,Vct 2026 Pacific Stage 2,Duelist,75,89,82
+UNFAKE,JL,Vct 2026 Emea Stage 2,Initiator,85,68,76
+UNFAKE,VIT,Vct 2026 Emea Kickoff,Initiator,63,69,66
+UNFAKE,VIT,Vct 2026 Emea Kickoff,Sentinel,69,75,72
+v1c,C9,Vct 2026 Americas Kickoff,Controller,81,80,80
+v1c,C9,Vct 2026 Americas Stage 1,Controller,80,77,78
+v1c,C9,Vct 2026 Americas Stage 2,Controller,82,81,81
+valyn,G2,Valorant Masters London 2026,Controller,81,66,74
+valyn,G2,Valorant Masters Santiago 2026,Controller,73,84,78
+valyn,G2,Vct 2026 Americas Kickoff,Controller,85,87,86
+valyn,G2,Vct 2026 Americas Stage 1,Controller,84,79,81
+valyn,G2,Vct 2026 Americas Stage 2,Controller,74,77,76
+Veqaj,FNC,Vct 2026 Emea Kickoff,Controller,79,77,78
+Veqaj,FNC,Vct 2026 Emea Kickoff,Duelist,75,75,75
+Veqaj,FNC,Vct 2026 Emea Kickoff,Initiator,87,90,89
+Veqaj,FNC,Vct 2026 Emea Stage 1,Controller,85,75,80
+Veqaj,FNC,Vct 2026 Emea Stage 1,Initiator,78,80,79
+Verno,MIBR,Vct 2026 Americas Kickoff,Initiator,82,84,83
+Verno,MIBR,Vct 2026 Americas Stage 1,Initiator,80,76,78
+Verno,MIBR,Vct 2026 Americas Stage 1,Sentinel,74,72,73
+Verno,MIBR,Vct 2026 Americas Stage 2,Initiator,84,86,85
+Verse,DRG,Vct 2026 China Stage 2,Controller,80,73,76
+Victor,SEN,Vct 2026 Americas Stage 1,Duelist,73,80,76
+Virtyy,LOUD,Vct 2026 Americas Kickoff,Duelist,63,75,69
+Virtyy,LOUD,Vct 2026 Americas Stage 1,Duelist,68,67,68
+Viva,TE,Vct 2026 China Kickoff,Initiator,75,73,74
+Viva,TE,Vct 2026 China Stage 1,Initiator,69,74,72
+vo0kashu,DRG,Valorant Masters London 2026,Controller,73,79,76
+vo0kashu,DRG,Valorant Masters London 2026,Sentinel,88,87,88
+vo0kashu,DRG,Vct 2026 China Kickoff,Sentinel,79,75,77
+vo0kashu,DRG,Vct 2026 China Stage 1,Controller,77,75,76
+vo0kashu,DRG,Vct 2026 China Stage 1,Sentinel,86,79,83
+vo0kashu,DRG,Vct 2026 China Stage 2,Controller,81,88,84
+vo0kashu,DRG,Vct 2026 China Stage 2,Sentinel,84,80,82
+vora,100T,Vct 2026 Americas Kickoff,Initiator,83,77,80
+vora,100T,Vct 2026 Americas Stage 1,Initiator,72,78,75
+vora,100T,Vct 2026 Americas Stage 2,Initiator,74,83,78
+waddle,PCF,Vct 2026 Emea Stage 2,Initiator,66,76,71
+wayne,TL,Valorant Masters Santiago 2026,Controller,79,65,72
+wayne,TL,Vct 2026 Emea Kickoff,Controller,77,86,81
+wayne,TL,Vct 2026 Emea Kickoff,Sentinel,75,80,77
+wayne,TL,Vct 2026 Emea Stage 1,Controller,72,79,76
+westside,GX,Vct 2026 Emea Kickoff,Controller,71,76,74
+westside,GX,Vct 2026 Emea Kickoff,Sentinel,72,73,73
+westside,GX,Vct 2026 Emea Stage 1,Controller,73,74,74
+westside,GX,Vct 2026 Emea Stage 1,Duelist,74,76,75
+westside,GX,Vct 2026 Emea Stage 1,Initiator,73,81,77
+westside,GX,Vct 2026 Emea Stage 1,Sentinel,77,74,75
+westside,GX,Vct 2026 Emea Stage 2,Duelist,74,84,79
+westside,GX,Vct 2026 Emea Stage 2,Sentinel,65,88,76
+whzy,BLG,Vct 2026 China Kickoff,Duelist,82,81,82
+whzy,BLG,Vct 2026 China Stage 1,Duelist,78,73,76
+whzy,BLG,Vct 2026 China Stage 1,Sentinel,82,80,81
+whzy,BLG,Vct 2026 China Stage 2,Duelist,90,82,86
+whzy,BLG,Vct 2026 China Stage 2,Sentinel,83,64,74
+Wo0t,TH,Valorant Masters London 2026,Duelist,64,64,64
+Wo0t,TH,Valorant Masters London 2026,Sentinel,78,74,76
+Wo0t,TH,Vct 2026 Emea Kickoff,Duelist,74,70,72
+Wo0t,TH,Vct 2026 Emea Kickoff,Initiator,84,74,79
+Wo0t,TH,Vct 2026 Emea Kickoff,Sentinel,79,79,79
+Wo0t,TH,Vct 2026 Emea Stage 1,Duelist,79,84,82
+Wo0t,TH,Vct 2026 Emea Stage 1,Sentinel,80,78,79
+Wo0t,TH,Vct 2026 Emea Stage 2,Duelist,75,91,83
+Wo0t,TH,Vct 2026 Emea Stage 2,Initiator,71,72,72
+Wo0t,TH,Vct 2026 Emea Stage 2,Sentinel,83,77,80
+WsLeo,XLG,Valorant Masters London 2026,Initiator,71,72,71
+WsLeo,XLG,Valorant Masters Santiago 2026,Initiator,78,67,72
+WsLeo,XLG,Vct 2026 China Kickoff,Initiator,75,79,77
+WsLeo,XLG,Vct 2026 China Stage 1,Initiator,89,80,84
+WsLeo,XLG,Vct 2026 China Stage 2,Initiator,86,86,86
+Xan,RRQ,Vct 2026 Pacific Stage 2,Duelist,78,63,71
+xavi8k,GE,Valorant Masters London 2026,Controller,74,72,73
+xavi8k,GE,Valorant Masters London 2026,Initiator,79,69,74
+xavi8k,GE,Valorant Masters London 2026,Sentinel,75,71,73
+xavi8k,GE,Vct 2026 Pacific Kickoff,Controller,73,83,78
+xavi8k,GE,Vct 2026 Pacific Kickoff,Sentinel,76,75,75
+xavi8k,GE,Vct 2026 Pacific Stage 1,Controller,68,69,69
+xavi8k,GE,Vct 2026 Pacific Stage 1,Initiator,80,71,75
+xavi8k,GE,Vct 2026 Pacific Stage 1,Sentinel,79,72,76
+xavi8k,GE,Vct 2026 Pacific Stage 2,Controller,75,91,83
+xavi8k,GE,Vct 2026 Pacific Stage 2,Initiator,75,83,79
+xavi8k,GE,Vct 2026 Pacific Stage 2,Sentinel,80,73,77
+Xdll,ZETA,Vct 2026 Pacific Kickoff,Initiator,72,67,70
+Xdll,ZETA,Vct 2026 Pacific Stage 1,Controller,77,71,74
+Xdll,ZETA,Vct 2026 Pacific Stage 1,Initiator,68,63,66
+Xdll,ZETA,Vct 2026 Pacific Stage 1,Sentinel,73,70,72
+Xdll,ZETA,Vct 2026 Pacific Stage 2,Initiator,78,74,76
+Xdll,ZETA,Vct 2026 Pacific Stage 2,Sentinel,72,73,72
+Xeppaa,C9,Vct 2026 Americas Kickoff,Initiator,78,81,79
+Xeppaa,C9,Vct 2026 Americas Stage 1,Duelist,74,74,74
+Xeppaa,C9,Vct 2026 Americas Stage 1,Initiator,79,75,77
+Xeppaa,C9,Vct 2026 Americas Stage 1,Sentinel,74,69,72
+xeus,FUT,Valorant Masters London 2026,Duelist,86,76,81
+xeus,FUT,Valorant Masters London 2026,Sentinel,72,67,69
+xeus,FUT,Vct 2026 Emea Kickoff,Duelist,74,79,77
+xeus,FUT,Vct 2026 Emea Stage 1,Duelist,73,70,71
+xeus,FUT,Vct 2026 Emea Stage 1,Sentinel,75,80,77
+xeus,FUT,Vct 2026 Emea Stage 2,Duelist,74,66,70
+xeus,FUT,Vct 2026 Emea Stage 2,Sentinel,71,74,73
+xffero,RRQ,Vct 2026 Pacific Kickoff,Controller,86,66,76
+xffero,RRQ,Vct 2026 Pacific Kickoff,Sentinel,84,81,83
+xffero,RRQ,Vct 2026 Pacific Stage 1,Controller,73,79,76
+xffero,RRQ,Vct 2026 Pacific Stage 1,Sentinel,87,80,84
+xffero,RRQ,Vct 2026 Pacific Stage 2,Sentinel,64,80,72
+Xlele,FPX,Vct 2026 China Stage 2,Duelist,75,70,73
+Xlele,TE,Vct 2026 China Stage 1,Controller,80,82,81
+Xlele,TE,Vct 2026 China Stage 1,Duelist,72,75,73
+Xlele,TE,Vct 2026 China Stage 1,Initiator,78,78,78
+Xross,NS,Valorant Masters Santiago 2026,Initiator,73,86,80
+Xross,NS,Vct 2026 Pacific Kickoff,Initiator,76,76,76
+Xross,NS,Vct 2026 Pacific Stage 1,Initiator,76,79,77
+Xross,NS,Vct 2026 Pacific Stage 2,Duelist,72,87,80
+Xross,NS,Vct 2026 Pacific Stage 2,Initiator,74,81,77
+XuNa,VL,Vct 2026 Pacific Kickoff,Initiator,65,83,74
+XuNa,VL,Vct 2026 Pacific Stage 1,Controller,81,70,76
+XuNa,VL,Vct 2026 Pacific Stage 1,Initiator,73,77,75
+XuNa,VL,Vct 2026 Pacific Stage 2,Initiator,82,90,86
+yatsuka,DFM,Vct 2026 Pacific Kickoff,Duelist,70,68,69
+yatsuka,DFM,Vct 2026 Pacific Kickoff,Sentinel,74,80,77
+yatsuka,DFM,Vct 2026 Pacific Stage 1,Controller,81,68,75
+yatsuka,DFM,Vct 2026 Pacific Stage 1,Initiator,73,65,69
+yatsuka,DFM,Vct 2026 Pacific Stage 2,Duelist,78,74,76
+yatsuka,DFM,Vct 2026 Pacific Stage 2,Initiator,73,80,77
+yatsuka,DFM,Vct 2026 Pacific Stage 2,Sentinel,77,77,77
+yetujey,FUT,Valorant Masters London 2026,Controller,75,87,81
+yetujey,FUT,Valorant Masters London 2026,Sentinel,72,82,77
+yetujey,FUT,Vct 2026 Emea Kickoff,Controller,73,77,75
+yetujey,FUT,Vct 2026 Emea Kickoff,Duelist,80,70,75
+yetujey,FUT,Vct 2026 Emea Kickoff,Sentinel,62,72,67
+yetujey,FUT,Vct 2026 Emea Stage 1,Controller,73,77,75
+yetujey,FUT,Vct 2026 Emea Stage 1,Sentinel,71,76,73
+yetujey,FUT,Vct 2026 Emea Stage 2,Controller,73,72,73
+yetujey,FUT,Vct 2026 Emea Stage 2,Sentinel,77,80,78
+yilai,BLG,Vct 2026 China Stage 1,Controller,80,81,80
+yilai,BLG,Vct 2026 China Stage 1,Duelist,81,68,75
+yilai,BLG,Vct 2026 China Stage 1,Sentinel,77,70,74
+Ying,KBG,Vct 2026 China Stage 2,Controller,82,72,77
+Ying,KBG,Vct 2026 China Stage 2,Initiator,76,72,74
+yong,KRX,Vct 2026 Pacific Stage 1,Controller,72,74,73
+yong,KRX,Vct 2026 Pacific Stage 1,Sentinel,74,79,77
+yosemite,WOL,Vct 2026 China Kickoff,Controller,72,73,73
+yosemite,WOL,Vct 2026 China Kickoff,Sentinel,76,82,79
+yosemite,WOL,Vct 2026 China Stage 1,Controller,76,76,76
+yosemite,WOL,Vct 2026 China Stage 1,Sentinel,75,73,74
+yosemite,WOL,Vct 2026 China Stage 2,Sentinel,77,73,75
+Youze,AG,Vct 2026 China Stage 1,Duelist,71,62,66
+Yuicaw,JDG,Vct 2026 China Kickoff,Controller,73,83,78
+Yuicaw,JDG,Vct 2026 China Kickoff,Sentinel,83,83,83
+Yuicaw,JDG,Vct 2026 China Stage 1,Controller,81,79,80
+Yuicaw,JDG,Vct 2026 China Stage 1,Duelist,67,69,68
+Yuicaw,JDG,Vct 2026 China Stage 1,Sentinel,68,70,69
+Yuicaw,JDG,Vct 2026 China Stage 2,Controller,84,70,77
+Yuicaw,JDG,Vct 2026 China Stage 2,Sentinel,78,71,75
+zekken,MIBR,Vct 2026 Americas Kickoff,Controller,80,76,78
+zekken,MIBR,Vct 2026 Americas Kickoff,Duelist,83,83,83
+zekken,MIBR,Vct 2026 Americas Stage 1,Duelist,83,81,82
+zekken,MIBR,Vct 2026 Americas Stage 1,Initiator,73,72,73
+zekken,MIBR,Vct 2026 Americas Stage 2,Duelist,76,87,81
+Zellsis,C9,Vct 2026 Americas Kickoff,Controller,77,73,75
+Zellsis,C9,Vct 2026 Americas Kickoff,Initiator,72,77,74
+Zellsis,C9,Vct 2026 Americas Kickoff,Sentinel,69,77,73
+Zellsis,C9,Vct 2026 Americas Stage 1,Controller,83,71,77
+Zellsis,C9,Vct 2026 Americas Stage 1,Initiator,69,67,68
+Zellsis,C9,Vct 2026 Americas Stage 1,Sentinel,75,73,74
+Zellsis,C9,Vct 2026 Americas Stage 2,Controller,72,80,76
+Zellsis,C9,Vct 2026 Americas Stage 2,Initiator,77,74,75
+Zellsis,C9,Vct 2026 Americas Stage 2,Sentinel,70,75,73
+zerona,EG,Vct 2026 Americas Stage 1,Controller,78,78,78
+zerona,EG,Vct 2026 Americas Stage 1,Duelist,78,80,79
+zerona,EG,Vct 2026 Americas Stage 2,Controller,67,77,72
+zerona,EG,Vct 2026 Americas Stage 2,Duelist,77,69,73
+Zeus,TS,Vct 2026 Pacific Stage 1,Duelist,85,84,85
+Zeus,TS,Vct 2026 Pacific Stage 2,Duelist,91,70,81
+Zexy,VL,Vct 2026 Pacific Kickoff,Duelist,87,77,82
+Zexy,VL,Vct 2026 Pacific Stage 1,Duelist,80,64,72
+Zexy,VL,Vct 2026 Pacific Stage 2,Duelist,64,80,72
+zhe,JDG,Vct 2026 China Kickoff,Duelist,70,64,67
+zhe,JDG,Vct 2026 China Stage 1,Controller,74,81,77
+zhe,JDG,Vct 2026 China Stage 1,Duelist,83,81,82
+zhe,JDG,Vct 2026 China Stage 1,Initiator,78,75,76
+zhe,JDG,Vct 2026 China Stage 1,Sentinel,78,79,79
+zhe,JDG,Vct 2026 China Stage 2,Duelist,77,68,72
+zhe,JDG,Vct 2026 China Stage 2,Sentinel,82,75,78
+ZmjjKK,EDG,Valorant Masters London 2026,Duelist,73,82,77
+ZmjjKK,EDG,Valorant Masters Santiago 2026,Duelist,69,77,73
+ZmjjKK,EDG,Valorant Masters Santiago 2026,Sentinel,71,83,77
+ZmjjKK,EDG,Vct 2026 China Kickoff,Duelist,90,76,83
+ZmjjKK,EDG,Vct 2026 China Kickoff,Sentinel,76,73,75
+ZmjjKK,EDG,Vct 2026 China Stage 1,Duelist,91,82,87
+ZmjjKK,EDG,Vct 2026 China Stage 1,Sentinel,70,78,74
+ZmjjKK,EDG,Vct 2026 China Stage 2,Duelist,72,81,76
+ZynX,GEN,Vct 2026 Pacific Kickoff,Duelist,66,82,74
+ZynX,GEN,Vct 2026 Pacific Stage 1,Duelist,73,78,75
+ZynX,GEN,Vct 2026 Pacific Stage 1,Initiator,74,76,75
+ZynX,GEN,Vct 2026 Pacific Stage 1,Sentinel,68,78,73
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
+,,,,,,#N/A
