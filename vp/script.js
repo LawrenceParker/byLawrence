@@ -194,7 +194,7 @@ function renderAllPlayers(){
 
   const cols = [
     ['player', 'Player'], ['team', 'Team'], ['tournament', 'Event'], ['role', 'Role'],
-    ['att', 'ATT'], ['def', 'DEF'], ['rtg', 'OVR']
+    ['rtg', 'OVR'], ['att', 'ATT'], ['def', 'DEF']
   ];
   const headHtml = `<th class="col-rank">#</th>` + cols.map(([key,label])=>
     `<th data-col="${key}" class="${sortState.col===key?'sorted':''}">${label}${sortArrow(key)}</th>`
@@ -339,7 +339,7 @@ function miniTableHtml(title, rows){
     <div class="mini-table-block">
       <div class="mini-table-title">${title}</div>
       <table class="stats-table mini-table">
-        <thead><tr><th class="col-rank">#</th><th>Player</th><th>Team</th><th>ATT</th><th>DEF</th><th>OVR</th></tr></thead>
+        <thead><tr><th class="col-rank">#</th><th>Player</th><th>Team</th><th>OVR</th><th>ATT</th><th>DEF</th></tr></thead>
         <tbody>${body || `<tr><td colspan="6" class="table-empty">No players</td></tr>`}</tbody>
       </table>
     </div>`;
@@ -390,7 +390,7 @@ function renderLeaderboards(){
           <div class="toe-title">Team of the Event</div>
           <div class="toe-sub">Composition based on this event's own role mix: ${structureLabel}</div>
           <table class="stats-table toe-table">
-            <thead><tr><th>Role</th><th>Player</th><th>Team</th><th>ATT</th><th>DEF</th><th>OVR</th></tr></thead>
+            <thead><tr><th>Role</th><th>Player</th><th>Team</th><th>OVR</th><th>ATT</th><th>DEF</th></tr></thead>
             <tbody>${teamRows}</tbody>
           </table>
         </div>
