@@ -102,6 +102,22 @@ const ROLE_COLORS = {
 };
 const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel'];
 
+// EDIT THIS LIST to change the order events appear in throughout the site
+// (Leaderboards sections, and the Event dropdown on All Players). Any
+// event in the CSV that isn't listed here still shows - it just gets
+// tacked on at the end, in whatever order it first appears in the CSV.
+const EVENT_ORDER = [
+  'Stage 1',
+  'Masters London',
+];
+
+function orderedTournaments(){
+  const present = [...new Set(CARDS.map(c=>c.tournament))];
+  const known = EVENT_ORDER.filter(t=>present.includes(t));
+  const rest = present.filter(t=>!EVENT_ORDER.includes(t));
+  return [...known, ...rest];
+}
+
 /* =========================================================
    TABLE - filterable, sortable
    ========================================================= */
@@ -154,8 +170,8 @@ function renderAllPlayers(){
   const searchSelStart = searchHadFocus ? prevSearchEl.selectionStart : null;
   const searchSelEnd = searchHadFocus ? prevSearchEl.selectionEnd : null;
 
-  // preserve first-seen order from the CSV for a stable, sensible tournament order
-  const tournamentOrder = [...new Set(CARDS.map(c=>c.tournament))];
+  // uses EVENT_ORDER (edit that list to reorder events site-wide)
+  const tournamentOrder = orderedTournaments();
   const tourOptions = ['all', ...tournamentOrder].map(t=>
     `<option value="${t}" ${filters.tournament===t?'selected':''}>${t==='all'?'All Events':t}</option>`
   ).join('');
@@ -312,10 +328,22 @@ function typicalRoleStructure(eventCards){
   return rounded;
 }
 
+// EDIT THIS LIST to change the order the role tables appear in on the
+// Leaderboards page (top to bottom / left to right), and the order roles
+// are added to the Team of the Event roster below. Just reorder the
+// strings - nothing else needs to change. Any role not listed here just
+// won't be shown (it doesn't need to include every role that exists).
+const LEADERBOARD_ROLE_ORDER = [
+  'Duelist',
+  'Initiator',
+  'Controller',
+  'Sentinel',
+];
+
 function teamOfEvent(eventCards){
   const structure = typicalRoleStructure(eventCards);
   const roster = [];
-  ROLE_ORDER.filter(r=>structure[r]>0).forEach(role=>{
+  LEADERBOARD_ROLE_ORDER.filter(r=>structure[r]>0).forEach(role=>{
     const top = eventCards.filter(c=>c.role===role).sort((a,b)=>b.rtg-a.rtg).slice(0, structure[role]);
     roster.push(...top);
   });
@@ -346,11 +374,11 @@ function miniTableHtml(title, rows){
 }
 
 function renderLeaderboards(){
-  const tournamentOrder = [...new Set(CARDS.map(c=>c.tournament))];
+  const tournamentOrder = orderedTournaments();
 
   const sectionsHtml = tournamentOrder.map(tournament=>{
     const eventCards = CARDS.filter(c=>c.tournament===tournament);
-    const rolesPresent = ROLE_ORDER.filter(r=>eventCards.some(c=>c.role===r));
+    const rolesPresent = LEADERBOARD_ROLE_ORDER.filter(r=>eventCards.some(c=>c.role===r));
 
     const roleTablesHtml = rolesPresent.map(role=>{
       const top5 = eventCards.filter(c=>c.role===role).sort((a,b)=>b.rtg-a.rtg).slice(0,5);
