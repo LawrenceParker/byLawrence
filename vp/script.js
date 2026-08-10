@@ -107,19 +107,19 @@ const ROLE_ORDER = ['Duelist', 'Initiator', 'Controller', 'Sentinel'];
 // event in the CSV that isn't listed here still shows - it just gets
 // tacked on at the end, in whatever order it first appears in the CSV.
 const EVENT_ORDER = [  
-   'Vct 2026 China Kickoff'
-   'Vct 2026 Pacific Kickoff'
-   'Vct 2026 Emea Kickoff'
-   'Vct 2026 Americas Kickoff'
-   'Valorant Masters Santiago 2026'
-   'Vct 2026 China Stage 1'
-   'Vct 2026 Pacific Stage 1'
-   'Vct 2026 Emea Stage 1'
-   'Vct 2026 Americas Stage 1'
-   'Valorant Masters London 2026'
-   'Vct 2026 Americas Stage 2'
-   'Vct 2026 Pacific Stage 2'
-   'Vct 2026 Emea Stage 2'
+   'Vct 2026 China Kickoff',
+   'Vct 2026 Pacific Kickoff',
+   'Vct 2026 Emea Kickoff',
+   'Vct 2026 Americas Kickoff',
+   'Valorant Masters Santiago 2026',
+   'Vct 2026 China Stage 1',
+   'Vct 2026 Pacific Stage 1',
+   'Vct 2026 Emea Stage 1',
+   'Vct 2026 Americas Stage 1',
+   'Valorant Masters London 2026',
+   'Vct 2026 Americas Stage 2',
+   'Vct 2026 Pacific Stage 2',
+   'Vct 2026 Emea Stage 2',
    'Vct 2026 China Stage 2'
 ];
 
